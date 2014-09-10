@@ -43,7 +43,7 @@ To load the module:
 from medleydb import multitrack as M
 ```
 
-To load the dataset (location specified in config.yaml):
+To load the dataset to a dictionary (keyed by track id):
 ```python
 dataset = M.dataset_utils.load_dataset()
 ```
