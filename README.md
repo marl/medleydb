@@ -1,8 +1,10 @@
 medleydb
 ========
 
-Created by Rachel Bittner <rmb456@nyu.edu>
-and Justin Salamon <justin.salamon@nyu.edu>
+Tools for interacting with MedleyDB.
+
+Created by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu>
+and Justin Salamon justin (dot) salamon (at) nyu (dot) edu
 
 This code is released as part of the MedleyDB library for working
 with the MedleyDB dataset: http://marl.smusic.nyu.edu/medleydb. 
