@@ -21,7 +21,7 @@ Taipei, Taiwan, Oct. 2014.
 Setup
 ========
 First clone this repository:
-```
+```bash
 git clone https://github.com/rabitt3/medleydb.git
 ```
 
