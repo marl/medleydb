@@ -58,8 +58,8 @@ def get_files_for_instrument(instrument, dataset=None):
 
     Returns
     -------
-    instrument_list : list
-        List of instrument objects corresponding to instrument label.
+    file_list : list
+        List of filepaths corresponding to an instrument label.
     """
     assert M.is_valid_instrument(instrument), "invalid instrument"
 
