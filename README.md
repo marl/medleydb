@@ -24,7 +24,21 @@ First clone this repository:
 ```bash
 git clone https://github.com/rabitt3/medleydb.git
 ```
+Dependencies
+---------
+* pyyaml
+* numpy 
+* sox (not strictly necessary)
 
+If you use pip and homebrew, you can install them by doing:
+```
+[sudo] pip install pyyaml
+[sudo] pip install numpy
+brew install sox
+```
+
+Config
+--------
 MedleyDB must exist for this code to work. To configure, change the following
 line in multitrack/config.yaml:
 
