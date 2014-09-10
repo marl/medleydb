@@ -1,0 +1,130 @@
+strings:
+  bowed:
+    - erhu
+    - violin
+    - viola
+    - cello
+    - double bass
+    - violin section
+    - viola section
+    - cello section
+    - string section
+  plucked:
+    - acoustic guitar
+    - banjo
+    - guzheng
+    - harp
+    - harpsichord
+    - liuqin
+    - mandolin
+    - oud
+    - slide guitar
+    - ukulele
+    - zhongruan
+  struck:
+    - dulcimer
+    - yangqin
+    - piano
+    - tack piano
+winds:
+  flutes:
+    - dizi
+    - flute
+    - flute section
+    - piccolo
+    - bamboo flute
+    - panpipes
+    - recorder
+  single reeds:
+    - alto saxophone
+    - baritone saxophone
+    - bass clarinet
+    - clarinet
+    - clarinet section
+    - tenor saxophone
+    - soprano saxophone
+  double reeds:
+    - oboe
+    - english horn
+    - bassoon
+    - bagpipe
+  brass:
+    - trumpet
+    - cornet
+    - trombone
+    - french horn
+    - euphonium
+    - tuba
+    - brass section
+    - french horn section
+    - trombone section
+    - horn section
+    - trumpet section
+  free reeds:
+    - harmonica
+    - concertina
+    - accordion
+    - bandoneon
+    - harmonium
+    - pipe organ
+    - melodica
+voices:
+  - male singer
+  - female singer
+  - male speaker
+  - female speaker
+  - male rapper
+  - female rapper
+  - beatboxing
+  - vocalists
+percussion:
+  idiophones:
+    - triangle
+    - sleigh bells
+    - cowbell
+    - cabasa
+    - high hat
+    - gong
+    - guiro
+    - gu
+    - cymbal
+    - chimes
+    - castanet
+    - claps
+    - rattle
+    - shaker
+    - maracas
+    - xylophone
+    - vibraphone
+    - marimba
+    - glockenspiel
+    - whistle
+  drums:
+    - timpani
+    - toms
+    - snare drum
+    - kick drum
+    - bass drum
+    - bongo
+    - conga
+    - tambourine
+    - darbuka
+    - doumbek
+    - tabla
+    - auxiliary percussion
+    - drum set
+electric:
+  amplified:
+    - clean electric guitar
+    - distorted electric guitar
+    - electric bass
+    - lap steel guitar
+  electronic:
+    - drum machine
+    - electric piano
+    - electronic organ
+    - synthesizer
+    - theremin
+    - fx/processed sound
+    - scratches
+    - sampler
