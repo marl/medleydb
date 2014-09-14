@@ -100,6 +100,8 @@ class MultiTrack(object):
         return stems, raw_audio
 
     def _fill_melody_annotations(self):
+        """ Fill melody annotations if files exists
+        """
         melody1_fname = "%s_MELODY1.csv" % self.track_id
         melody2_fname = "%s_MELODY2.csv" % self.track_id
         melody3_fname = "%s_MELODY3.csv" % self.track_id
@@ -183,7 +185,8 @@ class Track(MultiTrack):
             self._fill_pitch_annotation()
 
     def _fill_pitch_annotation(self):
-        stem_str = self.stem_idx[1:]
+        """ Fill pitch annotation if file exists.
+        """
         fname = "%s.csv" % os.path.basename(self.file_path).split('.')[0]
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
         self.pitch_annotation = read_csv_file(pitch_annotation_fpath, maxcols=2)
@@ -219,14 +222,14 @@ def _get_dict_leaves(dictionary):
         keys = dictionary.keys()
         for k in keys:
             if type(dictionary[k]) == dict:
-                for v in _get_dict_leaves(dictionary[k]):
-                    vals.append(v)
+                for val in _get_dict_leaves(dictionary[k]):
+                    vals.append(val)
             else:
-                for v in dictionary[k]:
-                    vals.append(v)
+                for val in dictionary[k]:
+                    vals.append(val)
     else:
-        for v in dictionary:
-            vals.append(v)
+        for val in dictionary:
+            vals.append(val)
 
     vals = set(vals)
     return vals
@@ -245,11 +248,11 @@ def get_duration(fname):
     duration : float
         Duration of audio file in seconds.
     """
-    fp = wave.open(fname, 'rb')
-    nsamples = fp.getnframes()
-    fs = fp.getframerate()
-    fp.close()
-    return float(nsamples)/float(fs)
+    fpath = wave.open(fname, 'rb')
+    nsamples = fpath.getnframes()
+    sample_rate = fpath.getframerate()
+    fpath.close()
+    return float(nsamples)/float(sample_rate)
 
 
 def read_csv_file(fpath, maxcols=None):
