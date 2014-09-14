@@ -4,11 +4,11 @@ from os import path
 
 logging.basicConfig(level=logging.CRITICAL)
 
-f_in = open(path.join(path.dirname(__file__), 'config.yaml'))
-config_vars = yaml.load(f_in)
-f_in.close()
+_CONFIG_FILE = open(path.join(path.dirname(__file__), 'config.yaml'))
+_CONFIG_VARS = yaml.load(_CONFIG_FILE)
+_CONFIG_FILE.close()
 
-MEDLEYDB_DIR = config_vars['MEDLEYDB_DIR']
+MEDLEYDB_DIR = _CONFIG_VARS['MEDLEYDB_DIR']
 assert MEDLEYDB_DIR, """No local directory set in config.yaml 
 Set the value of MEDLEYDB_DIR in medleydb/multitrack/config.yaml 
 to your local path to the MedleyDB dataset."""
