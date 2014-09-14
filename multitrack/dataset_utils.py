@@ -5,9 +5,7 @@ import glob
 import os
 from . import multitrack as M
 from . import _marl_utils as sox
-from . import MEDLEYDB_DIR
 from . import AUDIO_DIR
-from . import ANNOTATION_DIR
 
 
 def load_dataset():
@@ -102,16 +100,16 @@ def preview_audio(multitrack, selection='all', preview_length=8):
 
     if selection is 'all' or selection is 'mix':
         print "Previewing the mix..."
-        sox.play_excerpt(mix, duration=preview_length)
+        sox.quick_play(mix, duration=preview_length)
 
     if selection is 'all' or selection is 'stems':
         for track in stems:
             print "Previewing stem %r (%s)..." \
                 % (track.stem_idx, track.instrument)
-            sox.play_excerpt(track.file_path, duration=preview_length)
+            sox.quick_play(track.file_path, duration=preview_length)
 
     if selection is 'all' or selection is 'raw':
         for track in raw_audio:
             print "Previewing raw audio %r %r (%s)..." \
                 % (track.stem_idx, track.raw_idx, track.instrument)
-            sox.play_excerpt(track.file_path, duration=preview_length)
+            sox.quick_play(track.file_path, duration=preview_length)
