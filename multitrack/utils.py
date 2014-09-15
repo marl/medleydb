@@ -4,7 +4,7 @@
 import glob
 import os
 from . import multitrack as M
-from . import _marl_utils as sox
+from . import sox
 from . import AUDIO_DIR
 
 
