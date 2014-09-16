@@ -59,7 +59,8 @@ def get_files_for_instrument(instrument, dataset=None):
     file_list : list
         List of filepaths corresponding to an instrument label.
     """
-    assert M.is_valid_instrument(instrument), "invalid instrument"
+    assert M.is_valid_instrument(instrument), \
+            "%s is not in the instrument taxonomy" % instrument
 
     if not dataset:
         dataset = load_dataset()
@@ -98,17 +99,17 @@ def preview_audio(multitrack, selection='all', preview_length=8):
     stems = mtrack.stems
     mix = mtrack.mix_path
 
-    if selection is 'all' or selection is 'mix':
+    if selection == 'all' or selection == 'mix':
         print "Previewing the mix..."
         sox.quick_play(mix, duration=preview_length)
 
-    if selection is 'all' or selection is 'stems':
+    if selection == 'all' or selection == 'stems':
         for track in stems:
             print "Previewing stem %r (%s)..." \
                 % (track.stem_idx, track.instrument)
             sox.quick_play(track.file_path, duration=preview_length)
 
-    if selection is 'all' or selection is 'raw':
+    if selection == 'all' or selection == 'raw':
         for track in raw_audio:
             print "Previewing raw audio %r %r (%s)..." \
                 % (track.stem_idx, track.raw_idx, track.instrument)
