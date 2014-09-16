@@ -23,5 +23,5 @@ ANNOTATION_DIR = path.join(MEDLEYDB_DIR, 'Annotations')
 MELODY_DIR = path.join(ANNOTATION_DIR, 'Melody_Annotations')
 PITCH_DIR = path.join(ANNOTATION_DIR, 'Pitch_Annotations')
 
-from . import dataset_utils
+from . import utils
 from . import multitrack
