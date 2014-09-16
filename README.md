@@ -58,14 +58,14 @@ Usage and Examples
 
 To load the module:
 ```python
-from medleydb import multitrack as M
+from medleydb import medleydb as M
 ```
 
 Loading and accessing the full dataset
 ------------
 To load the dataset to a dictionary (keyed by track id):
 ```python
-dataset = M.dataset_utils.load_dataset()
+dataset = M.utils.load_dataset()
 ```
 
 To access particular attributes of a single track:
@@ -97,24 +97,24 @@ A subset of the dataset can be loaded by passing a list of track folder paths:
 ```python
 import glob
 import os
-from medleydb import multitrack as M
+from medleydb import medleydb as M
 
 example_list = glob.glob(os.path.join(M.AUDIO_DIR, 'ClaraBerry_*'))
-dataset_subset = M.dataset_utils.load_tracks(example_list)
+dataset_subset = M.utils.load_tracks(example_list)
 ```
 
 Getting filepaths for audio of a chosen instrument
 ---------------
 The following code will get a list of paths to stems that are labeled as a clarinet:
 ```python
-from medleydb import multitrack as M
+from medleydb import medleydb as M
 
-dataset = M.dataset_utils.load_dataset()
-clarinet_files = M.dataset_utils.get_files_for_instrument('clarinet')
+dataset = M.utils.load_dataset()
+clarinet_files = M.utils.get_files_for_instrument('clarinet')
 ```
 To see a full list of possible instrument labels:
 ```python
-from medleydb import multitrack as M
+from medleydb import medleydb as M
 
 instruments = M.multitrack.get_valid_instrument_labels()
 print instruments
