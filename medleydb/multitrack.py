@@ -4,6 +4,7 @@
 import os
 import yaml
 import wave
+import csv
 from . import INST_TAXONOMY
 from . import PITCH_DIR
 from . import MELODY_DIR
@@ -125,9 +126,9 @@ class MultiTrack(object):
         melody2_fpath = os.path.join(MELODY_DIR, _MELODY2_DIR, melody2_fname)
         melody3_fpath = os.path.join(MELODY_DIR, _MELODY3_DIR, melody3_fname)
 
-        self.melody1_annotation = read_csv_file(melody1_fpath)
-        self.melody2_annotation = read_csv_file(melody2_fpath)
-        self.melody3_annotation = read_csv_file(melody3_fpath)
+        self.melody1_annotation = read_annotation_file(melody1_fpath)
+        self.melody2_annotation = read_annotation_file(melody2_fpath)
+        self.melody3_annotation = read_annotation_file(melody3_fpath)
 
     def melody_tracks(self):
         """ Get list of tracks that contain melody """
@@ -179,7 +180,7 @@ class Track(MultiTrack):
         """
         fname = _PITCH_FMT % os.path.basename(self.file_path).split('.')[0]
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
-        self.pitch_annotation = read_csv_file(pitch_annotation_fpath, maxcols=2)
+        self.pitch_annotation = read_annotation_file(pitch_annotation_fpath, maxcols=2)
 
 
 def _path_basedir(path):
@@ -240,21 +241,21 @@ def get_duration(fname):
     return float(nsamples)/float(sample_rate)
 
 
-def read_csv_file(fpath, maxcols=None):
-    """ Read a csv file.
+def read_annotation_file(fpath, maxcols=None):
+    """ Read an annotation file.
     """
     if os.path.exists(fpath):
-        data_lines = [line.strip() for line in open(fpath)]
-        annotation = []
-        for line in data_lines:
-            if maxcols:
-                row = line.split(',')[0:maxcols]
-            else:
-                row = line.split(',')
-            annotation.append([float(val) for val in row])
+        with open(fpath) as f_handle:
+            annotation = []
+            linereader = csv.reader(f_handle)
+            for line in linereader:
+                if maxcols:
+                    line = line[:maxcols]
+                annotation.append([float(val) for val in line])
         return annotation
     else:
         return None
+
 
 def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
     """Get set of valid instrument labels based on a taxonomy.
