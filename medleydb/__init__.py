@@ -4,9 +4,8 @@ from os import path
 
 logging.basicConfig(level=logging.CRITICAL)
 
-_CONFIG_FILE = open(path.join(path.dirname(__file__), 'config.yaml'))
-_CONFIG_VARS = yaml.load(_CONFIG_FILE)
-_CONFIG_FILE.close()
+with open(path.join(path.dirname(__file__), 'config.yaml')) as f:
+    _CONFIG_VARS = yaml.load(f)
 
 MEDLEYDB_DIR = _CONFIG_VARS['MEDLEYDB_DIR']
 assert MEDLEYDB_DIR, """No local directory set in config.yaml 
@@ -23,5 +22,7 @@ ANNOTATION_DIR = path.join(MEDLEYDB_DIR, 'Annotations')
 MELODY_DIR = path.join(ANNOTATION_DIR, 'Melody_Annotations')
 PITCH_DIR = path.join(ANNOTATION_DIR, 'Pitch_Annotations')
 
-from . import utils
-from . import multitrack
+from .utils import *
+from .multitrack import MultiTrack
+from .multitrack import get_valid_instrument_labels
+from .multitrack import is_valid_instrument
