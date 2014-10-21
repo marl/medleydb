@@ -40,13 +40,14 @@ def read_tony_file(fpath):
     tony_f0 : array
         Array of tony-generated f0 values and corresponding time stamps.
     """
+
     assert os.path.exists(fpath), "File path does not exist."
 
-    data_lines = [line.strip() for line in open(fpath)]
-    tony_f0 = []
-    for line in data_lines:
-        time, f_0 = line.split(',')[0:2]
-        tony_f0.append([float(time), float(f_0)])
+    with open(fpath) as f_handle:
+        tony_f0 = []
+        linereader = csv.reader(f_handle)
+        for line in linereader:
+            tony_f0.append([float(val) for val in line])
     return tony_f0
 
 
