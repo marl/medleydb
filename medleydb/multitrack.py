@@ -180,7 +180,8 @@ class Track(MultiTrack):
         """
         fname = _PITCH_FMT % os.path.basename(self.file_path).split('.')[0]
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
-        self.pitch_annotation = read_annotation_file(pitch_annotation_fpath, maxcols=2)
+        self.pitch_annotation = read_annotation_file(pitch_annotation_fpath, 
+                                                     maxcols=2)
 
 
 def _path_basedir(path):
