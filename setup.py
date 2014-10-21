@@ -20,7 +20,5 @@ setup(
     ],
     keywords='dataset multitrack music',
     license='MIT',
-    install_requires=[
-        'pyyaml'
-    ]
+    install_requires=['pyyaml']
 )
