@@ -47,7 +47,7 @@ def read_tony_file(fpath):
         tony_f0 = []
         linereader = csv.reader(f_handle)
         for line in linereader:
-            tony_f0.append([float(val) for val in line])
+            tony_f0.append([float(val) for val in line[:2]])
     return tony_f0
 
 
