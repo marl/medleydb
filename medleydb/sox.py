@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Utils needed from internal MARL repository.
 This module requires that SoX is installed.
