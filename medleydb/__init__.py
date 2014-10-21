@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """ Python tools for using MedleyDB """
+
 import logging
 from os import path
 from os import environ
@@ -21,5 +22,5 @@ ANNOTATION_DIR = path.join(MEDLEYDB_DIR, 'Annotations')
 MELODY_DIR = path.join(ANNOTATION_DIR, 'Melody_Annotations')
 PITCH_DIR = path.join(ANNOTATION_DIR, 'Pitch_Annotations')
 
-from .utils import * # pylint: disable=wildcard-import
-from .multitrack import * # pylint: disable=wildcard-import
+from .utils import *
+from .multitrack import *
