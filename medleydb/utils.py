@@ -8,50 +8,58 @@ from . import sox
 from . import AUDIO_DIR
 
 
-def load_dataset():
-    """Load the dataset to a dictionary.
-    Parameters
-    ----------
-    medleydb_dir : str
-        Directory containing dataset.
+def load_melody_multitracks():
+    """Load all multitracks that have melody annotations.
 
     Returns
     -------
-    dataset : dict
-        Dictionary keyed by artist_track. Values are multitrack objects.
+    melody_multitracks : list
+        List of multitrack objects.    
+    """
+    multitracks = load_all_multitracks()
+    return [track for track in multitracks if track.melody1_annotation]
+
+
+def load_all_multitracks():
+    """Load all multitracks in AUDIO_DIR.
+
+    Returns
+    -------
+    multitracks : list
+        List of multitrack objects.
     """
     track_list = glob.glob(os.path.join(AUDIO_DIR, '*'))
-    dataset = load_tracks(track_list)
-    return dataset
+    multitracks = load_multitracks(track_list)
+    return multitracks
 
 
-def load_tracks(track_list):
-    """Load a list of tracks to a dictionary.
+def load_multitracks(track_list):
+    """Load a list of multitracks.
     Parameters
     ----------
     track_list : list
-        List of paths to track folders.
+        List of paths to multi-track folders.
 
     Returns
     -------
-    tracks : dict
-        Dictionary keyed by artist_track. Values are multitrack objects.
+    multitracks : dict
+        List of multitrack objects.
     """
-    tracks = {}
-    for track in track_list:
-        mtrack = M.MultiTrack(track)
-        tracks[mtrack.track_id] = mtrack
-    return tracks
+    multitracks = []
+    for multitrack in track_list:
+        mtrack = M.MultiTrack(multitrack)
+        multitracks.append(mtrack)
+    return multitracks
 
 
-def get_files_for_instrument(instrument, dataset=None):
+def get_files_for_instrument(instrument, multitracks=None):
     """Get all (stem) files for a particular instrument from the dataset.
 
     Parameters
     ----------
     instrument : str
         Instrument files to extract.
-    audio_dir : str
+    multitracks : str
         Dataset directory.
 
     Returns
@@ -62,14 +70,14 @@ def get_files_for_instrument(instrument, dataset=None):
     assert M.is_valid_instrument(instrument), \
             "%s is not in the instrument taxonomy" % instrument
 
-    if not dataset:
-        dataset = load_dataset()
+    if not multitracks:
+        multitracks = load_all_multitracks()
 
     file_list = []
-    for song in dataset:
-        for track in dataset[song].stems:
-            if track.instrument == instrument:
-                file_list.append(track.file_path)
+    for multitrack in multitracks:
+        for stem in multitrack.stems:
+            if stem.instrument == instrument:
+                file_list.append(stem.file_path)
     return file_list
 
 
