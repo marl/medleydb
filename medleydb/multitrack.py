@@ -256,10 +256,10 @@ class Track(object):
         Args:
             instrument (str): the track's instrument label.
             file_path (str): path to corresponding audio file.
-            component (str): stem's component label, if exists.
-            stem_idx (int or str): stem index, either as integer or string
+            component (str, optional): stem's component label, if exists.
+            stem_idx (int or str): stem index, either as int or str
                 For ArtistName_TrackTitle_STEM_05.wav, either 5 or 'S05'
-            raw_idx (int or str): raw index, either as integer or string
+            raw_idx (int or str, optional): raw index, either as int or str
                 For ArtistName_TrackTitle_RAW_05_02.wav, either 2 or 'R02'
             mix_path (str): path to corresponding mix audio file.
         """
@@ -370,8 +370,8 @@ def read_annotation_file(fpath, num_cols=None):
 
     Args:
         fpath (str): Path to annotation file.
-        num_cols (int): Number of columns to read. If specified, will only read
-            the return num_cols columns of the annotation file.
+        num_cols (int, optionals): Number of columns to read. If specified, 
+            will only read the return num_cols columns of the annotation file.
 
     Returns:
         annotation (list): List of rows of the annotation file.
@@ -398,7 +398,7 @@ def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
         >>> my_valid_labels = get_valid_instrument_labels('my_taxonomy.yaml')
 
     Args:
-        taxonomy_file (str): Path to instrument taxonomy file.
+        taxonomy_file (str, optional): Path to instrument taxonomy file.
 
     Returns:
         valid_instrument_labels (set): Set of valid instrument labels.
