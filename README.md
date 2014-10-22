@@ -23,7 +23,7 @@ Setup
 First clone this repository:
 
 ```bash
-git clone https://github.com/rabitt3/medleydb.git
+git clone https://github.com/rabitt/medleydb.git
 ```
 
 Next, set the environment variable MEDLEYDB_PATH to the local path where
