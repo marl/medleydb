@@ -9,27 +9,30 @@ and Justin Salamon justin (dot) salamon (at) nyu (dot) edu
 This code is released as part of the MedleyDB library for working
 with the MedleyDB dataset: 
 
-http://medleydb.weebly.com
-(or http://marl.smusic.nyu.edu/medleydb)
+http://medleydb.weebly.com (or http://marl.smusic.nyu.edu/medleydb)
 
 This code is a component of the work presented in the following publication:
 
 R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello,
 "[MedleyDB: A Multitrack Dataset for Annotation-Intensive MIR Research](http://marl.smusic.nyu.edu/medleydb_webfiles/bittner_medleydb_ismir2014.pdf)", in
-[15th International Society for Music Information Retrieval Conference,
-Taipei, Taiwan, Oct. 2014](http://www.terasoft.com.tw/conf/ismir2014/).
+15th International Society for Music Information Retrieval Conference,
+Taipei, Taiwan, Oct. 2014.
 
 Setup
 ========
 First clone this repository:
+
 ```bash
 git clone https://github.com/rabitt3/medleydb.git
 ```
+
 Next, set the environment variable MEDLEYDB_PATH to the local path where
 the MedleyDB directory (or MedleyDB_sample) lives:
+
 ```bash
 export MEDLEYDB_PATH="path/to/your/copy/of/MedleyDB"
 ```
+
 To avoid doing this step every time, copy the line above to ```.bash_profile```
 or ```.bash_rc```.
 
