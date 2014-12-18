@@ -133,7 +133,7 @@ def main(args):
         Path to tony-generated csv file.
     output_file_path : str
         Path to save location of filled-in file.
-    total_duration : float
+    duration : float
         Length (in seconds) of the annotation's corresponding audio file.
     """
 
@@ -142,8 +142,8 @@ def main(args):
     assert tony_f0, "Tony file does not exist."
 
     start_idx = sec_to_idx(0)
-    end_idx = sec_to_idx(args.total_duration)
-    f0_sequence = make_blank_f0_sequence(args.total_duration)
+    end_idx = sec_to_idx(args.duration)
+    f0_sequence = make_blank_f0_sequence(args.duration)
     for time_freq in tony_f0:
         time = time_freq[0]
         freq = time_freq[1]
