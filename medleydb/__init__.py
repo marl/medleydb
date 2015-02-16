@@ -21,6 +21,7 @@ AUDIO_DIR = path.join(MEDLEYDB_PATH, 'Audio')
 ANNOTATION_DIR = path.join(MEDLEYDB_PATH, 'Annotations')
 MELODY_DIR = path.join(ANNOTATION_DIR, 'Melody_Annotations')
 PITCH_DIR = path.join(ANNOTATION_DIR, 'Pitch_Annotations')
+RANKINGS_DIR = path.join(ANNOTATION_DIR, 'Stem_Rankings')
 
 from .utils import *
 from .multitrack import *

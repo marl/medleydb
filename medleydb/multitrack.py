@@ -9,6 +9,7 @@ import csv
 from . import INST_TAXONOMY
 from . import PITCH_DIR
 from . import MELODY_DIR
+from . import RANKINGS_DIR
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -24,6 +25,7 @@ _MELODY3_DIR = 'MELODY3'
 _MELODY1_FMT = "%s_MELODY1.csv"
 _MELODY2_FMT = "%s_MELODY2.csv"
 _MELODY3_FMT = "%s_MELODY3.csv"
+_RANKING_FMT = "%s_RANKING.txt"
 _PITCH_FMT = "%s.csv"
 
 
@@ -110,6 +112,7 @@ class MultiTrack(object):
         self.melody2_annotation = []
         self.melody3_annotation = []
         self._fill_melody_annotations()
+        self.dominant_stem = self._get_dominant_stem()
 
     def _load_metadata(self):
         """Load the metadata file. 
@@ -164,6 +167,33 @@ class MultiTrack(object):
         self.melody1_annotation = read_annotation_file(melody1_fpath)
         self.melody2_annotation = read_annotation_file(melody2_fpath)
         self.melody3_annotation = read_annotation_file(melody3_fpath)
+
+    def _get_dominant_stem(self):
+        """Fill dominant stem if files exists.
+        """
+        rankings_fname = _RANKING_FMT % self.track_id
+        rankings_fpath = os.path.join(RANKINGS_DIR, rankings_fname)
+
+        # self.dominant_stem = read_annotation_file(rankings_fpath)
+        if os.path.exists(rankings_fpath):
+            with open(rankings_fpath) as f_handle:
+                linereader = csv.reader(f_handle)
+                for line in linereader:
+                    if line[1] == '1':
+                        stem_dict = self._metadata['stems']
+                        s = line[0].split('_')[-1].split('.')[0]
+
+                        instrument = stem_dict['S' + s]['instrument']
+                        component = stem_dict['S' + s]['component']
+                        file_name = stem_dict['S' + s]['filename']
+                        file_path = os.path.join(self._stem_dir_path, file_name)
+
+                        track = Track(instrument=instrument, file_path=file_path,
+                                      component=component, stem_idx='S' + s,
+                                      mix_path=self.mix_path)
+
+                        return track
+        return None
 
     def melody_tracks(self):
         """Get list of tracks that contain melody. 
