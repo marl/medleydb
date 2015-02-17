@@ -108,10 +108,11 @@ class MultiTrack(object):
         self.genre = self._metadata['genre']
 
         # Annotations
-        self.melody1_annotation = []
-        self.melody2_annotation = []
-        self.melody3_annotation = []
-        self._fill_melody_annotations()
+        (
+            self.melody1_annotation,
+            self.melody2_annotation,
+            self.melody3_annotation
+        ) = self._get_melody_annotations()
         self.dominant_stem = self._get_dominant_stem()
 
     def _load_metadata(self):
@@ -153,7 +154,7 @@ class MultiTrack(object):
 
         return stems, raw_audio
 
-    def _fill_melody_annotations(self):
+    def _get_melody_annotations(self):
         """Fill melody annotations if files exists. 
         """
         melody1_fname = _MELODY1_FMT % self.track_id
@@ -164,9 +165,11 @@ class MultiTrack(object):
         melody2_fpath = os.path.join(MELODY_DIR, _MELODY2_DIR, melody2_fname)
         melody3_fpath = os.path.join(MELODY_DIR, _MELODY3_DIR, melody3_fname)
 
-        self.melody1_annotation = read_annotation_file(melody1_fpath)
-        self.melody2_annotation = read_annotation_file(melody2_fpath)
-        self.melody3_annotation = read_annotation_file(melody3_fpath)
+        return (
+            read_annotation_file(melody1_fpath),
+            read_annotation_file(melody2_fpath),
+            read_annotation_file(melody3_fpath)
+        )
 
     def _get_dominant_stem(self):
         """Fill dominant stem if files exists.
@@ -303,7 +306,7 @@ class Track(object):
         self.pitch_annotation = None
 
         if self.component == 'melody':
-            self._fill_pitch_annotation()
+            self.pitch_annotation = self._get_pitch_annotation()
 
     def _format_index(self, index):
         """Load stem or raw index. Reformat if in string form. 
@@ -315,13 +318,13 @@ class Track(object):
         else:
             return int(index)
 
-    def _fill_pitch_annotation(self):
+    def _get_pitch_annotation(self):
         """Fill pitch annotation if file exists. 
         """
         fname = _PITCH_FMT % os.path.basename(self.file_path).split('.')[0]
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
-        self.pitch_annotation = read_annotation_file(pitch_annotation_fpath, 
-                                                     num_cols=2)
+        return read_annotation_file(pitch_annotation_fpath,
+                                    num_cols=2)
 
 
 def _path_basedir(path):
