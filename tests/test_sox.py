@@ -1,6 +1,7 @@
 import medleydb as mdb
 from medleydb import sox
 
+
 def noop(*args, **kwargs):
     pass
 

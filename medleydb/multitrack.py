@@ -79,7 +79,10 @@ class MultiTrack(object):
         self._meta_basename = _METADATA_FMT % self.track_id
         self._meta_path = os.path.join(mtrack_path, self._meta_basename)
         self._stem_dir_basename = _STEMDIR_FMT % self.track_id
-        self._stem_dir_path = os.path.join(mtrack_path, self._stem_dir_basename)
+        self._stem_dir_path = os.path.join(
+            mtrack_path,
+            self._stem_dir_basename
+        )
         self._raw_dir_basename = _RAWDIR_FMT % self.track_id
         self._raw_dir_path = os.path.join(mtrack_path, self._raw_dir_basename)
         self._mix_basename = _MIX_FMT % self.track_id
@@ -116,14 +119,14 @@ class MultiTrack(object):
         self.dominant_stem = self._get_dominant_stem()
 
     def _load_metadata(self):
-        """Load the metadata file. 
+        """Load the metadata file.
         """
         with open(self._meta_path, 'r') as f_in:
             metadata = yaml.load(f_in)
         return metadata
 
     def _parse_metadata(self):
-        """Parse metadata dictionary. 
+        """Parse metadata dictionary.
         """
         stems = []
         raw_audio = []
@@ -155,7 +158,7 @@ class MultiTrack(object):
         return stems, raw_audio
 
     def _get_melody_annotations(self):
-        """Fill melody annotations if files exists. 
+        """Get melody annotations if files exists.
         """
         melody1_fname = _MELODY1_FMT % self.track_id
         melody2_fname = _MELODY2_FMT % self.track_id
@@ -172,7 +175,7 @@ class MultiTrack(object):
         )
 
     def _get_dominant_stem(self):
-        """Fill dominant stem if files exists.
+        """Get dominant stem if files exists.
         """
         rankings_fname = _RANKING_FMT % self.track_id
         rankings_fpath = os.path.join(RANKINGS_DIR, rankings_fname)
@@ -189,80 +192,88 @@ class MultiTrack(object):
                         instrument = stem_dict['S' + s]['instrument']
                         component = stem_dict['S' + s]['component']
                         file_name = stem_dict['S' + s]['filename']
-                        file_path = os.path.join(self._stem_dir_path, file_name)
+                        file_path = os.path.join(
+                            self._stem_dir_path, file_name
+                        )
 
-                        track = Track(instrument=instrument, file_path=file_path,
-                                      component=component, stem_idx='S' + s,
-                                      mix_path=self.mix_path)
+                        track = Track(
+                            instrument=instrument,
+                            file_path=file_path,
+                            component=component,
+                            stem_idx='S' + s,
+                            mix_path=self.mix_path
+                        )
 
                         return track
         return None
 
     def melody_tracks(self):
-        """Get list of tracks that contain melody. 
+        """Get list of tracks that contain melody.
 
         Returns:
-            List of track objects where component='melody'. 
+            List of track objects where component='melody'.
 
         """
         return [track for track in self.stems if track.component == 'melody']
 
     def bass_tracks(self):
-        """Get list of tracks that contain bass. 
+        """Get list of tracks that contain bass.
 
         Returns:
-            List of track objects where component='bass'. 
-          
+            List of track objects where component='bass'.
+
         """
         return [track for track in self.stems if track.component == 'bass']
 
     def num_stems(self):
-        """Number of stems. 
+        """Number of stems.
 
         Returns:
-            Number of stems (as an int). 
-          
+            Number of stems (as an int).
+
         """
         return len(self.stems)
 
     def num_raw(self):
-        """Number of raw audio files. 
+        """Number of raw audio files.
 
         Returns:
-            Number of raw audio files (as an int). 
-          
+            Number of raw audio files (as an int).
+
         """
         return len(self.raw_audio)
 
     def stem_filepaths(self):
-        """Get list of filepaths to stem files.  
+        """Get list of filepaths to stem files.
 
         Returns:
-            List of filepaths to stems. 
-          
+            List of filepaths to stems.
+
         """
         return [track.file_path for track in self.stems]
 
     def raw_filepaths(self):
-        """Get list of filepaths to raw audio files.  
+        """Get list of filepaths to raw audio files.
 
         Returns:
             List of filepaths to raw audio files.
-          
+
         """
         return [track.file_path for track in self.raw_audio]
 
     def raw_from_stem(self, stem_idx):
-        """Get all raw audio tracks that are children of a given stem.  
+        """Get all raw audio tracks that are children of a given stem.
 
         Args:
             stem_idx (int): stem index (eg. 2 for stem S02)
 
         Returns:
-            List of Track objects. 
-          
+            List of Track objects.
+
         """
-        return [track for track in self.raw_audio if track.stem_idx == stem_idx]
+        return [
+            track for track in self.raw_audio if track.stem_idx == stem_idx
+        ]
 
 
 class Track(object):
@@ -309,7 +320,7 @@ class Track(object):
             self.pitch_annotation = self._get_pitch_annotation()
 
     def _format_index(self, index):
-        """Load stem or raw index. Reformat if in string form. 
+        """Load stem or raw index. Reformat if in string form.
         """
         if isinstance(index, str):
             return int(index.strip('S').strip('R'))
@@ -319,7 +330,7 @@ class Track(object):
             return int(index)
 
     def _get_pitch_annotation(self):
-        """Fill pitch annotation if file exists. 
+        """Get pitch annotation if file exists.
         """
         fname = _PITCH_FMT % os.path.basename(self.file_path).split('.')[0]
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
@@ -328,7 +339,7 @@ class Track(object):
 
 
 def _path_basedir(path):
-    """Get the name of the lowest directory of a path. 
+    """Get the name of the lowest directory of a path.
     """
     norm_path = os.path.normpath(path)
     return os.path.basename(norm_path)
@@ -380,7 +391,7 @@ def get_duration(wave_fpath):
     nsamples = fpath.getnframes()
     sample_rate = fpath.getframerate()
     fpath.close()
-    return float(nsamples)/float(sample_rate)
+    return float(nsamples) / float(sample_rate)
 
 
 def read_annotation_file(fpath, num_cols=None):
@@ -403,7 +414,7 @@ def read_annotation_file(fpath, num_cols=None):
 
     Args:
         fpath (str): Path to annotation file.
-        num_cols (int, optionals): Number of columns to read. If specified, 
+        num_cols (int, optionals): Number of columns to read. If specified,
             will only read the return num_cols columns of the annotation file.
 
     Returns:

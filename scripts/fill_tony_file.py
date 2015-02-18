@@ -8,7 +8,7 @@ Created by Rachel Bittner <rmb456@nyu.edu>
 and Justin Salamon <justin.salamon@nyu.edu>
 
 This code is released as part of the MedleyDB library for working
-with the MedleyDB dataset: http://marl.smusic.nyu.edu/medleydb. 
+with the MedleyDB dataset: http://marl.smusic.nyu.edu/medleydb.
 
 This code is a component of the work presented in the following publication:
 
@@ -23,8 +23,8 @@ import numpy as np
 import csv
 import argparse
 
-HOP = 256.0 #Tony default hop size
-FS = 44100.0 #Tony default output sample rate
+HOP = 256.0  # Tony default hop size
+FS = 44100.0  # Tony default output sample rate
 
 
 def read_tony_file(fpath):
@@ -104,7 +104,7 @@ def sec_to_idx(time_in_seconds, sample_rate=FS, hop=HOP):
     -------
     array_idx : int
         Index of time stamp in filled f0 array.
-    """ 
+    """
     return int(np.round(time_in_seconds*sample_rate/hop))
 
 
@@ -117,7 +117,7 @@ def write_f0_to_csv(f0_sequence, output_file_path):
         Filled f0 sequence with corresponding time stamps.
     output_file_path : str
         Path to save csv file.
-    """     
+    """
     assert len(f0_sequence) != 0, "f0 sequence is empty."
     with open(output_file_path, "wb") as fpath:
         writer = csv.writer(fpath)
@@ -150,22 +150,22 @@ def main(args):
         time_idx = sec_to_idx(time)
         if time_idx >= start_idx and time_idx < end_idx:
             f0_sequence[time_idx][1] = freq
-    
+
     write_f0_to_csv(f0_sequence, args.outputfile)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Fill in missing time frames in a Tony file," 
+        description="Fill in missing time frames in a Tony file,"
                     "write the output to file.")
-    parser.add_argument("tonyfile", 
-                        type=str, 
+    parser.add_argument("tonyfile",
+                        type=str,
                         help="Path to tony ouput csv file.")
-    parser.add_argument("outputfile", 
-                        type=str, 
+    parser.add_argument("outputfile",
+                        type=str,
                         help="Path to save location of filled in file.")
-    parser.add_argument("duration", 
-                        type=float, 
+    parser.add_argument("duration",
+                        type=float,
                         help="Length (in seconds) of annotation audio file.")
 
     main(parser.parse_args())
