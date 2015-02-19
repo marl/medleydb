@@ -17,7 +17,7 @@ def load_melody_multitracks():
         >>> melody_multitracks = load_melody_multitracks()
 
     Returns:
-        melody_multitracks (list): List of multitrack objects. 
+        melody_multitracks (list): List of multitrack objects.
 
     """
     multitracks = load_all_multitracks()
@@ -75,12 +75,14 @@ def get_files_for_instrument(instrument, multitrack_list=None):
                           'path/to/ArtistName2_TrackName2', \
                           'path/to/ArtistName3_TrackName3']
         >>> multitrack_subset = load_multitracks(track_list)
-        >>> violin_files = get_files_for_instrument('violin', multitrack_subset)
+        >>> violin_files = get_files_for_instrument(
+                'violin', multitrack_subset
+            )
 
     Args:
         instrument (str): Instrument files to extract.
-        multitrack_list (list of MultiTracks, optional): 
-            List of MultiTrack objects. 
+        multitrack_list (list of MultiTracks, optional):
+            List of MultiTrack objects.
             If None, uses all multitracks.
 
     Returns:
@@ -88,7 +90,7 @@ def get_files_for_instrument(instrument, multitrack_list=None):
 
     """
     assert M.is_valid_instrument(instrument), \
-            "%s is not in the instrument taxonomy." % instrument
+        "%s is not in the instrument taxonomy." % instrument
 
     if not multitrack_list:
         multitrack_list = load_all_multitracks()
@@ -113,15 +115,16 @@ def preview_audio(multitrack, selection='all', preview_length=8):
         >>> preview_audio('/path/to/ArtistName_TrackName', selection='stems')
 
     Args:
-        multitrack (MultiTrack or str): An instance of the class MultiTrack or 
+        multitrack (MultiTrack or str): An instance of the class MultiTrack or
             a path to a multitrack folder.
         selection (str, optional): Determines which audio to play.
             'all' plays mix, stems, and raw.
             'stems' plays only the stems.
             'raw' plays only the raw audio.
             'mix' plays only the mix.
-        preview_length (float, optional): Number of seconds of audio to preview.
-        
+        preview_length (float, optional): Number of seconds of audio to
+        preview.
+
     """
 
     if isinstance(multitrack, M.MultiTrack):

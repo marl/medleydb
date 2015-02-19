@@ -47,7 +47,7 @@ def sox(args):
     """Pass an argument list to SoX.
 
     Args:
-        args (list): Argument list for SoX. The first item can, but does not 
+        args (list): Argument list for SoX. The first item can, but does not
             need to, be 'sox'.
 
     Returns:
@@ -66,9 +66,9 @@ def sox(args):
         status = process_handle.wait()
         logging.info(process_handle.stdout)
         return status == 0
-    except OSError, error_msg:
+    except OSError as error_msg:
         logging.error("OSError: SoX failed! %s", error_msg)
-    except TypeError, error_msg:
+    except TypeError as error_msg:
         logging.error("TypeError: %s", error_msg)
     return False
 
@@ -80,9 +80,9 @@ def rm_silence(input_file, output_file,
     Args:
         input_file (str): Path to input audio file.
         output_file (str): Path to output audio file.
-        sil_pct_thresh (float, optional): Silence threshold as percentage of 
+        sil_pct_thresh (float, optional): Silence threshold as percentage of
             maximum sample amplitude.
-        min_voicing_duration (float, optional): Minimum amout of time required 
+        min_voicing_duration (float, optional): Minimum amout of time required
             to be considered non-silent.
 
     Returns:
@@ -112,10 +112,10 @@ def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
         output_file (str): File for writing output.
         fade_in_time (float, optional): Number of seconds of fade in.
         fade_out_time (float, optional): Number of seconds of fade out.
-        fade_shape (str, optional): Shape of fade. 
-            'q' for quarter sine (default), 
-            'h'for half sine, 
-            't' for linear, 
+        fade_shape (str, optional): Shape of fade.
+            'q' for quarter sine (default),
+            'h'for half sine,
+            't' for linear,
             'l' for logarithmic
             'p' for inverted parabola.
 
@@ -141,12 +141,12 @@ def quick_play(input_file, duration=5, use_fade=False, remove_silence=False):
         >>> quick_play('tuba_stem.wav', remove_silence=True)
         # preview 10 seconds of audio with a fade in and out:
         >>> quick_play('fancy_audio.wav', duration=10, use_fade=True)
-        
+
     Args:
         input_file (str): Audio file to play.
         duration (float, optional): Length of excerpt in seconds.
         use_fade (bool, optional): If true, apply a fade in and fade out.
-        remove_silence (bool, optional): If true, forces entire segment to have 
+        remove_silence (bool, optional): If true, forces entire segment to have
             sound by removing silence.
 
     """
@@ -160,7 +160,7 @@ def quick_play(input_file, duration=5, use_fade=False, remove_silence=False):
     if not use_fade:
         play(tmp_file, end_t=duration)
     else:
-        tmp_file2 = tmp.mktemp(suffix=".%s" % ext.strip("."), 
+        tmp_file2 = tmp.mktemp(suffix=".%s" % ext.strip("."),
                                dir=tmp.gettempdir())
         fade(tmp_file, tmp_file2, fade_in_time=0.5, fade_out_time=1)
         play(tmp_file2, end_t=duration)
@@ -188,7 +188,7 @@ def play(input_file, start_t=0, end_t=None):
     """
     assert_sox()
 
-    args = ["play", "--norm", "--no-show-progress", input_file, 'trim', 
+    args = ["play", "--norm", "--no-show-progress", input_file, 'trim',
             "%f" % start_t]
     if end_t:
         args.append("=%f" % end_t)
@@ -199,4 +199,3 @@ def play(input_file, start_t=0, end_t=None):
     logging.info(process_handle.stdout)
 
     return status == 0
-    

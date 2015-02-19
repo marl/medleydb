@@ -2,6 +2,7 @@ import pytest
 
 import medleydb as mdb
 
+
 @pytest.fixture(params=(
     'violin',
 ))
