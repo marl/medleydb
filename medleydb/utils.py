@@ -21,7 +21,9 @@ def load_melody_multitracks():
 
     """
     multitracks = load_all_multitracks()
-    return [track for track in multitracks if track.melody1_annotation]
+    for track in multitracks:
+        if track.melody1_annotation:
+            yield track
 
 
 def load_all_multitracks():
@@ -56,11 +58,8 @@ def load_multitracks(track_list):
         multitracks (dict): List of multitrack objects.
 
     """
-    multitracks = []
     for multitrack in track_list:
-        mtrack = M.MultiTrack(multitrack)
-        multitracks.append(mtrack)
-    return multitracks
+        yield M.MultiTrack(multitrack)
 
 
 def get_files_for_instrument(instrument, multitrack_list=None):
@@ -95,12 +94,10 @@ def get_files_for_instrument(instrument, multitrack_list=None):
     if not multitrack_list:
         multitrack_list = load_all_multitracks()
 
-    inst_list = []
     for multitrack in multitrack_list:
         for stem in multitrack.stems:
             if stem.instrument == instrument:
-                inst_list.append(stem.file_path)
-    return inst_list
+                yield stem.file_path
 
 
 def preview_audio(multitrack, selection='all', preview_length=8):
@@ -122,8 +119,7 @@ def preview_audio(multitrack, selection='all', preview_length=8):
             'stems' plays only the stems.
             'raw' plays only the raw audio.
             'mix' plays only the mix.
-        preview_length (float, optional): Number of seconds of audio to
-        preview.
+        preview_length (float, optional): Number of seconds to preview.
 
     """
 
