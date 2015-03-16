@@ -116,7 +116,7 @@ class MultiTrack(object):
             self.melody2_annotation,
             self.melody3_annotation
         ) = self._get_melody_annotations()
-        self.dominant_stem = self._get_dominant_stem()
+        self.predominant_stem = self._get_predominant_stem()
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -174,13 +174,13 @@ class MultiTrack(object):
             read_annotation_file(melody3_fpath)
         )
 
-    def _get_dominant_stem(self):
-        """Get dominant stem if files exists.
+    def _get_predominant_stem(self):
+        """Get predominant stem if files exists.
         """
         rankings_fname = _RANKING_FMT % self.track_id
         rankings_fpath = os.path.join(RANKINGS_DIR, rankings_fname)
 
-        # self.dominant_stem = read_annotation_file(rankings_fpath)
+        # self.predominant_stem = read_annotation_file(rankings_fpath)
         if os.path.exists(rankings_fpath):
             with open(rankings_fpath) as f_handle:
                 linereader = csv.reader(f_handle)
@@ -336,6 +336,9 @@ class Track(object):
         pitch_annotation_fpath = os.path.join(PITCH_DIR, fname)
         return read_annotation_file(pitch_annotation_fpath,
                                     num_cols=2)
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
 
 
 def _path_basedir(path):
