@@ -63,8 +63,8 @@ mtrack_list = mdb.load_all_multitracks()
 
 Some attributes of a multitrack:
 ```python
-multitrack_1 = mtrack_list[0]
-multitrack_2 = mtrack_list[1]
+multitrack_1 = next(mtrack_list)
+multitrack_2 = next(mtrack_list)
 
 multitrack_1.has_bleed
 multitrack_2.has_bleed
