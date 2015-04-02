@@ -9,7 +9,7 @@ setup(
     url='https://github.com/rabitt3/medleydb',
     download_url='http://github.com/rabitt3/medleydb/releases',
     packages=['medleydb'],
-    package_data={'': ['example_data/*']},
+    package_data={'medleydb': ['taxonomy.yaml']},
     long_description="""A python module for audio and music processing.""",
     classifiers=[
         "License :: The MIT License (MIT)",
