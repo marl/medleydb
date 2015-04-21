@@ -3,8 +3,11 @@
 """ Python tools for using MedleyDB """
 
 import logging
+from . import __version__
 from os import path
 from os import environ
+
+__all__ = ["__version__"]
 
 logging.basicConfig(level=logging.CRITICAL)
 
