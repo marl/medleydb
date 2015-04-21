@@ -199,3 +199,239 @@ def play(input_file, start_t=0, end_t=None):
     logging.info(process_handle.stdout)
 
     return status == 0
+
+
+def split_stereo(input_file, output_file_left, output_file_right):
+    """Split a stereo file into separate mono files.
+
+    Parameters
+    ----------
+    input_file : str
+        Path to stereo audio file.
+    output_file_left : str
+        Path to output of left channel.
+    output_file_right : float
+        Path to output of right channel.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+
+    """
+    left_args = ['sox', '-D', input_file, output_file_left, 'remix', '1']
+    right_args = ['sox', '-D', input_file, output_file_right, 'remix', '2']
+    return sox(left_args) and sox(right_args)
+
+
+def multimono_to_stereo(left_channel, right_channel, output_file):
+    """Create a stereo audio file from the 2 mono audio files.
+    Left goes to channel 1, right goes to channel 2.
+
+    Parameters
+    ----------
+    left_channel : str
+        Path to mono audio file that will be mapped to the left channel.
+    right_channel : str
+        Path to mono audio file that will be mapped to the right channel.
+    output_file : float
+        Path to stereo output file.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+
+    """
+    return sox(['sox', '-M', left_channel, right_channel, output_file])
+
+
+def trim(input_file, output_file, start_time, end_time):
+    """Excerpt a clip from an audio file, given a start and end time.
+
+    Parameters
+    ----------
+    input_file : str
+        Sound file to trim.
+    output_file : str
+        File for writing output.
+    start_time : float
+        Start time of the clip.
+    end_time : float
+        End time of the clip.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+
+    """
+    assert start_time >= 0, "The value for 'start_time' must be positive."
+    assert end_time >= 0, "The value for 'end_time' must be positive."
+    return sox(['sox', input_file, output_file, 'trim',
+                '%0.8f' % start_time, '%0.8f' % (end_time - start_time)])
+
+
+def pad(input_file, output_file, start_duration=0, end_duration=0):
+    """Add silence to the beginning or end of a file.
+
+    Parameters
+    ----------
+    input_file : str
+        Path to audio file.
+    output_file : str
+        Path to save output to.
+    start_duration : float
+        Number of seconds of silence to add to beginning.
+    end_duration : float
+        Number of seconds of silence to add to end.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+
+    """
+    assert start_duration >= 0, "Start duration must be positive."
+    assert end_duration >= 0, "End duration must be positive."
+    return sox(['sox', input_file, output_file, 'pad',
+               '%0.8f' % start_duration, '%0.8f' % end_duration])
+
+
+def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
+         fade_shape='q'):
+    """Add a fade in or fade out to an audio file.
+    Fade shapes are quarter sine waves. If you care to change this write
+
+    Parameters
+    ----------
+    input_file : str
+        Audio file.
+    output_file : str
+        File for writing output.
+    fade_in_time : float
+        Number of seconds of fade in.
+    fade_out_time : float
+        Number of seconds of fade out.
+    fade_shape : str
+        Shape of fade. 'q' for quarter sine (default), 'h' for half sine,
+        't' for linear, 'l' for logarithmic, or 'p' for inverted parabola.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    fade_shapes = ['q', 'h', 't', 'l', 'p']
+    assert fade_shape in fade_shapes, "Invalid fade shape."
+    assert fade_in_time >= 0, "Fade in time must be nonnegative."
+    assert fade_out_time >=0, "Fade out time must be nonnegative."
+    return sox(['sox', input_file, output_file, 'fade', '%s' % fade_shape,
+                '%0.8f' % fade_in_time, '0', '%0.8f' % fade_out_time])
+
+
+def convert(input_file, output_file,
+            samplerate=None, channels=None, bytedepth=None):
+    """Converts one audio file to another on disk.
+
+    Parameters
+    ----------
+    input_file : str
+        Input file to convert.
+    output_file : str
+        Output file to writer.
+    samplerate : float, default=None
+        Desired samplerate. If None, defaults to the same as input.
+    channels : int, default=None
+        Desired channels. If None, defaults to the same as input.
+    bytedepth : int, default=None
+        Desired bytedepth. If None, defaults to the same as input.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    args = ['sox', '--no-dither', input_file]
+
+    if bytedepth:
+        assert bytedepth in [1, 2, 3, 4, 8]
+        args += ['-b%d' % (bytedepth * 8)]
+    if channels:
+        args += ['-c %d' % channels]
+    if output_file is None:
+        output_file = fu.temp_file(pywave.WAVE_EXT)
+
+    args += [output_file]
+
+    if samplerate:
+        args += ['rate', '-I', '%f' % samplerate]
+
+    return sox(args)
+
+
+def mix(file_list, output_file):
+    """Naively mix (sum) a list of files into one audio file.
+
+    Parameters
+    ----------
+    file_list : list
+        List of paths to audio files.
+    output_file : str
+        Path to output file.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    args = ["sox", "-m"]
+    for fname in file_list:
+        args.append(fname)
+    args.append(output_file)
+
+    return sox(args)
+
+
+def concatenate(file_list, output_file):
+    """Concatenate a list of files into one audio file.
+
+    Parameters
+    ----------
+    file_list : list
+        List of paths to audio files.
+    output_file : str
+        Path to output file.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    args = ["sox", "--combine"]
+    args.append("concatenate")
+    for fname in file_list:
+        args.append(fname)
+    args.append(output_file)
+
+    return sox(args)
+
+
+def normalize(input_file, output_file, db_level=-3):
+    """Normalize an audio file to a particular db level
+
+    Parameters
+    ----------
+    input_file : str
+        Path to input audio file.
+    output_file : str
+        Path to output audio file.
+    db_level : output volume (db)
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    return sox(['sox', "--norm=%f" % db_level, input_file, output_file])
+    
