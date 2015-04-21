@@ -15,7 +15,7 @@ setup(
 
     download_url='http://github.com/rabitt3/medleydb/releases',
 
-    packages=['medleydb'],
+    packages=['medleydb', 'medleydb.sql'],
 
     package_data={'medleydb': ['taxonomy.yaml']},
 

@@ -7,7 +7,7 @@ from version import __version__
 from os import path
 from os import environ
 
-__all__ = ["__version__"]
+__all__ = ["__version__", "sql"]
 
 logging.basicConfig(level=logging.CRITICAL)
 
