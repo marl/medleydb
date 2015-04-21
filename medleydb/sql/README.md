@@ -1,4 +1,4 @@
-MedleyDB SQLAlchemy
+medleydb.sql
 ===================
 
 This is a simple module for interfacing with MedleyDB catalogs using SQLAlchemy.
@@ -23,14 +23,14 @@ The process may take a minute or two. All usual medleydb requirements apply
 
 You can create an SQLAlchemy session and run queries using the following example:
 
-    import medleyalchemy as m
+    import medleydb.sql as m
 
     session = m.session("database.sql")
     session.query(m.model.Track).all()
 
 You can also create a new database using
 
-    import medleyalchemy as m
+    import medleydb.sql as m
 
     session = m.session()
     m.from_medleydb(session)

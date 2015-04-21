@@ -1,5 +1,5 @@
 from __future__ import print_function
-import medleyalchemy as m
+import medleydb.sql as m
 from sqlalchemy.orm import aliased
 
 # These examples assume you have already created `database.sql` using
