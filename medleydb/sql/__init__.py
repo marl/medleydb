@@ -1,6 +1,5 @@
 import yaml
 from . import model
-from version import __version__
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, exc
 
