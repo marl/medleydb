@@ -15,7 +15,7 @@ setup(
 
     download_url='http://github.com/rabitt3/medleydb/releases',
 
-    packages=['medleydb', 'medleyalchemy'],
+    packages=['medleydb'],
 
     package_data={'medleydb': ['taxonomy.yaml']},
 
@@ -41,23 +41,23 @@ setup(
     install_requires=['pyyaml'],
 
     extras_require={
+        'sql': [
+            'SQLAlchemy'
+        ],
         'tests': [
             'pytest',
             'pytest-cov',
             'pytest-pep8',
-        ],
-        'sql': [
-            'SQLAlchemy'
         ],
         'docs': [
             'sphinx',
             'sphinxcontrib-napoleon',
             'sphinx_rtd_theme',
             'numpydoc',
-        ],
+        ]
     },
 
     entry_points={'console_scripts': [
-        'medleydb-export=medleyalchemy:export'
+        'medleydb-export=medleydb.sql:export'
     ]}
 )
