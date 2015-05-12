@@ -51,11 +51,11 @@ if __name__ == "__main__":
                 'pytest-pep8',
             ],
             'docs': [
-                'sphinx',
+                'sphinx==1.2.3',  # autodoc was broken in 1.3.1
                 'sphinxcontrib-napoleon',
                 'sphinx_rtd_theme',
                 'numpydoc',
-            ]
+            ],
         },
 
         entry_points={'console_scripts': [

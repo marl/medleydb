@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# medleyalchemy documentation build configuration file, created by
+# medleydb documentation build configuration file, created by
 # sphinx-quickstart on Thu May  9 17:07:16 2013.
 #
 # This file is execfile()d with the current directory set to its containing
@@ -15,7 +15,7 @@
 import sys
 import os
 
-execfile('../medleyalchemy/version.py')
+execfile('../medleydb/version.py')
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
@@ -59,8 +59,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'medleyalchemy'
-copyright = u'2014, Nils Werner'
+project = u'medleydb'
+copyright = u'2014, Rachel Bittner'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -184,7 +184,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'medleyalchemydoc'
+htmlhelp_basename = 'medleydbdoc'
 
 
 # -- Options for LaTeX output -------------------------------------------------
@@ -203,8 +203,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual])
 latex_documents = [
-    ('index', 'medleyalchemy.tex', u'medleyalchemy Documentation',
-     u'Nils Werner', 'manual'),
+    ('index', 'medleydb.tex', u'medleydb Documentation',
+     u'Rachel Bittner', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -233,8 +233,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'medleyalchemy', u'medleyalchemy Documentation',
-     [u'Nils Werner'], 1)
+    ('index', 'medleydb', u'medleydb Documentation',
+     [u'Rachel Bittner'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -247,8 +247,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'medleyalchemy', u'medleyalchemy Documentation',
-     u'Nils Werner', 'medleyalchemy',
+    ('index', 'medleydb', u'medleydb Documentation',
+     u'Rachel Bittner', 'medleydb',
      'Audio Degradation Toolbox and Commandline Utility.',
      'Miscellaneous'),
 ]

@@ -25,6 +25,13 @@ First clone this repository:
 git clone https://github.com/rabitt/medleydb.git
 ```
 
+Install the package
+
+```bash
+cd medleydb
+pip install -e .
+```
+
 Next, set the environment variable MEDLEYDB_PATH to the local path where
 the MedleyDB directory (or MedleyDB_sample) lives:
 
@@ -39,17 +46,19 @@ or ```.bash_rc```.
 Dependencies
 ---------
 * [pyyaml](http://pyyaml.org/)
-* [sox](http://sox.sourceforge.net/) (not strictly necessary)
+* [sqlalchemy](http://www.sqlalchemy.org/) (optional)
+* [sox](http://sox.sourceforge.net/) (optional)
 
-If you use pip and homebrew, you can install them by doing:
-```
-[sudo] pip install pyyaml
+If you use homebrew, you can install sox by doing:
+
+```bash
 brew install sox
 ```
 
 Usage and Examples
 ========
 To load the module:
+
 ```python
 import medleydb as mdb
 ```
@@ -57,11 +66,13 @@ import medleydb as mdb
 Loading and accessing the full dataset
 ------------
 Load the dataset to a list of MultiTrack objects:
+
 ```python
 mtrack_list = mdb.load_all_multitracks()
 ```
 
 Some attributes of a multitrack:
+
 ```python
 multitrack_1 = next(mtrack_list)
 multitrack_2 = next(mtrack_list)
@@ -79,6 +90,7 @@ multitrack_1.melody1_annotation
 ```
 
 Some attributes of a particular stem:
+
 ```python
 example_stem = multitrack_1.stems[0]
 example_stem.instrument
@@ -88,6 +100,7 @@ example_stem.pitch_annotation
 Loading a subset of the dataset
 -------------
 A subset of the dataset can be loaded by passing a list of track folder paths:
+
 ```python
 import glob
 import os
@@ -100,13 +113,16 @@ dataset_subset = mdb.load_multitracks(example_list)
 Getting filepaths for audio of a chosen instrument
 ---------------
 The following code will get a list of paths to stems that are labeled as a clarinet:
+
 ```python
 import medleydb as mdb
 
 dataset = mdb.load_all_multitracks()
 clarinet_files = mdb.get_files_for_instrument('clarinet')
 ```
+
 To see a full list of possible instrument labels:
+
 ```python
 import medleydb as mdb
 
