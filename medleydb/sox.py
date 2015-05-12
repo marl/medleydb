@@ -46,12 +46,16 @@ def assert_sox():
 def sox(args):
     """Pass an argument list to SoX.
 
-    Args:
-        args (list): Argument list for SoX. The first item can, but does not
-            need to, be 'sox'.
+    Parameters
+    ----------
+    args : iterable
+        Argument list for SoX. The first item can, but does not
+        need to, be 'sox'.
 
     Returns:
-        status (bool): True on success.
+    --------
+    status : bool
+        True on success.
 
     """
     assert_sox()
@@ -77,15 +81,19 @@ def rm_silence(input_file, output_file,
                sil_pct_thresh=0.1, min_voicing_dur=0.5):
     """Remove silence from an audio file.
 
-    Args:
-        input_file (str): Path to input audio file.
-        output_file (str): Path to output audio file.
-        sil_pct_thresh (float, optional): Silence threshold as percentage of
-            maximum sample amplitude.
-        min_voicing_duration (float, optional): Minimum amout of time required
-            to be considered non-silent.
+    Parameters
+    ----------
+    input_file: str
+        Path to input audio file.
+    output_file: str
+        Path to output audio file.
+    sil_pct_thresh: float
+        Silence threshold as percentage of maximum sample amplitude.
+    min_voicing_duration: float
+        Minimum amout of time required to be considered non-silent.
 
-    Returns:
+    Returns
+    -------
         status (bool): True on success.
 
     """
@@ -107,20 +115,28 @@ def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
          fade_shape='q'):
     """Add a fade in or fade out to an audio file. Fade shape is 1/4 sine wave.
 
-    Args:
-        input_file (str): Audio file.
-        output_file (str): File for writing output.
-        fade_in_time (float, optional): Number of seconds of fade in.
-        fade_out_time (float, optional): Number of seconds of fade out.
-        fade_shape (str, optional): Shape of fade.
-            'q' for quarter sine (default),
-            'h'for half sine,
-            't' for linear,
-            'l' for logarithmic
-            'p' for inverted parabola.
+    Parameters
+    ----------
+    input_file: str
+        Audio file.
+    output_file: str
+        File for writing output.
+    fade_in_time: float
+        Number of seconds of fade in.
+    fade_out_time: float
+        Number of seconds of fade out.
+    fade_shape: str
+        Shape of fade. Must be one of
+         - 'q' for quarter sine (default),
+         - 'h'for half sine,
+         - 't' for linear,
+         - 'l' for logarithmic
+         - 'p' for inverted parabola.
 
-    Returns:
-        status (bool): True on success.
+    Returns
+    -------
+    status : bool
+        True on success.
 
     """
     fade_shapes = ['q', 'h', 't', 'l', 'p']
@@ -134,20 +150,27 @@ def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
 def quick_play(input_file, duration=5, use_fade=False, remove_silence=False):
     """Play a short excerpt of an audio file.
 
-    Examples:
-        # preview an audio file:
+    Examples
+    --------
+        preview an audio file:
         >>> quick_play('never_gonna_give_you_up.wav')
-        # preview an audio file that has long sections of silence:
+
+        preview an audio file that has long sections of silence:
         >>> quick_play('tuba_stem.wav', remove_silence=True)
-        # preview 10 seconds of audio with a fade in and out:
+
+        preview 10 seconds of audio with a fade in and out:
         >>> quick_play('fancy_audio.wav', duration=10, use_fade=True)
 
-    Args:
-        input_file (str): Audio file to play.
-        duration (float, optional): Length of excerpt in seconds.
-        use_fade (bool, optional): If true, apply a fade in and fade out.
-        remove_silence (bool, optional): If true, forces entire segment to have
-            sound by removing silence.
+    Parameters
+    ----------
+    input_file: str
+        Audio file to play.
+    duration: float
+        Length of excerpt in seconds.
+    use_fade: bool
+        If true, apply a fade in and fade out.
+    remove_silence: bool
+        If true, forces entire segment to have sound by removing silence.
 
     """
     ext = os.path.splitext(input_file)[-1]
@@ -171,19 +194,29 @@ def play(input_file, start_t=0, end_t=None):
 
     Specify start/end time to play a particular segment of the audio.
 
-    Examples:
-        # to play the whole song:
+    Examples
+    --------
+        to play the whole song:
         >>> play('never_gonna_give_you_up.wav')
-        # to play from second 30 to second 60:
+        True
+
+        to play from second 30 to second 60:
         >>> play('never_gonna_give_you_up.wav', start_t=30, end_t=60)
+        True
 
-    Args:
-        input_file (str): Audio file to play.
-        start_t (float, optional): Play start time.
-        end_t (float, optional): Play end time.
+    Parameters
+    ----------
+    input_file : str
+        Audio file to play.
+    start_t : float
+        Play start time.
+    end_t : float
+        Play end time.
 
-    Returns:
-        status (bool): True if successful.
+    Returns
+    -------
+    status : bool
+        True if successful.
 
     """
     assert_sox()
@@ -325,7 +358,7 @@ def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
     fade_shapes = ['q', 'h', 't', 'l', 'p']
     assert fade_shape in fade_shapes, "Invalid fade shape."
     assert fade_in_time >= 0, "Fade in time must be nonnegative."
-    assert fade_out_time >=0, "Fade out time must be nonnegative."
+    assert fade_out_time >= 0, "Fade out time must be nonnegative."
     return sox(['sox', input_file, output_file, 'fade', '%s' % fade_shape,
                 '%0.8f' % fade_in_time, '0', '%0.8f' % fade_out_time])
 
@@ -434,4 +467,3 @@ def normalize(input_file, output_file, db_level=-3):
         True on success.
     """
     return sox(['sox', "--norm=%f" % db_level, input_file, output_file])
-    

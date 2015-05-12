@@ -8,7 +8,7 @@ def noop(*args, **kwargs):
 
 def test_preview(monkeypatch):
     monkeypatch.setattr(sox, "quick_play", noop)
-    track = mdb.load_all_multitracks()[0]
+    track = next(mdb.load_all_multitracks())
     mdb.preview_audio(track)
 
 
