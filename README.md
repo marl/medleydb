@@ -18,7 +18,8 @@ R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello,
 Taipei, Taiwan, Oct. 2014.
 
 Setup
-========
+=====
+
 First clone this repository:
 
 ```bash
@@ -40,14 +41,30 @@ export MEDLEYDB_PATH="path/to/your/copy/of/MedleyDB"
 ```
 
 To avoid doing this step every time, copy the line above to ```.bash_profile```
-or ```.bash_rc```.
+or ```.bashrc```.
 
+Optionally, you may also install the SQL submodule using
+
+```bash
+pip install -e .[sql]
+```
+
+And run the database export once
+
+```bash
+medleydb-export
+```
+
+This will create a `database.sql` file in your `MEDLEYDB_PATH`.
 
 Dependencies
----------
-* [pyyaml](http://pyyaml.org/)
-* [sqlalchemy](http://www.sqlalchemy.org/) (optional)
-* [sox](http://sox.sourceforge.net/) (optional)
+------------
+
+* Python, will be installed by pip
+  * [pyyaml](http://pyyaml.org/)
+  * [sqlalchemy](http://www.sqlalchemy.org/) (optional)
+* Additional
+  * [sox](http://sox.sourceforge.net/) (optional)
 
 If you use homebrew, you can install sox by doing:
 
@@ -56,7 +73,8 @@ brew install sox
 ```
 
 Usage and Examples
-========
+==================
+
 To load the module:
 
 ```python
