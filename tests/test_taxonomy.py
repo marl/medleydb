@@ -15,4 +15,4 @@ def test_instrument(instrument):
 
 
 def test_instrument_files(instrument):
-    assert len(list(mdb.get_files_for_instrument(instrument))) > 0
+    assert next(mdb.get_files_for_instrument(instrument))

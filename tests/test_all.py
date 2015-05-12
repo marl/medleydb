@@ -2,8 +2,8 @@ import medleydb as mdb
 
 
 def test_all():
-    assert len(list(mdb.load_all_multitracks())) > 0
+    assert next(mdb.load_all_multitracks())
 
 
 def test_melody():
-    assert len(list(mdb.load_melody_multitracks())) > 0
+    assert next(mdb.load_melody_multitracks())
