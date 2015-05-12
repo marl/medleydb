@@ -1,6 +1,8 @@
+import os
 import numpy
 import pytest
 import random as rand
+import medleyalchemy as m
 
 
 @pytest.fixture(params=(44100, 16000))
@@ -21,3 +23,15 @@ def sig(request, fs, random):
 def random():
     rand.seed(0)
     numpy.random.seed(0)
+
+
+@pytest.fixture(scope="session")
+def medleydb():
+    os.environ['MEDLEYDB_PATH']
+
+
+@pytest.fixture(scope="session", autouse=True)
+def session(medleydb):
+    _session = m.session(ephemeral=True)
+    m.from_medleydb(_session, limit=2)
+    return _session
