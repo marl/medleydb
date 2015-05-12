@@ -1,5 +1,5 @@
 import pytest
-import medleyalchemy as m
+import medleydb.sql as m
 
 
 @pytest.fixture

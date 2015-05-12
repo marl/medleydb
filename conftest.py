@@ -2,7 +2,7 @@ import os
 import numpy
 import pytest
 import random as rand
-import medleyalchemy as m
+import medleydb.sql as m
 
 
 @pytest.fixture(params=(44100, 16000))
