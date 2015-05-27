@@ -1,0 +1,68 @@
+album: ''
+artist: Amar Lal
+composer:
+- Amar Lal
+excerpt: 'no'
+genre: Singer/Songwriter
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: AmarLal_SpringDay1_MIX.wav
+origin: Independent Artist
+producer:
+- Amar Lal
+raw_dir: AmarLal_SpringDay1_RAW
+stem_dir: AmarLal_SpringDay1_STEMS
+stems:
+  S01:
+    component: ''
+    filename: AmarLal_SpringDay1_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: AmarLal_SpringDay1_RAW_01_01.wav
+        instrument: acoustic guitar
+      R02:
+        filename: AmarLal_SpringDay1_RAW_01_02.wav
+        instrument: acoustic guitar
+      R03:
+        filename: AmarLal_SpringDay1_RAW_01_03.wav
+        instrument: acoustic guitar
+      R04:
+        filename: AmarLal_SpringDay1_RAW_01_04.wav
+        instrument: acoustic guitar
+      R05:
+        filename: AmarLal_SpringDay1_RAW_01_05.wav
+        instrument: acoustic guitar
+      R06:
+        filename: AmarLal_SpringDay1_RAW_01_06.wav
+        instrument: acoustic guitar
+      R07:
+        filename: AmarLal_SpringDay1_RAW_01_07.wav
+        instrument: acoustic guitar
+      R08:
+        filename: AmarLal_SpringDay1_RAW_01_08.wav
+        instrument: acoustic guitar
+      R09:
+        filename: AmarLal_SpringDay1_RAW_01_09.wav
+        instrument: acoustic guitar
+      R10:
+        filename: AmarLal_SpringDay1_RAW_01_10.wav
+        instrument: acoustic guitar
+      R11:
+        filename: AmarLal_SpringDay1_RAW_01_11.wav
+        instrument: acoustic guitar
+      R12:
+        filename: AmarLal_SpringDay1_RAW_01_12.wav
+        instrument: acoustic guitar
+      R13:
+        filename: AmarLal_SpringDay1_RAW_01_13.wav
+        instrument: acoustic guitar
+      R14:
+        filename: AmarLal_SpringDay1_RAW_01_14.wav
+        instrument: acoustic guitar
+      R15:
+        filename: AmarLal_SpringDay1_RAW_01_15.wav
+        instrument: acoustic guitar
+title: Spring Day 1
+website:
+- amar.bandcamp.com

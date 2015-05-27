@@ -1,0 +1,94 @@
+start_time,end_time,instrument_label
+74.6754,79.5516,electric bass
+80.3875,81.8736,electric bass
+82.7559,90.2327,electric bass
+90.7436,95.5733,electric bass
+96.3164,98.2668,electric bass
+98.7777,103.7932,electric bass
+104.1647,142.3848,electric bass
+144.2888,146.3322,electric bass
+148.3291,150.3260,electric bass
+183.9020,184.9237,electric bass
+186.7349,191.6575,electric bass
+192.3077,194.2581,electric bass
+194.7690,201.4099,electric bass
+201.6885,270.2803,electric bass
+274.8314,278.2679,electric bass
+282.9119,286.1163,electric bass
+291.3176,291.7355,electric bass
+92.3225,96.8737,vocalists
+97.6167,101.1461,vocalists
+101.5641,140.8058,vocalists
+141.5953,145.0318,vocalists
+145.6356,148.9792,vocalists
+189.7070,193.1900,vocalists
+193.5615,197.0910,vocalists
+197.6018,268.9335,vocalists
+269.7694,272.9738,vocalists
+273.8097,276.3175,vocalists
+278.0822,278.8717,vocalists
+1.5325,10.1239,fx/processed sound
+91.2544,117.6323,fx/processed sound
+117.8645,119.5828,fx/processed sound
+120.1400,121.0224,fx/processed sound
+148.9328,151.9049,fx/processed sound
+152.7873,154.5056,fx/processed sound
+158.7780,160.0319,fx/processed sound
+160.3570,168.1125,fx/processed sound
+174.5676,184.6451,fx/processed sound
+187.2922,217.1530,fx/processed sound
+220.5431,226.8125,fx/processed sound
+227.9735,238.3296,fx/processed sound
+239.5371,241.9055,fx/processed sound
+242.2770,257.4164,fx/processed sound
+257.8808,259.5991,fx/processed sound
+260.4350,278.9645,fx/processed sound
+279.0574,280.0327,fx/processed sound
+281.1937,281.6116,fx/processed sound
+107.1369,153.8554,auxiliary percussion
+158.3601,159.3818,auxiliary percussion
+166.3942,167.3694,auxiliary percussion
+174.3819,175.4035,auxiliary percussion
+182.4160,183.3912,auxiliary percussion
+190.3572,191.3789,auxiliary percussion
+194.3975,195.4191,auxiliary percussion
+198.3449,199.4130,auxiliary percussion
+203.0817,267.4010,auxiliary percussion
+25.6348,142.3848,drum set
+144.1030,146.3786,drum set
+148.1433,150.3724,drum set
+153.4375,268.7013,drum set
+41.7959,45.1860,male singer
+46.4863,53.3130,male singer
+54.0561,56.4245,male singer
+57.5390,61.8580,male singer
+62.6939,68.8704,male singer
+70.1707,72.1676,male singer
+73.5608,77.6475,male singer
+78.7156,84.3349,male singer
+86.6569,92.5547,male singer
+93.4835,97.1059,male singer
+97.4309,101.2854,male singer
+101.3783,119.2577,male singer
+119.6292,135.3723,male singer
+135.6510,140.9451,male singer
+141.5024,149.3972,male singer
+153.4839,165.1868,male singer
+166.6728,173.2209,male singer
+174.4747,180.6977,male singer
+180.8834,183.1126,male singer
+185.5274,215.3883,male singer
+215.5741,231.3636,male singer
+231.5958,268.9800,male singer
+269.6301,273.0202,male singer
+273.4846,276.7354,male singer
+277.8964,280.5899,male singer
+281.8438,283.3763,male singer
+284.3516,285.3268,male singer
+75.0005,141.7346,synthesizer
+186.9671,271.2091,synthesizer
+73.9323,77.5546,female singer
+185.7596,189.2891,female singer
+234.8931,247.4318,female singer
+250.9148,263.1285,female singer
+10.9598,289.6457,synthesizer

@@ -1,0 +1,4 @@
+CelestialShore_DieForUs_STEM_02.csv,2
+CelestialShore_DieForUs_STEM_01.csv,1
+CelestialShore_DieForUs_STEM_07.csv,3
+CelestialShore_DieForUs_STEM_08.csv,4

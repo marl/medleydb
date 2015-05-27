@@ -1,0 +1,68 @@
+start_time,end_time,instrument_label
+36.8268,44.0715,male singer
+46.2541,53.8703,male singer
+54.7062,74.3967,male singer
+82.9881,89.3504,male singer
+93.8086,99.9851,male singer
+100.4031,106.8582,male singer
+118.3289,120.6509,male singer
+123.6695,130.9141,male singer
+132.2609,172.5707,male singer
+211.1623,216.1778,male singer
+216.3635,229.6918,male singer
+230.2955,255.8375,male singer
+61.0685,64.4122,vocalists
+65.1088,68.4060,vocalists
+83.0810,89.3039,vocalists
+90.2327,100.0316,vocalists
+100.6353,106.5796,vocalists
+112.9883,114.8459,vocalists
+145.3105,149.5365,vocalists
+150.3260,152.8802,vocalists
+153.6697,158.0350,vocalists
+164.5366,172.2456,vocalists
+230.5277,256.4412,vocalists
+257.0449,259.9706,vocalists
+298.6086,318.7171,vocalists
+2.0898,73.9788,acoustic guitar
+105.9759,183.9020,acoustic guitar
+212.1375,232.9426,acoustic guitar
+2.1362,22.2447,electric bass
+23.0806,30.4181,electric bass
+30.7897,37.6163,electric bass
+53.8703,111.1307,electric bass
+111.2700,118.7468,electric bass
+119.0255,124.5518,electric bass
+125.1091,129.1958,electric bass
+129.6138,131.6571,electric bass
+131.8893,134.0256,electric bass
+134.7222,136.4405,electric bass
+136.6727,211.1623,electric bass
+212.0446,399.5690,electric bass
+16.4862,19.8298,clean electric guitar
+20.4336,30.1395,clean electric guitar
+31.8113,34.4120,clean electric guitar
+40.3098,42.3068,clean electric guitar
+44.4430,47.4616,clean electric guitar
+48.0653,49.4121,clean electric guitar
+51.1303,53.5917,clean electric guitar
+53.8703,74.4432,clean electric guitar
+88.0036,93.9479,clean electric guitar
+105.9759,107.7870,clean electric guitar
+111.7344,116.2391,clean electric guitar
+117.6323,173.0815,clean electric guitar
+212.0911,232.5711,clean electric guitar
+377.4636,395.9467,clean electric guitar
+73.0964,106.5332,distorted electric guitar
+173.8710,399.3832,distorted electric guitar
+52.8022,108.4372,drum set
+109.8304,110.2948,drum set
+115.8211,116.2855,drum set
+120.4187,121.1153,drum set
+122.7871,170.8989,drum set
+173.2209,174.0568,drum set
+174.6141,176.4717,drum set
+177.0289,178.8865,drum set
+179.3974,181.2550,drum set
+181.8122,205.7288,drum set
+228.9952,400.5442,drum set

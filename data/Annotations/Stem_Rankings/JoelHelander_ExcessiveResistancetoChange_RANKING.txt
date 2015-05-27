@@ -1,0 +1,5 @@
+JoelHelander_ExcessiveResistancetoChange_STEM_01.csv,1
+JoelHelander_ExcessiveResistancetoChange_STEM_04.csv,3
+JoelHelander_ExcessiveResistancetoChange_STEM_08.csv,2
+JoelHelander_ExcessiveResistancetoChange_STEM_03.csv,4
+JoelHelander_ExcessiveResistancetoChange_STEM_13.csv,5

@@ -1,0 +1,49 @@
+start_time,end_time,instrument_label
+46.9043,72.7713,drum set
+75.8828,140.0628,drum set
+142.1526,149.6294,drum set
+150.9297,158.3601,drum set
+159.5211,184.5522,drum set
+48.0653,71.3317,auxiliary percussion
+76.2079,138.3909,auxiliary percussion
+142.5241,149.1650,auxiliary percussion
+159.7533,183.2983,auxiliary percussion
+61.9508,85.0315,vibraphone
+138.1123,147.5396,vibraphone
+150.0009,157.9421,vibraphone
+8.4521,74.9540,electric bass
+76.0221,149.4901,electric bass
+150.8833,158.1279,electric bass
+159.4746,195.6978,electric bass
+0.4644,75.6042,piano
+75.9293,149.9545,piano
+150.8368,158.7780,piano
+159.5211,186.2705,piano
+76.2543,139.8306,synthesizer
+142.5705,149.3972,synthesizer
+159.7068,161.3322,synthesizer
+161.7966,188.0816,synthesizer
+17.5078,30.3717,female singer
+34.3191,43.2356,female singer
+47.4616,71.1459,female singer
+72.2605,79.6444,female singer
+84.2884,97.3380,female singer
+101.1926,109.7375,female singer
+114.3351,125.6200,female singer
+126.9203,147.6789,female singer
+150.7904,157.9886,female singer
+159.0102,166.9515,female singer
+167.5552,184.1342,female singer
+47.6938,59.4431,vocalists
+60.9292,70.9602,vocalists
+75.6971,81.5485,vocalists
+92.6941,97.5238,vocalists
+101.4248,104.0254,vocalists
+114.5673,125.2020,vocalists
+127.2454,138.0194,vocalists
+142.3848,143.8244,vocalists
+144.0102,145.6820,vocalists
+146.3322,146.9359,vocalists
+159.1496,163.0041,vocalists
+168.2518,174.8927,vocalists
+176.5645,183.2054,vocalists

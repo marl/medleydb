@@ -1,0 +1,46 @@
+album: ''
+artist: Amar Lal
+composer:
+- Amar Lal
+excerpt: 'no'
+genre: Singer/Songwriter
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: AmarLal_Rest_MIX.wav
+origin: Independent Artist
+producer:
+- Amar Lal
+raw_dir: AmarLal_Rest_RAW
+stem_dir: AmarLal_Rest_STEMS
+stems:
+  S01:
+    component: ''
+    filename: AmarLal_Rest_STEM_01.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: AmarLal_Rest_RAW_01_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: AmarLal_Rest_RAW_01_02.wav
+        instrument: clean electric guitar
+      R03:
+        filename: AmarLal_Rest_RAW_01_03.wav
+        instrument: clean electric guitar
+      R04:
+        filename: AmarLal_Rest_RAW_01_04.wav
+        instrument: clean electric guitar
+  S02:
+    component: ''
+    filename: AmarLal_Rest_STEM_02.wav
+    instrument: fx/processed sound
+    raw:
+      R01:
+        filename: AmarLal_Rest_RAW_02_01.wav
+        instrument: fx/processed sound
+      R02:
+        filename: AmarLal_Rest_RAW_02_02.wav
+        instrument: fx/processed sound
+title: Rest
+website:
+- amar.bandcamp.com

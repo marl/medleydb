@@ -1,0 +1,64 @@
+start_time,end_time,instrument_label
+86.2389,113.8242,vocalists
+225.2336,248.8715,vocalists
+249.5216,255.0944,vocalists
+255.6053,267.7261,vocalists
+267.9583,273.7168,vocalists
+274.1348,291.7355,vocalists
+292.9894,298.4229,vocalists
+299.3517,303.1133,vocalists
+305.6675,307.0607,vocalists
+110.4805,159.8462,cymbal
+222.2150,223.1438,cymbal
+223.4224,289.8779,cymbal
+291.8284,295.1256,cymbal
+299.1659,300.3733,cymbal
+0.0929,157.8493,drum set
+202.8031,295.7758,drum set
+296.1937,297.0761,drum set
+298.4693,299.1195,drum set
+109.6446,158.3601,drum set
+2.5542,4.6440,clean electric guitar
+5.7585,7.8948,clean electric guitar
+8.8236,10.9598,clean electric guitar
+11.8422,62.6939,clean electric guitar
+110.6199,166.3942,clean electric guitar
+206.6112,305.7139,clean electric guitar
+61.3471,118.1431,clean electric guitar
+206.0539,298.3764,clean electric guitar
+299.8161,302.6953,clean electric guitar
+104.4898,213.2985,clean electric guitar
+224.8156,312.2155,clean electric guitar
+10.8205,13.6998,male singer
+14.2106,32.3222,male singer
+35.6659,58.6072,male singer
+86.2389,92.2297,male singer
+110.0626,114.8459,male singer
+115.4961,120.9295,male singer
+121.6726,133.0968,male singer
+135.0473,139.3662,male singer
+139.9234,154.9235,male singer
+161.1929,194.5832,male singer
+195.4191,204.7071,male singer
+61.4400,157.4313,piano
+222.5865,292.1535,piano
+292.6179,292.9429,piano
+294.0575,294.6148,piano
+113.9171,136.2083,electric bass
+138.6231,168.7162,electric bass
+225.3729,307.6180,electric bass
+11.0527,14.1642,fx/processed sound
+14.3035,32.8330,fx/processed sound
+35.8052,58.8394,fx/processed sound
+86.1460,115.2639,fx/processed sound
+115.6354,121.3010,fx/processed sound
+121.8583,132.1215,fx/processed sound
+135.2795,139.6448,fx/processed sound
+140.2485,155.2022,fx/processed sound
+161.3322,195.1405,fx/processed sound
+195.3263,205.1715,fx/processed sound
+225.4193,249.2430,fx/processed sound
+249.8003,255.3266,fx/processed sound
+255.8839,292.3857,fx/processed sound
+293.0358,304.3672,fx/processed sound
+305.4353,309.8471,fx/processed sound

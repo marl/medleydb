@@ -1,0 +1,64 @@
+start_time,end_time,instrument_label
+121.9048,165.6512,clean electric guitar
+193.5615,196.4408,clean electric guitar
+197.0445,243.5773,clean electric guitar
+10.7276,283.1441,electric bass
+0.3251,10.1239,vocalists
+68.5453,71.9819,vocalists
+120.8831,124.1803,vocalists
+131.0534,134.2113,vocalists
+141.0844,145.5891,vocalists
+146.1000,150.5582,vocalists
+151.2083,155.5737,vocalists
+156.2239,181.9516,vocalists
+201.7814,204.9393,vocalists
+211.9517,215.0632,vocalists
+221.7041,226.3946,vocalists
+226.9518,231.3636,vocalists
+232.0138,236.4256,vocalists
+237.0757,267.8190,vocalists
+267.9583,270.2338,vocalists
+270.6054,272.6951,vocalists
+122.2298,162.8648,synthesizer
+162.9576,163.6078,synthesizer
+193.0971,242.6485,synthesizer
+261.7353,263.1750,synthesizer
+265.0790,275.7602,synthesizer
+276.4103,280.1720,synthesizer
+9.9846,74.9540,drum set
+81.4556,165.9298,drum set
+182.4624,282.9119,drum set
+10.7741,81.9664,synthesizer
+101.7498,280.7757,synthesizer
+50.2480,71.8890,male singer
+82.7095,84.7993,male singer
+85.2172,87.2606,male singer
+87.7250,94.8767,male singer
+95.1554,97.3845,male singer
+97.8489,105.9294,male singer
+107.0440,110.9914,male singer
+112.1524,116.0533,male singer
+117.1215,145.5427,male singer
+146.0535,150.6511,male singer
+151.2548,155.6666,male singer
+156.3167,162.7254,male singer
+201.8743,226.3481,male singer
+226.9983,231.4565,male singer
+232.0138,236.5649,male singer
+237.1222,243.6702,male singer
+10.3097,30.5110,male singer
+31.0219,35.3872,male singer
+36.1767,40.4492,male singer
+41.1922,45.4182,male singer
+46.2541,72.1676,male singer
+80.9912,101.3783,male singer
+101.7498,106.4867,male singer
+106.8118,111.2700,male singer
+111.8737,116.5177,male singer
+116.8893,163.1898,male singer
+201.7350,277.1534,male singer
+10.7276,276.0853,piano
+278.8252,279.5683,piano
+0.3715,10.4954,synthesizer
+31.0683,72.4927,synthesizer
+81.2698,280.1720,synthesizer

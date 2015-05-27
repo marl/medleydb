@@ -1,0 +1,42 @@
+album: ''
+artist: NYU
+composer:
+- Wolfgang Amadeus Mozart
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: Mozart_DiesBildnis_MIX.wav
+origin: Dolan Studio
+producer:
+- NYU
+raw_dir: Mozart_DiesBildnis_RAW
+stem_dir: Mozart_DiesBildnis_STEMS
+stems:
+  S01:
+    component: melody
+    filename: Mozart_DiesBildnis_STEM_01.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Mozart_DiesBildnis_RAW_01_01.wav
+        instrument: male singer
+  S02:
+    component: ''
+    filename: Mozart_DiesBildnis_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Mozart_DiesBildnis_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Mozart_DiesBildnis_RAW_02_02.wav
+        instrument: piano
+      R03:
+        filename: Mozart_DiesBildnis_RAW_02_03.wav
+        instrument: piano
+      R04:
+        filename: Mozart_DiesBildnis_RAW_02_04.wav
+        instrument: piano
+title: Dies Bildnis
+website: []

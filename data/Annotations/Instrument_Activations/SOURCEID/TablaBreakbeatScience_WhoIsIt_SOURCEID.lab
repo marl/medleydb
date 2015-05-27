@@ -1,0 +1,207 @@
+start_time,end_time,instrument_label
+0.0000,1.3003,drum machine
+2.1362,6.3623,drum machine
+6.7802,11.4242,drum machine
+12.2601,16.4862,drum machine
+16.9041,61.9508,drum machine
+62.7868,67.0128,drum machine
+67.4307,72.0283,drum machine
+72.8642,77.0902,drum machine
+77.5546,122.5549,drum machine
+123.3908,127.6169,drum machine
+128.0813,132.6788,drum machine
+133.5147,137.7408,drum machine
+138.1587,163.0041,drum machine
+163.8400,168.0660,drum machine
+168.4840,203.4068,drum machine
+204.2427,208.4688,drum machine
+208.8867,213.5307,drum machine
+214.3666,218.5927,drum machine
+219.0106,264.0573,drum machine
+264.8932,269.1193,drum machine
+269.5372,274.1348,drum machine
+274.9707,279.1967,drum machine
+279.6611,304.4600,drum machine
+305.2960,309.5220,drum machine
+309.9400,314.5839,drum machine
+315.4199,319.6459,drum machine
+320.0639,344.9092,drum machine
+345.7451,349.9247,drum machine
+350.3891,355.0331,drum machine
+355.8226,360.0486,drum machine
+360.4666,405.5133,drum machine
+406.3492,410.5752,drum machine
+410.9932,415.6372,drum machine
+416.4731,420.6991,drum machine
+421.1171,423.9035,drum machine
+40.4492,43.1427,synthesizer
+45.4647,48.1582,synthesizer
+50.5266,53.2201,synthesizer
+55.5886,58.2821,synthesizer
+62.3688,63.4834,synthesizer
+64.8766,65.9911,synthesizer
+67.3843,68.5453,synthesizer
+69.9385,71.0531,synthesizer
+72.4463,73.6073,synthesizer
+75.0005,76.1150,synthesizer
+77.5082,78.6228,synthesizer
+80.0624,82.1522,synthesizer
+82.5237,84.6600,synthesizer
+85.0779,87.1677,synthesizer
+87.5857,89.7219,synthesizer
+90.0934,92.2297,synthesizer
+92.6476,94.7374,synthesizer
+95.1554,97.2916,synthesizer
+97.6631,99.7994,synthesizer
+100.2173,102.4929,synthesizer
+103.3752,104.9542,synthesizer
+105.9294,107.5084,synthesizer
+108.4372,110.0161,synthesizer
+110.9914,112.5703,synthesizer
+113.4991,115.0781,synthesizer
+116.0069,117.5859,synthesizer
+118.5611,120.1400,synthesizer
+121.0688,122.6014,synthesizer
+123.0193,125.2020,synthesizer
+125.5271,127.7562,synthesizer
+128.0348,130.2639,synthesizer
+130.5890,132.8181,synthesizer
+133.0968,135.3259,synthesizer
+135.6045,137.8337,synthesizer
+138.1587,140.3878,synthesizer
+140.6665,142.0132,synthesizer
+142.2919,162.7719,synthesizer
+163.5149,165.3261,synthesizer
+166.0227,167.8803,synthesizer
+168.5304,170.3880,synthesizer
+171.0382,183.8556,synthesizer
+185.5274,188.9176,synthesizer
+190.5894,193.9795,synthesizer
+195.6049,199.0415,synthesizer
+200.6668,244.8776,synthesizer
+247.4318,249.8932,synthesizer
+252.4473,254.9551,synthesizer
+257.5093,260.0171,synthesizer
+262.5712,265.0790,synthesizer
+267.6332,270.1410,synthesizer
+272.6951,275.1565,synthesizer
+277.7107,280.2184,synthesizer
+282.7726,344.0268,synthesizer
+344.5841,346.5810,synthesizer
+347.0454,349.1352,synthesizer
+349.5996,351.6430,synthesizer
+352.1074,354.1972,synthesizer
+354.6616,356.7049,synthesizer
+357.1693,359.2127,synthesizer
+359.6771,361.7669,synthesizer
+362.2313,367.6648,synthesizer
+368.0363,377.7887,synthesizer
+378.1137,386.2407,synthesizer
+388.3770,391.3027,synthesizer
+393.4389,396.3646,synthesizer
+398.5009,401.4266,synthesizer
+403.5164,404.7238,synthesizer
+1.6718,4.2725,electric bass
+7.1982,9.1951,electric bass
+9.7524,11.6564,electric bass
+12.4923,13.7927,electric bass
+14.9072,16.6719,electric bass
+17.3685,21.0373,electric bass
+21.9196,24.1488,electric bass
+24.9382,29.3036,electric bass
+30.5110,35.4801,electric bass
+37.6163,41.7495,electric bass
+41.8424,44.1179,electric bass
+44.5359,47.5080,electric bass
+47.8331,49.9229,electric bass
+50.0622,51.9198,electric bass
+52.7557,54.8920,electric bass
+55.1706,64.4122,electric bass
+65.4338,69.6599,electric bass
+70.4958,72.3069,electric bass
+72.9571,75.5113,electric bass
+75.6506,80.8983,electric bass
+83.1739,86.0067,electric bass
+87.4928,91.6259,electric bass
+100.8210,107.9263,electric bass
+108.2050,115.4496,electric bass
+116.4249,120.4187,electric bass
+121.3010,148.0969,electric bass
+148.8863,150.6511,electric bass
+151.2548,158.2208,electric bass
+158.9638,160.7750,electric bass
+161.4716,201.6421,electric bass
+203.7783,206.7969,electric bass
+209.4904,212.1839,electric bass
+214.5059,217.4317,electric bass
+219.0571,281.8902,electric bass
+282.5868,284.5373,electric bass
+285.0946,287.1380,electric bass
+287.6488,289.5064,electric bass
+289.7850,309.5220,electric bass
+310.5437,319.4137,electric bass
+319.9245,345.1414,electric bass
+345.8380,347.1848,electric bass
+347.6956,352.6647,electric bass
+355.9155,434.4454,electric bass
+20.5264,23.0342,accordion
+23.9630,24.1488,accordion
+25.2633,28.0961,accordion
+28.7927,29.2571,accordion
+30.0466,82.7095,accordion
+83.0346,101.5176,accordion
+101.9820,103.8861,accordion
+104.4898,106.4403,accordion
+106.9976,108.9016,accordion
+109.5053,162.7254,accordion
+181.7658,321.8286,accordion
+322.1072,342.0764,accordion
+342.2621,431.7054,accordion
+11.2385,13.2818,mandolin
+13.7462,15.8360,mandolin
+16.2540,18.3438,mandolin
+18.7617,20.8515,mandolin
+21.3159,23.4057,mandolin
+23.8237,25.9135,mandolin
+26.3779,28.4677,mandolin
+28.8856,30.3717,mandolin
+30.7897,32.9259,mandolin
+33.2510,35.4801,mandolin
+35.7587,38.0343,mandolin
+38.2665,40.5420,mandolin
+40.7742,43.0498,mandolin
+43.3284,45.6040,mandolin
+45.8362,48.1117,mandolin
+48.3904,71.0531,mandolin
+71.6103,73.8859,mandolin
+74.0717,76.3937,mandolin
+76.5794,78.9014,mandolin
+79.1336,81.4556,mandolin
+81.6414,83.9634,mandolin
+84.1491,86.5176,mandolin
+86.7033,89.0253,mandolin
+89.2111,204.9393,mandolin
+206.3790,209.9548,mandolin
+211.4409,215.0168,mandolin
+216.5029,220.0323,mandolin
+221.5184,222.3543,mandolin
+223.3295,303.9492,mandolin
+304.4136,305.8997,mandolin
+306.9678,308.4074,mandolin
+309.5220,310.9616,mandolin
+312.0298,313.4694,mandolin
+314.5839,315.9771,mandolin
+317.0917,318.5313,mandolin
+319.5995,321.0391,mandolin
+322.1537,323.5933,mandolin
+324.6614,326.1010,mandolin
+327.2156,328.6088,mandolin
+329.7234,331.1630,mandolin
+332.2311,333.6707,mandolin
+334.7853,336.2249,mandolin
+337.2931,338.7327,mandolin
+339.8473,341.2405,mandolin
+342.3550,343.7946,mandolin
+363.8567,434.3525,mandolin
+38.0807,202.0600,tabla
+262.7106,424.9716,tabla

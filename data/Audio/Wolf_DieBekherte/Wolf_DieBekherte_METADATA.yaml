@@ -1,0 +1,42 @@
+album: ''
+artist: NYU
+composer:
+- Hugo Wolf
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: Wolf_DieBekherte_MIX.wav
+origin: Dolan Studio
+producer:
+- NYU
+raw_dir: Wolf_DieBekherte_RAW
+stem_dir: Wolf_DieBekherte_STEMS
+stems:
+  S01:
+    component: melody
+    filename: Wolf_DieBekherte_STEM_01.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: Wolf_DieBekherte_RAW_01_01.wav
+        instrument: female singer
+  S02:
+    component: ''
+    filename: Wolf_DieBekherte_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Wolf_DieBekherte_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Wolf_DieBekherte_RAW_02_02.wav
+        instrument: piano
+      R03:
+        filename: Wolf_DieBekherte_RAW_02_03.wav
+        instrument: piano
+      R04:
+        filename: Wolf_DieBekherte_RAW_02_04.wav
+        instrument: piano
+title: Die Bekherte
+website: []

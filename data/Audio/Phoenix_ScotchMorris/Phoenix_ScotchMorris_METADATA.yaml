@@ -1,0 +1,53 @@
+album: ''
+artist: Phoenix
+composer:
+- traditional
+excerpt: 'no'
+genre: World/Folk
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: Phoenix_ScotchMorris_MIX.wav
+origin: Dolan Studio
+producer:
+- Christopher Jacoby
+- Ethan Hein
+raw_dir: Phoenix_ScotchMorris_RAW
+stem_dir: Phoenix_ScotchMorris_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Phoenix_ScotchMorris_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: Phoenix_ScotchMorris_RAW_01_01.wav
+        instrument: acoustic guitar
+  S02:
+    component: melody
+    filename: Phoenix_ScotchMorris_STEM_02.wav
+    instrument: flute
+    raw:
+      R01:
+        filename: Phoenix_ScotchMorris_RAW_02_01.wav
+        instrument: flute
+  S03:
+    component: melody
+    filename: Phoenix_ScotchMorris_STEM_03.wav
+    instrument: violin
+    raw:
+      R01:
+        filename: Phoenix_ScotchMorris_RAW_03_01.wav
+        instrument: violin
+  S04:
+    component: ''
+    filename: Phoenix_ScotchMorris_STEM_04.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: Phoenix_ScotchMorris_RAW_04_01.wav
+        instrument: Main System
+      R02:
+        filename: Phoenix_ScotchMorris_RAW_04_02.wav
+        instrument: Main System
+title: Lark On The Strand - Drummond Castle
+website: null

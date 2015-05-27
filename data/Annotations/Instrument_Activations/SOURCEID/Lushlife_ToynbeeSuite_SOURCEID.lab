@@ -1,0 +1,201 @@
+start_time,end_time,instrument_label
+205.6824,207.1220,brass section
+207.4006,257.9273,brass section
+159.0567,177.1683,drum machine
+207.5400,224.1654,drum machine
+49.5049,52.3842,claps
+52.6164,53.8239,claps
+54.1954,55.3099,claps
+55.7279,56.8889,claps
+57.2604,58.3750,claps
+58.7929,60.0468,claps
+60.2326,61.5793,claps
+61.8580,63.0654,claps
+63.4369,64.5515,claps
+64.9694,66.1769,claps
+66.4555,67.6165,claps
+68.0345,69.1955,claps
+69.5670,70.7280,claps
+71.0995,72.2141,claps
+72.6320,73.8859,claps
+74.7683,74.9540,claps
+76.5330,77.0902,claps
+77.4153,79.3658,claps
+80.0160,81.7342,claps
+82.0593,82.6630,claps
+82.8952,84.3349,claps
+85.8674,86.4247,claps
+87.7714,88.2823,claps
+88.5609,89.1646,claps
+90.0005,90.2792,claps
+90.9758,91.5795,claps
+92.4154,94.5981,claps
+95.0625,95.6198,claps
+96.2235,96.6415,claps
+96.9665,97.2916,claps
+98.2204,98.3597,claps
+98.8241,99.9387,claps
+100.3566,101.7034,claps
+101.8892,103.1430,claps
+103.3752,104.5362,claps
+104.9542,106.2081,claps
+106.4867,107.6477,claps
+107.8799,109.1338,claps
+109.5982,110.6663,claps
+111.1307,112.2917,claps
+112.6168,113.8242,claps
+114.1957,116.8893,claps
+117.2143,118.3753,claps
+118.7468,119.9543,claps
+120.3722,121.5332,claps
+121.9048,123.0658,claps
+445.0801,445.7767,clarinet
+446.2411,446.4733,clarinet
+446.8448,446.8448,clarinet
+447.4485,490.1732,clarinet
+532.1085,532.6193,clarinet
+534.1983,582.4958,clarinet
+583.0066,625.5456,clarinet
+628.0533,628.5177,clarinet
+266.5651,268.2834,synthesizer
+268.9800,270.8840,synthesizer
+271.7199,273.6704,synthesizer
+274.3670,276.3639,synthesizer
+277.1534,279.1503,synthesizer
+279.9862,281.7974,synthesizer
+282.3546,311.8904,synthesizer
+312.5870,314.5839,synthesizer
+315.3734,317.4168,synthesizer
+318.1134,319.9710,synthesizer
+320.7605,322.8502,synthesizer
+323.5468,325.5438,synthesizer
+326.3332,333.7172,synthesizer
+334.2745,336.6429,synthesizer
+337.2466,339.1971,synthesizer
+339.4757,341.9835,synthesizer
+342.5408,344.5841,synthesizer
+345.2343,377.4171,synthesizer
+377.8815,380.2035,synthesizer
+380.6679,382.8506,synthesizer
+383.3615,385.4512,synthesizer
+385.9156,387.0766,synthesizer
+48.9012,74.3039,drum machine
+98.1275,123.5766,drum machine
+124.3661,124.6447,drum machine
+255.6053,373.9806,drum machine
+375.2345,395.8538,drum machine
+175.4964,212.8805,drum set
+213.3449,213.9022,drum set
+214.5059,214.7381,drum set
+222.8651,263.9644,drum set
+143.5922,259.5991,electric bass
+266.5186,375.3738,electric bass
+375.6060,387.1695,electric bass
+24.5667,130.0317,glockenspiel
+175.5893,215.9456,clean electric guitar
+216.5957,218.1283,clean electric guitar
+218.8713,219.5679,clean electric guitar
+220.0323,220.2645,clean electric guitar
+220.8682,221.4719,clean electric guitar
+222.9580,259.2276,clean electric guitar
+175.4964,212.6019,clean electric guitar
+223.3760,259.5527,clean electric guitar
+266.5186,387.0302,clean electric guitar
+310.9616,356.4727,horn section
+356.7049,357.3551,horn section
+357.6802,358.1910,horn section
+358.7483,358.9341,horn section
+359.7700,360.0022,horn section
+360.6988,361.9062,horn section
+362.3242,362.8350,horn section
+362.9279,363.4387,horn section
+363.5780,363.9960,horn section
+365.0641,365.2034,horn section
+365.5750,370.1725,horn section
+370.3583,370.7298,horn section
+371.4264,371.9372,horn section
+372.4481,372.8196,horn section
+373.2840,373.7948,horn section
+374.1663,374.7701,horn section
+375.4667,429.8014,horn section
+430.4980,431.0088,horn section
+431.5196,432.1234,horn section
+432.6342,434.1203,horn section
+434.7704,436.3958,horn section
+437.6961,438.0212,horn section
+438.7643,439.4144,horn section
+440.0646,440.2503,horn section
+310.6366,333.7636,trumpet section
+376.1168,387.1231,trumpet section
+49.6907,77.2760,fx/processed sound
+98.6384,123.1586,fx/processed sound
+48.9477,111.1307,synthesizer
+49.1334,123.3444,male rapper
+223.7010,256.7198,male rapper
+266.0078,312.6335,male rapper
+353.1755,376.5348,male rapper
+483.3001,584.5391,male rapper
+596.7528,618.2081,male rapper
+48.3439,48.9012,male rapper
+49.3192,66.7341,male rapper
+67.0128,74.7218,male rapper
+75.2327,77.4153,male rapper
+77.9262,86.7498,male rapper
+86.9355,93.2513,male rapper
+93.4371,123.3908,male rapper
+265.9149,290.5745,male rapper
+290.7603,305.7604,male rapper
+306.1783,313.3765,male rapper
+314.8626,315.5592,male rapper
+350.4356,351.1786,male rapper
+351.6430,351.8752,male rapper
+353.1755,357.3551,male rapper
+357.5873,360.1415,male rapper
+360.6523,364.5068,male rapper
+364.7390,376.7205,male rapper
+377.2778,377.3707,male rapper
+378.0209,378.3924,male rapper
+151.6727,175.6357,synthesizer
+207.6328,223.9797,synthesizer
+255.8839,398.3615,fx/processed sound
+0.0464,126.3630,synthesizer
+255.5588,308.3146,drum machine
+308.5932,309.4756,drum machine
+309.9400,375.0487,drum machine
+375.3738,398.1758,drum machine
+160.2641,174.7998,piano
+208.1437,224.3512,piano
+432.4020,531.7834,piano
+532.3407,532.6193,piano
+532.9908,533.4088,piano
+533.8268,627.9605,piano
+25.3098,53.2201,string section
+70.6815,99.9851,string section
+110.7592,147.9576,string section
+188.6854,188.8247,string section
+189.3355,256.5805,string section
+394.8785,410.3895,string section
+411.3647,445.4516,string section
+447.6343,447.8200,string section
+484.1825,490.5448,string section
+491.5200,494.0742,string section
+494.4922,502.7120,string section
+503.5015,505.3127,string section
+507.5418,532.7586,string section
+538.7494,538.9816,string section
+539.8175,539.8639,string section
+542.5575,547.7587,string section
+547.8516,548.2231,string section
+548.8733,549.9414,string section
+554.9569,576.2728,string section
+577.1088,584.2605,string section
+584.6785,584.8642,string section
+589.1831,592.6197,string section
+593.4092,624.7097,string section
+248.8715,271.4877,scratches
+308.4539,309.2434,scratches
+309.7078,335.7141,scratches
+374.4450,375.2345,scratches
+375.5595,388.8878,scratches
+175.6822,213.0199,male rapper
+213.2521,213.5771,male rapper

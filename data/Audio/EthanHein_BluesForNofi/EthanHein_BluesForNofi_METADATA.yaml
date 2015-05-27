@@ -1,0 +1,37 @@
+album: Disquiet Junto
+artist: Ethan Hein
+composer:
+- Ethan Hein
+excerpt: 'no'
+genre: Electronic/Fusion
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: EthanHein_BluesForNofi_MIX.wav
+origin: Independent Artist
+producer:
+- Ethan Hein
+raw_dir: EthanHein_BluesForNofi_RAW
+stem_dir: EthanHein_BluesForNofi_STEMS
+stems:
+  S01:
+    component: ''
+    filename: EthanHein_BluesForNofi_STEM_01.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: EthanHein_BluesForNofi_RAW_01_01.wav
+        instrument: drum set
+      R02:
+        filename: EthanHein_BluesForNofi_RAW_01_02.wav
+        instrument: drum set
+  S02:
+    component: melody
+    filename: EthanHein_BluesForNofi_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: EthanHein_BluesForNofi_RAW_02_01.wav
+        instrument: electric bass
+title: Blues For Nofi
+website:
+- www.ethanhein.com

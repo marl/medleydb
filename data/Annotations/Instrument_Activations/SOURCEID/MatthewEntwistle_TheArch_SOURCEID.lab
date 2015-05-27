@@ -1,0 +1,135 @@
+start_time,end_time,instrument_label
+0.5573,51.7341,fx/processed sound
+51.9198,62.5546,fx/processed sound
+107.4155,117.7716,fx/processed sound
+166.5800,172.6171,fx/processed sound
+197.9269,200.3418,fx/processed sound
+200.7133,218.9177,fx/processed sound
+241.3018,243.9953,fx/processed sound
+244.7383,245.2956,fx/processed sound
+246.1780,247.6176,fx/processed sound
+248.4535,260.7137,fx/processed sound
+262.0604,262.7570,fx/processed sound
+114.5673,117.7716,fx/processed sound
+130.9605,133.4683,fx/processed sound
+137.2764,140.7129,fx/processed sound
+141.3631,143.2671,fx/processed sound
+143.9173,145.8213,fx/processed sound
+146.4715,148.3755,fx/processed sound
+149.0721,150.9761,fx/processed sound
+151.6263,153.5303,fx/processed sound
+154.1805,158.6852,fx/processed sound
+161.7966,164.3508,fx/processed sound
+174.6141,177.9113,fx/processed sound
+226.7196,229.7382,fx/processed sound
+16.1146,24.8918,synthesizer
+29.9537,33.9476,synthesizer
+39.0095,45.0467,synthesizer
+47.9260,53.9632,synthesizer
+58.6536,65.0159,synthesizer
+198.8093,247.7569,synthesizer
+107.3226,122.9729,gong
+127.8955,130.1711,gong
+131.0999,135.8832,gong
+136.7655,139.1804,gong
+140.1092,144.8925,gong
+148.4684,150.7439,gong
+151.6727,155.8988,gong
+156.8276,161.0536,gong
+161.9360,166.7657,gong
+175.4964,177.7255,gong
+178.6543,182.8804,gong
+183.8092,188.0352,gong
+188.9640,193.1900,gong
+194.0724,198.8557,gong
+219.1964,234.8466,gong
+237.1222,245.1563,gong
+209.0260,243.1594,cello section
+260.1099,263.9180,cello section
+68.8704,108.6229,cello section
+125.3413,140.2950,cello section
+148.4684,169.7379,cello section
+175.4500,192.7721,cello section
+219.1964,242.2770,cello section
+44.3966,51.1768,flute section
+52.4771,64.1335,flute section
+59.7217,67.4772,fx/processed sound
+73.7930,195.7442,fx/processed sound
+198.5771,244.7848,fx/processed sound
+89.3504,129.2887,french horn section
+131.0534,134.5829,french horn section
+162.0753,165.3261,french horn section
+185.8061,192.1219,french horn section
+216.6422,241.1160,french horn section
+259.2740,263.0821,french horn section
+29.0714,66.7341,bamboo flute
+107.2762,130.1711,bamboo flute
+166.4406,194.3975,bamboo flute
+198.5771,243.5773,bamboo flute
+174.2890,178.2828,piccolo
+189.8928,197.5089,piccolo
+138.1587,139.9234,trombone section
+140.7594,142.5241,trombone section
+143.3136,145.0318,trombone section
+145.9142,147.6789,trombone section
+148.4684,150.1867,trombone section
+151.0226,152.8337,trombone section
+153.5768,155.2951,trombone section
+156.1774,158.0350,trombone section
+190.9145,198.2520,trumpet section
+107.3226,129.2887,viola section
+153.5768,160.0319,viola section
+175.4500,192.2148,viola section
+59.0251,64.7372,violin section
+88.2358,129.0101,violin section
+140.1556,141.5953,violin section
+142.6634,144.1959,violin section
+145.2640,146.7966,violin section
+147.8182,159.7997,violin section
+174.3354,197.1374,violin section
+219.2893,240.7909,violin section
+137.9265,139.2733,violin section
+140.4343,141.8739,violin section
+143.0349,144.3817,violin section
+145.5891,147.0288,violin section
+148.2362,149.5829,violin section
+150.6975,152.1836,violin section
+153.2981,154.6913,violin section
+155.8988,157.4777,violin section
+158.7316,161.3787,violin section
+165.6512,167.5088,violin section
+137.7408,139.7377,fx/processed sound
+148.0504,149.7687,fx/processed sound
+150.1867,152.7409,fx/processed sound
+152.8337,154.9235,fx/processed sound
+155.2951,158.1743,fx/processed sound
+175.0320,176.7503,fx/processed sound
+177.1683,179.7224,fx/processed sound
+179.8153,181.9051,fx/processed sound
+182.3231,184.8308,fx/processed sound
+184.9702,187.0600,fx/processed sound
+187.4315,189.9857,fx/processed sound
+190.1250,192.4470,fx/processed sound
+14.9072,55.4957,piano
+55.8208,59.6753,piano
+68.9168,80.3410,piano
+84.2420,110.1555,piano
+138.0194,163.5614,piano
+166.7193,177.0754,piano
+240.2337,262.6177,piano
+105.3722,109.8768,cymbal
+110.3412,112.4775,cymbal
+113.0347,117.5394,cymbal
+118.0038,120.6044,cymbal
+125.8986,130.4033,cymbal
+137.6015,139.9699,cymbal
+147.8647,149.8616,cymbal
+153.0195,155.3879,cymbal
+156.7347,161.2394,cymbal
+174.8927,177.2611,cymbal
+180.0011,182.4160,cymbal
+185.1559,187.5244,cymbal
+190.3107,192.6792,cymbal
+217.2459,221.7506,cymbal
+224.9085,229.4132,cymbal
+235.2181,239.7228,cymbal

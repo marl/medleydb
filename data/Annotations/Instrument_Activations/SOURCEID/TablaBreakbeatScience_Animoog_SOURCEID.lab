@@ -1,0 +1,36 @@
+start_time,end_time,instrument_label
+7.8019,8.3127,drum machine
+9.0558,10.3097,drum machine
+11.0527,12.3066,drum machine
+13.0496,14.3035,drum machine
+15.0930,288.1596,drum machine
+5.2013,14.8143,electric bass
+15.4645,105.1400,electric bass
+105.4186,108.0192,electric bass
+108.1121,120.0936,electric bass
+120.9760,183.2983,electric bass
+183.6698,190.9609,electric bass
+191.4717,241.6733,electric bass
+242.4628,245.5278,electric bass
+246.0386,247.8962,electric bass
+248.4535,251.7507,electric bass
+252.4009,294.4755,electric bass
+95.8520,144.4281,distorted electric guitar
+144.7996,146.3786,distorted electric guitar
+146.9359,160.3570,distorted electric guitar
+160.9607,164.3973,distorted electric guitar
+165.0010,291.7820,distorted electric guitar
+19.9227,288.6240,tabla
+63.9942,73.4679,tabla
+74.9540,75.3255,tabla
+75.6042,78.0190,tabla
+79.9695,131.4714,tabla
+131.7965,205.5430,tabla
+205.9146,237.5401,tabla
+237.9117,239.4442,tabla
+239.6764,260.2493,tabla
+260.4815,284.4909,tabla
+285.0946,286.3485,tabla
+287.4630,288.8098,tabla
+0.0000,96.2235,fx/processed sound
+159.8462,256.2090,fx/processed sound

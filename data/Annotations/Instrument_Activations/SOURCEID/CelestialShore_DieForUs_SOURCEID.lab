@@ -1,0 +1,44 @@
+start_time,end_time,instrument_label
+9.7059,15.3716,male singer
+15.6967,17.6936,male singer
+19.5512,26.9816,male singer
+29.1643,34.6906,male singer
+34.8299,36.9197,male singer
+38.8238,46.5328,male singer
+49.7836,54.7991,male singer
+57.8177,63.4369,male singer
+64.7372,74.6289,male singer
+95.5269,103.5610,male singer
+105.3722,113.2205,male singer
+116.4249,121.6261,male singer
+124.4125,130.1711,male singer
+131.3321,139.5055,male singer
+140.9451,144.2888,male singer
+11.5171,17.6936,female singer
+20.0620,20.7122,female singer
+21.0837,27.3067,female singer
+29.3036,36.6411,female singer
+40.5885,46.4863,female singer
+49.3192,54.8920,female singer
+57.6784,63.6691,female singer
+64.4122,74.9076,female singer
+97.3380,103.6074,female singer
+107.0904,113.4527,female singer
+115.9605,121.4868,female singer
+124.2732,130.4033,female singer
+131.0070,144.1030,female singer
+9.7059,116.9821,electric bass
+119.1648,125.2484,electric bass
+127.2918,272.1379,electric bass
+76.1615,96.1306,synthesizer
+67.3379,68.0345,clean electric guitar
+76.0686,116.4713,clean electric guitar
+119.3041,278.6395,clean electric guitar
+9.9846,117.4001,drum set
+119.3041,125.5271,drum set
+127.4311,271.9985,drum set
+76.1150,85.3566,tack piano
+85.7745,94.8303,tack piano
+0.0929,269.7230,clean electric guitar
+11.2385,51.0839,synthesizer
+77.6011,117.5394,synthesizer

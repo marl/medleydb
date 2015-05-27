@@ -1,0 +1,5 @@
+AlexanderRoss_GoodbyeBolero_STEM_03.csv,2
+AlexanderRoss_GoodbyeBolero_STEM_06.csv,1
+AlexanderRoss_GoodbyeBolero_STEM_09.csv,3
+AlexanderRoss_GoodbyeBolero_STEM_07.csv,4
+AlexanderRoss_GoodbyeBolero_STEM_08.csv,5

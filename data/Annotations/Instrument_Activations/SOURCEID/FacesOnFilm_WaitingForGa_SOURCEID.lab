@@ -1,0 +1,31 @@
+start_time,end_time,instrument_label
+42.3068,142.3383,acoustic guitar
+142.4312,148.1433,acoustic guitar
+148.6077,154.6913,acoustic guitar
+155.3879,161.7038,acoustic guitar
+161.8895,257.6022,acoustic guitar
+90.3256,257.6022,electric bass
+17.9258,41.9817,male singer
+65.8054,91.2080,male singer
+139.1340,180.7441,male singer
+39.9848,45.6040,drum set
+63.8549,69.4277,drum set
+88.4216,144.3352,drum set
+162.5397,257.6022,drum set
+0.1393,257.6022,clean electric guitar
+91.3473,142.4776,distorted electric guitar
+163.1434,257.6022,distorted electric guitar
+66.7806,257.6022,synthesizer
+42.3532,73.6073,vibraphone
+91.2080,148.7470,vibraphone
+164.8152,257.6022,vibraphone
+78.2977,89.7219,vocalists
+115.7747,140.2950,vocalists
+171.5955,255.7910,vocalists
+256.5805,257.6022,vocalists
+36.5482,40.2634,vocalists
+41.1922,67.3843,vocalists
+90.1399,140.8987,vocalists
+175.8679,201.5492,vocalists
+91.4866,140.0163,auxiliary percussion
+164.6295,257.4629,auxiliary percussion

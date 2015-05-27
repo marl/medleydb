@@ -1,0 +1,4 @@
+Creepoid_OldTree_STEM_08.csv,1
+Creepoid_OldTree_STEM_07.csv,2
+Creepoid_OldTree_STEM_06.csv,3
+Creepoid_OldTree_STEM_01.csv,4

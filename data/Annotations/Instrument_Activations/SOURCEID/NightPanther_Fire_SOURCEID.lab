@@ -1,0 +1,43 @@
+start_time,end_time,instrument_label
+30.7897,158.9638,electric bass
+159.2424,211.0694,electric bass
+30.0002,51.4090,vocalists
+61.9973,103.3288,vocalists
+159.0567,200.5740,vocalists
+30.3253,51.5019,vocalists
+61.8115,103.1895,vocalists
+159.1496,211.1158,vocalists
+0.0929,46.5328,drum machine
+50.8517,157.4313,drum machine
+159.9390,209.0725,drum machine
+8.0805,13.5605,drum set
+15.7896,21.3159,drum set
+26.0992,47.2294,drum set
+51.3161,108.1121,drum set
+108.3443,109.4124,drum set
+109.8768,111.7809,drum set
+113.5920,114.1957,drum set
+116.1462,116.8428,drum set
+118.8862,119.5828,drum set
+120.2329,121.8583,drum set
+122.5549,148.0504,drum set
+148.9328,149.2579,drum set
+149.5365,150.2331,drum set
+152.4158,153.0195,drum set
+154.9700,155.7595,drum set
+159.0102,204.0105,drum set
+123.7159,150.3724,brass section
+180.6977,206.4718,brass section
+10.0310,53.3595,male singer
+61.3007,105.3722,male singer
+148.5613,211.6731,male singer
+102.0749,106.8582,auxiliary percussion
+112.7561,117.5394,auxiliary percussion
+119.2577,209.0260,auxiliary percussion
+51.3625,103.7003,string section
+100.4495,150.8368,synthesizer
+159.8462,203.1282,synthesizer
+0.0929,103.7932,synthesizer
+113.3134,201.5956,synthesizer
+113.3134,151.3012,synthesizer
+159.7997,210.3263,synthesizer

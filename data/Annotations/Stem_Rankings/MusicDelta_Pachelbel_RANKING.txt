@@ -1,0 +1,3 @@
+MusicDelta_Pachelbel_STEM_04.csv,1
+MusicDelta_Pachelbel_STEM_01.csv,2
+MusicDelta_Pachelbel_STEM_03.csv,3

@@ -1,0 +1,42 @@
+album: ''
+artist: NYU
+composer:
+- Claude Debussy
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: Debussy_LenfantProdigue_MIX.wav
+origin: Dolan Studio
+producer:
+- NYU
+raw_dir: Debussy_LenfantProdigue_RAW
+stem_dir: Debussy_LenfantProdigue_STEMS
+stems:
+  S01:
+    component: melody
+    filename: Debussy_LenfantProdigue_STEM_01.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Debussy_LenfantProdigue_RAW_01_01.wav
+        instrument: male singer
+  S02:
+    component: ''
+    filename: Debussy_LenfantProdigue_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Debussy_LenfantProdigue_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Debussy_LenfantProdigue_RAW_02_02.wav
+        instrument: piano
+      R03:
+        filename: Debussy_LenfantProdigue_RAW_02_03.wav
+        instrument: piano
+      R04:
+        filename: Debussy_LenfantProdigue_RAW_02_04.wav
+        instrument: piano
+title: Lenfant prodigue
+website: []

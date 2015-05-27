@@ -1,0 +1,46 @@
+start_time,end_time,instrument_label
+0.0929,1.6254,auxiliary percussion
+1.8112,22.1983,auxiliary percussion
+22.4305,24.7989,auxiliary percussion
+25.0311,29.9537,auxiliary percussion
+30.1395,35.1550,auxiliary percussion
+35.3408,37.6163,auxiliary percussion
+38.0343,40.2634,auxiliary percussion
+40.5885,42.9569,auxiliary percussion
+43.0498,47.9724,auxiliary percussion
+48.2975,50.6659,auxiliary percussion
+50.7588,60.9292,auxiliary percussion
+61.1614,67.1521,auxiliary percussion
+88.3287,150.3260,auxiliary percussion
+180.8834,242.6021,auxiliary percussion
+10.7741,251.1935,electric bass
+187.9888,191.1467,male singer
+198.2984,201.4099,male singer
+211.3480,218.5927,male singer
+15.9289,30.0466,vibraphone
+41.6102,49.0870,vibraphone
+61.1149,61.6258,vibraphone
+62.3224,68.4989,vibraphone
+123.9017,135.5117,vibraphone
+144.7068,151.5334,vibraphone
+67.5701,244.4132,drum set
+0.1858,10.1703,sampler
+10.5419,11.1920,sampler
+15.8360,69.9385,sampler
+145.7749,152.2765,sampler
+0.0000,265.6363,clean electric guitar
+86.6569,127.2918,clean electric guitar
+170.3880,274.8778,clean electric guitar
+0.0000,274.5992,synthesizer
+26.4243,44.0250,vocalists
+47.1365,64.5979,vocalists
+66.6877,91.6259,vocalists
+108.9016,126.4559,vocalists
+129.5673,146.8894,vocalists
+149.7687,202.7102,vocalists
+211.2551,242.8807,vocalists
+243.0665,247.9891,vocalists
+248.3606,253.4226,vocalists
+0.0000,68.0809,tack piano
+124.0874,182.1373,tack piano
+210.8372,272.6487,tack piano

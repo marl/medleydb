@@ -1,0 +1,188 @@
+album: Shaking Through Volume 2
+artist: Creepoid
+composer:
+- Creepoid
+excerpt: 'no'
+genre: Rock
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: Creepoid_OldTree_MIX.wav
+origin: Weathervane Music
+producer:
+- Andy Williams
+raw_dir: Creepoid_OldTree_RAW
+stem_dir: Creepoid_OldTree_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Creepoid_OldTree_STEM_01.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_01_01.wav
+        instrument: female singer
+      R02:
+        filename: Creepoid_OldTree_RAW_01_02.wav
+        instrument: female singer
+      R03:
+        filename: Creepoid_OldTree_RAW_01_03.wav
+        instrument: female singer
+      R04:
+        filename: Creepoid_OldTree_RAW_01_04.wav
+        instrument: female singer
+      R05:
+        filename: Creepoid_OldTree_RAW_01_05.wav
+        instrument: female singer
+  S02:
+    component: bass
+    filename: Creepoid_OldTree_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_02_01.wav
+        instrument: electric bass
+      R02:
+        filename: Creepoid_OldTree_RAW_02_02.wav
+        instrument: electric bass
+  S03:
+    component: ''
+    filename: Creepoid_OldTree_STEM_03.wav
+    instrument: fx/processed sound
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_03_01.wav
+        instrument: male singer
+  S04:
+    component: ''
+    filename: Creepoid_OldTree_STEM_04.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_04_01.wav
+        instrument: drum set
+      R02:
+        filename: Creepoid_OldTree_RAW_04_02.wav
+        instrument: drum set
+      R03:
+        filename: Creepoid_OldTree_RAW_04_03.wav
+        instrument: drum set
+      R04:
+        filename: Creepoid_OldTree_RAW_04_04.wav
+        instrument: drum set
+      R05:
+        filename: Creepoid_OldTree_RAW_04_05.wav
+        instrument: drum set
+      R06:
+        filename: Creepoid_OldTree_RAW_04_06.wav
+        instrument: drum set
+      R07:
+        filename: Creepoid_OldTree_RAW_04_07.wav
+        instrument: drum set
+      R08:
+        filename: Creepoid_OldTree_RAW_04_08.wav
+        instrument: drum set
+      R09:
+        filename: Creepoid_OldTree_RAW_04_09.wav
+        instrument: kick drum
+      R10:
+        filename: Creepoid_OldTree_RAW_04_10.wav
+        instrument: drum set
+      R11:
+        filename: Creepoid_OldTree_RAW_04_11.wav
+        instrument: drum set
+      R12:
+        filename: Creepoid_OldTree_RAW_04_12.wav
+        instrument: snare drum
+  S05:
+    component: ''
+    filename: Creepoid_OldTree_STEM_05.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_05_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: Creepoid_OldTree_RAW_05_02.wav
+        instrument: distorted electric guitar
+      R03:
+        filename: Creepoid_OldTree_RAW_05_03.wav
+        instrument: distorted electric guitar
+  S06:
+    component: ''
+    filename: Creepoid_OldTree_STEM_06.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_06_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: Creepoid_OldTree_RAW_06_02.wav
+        instrument: distorted electric guitar
+      R03:
+        filename: Creepoid_OldTree_RAW_06_03.wav
+        instrument: distorted electric guitar
+      R04:
+        filename: Creepoid_OldTree_RAW_06_04.wav
+        instrument: distorted electric guitar
+  S07:
+    component: ''
+    filename: Creepoid_OldTree_STEM_07.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_07_01.wav
+        instrument: male singer
+      R02:
+        filename: Creepoid_OldTree_RAW_07_02.wav
+        instrument: male singer
+  S08:
+    component: melody
+    filename: Creepoid_OldTree_STEM_08.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_08_01.wav
+        instrument: male singer
+      R02:
+        filename: Creepoid_OldTree_RAW_08_02.wav
+        instrument: male singer
+  S09:
+    component: ''
+    filename: Creepoid_OldTree_STEM_09.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_09_01.wav
+        instrument: male singer
+      R02:
+        filename: Creepoid_OldTree_RAW_09_02.wav
+        instrument: male singer
+  S10:
+    component: ''
+    filename: Creepoid_OldTree_STEM_10.wav
+    instrument: auxiliary percussion
+    raw:
+      R01:
+        filename: Creepoid_OldTree_RAW_10_01.wav
+        instrument: sleigh bells
+      R02:
+        filename: Creepoid_OldTree_RAW_10_02.wav
+        instrument: sleigh bells
+      R03:
+        filename: Creepoid_OldTree_RAW_10_03.wav
+        instrument: shaker
+      R04:
+        filename: Creepoid_OldTree_RAW_10_04.wav
+        instrument: shaker
+      R05:
+        filename: Creepoid_OldTree_RAW_10_05.wav
+        instrument: fx/processed sound
+      R06:
+        filename: Creepoid_OldTree_RAW_10_06.wav
+        instrument: tambourine
+      R07:
+        filename: Creepoid_OldTree_RAW_10_07.wav
+        instrument: tambourine
+title: Old Tree
+website:
+- www.shakingthrough.com/creepoid

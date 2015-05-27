@@ -1,0 +1,5 @@
+MusicDelta_Beethoven_STEM_06.csv,2
+MusicDelta_Beethoven_STEM_08.csv,3
+MusicDelta_Beethoven_STEM_10.csv,1
+MusicDelta_Beethoven_STEM_14.csv,4
+MusicDelta_Beethoven_STEM_16.csv,5
