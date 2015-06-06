@@ -7,7 +7,7 @@ import glob
 import os
 from . import multitrack as M
 from . import sox
-from . import AUDIO_DIR
+from . import MEDLEYDB_PATH
 
 
 def load_melody_multitracks():
@@ -22,12 +22,12 @@ def load_melody_multitracks():
     """
     multitracks = load_all_multitracks()
     for track in multitracks:
-        if track.melody1_annotation:
+        if track.has_melody:
             yield track
 
 
 def load_all_multitracks():
-    """Load all multitracks in AUDIO_DIR.
+    """Load all multitracks in MEDLEYDB_PATH.
 
     Example:
         >>> multitracks = load_all_multitracks()
@@ -36,7 +36,7 @@ def load_all_multitracks():
         multitracks (list): List of multitrack objects.
 
     """
-    track_list = glob.glob(os.path.join(AUDIO_DIR, '*'))
+    track_list = glob.glob(os.path.join(MEDLEYDB_PATH, '*'))
     multitracks = load_multitracks(track_list)
     return multitracks
 
