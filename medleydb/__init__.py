@@ -20,11 +20,6 @@ assert path.exists(MEDLEYDB_PATH), """The path: %s set for MEDLEYDB_PATH does
 not exist.""" % MEDLEYDB_PATH
 
 INST_TAXONOMY = path.join(path.dirname(__file__), 'taxonomy.yaml')
-AUDIO_DIR = path.join(MEDLEYDB_PATH, 'Audio')
-ANNOTATION_DIR = path.join(MEDLEYDB_PATH, 'Annotations')
-MELODY_DIR = path.join(ANNOTATION_DIR, 'Melody_Annotations')
-PITCH_DIR = path.join(ANNOTATION_DIR, 'Pitch_Annotations')
-RANKINGS_DIR = path.join(ANNOTATION_DIR, 'Stem_Rankings')
 
 from .utils import (
     load_melody_multitracks,
