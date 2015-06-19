@@ -1,2 +1,3 @@
-LV STEM_01.wav,2
-JILL STEM_01.wav,1
+STEM_12.wav,1
+STEM_15.wav,2
+STEM_4.wav,3
