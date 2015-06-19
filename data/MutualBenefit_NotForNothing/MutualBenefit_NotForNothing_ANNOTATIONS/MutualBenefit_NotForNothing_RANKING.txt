@@ -1,3 +1,0 @@
-LV STEM_06.wav,1
-STR STEM_08.wav,2
-STR2 STEM_11.wav,3
