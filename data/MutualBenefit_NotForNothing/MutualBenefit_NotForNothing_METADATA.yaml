@@ -123,7 +123,7 @@ stems:
         filename: MutualBenefit_NotForNothing_RAW_07_02.wav
         instrument: acoustic guitar
   S08:
-    component: ''
+    component: melody
     filename: MutualBenefit_NotForNothing_STEM_08.wav
     instrument: violin section
     raw:
@@ -186,7 +186,7 @@ stems:
         filename: MutualBenefit_NotForNothing_RAW_10_02.wav
         instrument: piano
   S11:
-    component: ''
+    component: melody
     filename: MutualBenefit_NotForNothing_STEM_11.wav
     instrument: violin section
     raw:
