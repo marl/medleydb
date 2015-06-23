@@ -69,7 +69,7 @@ stems:
         filename: PatternIsMovement_SaveMe_RAW_04_03.wav
         instrument: male singer
   S05:
-    component: ''
+    component: melody
     filename: PatternIsMovement_SaveMe_STEM_05.wav
     instrument: electronic organ
     raw:
