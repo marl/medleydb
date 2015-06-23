@@ -1,0 +1,6 @@
+Cayetana_MissThing_STEM_02.wav,5
+Cayetana_MissThing_STEM_03.wav,4
+Cayetana_MissThing_STEM_05.wav,1
+Cayetana_MissThing_STEM_06.wav,3
+Cayetana_MissThing_STEM_07.wav,6
+Cayetana_MissThing_STEM_08.wav,2
