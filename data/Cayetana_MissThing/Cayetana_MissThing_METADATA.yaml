@@ -86,7 +86,7 @@ stems:
         filename: Cayetana_MissThing_RAW_02_06.wav
         instrument: distorted electric guitar
   S03:
-    component: melody
+    component: ''
     filename: Cayetana_MissThing_STEM_03.wav
     instrument: distorted electric guitar
     raw:
@@ -116,7 +116,7 @@ stems:
         filename: Cayetana_MissThing_RAW_05_02.wav
         instrument: female singer
   S06:
-    component: melody
+    component: ''
     filename: Cayetana_MissThing_STEM_06.wav
     instrument: distorted electric guitar
     raw:
