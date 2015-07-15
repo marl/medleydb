@@ -13,7 +13,7 @@ release date: null
 stem_dir: FilthyBird_IdLikeToKnow_STEMS
 stems:
   S01:
-    component: melody
+    component: ''
     filename: FilthyBird_IdLikeToKnow_STEM_01.wav
     instrument: acoustic guitar
     raw:
@@ -58,7 +58,7 @@ stems:
         filename: FilthyBird_IdLikeToKnow_RAW_03_02.wav
         instrument: tambourine
   S04:
-    component: melody
+    component: ''
     filename: FilthyBird_IdLikeToKnow_STEM_04.wav
     instrument: distorted electric guitar
     raw:
@@ -142,7 +142,7 @@ stems:
         filename: FilthyBird_IdLikeToKnow_RAW_09_02.wav
         instrument: female singer
   S10:
-    component: melody
+    component: ''
     filename: FilthyBird_IdLikeToKnow_STEM_10.wav
     instrument: distorted electric guitar
     raw:

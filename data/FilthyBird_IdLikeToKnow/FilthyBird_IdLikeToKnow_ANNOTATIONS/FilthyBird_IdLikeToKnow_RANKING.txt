@@ -1,7 +1,5 @@
-FilthyBird_IdLikeToKnow_STEM_01.wav,5
 FilthyBird_IdLikeToKnow_STEM_02.wav,2
-FilthyBird_IdLikeToKnow_STEM_04.wav,7
 FilthyBird_IdLikeToKnow_STEM_06.wav,4
 FilthyBird_IdLikeToKnow_STEM_07.wav,3
 FilthyBird_IdLikeToKnow_STEM_09.wav,1
-FilthyBird_IdLikeToKnow_STEM_10.wav,6
+
