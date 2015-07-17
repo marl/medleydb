@@ -1,0 +1,8 @@
+TheTonTons_Lush_STEM_01.wav,2
+TheTonTons_Lush_STEM_03.wav,8
+TheTonTons_Lush_STEM_05.wav,5
+TheTonTons_Lush_STEM_06.wav,3
+TheTonTons_Lush_STEM_07.wav,6
+TheTonTons_Lush_STEM_08.wav,7
+TheTonTons_Lush_STEM_10.wav,1
+TheTonTons_Lush_STEM_11.wav,4
