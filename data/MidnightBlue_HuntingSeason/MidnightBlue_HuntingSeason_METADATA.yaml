@@ -108,7 +108,7 @@ stems:
         filename: MidnightBlue_HuntingSeason_RAW_07_01.wav
         instrument: distorted electric guitar
   S08:
-    component: melody
+    component: ''
     filename: MidnightBlue_HuntingSeason_STEM_08.wav
     instrument: piano
     raw:
