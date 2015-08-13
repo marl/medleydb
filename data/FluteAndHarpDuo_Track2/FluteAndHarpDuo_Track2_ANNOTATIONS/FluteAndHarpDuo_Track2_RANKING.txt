@@ -1,0 +1,2 @@
+FluteAndHarpDuo_Track2_STEM_01.wav,2
+FluteAndHarpDuo_Track2_STEM_02.wav,1
