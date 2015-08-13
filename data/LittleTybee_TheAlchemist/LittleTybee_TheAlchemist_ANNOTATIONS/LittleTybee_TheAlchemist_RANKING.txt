@@ -1,0 +1,8 @@
+LittleTybee_TheAlchemist_STEM_01.wav,4
+LittleTybee_TheAlchemist_STEM_02.wav,8
+LittleTybee_TheAlchemist_STEM_04.wav,5
+LittleTybee_TheAlchemist_STEM_05.wav,6
+LittleTybee_TheAlchemist_STEM_07.wav,1
+LittleTybee_TheAlchemist_STEM_08.wav,7
+LittleTybee_TheAlchemist_STEM_09.wav,2
+LittleTybee_TheAlchemist_STEM_10.wav,3
