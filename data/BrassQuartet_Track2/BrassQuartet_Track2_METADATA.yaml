@@ -1,0 +1,38 @@
+album: Dolan 2015
+artist: Brass Quartet
+composer: ''
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: BrassQuartet_Track2_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: BrassQuartet_Track2_RAW
+release date: null
+stem_dir: BrassQuartet_Track2_STEMS
+stems:
+  S01:
+    component: ''
+    filename: BrassQuartet_Track2_STEM_01.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: BrassQuartet_Track2_RAW_01_01.wav
+        instrument: Main System
+      R02:
+        filename: BrassQuartet_Track2_RAW_01_02.wav
+        instrument: Main System
+  S02:
+    component: ''
+    filename: BrassQuartet_Track2_STEM_02.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: BrassQuartet_Track2_RAW_02_01.wav
+        instrument: Main System
+      R02:
+        filename: BrassQuartet_Track2_RAW_02_02.wav
+        instrument: Main System
+title: Track 2
+website: ''
