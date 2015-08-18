@@ -13,7 +13,7 @@ release date: null
 stem_dir: LittleTybee_TheAlchemist_STEMS
 stems:
   S01:
-    component: melody
+    component: ''
     filename: LittleTybee_TheAlchemist_STEM_01.wav
     instrument: acoustic guitar
     raw:
