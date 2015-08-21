@@ -24,7 +24,7 @@ stems:
         filename: PianoTrio_TrackOne_RAW_01_02.wav
         instrument: piano
   S02:
-    component: melody
+    component: ''
     filename: PianoTrio_TrackOne_STEM_02.wav
     instrument: piano
     raw:
