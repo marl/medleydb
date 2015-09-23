@@ -1,0 +1,3 @@
+CassandraJenkins_PerfectDay_STEM_01.wav,3
+CassandraJenkins_PerfectDay_STEM_05.wav,2
+CassandraJenkins_PerfectDay_STEM_07.wav,1
