@@ -95,7 +95,7 @@ stems:
         filename: FruitCathedral_KeepMeRunnin_RAW_02_14.wav
         instrument: distorted electric guitar
   S03:
-    component: melody
+    component: ''
     filename: FruitCathedral_KeepMeRunnin_STEM_03.wav
     instrument: acoustic guitar
     raw:

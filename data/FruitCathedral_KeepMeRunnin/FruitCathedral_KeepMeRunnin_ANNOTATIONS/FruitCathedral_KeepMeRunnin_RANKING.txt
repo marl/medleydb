@@ -1,3 +1,2 @@
 FruitCathedral_KeepMeRunnin_STEM_02.wav,2
-FruitCathedral_KeepMeRunnin_STEM_03.wav,3
 FruitCathedral_KeepMeRunnin_STEM_04.wav,1
