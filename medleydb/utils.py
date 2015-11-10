@@ -3,11 +3,26 @@
 """ Utilities to navigate MedleyDB.
 """
 
-import glob
-import os
 from . import multitrack as M
 from . import sox
-from . import MEDLEYDB_PATH
+from . import TRACK_LIST
+
+
+def load_track_list():
+    """ Load the list of tracks in the current version of MedleyDB.
+
+    Example:
+        >>> track_list = load_track_list()
+
+    Returns:
+        track_list (list): List of track id strings in format "Artist_Title"
+
+    """
+    track_list = []
+    with open(TRACK_LIST, 'r') as fhandle:
+        for line in fhandle.readlines():
+            track_list.append(line.strip('\n'))
+    return track_list
 
 
 def load_melody_multitracks():
@@ -36,7 +51,7 @@ def load_all_multitracks():
         multitracks (list): List of multitrack objects.
 
     """
-    track_list = glob.glob(os.path.join(MEDLEYDB_PATH, '*'))
+    track_list = load_track_list()
     multitracks = load_multitracks(track_list)
     return multitracks
 
@@ -46,20 +61,20 @@ def load_multitracks(track_list):
 
     Example:
         # create a list of paths to multitrack directories
-        >>> track_list = ['path/to/ArtistName1_TrackName1', \
-                          'path/to/ArtistName2_TrackName2', \
-                          'path/to/ArtistName3_TrackName3']
+        >>> track_list = ['ArtistName1_TrackName1', \
+                          'ArtistName2_TrackName2', \
+                          'ArtistName3_TrackName3']
         >>> multitracks = load_multitracks(track_list)
 
     Args:
-        track_list (list): List of paths to multi-track folders.
+        track_list (list): List of track ids in format 'Artist_Title'
 
     Returns:
         multitracks (dict): List of multitrack objects.
 
     """
-    for multitrack in track_list:
-        yield M.MultiTrack(multitrack)
+    for track_id in track_list:
+        yield M.MultiTrack(track_id)
 
 
 def get_files_for_instrument(instrument, multitrack_list=None):
@@ -70,9 +85,9 @@ def get_files_for_instrument(instrument, multitrack_list=None):
         >>> drumset_files = get_files_for_instrument('drum set')
 
         # load violin files from a subset of the dataset:
-        >>> track_list = ['path/to/ArtistName1_TrackName1', \
-                          'path/to/ArtistName2_TrackName2', \
-                          'path/to/ArtistName3_TrackName3']
+        >>> track_list = ['ArtistName1_TrackName1', \
+                          'ArtistName2_TrackName2', \
+                          'ArtistName3_TrackName3']
         >>> multitrack_subset = load_multitracks(track_list)
         >>> violin_files = get_files_for_instrument(
                 'violin', multitrack_subset
@@ -88,8 +103,8 @@ def get_files_for_instrument(instrument, multitrack_list=None):
         inst_list (list): List of filepaths corresponding to instrument label.
 
     """
-    assert M.is_valid_instrument(instrument), \
-        "%s is not in the instrument taxonomy." % instrument
+    if not M.is_valid_instrument(instrument):
+        raise ValueError("%s is not in the instrument taxonomy." % instrument)
 
     if not multitrack_list:
         multitrack_list = load_all_multitracks()
@@ -113,7 +128,7 @@ def preview_audio(multitrack, selection='all', preview_length=8):
 
     Args:
         multitrack (MultiTrack or str): An instance of the class MultiTrack or
-            a path to a multitrack folder.
+            a track id.
         selection (str, optional): Determines which audio to play.
             'all' plays mix, stems, and raw.
             'stems' plays only the stems.
@@ -125,7 +140,7 @@ def preview_audio(multitrack, selection='all', preview_length=8):
 
     if isinstance(multitrack, M.MultiTrack):
         mtrack = multitrack
-    elif isinstance(multitrack, str) and os.path.exists(multitrack):
+    elif isinstance(multitrack, str):
         mtrack = M.MultiTrack(multitrack)
 
     raw_audio = mtrack.raw_audio
