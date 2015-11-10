@@ -14,8 +14,6 @@ addons:
 install:
   - pip install coveralls
   - pip install -e .
-  - pip install -e .[sql]
-  - medleydb-export
 
 # command to run tests
 script: nosetests --with-coverage --cover-erase --cover-package=medleydb -v -w tests/
