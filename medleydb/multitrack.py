@@ -7,6 +7,9 @@ import yaml
 import wave
 import csv
 from . import INST_TAXONOMY
+from . import MEDLEYDB_PATH
+from . import ANNOT_PATH
+from . import METADATA_PATH
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -16,6 +19,8 @@ _RAWDIR_FMT = "%s_RAW"
 _MIX_FMT = "%s_MIX.wav"
 _STEM_FMT = "%s_STEM_%%s.wav"
 _RAW_FMT = "%s_RAW_%%s_%%s.wav"
+
+_AUDIODIR_FMT = "%s_AUDIO"
 
 _ANNOTDIR_FMT = "%s_ANNOTATIONS"
 _ACTIVCONF_FMT = "%s_ACTIVATION_CONF.lab"
@@ -36,8 +41,8 @@ class MultiTrack(object):
     given multitrack directory.
 
     Examples:
-        >>> mtrack = Multitrack('/MedleyDB/Audio/LizNelson_Rainfall')
-        >>> another_mtrack = Multitrack('some/path/ArtistName_TrackTitle')
+        >>> mtrack = Multitrack('LizNelson_Rainfall')
+        >>> another_mtrack = Multitrack('ArtistName_TrackTitle')
 
     Attributes:
         artist (str): Artist.
@@ -58,36 +63,41 @@ class MultiTrack(object):
         stems (list of Track objects): List of stems.
         title (str): Track title.
         track_id (str): Unique track id in the form "ArtistName_TrackTitle".
-
     """
 
-    def __init__(self, mtrack_path):
+    def __init__(self, track_id):
         """MultiTrack object __init__ method.
 
         Args:
-            mtrack_path (str): Path to folder with multitrack information.
+            track_id (str): Track id in format 'Artist_Title'.
 
         """
 
         # Artist, Title & Track Directory #
-        self.mtrack_path = mtrack_path
-        self.artist = _path_basedir(mtrack_path).split('_')[0]
-        self.title = _path_basedir(mtrack_path).split('_')[1]
-        self.track_id = _TRACKID_FMT % (self.artist, self.title)
+        self.audio_path = os.path.join(MEDLEYDB_PATH, _AUDIODIR_FMT % track_id)
+        self.artist = track_id.split('_')[0]
+        self.title = track_id.split('_')[1]
+        self.track_id = track_id
 
         # Filenames and Filepaths #
+        self._meta_path = \
+            os.path.join(METADATA_PATH, _METADATA_FMT % self.track_id)
+
+        # break if metadata file cannot be found
+        if not os.path.exists(self._meta_path):
+            raise IOError("Cannot find metadata for %s" % self.track_id)
+
         self._annotation_dir = \
-            os.path.join(mtrack_path, _ANNOTDIR_FMT % self.track_id)
+            os.path.join(ANNOT_PATH, _ANNOTDIR_FMT % self.track_id)
         self._pitch_path = \
             os.path.join(self._annotation_dir, _PITCHDIR_FMT % self.track_id)
-        self._meta_path = \
-            os.path.join(mtrack_path, _METADATA_FMT % self.track_id)
+
         self._stem_dir_path = \
-            os.path.join(mtrack_path, _STEMDIR_FMT % self.track_id)
+            os.path.join(self.audio_path, _STEMDIR_FMT % self.track_id)
         self._raw_dir_path = \
-            os.path.join(mtrack_path, _RAWDIR_FMT % self.track_id)
+            os.path.join(self.audio_path, _RAWDIR_FMT % self.track_id)
         self.mix_path = \
-            os.path.join(mtrack_path, _MIX_FMT % self.track_id)
+            os.path.join(self.audio_path, _MIX_FMT % self.track_id)
 
         # Stem & Raw File Formats #
         self._stem_fmt = _STEM_FMT % self.track_id
@@ -109,14 +119,14 @@ class MultiTrack(object):
         else:
             print "Warning: Audio missing for %s." % self.track_id
             self.duration = None
-        
+
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
         self.has_bleed = _YESNO[self._metadata['has_bleed']]
         self.is_instrumental = _YESNO[self._metadata['instrumental']]
         self.origin = self._metadata['origin']
         self.genre = self._metadata['genre']
 
-        mel1_path = os.path.join(self._annotation_dir, 
+        mel1_path = os.path.join(self._annotation_dir,
                                  _MELODY1_FMT % self.track_id)
         self.has_melody = os.path.exists(mel1_path)
 
@@ -300,7 +310,7 @@ class Track(object):
 
     """
 
-    def __init__(self, instrument, file_path, stem_idx, mix_path, 
+    def __init__(self, instrument, file_path, stem_idx, mix_path,
                  pitch_path=None, raw_idx=None, component=''):
         """Track object __init__ method.
 
