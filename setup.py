@@ -4,7 +4,7 @@ if __name__ == "__main__":
     setup(
         name='medleydb',
 
-        version='0.1.0',
+        version='1.1',
 
         description='Python module for the MedleyDB dataset',
 
@@ -12,9 +12,9 @@ if __name__ == "__main__":
 
         author_email='rachel.bittner@nyu.edu',
 
-        url='https://github.com/rabitt3/medleydb',
+        url='https://github.com/rabitt/medleydb',
 
-        download_url='http://github.com/rabitt3/medleydb/releases',
+        download_url='http://github.com/rabitt/medleydb/releases',
 
         packages=['medleydb', 'medleydb.sql'],
 
