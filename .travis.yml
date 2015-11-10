@@ -1,0 +1,28 @@
+sudo: false
+
+language: python
+
+python:
+  - "2.7"
+
+addons:
+  apt:
+    packages:
+    - sox
+
+# command to install dependencies
+install:
+  - pip install coveralls
+  - pip install -e .
+  - pip install -e .[sql]
+  - medleydb-export
+
+# command to run tests
+script: nosetests --with-coverage --cover-erase --cover-package=medleydb -v -w tests/
+
+after_success:
+    - coveralls
+    - pip uninstall -y medleydb
+
+after_failure:
+    - pip uninstall -y medleydb
