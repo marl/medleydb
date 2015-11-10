@@ -323,14 +323,18 @@ class TestGetDictLeaves(unittest.TestCase):
 
 class TestGetDuration(unittest.TestCase):
     def test_get_duration(self):
-        actual = multitrack.get_duration('tests/data/short_audio.wav')
+        actual = multitrack.get_duration(os.path.join(
+            os.path.dirname(__file__), 'data/short_audio.wav')
+        )
         expected = 4.0
         self.assertEqual(actual, expected)
 
 
 class TestReadAnnotationFile(unittest.TestCase):
     def test_readpitch(self):
-        actual = multitrack.read_annotation_file('tests/data/pitch.csv')
+        actual = multitrack.read_annotation_file(
+            os.path.join(os.path.dirname(__file__), 'data/pitch.csv')
+        )
         expected = [
             [0.023219954, 189.187],
             [0.029024943, 191.782],
@@ -339,7 +343,9 @@ class TestReadAnnotationFile(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_readmelody(self):
-        actual = multitrack.read_annotation_file('tests/data/melody.csv')
+        actual = multitrack.read_annotation_file(
+            os.path.join(os.path.dirname(__file__),'data/melody.csv')
+        )
         expected = [
             [0.0, 0.0],
             [0.0058049886621315194, 0.0],
@@ -370,7 +376,9 @@ class TestGetValidInstrumentLabels(unittest.TestCase):
 
     def test_alternate_taxonomy(self):
         actual = multitrack.get_valid_instrument_labels(
-            taxonomy_file='tests/data/test_taxonomy.yaml'
+            taxonomy_file=os.path.join(
+                os.path.dirname(__file__), 'data/test_taxonomy.yaml'
+            )
         )
         expected = set([
             'rick',
