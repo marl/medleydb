@@ -9,6 +9,7 @@ import csv
 from . import INST_TAXONOMY
 from . import PITCH_DIR
 from . import MELODY_DIR
+from . import ACTIVATIONS_DIR
 from . import RANKINGS_DIR
 
 _YESNO = dict(yes=True, no=False)
@@ -26,6 +27,8 @@ _MELODY1_FMT = "%s_MELODY1.csv"
 _MELODY2_FMT = "%s_MELODY2.csv"
 _MELODY3_FMT = "%s_MELODY3.csv"
 _RANKING_FMT = "%s_RANKING.txt"
+_ACTIVATION_CONFS_DIR = 'ACTIVATION_CONF'
+_ACTIVATION_CONFS_FMT = "%s_ACTIVATION_CONF.lab"
 _PITCH_FMT = "%s.csv"
 
 
@@ -55,6 +58,7 @@ class MultiTrack(object):
         raw_audio (list of Track objects): List of raw audio tracks.
         raw_instruments (list of strings): List of raw track instrument labels.
         stem_instruments (list of strings): List of stem instrument labels.
+        stem_activations (list): List of stem activation confidence annotations
         stems (list of Track objects): List of stems.
         title (str): Track title.
         track_id (str): Unique track id in the form "ArtistName_TrackTitle".
@@ -117,6 +121,7 @@ class MultiTrack(object):
             self.melody3_annotation
         ) = self._get_melody_annotations()
         self.predominant_stem = self._get_predominant_stem()
+        self.stem_activations = self._get_activation_annotations()
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -173,6 +178,15 @@ class MultiTrack(object):
             read_annotation_file(melody2_fpath),
             read_annotation_file(melody3_fpath)
         )
+
+    def _get_activation_annotations(self):
+        """Get activation confidence annotation if file exists.
+        """
+        fname = _ACTIVATION_CONFS_FMT % self.track_id
+        activation_annotation_fpath = os.path.join(
+            ACTIVATIONS_DIR, _ACTIVATION_CONFS_DIR, fname
+        )
+        return read_annotation_file(activation_annotation_fpath)
 
     def _get_predominant_stem(self):
         """Get predominant stem if files exists.
@@ -274,6 +288,23 @@ class MultiTrack(object):
         return [
             track for track in self.raw_audio if track.stem_idx == stem_idx
         ]
+
+    def activation_conf_from_stem(self, stem_idx):
+        """Get all raw audio tracks that are children of a given stem.
+
+        Args:
+            stem_idx (int): stem index (eg. 2 for stem S02)
+
+        Returns:
+            activation_confidence (list): time and activation confidence
+
+        """
+
+        activations = []
+        for step in self.stem_activations:
+            activations.append([step[0], step[stem_idx]])
+
+        return activations
 
 
 class Track(object):
@@ -404,6 +435,7 @@ def read_annotation_file(fpath, num_cols=None):
         >>> melody_fpath = 'ArtistName_TrackTitle_MELODY1.txt'
         >>> pitch_fpath = 'my_tony_pitch_annotation.csv'
         >>> melody_annotation = read_annotation_file(melody_fpath)
+        >>> activation_annotation = read_annotation_file(actvation_fpath)
         >>> pitch_annotation = read_annotation_file(pitch_fpath, num_cols=2)
 
         The returned annotations can be directly converted to a numpy array,
@@ -428,6 +460,11 @@ def read_annotation_file(fpath, num_cols=None):
         with open(fpath) as f_handle:
             annotation = []
             linereader = csv.reader(f_handle)
+
+            # skip the headers for non csv files
+            if os.path.splitext(fpath)[1] == '.lab':
+                next(linereader, None)
+
             for line in linereader:
                 if num_cols:
                     line = line[:num_cols]
