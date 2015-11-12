@@ -43,7 +43,9 @@ if __name__ == "__main__":
 
         extras_require={
             'sql': [
-                'SQLAlchemy'
+                'SQLAlchemy',
+                'scipy',
+                'numpy'
             ],
             'tests': [
                 'pytest',

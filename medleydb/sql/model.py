@@ -174,6 +174,21 @@ class Track(DeclarativeBase):
         )
 
     @hybrid_property
+    def activations_data(self):
+        """ Get activation confidence annotation """
+        fname = medleydb.multitrack._ACTIVATION_CONFS_FMT % \
+            os.path.basename(self.track_id).split('.')[0]
+
+        activation_annotation_fpath = os.path.join(
+            medleydb.multitrack.ACTIVATIONS_DIR,
+            medleydb.multitrack._ACTIVATION_CONFS_DIR,
+            fname
+        )
+        return medleydb.multitrack.read_annotation_file(
+            activation_annotation_fpath
+        )
+
+    @hybrid_property
     def metadata_path(self):
         """ Get path of metadata file """
         return os.path.join(
