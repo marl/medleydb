@@ -33,7 +33,6 @@ def test_hybrid_properies(track):
     repr(track)
     track.audio_path
     track.audio_data
-    track.pitch_data
     track.activations_data
     track.base_dir
     track.track_id
