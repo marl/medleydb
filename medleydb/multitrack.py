@@ -290,7 +290,7 @@ class MultiTrack(object):
         ]
 
     def activation_conf_from_stem(self, stem_idx):
-        """Get all raw audio tracks that are children of a given stem.
+        """Get activation confidence from given stem.
 
         Args:
             stem_idx (int): stem index (eg. 2 for stem S02)
