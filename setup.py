@@ -4,7 +4,7 @@ if __name__ == "__main__":
     setup(
         name='medleydb',
 
-        version='0.2.0',
+        version='0.2.1',
 
         description='Python module for the MedleyDB dataset',
 
@@ -43,7 +43,9 @@ if __name__ == "__main__":
 
         extras_require={
             'sql': [
-                'SQLAlchemy'
+                'SQLAlchemy',
+                'scipy',
+                'numpy'
             ],
             'tests': [
                 'pytest',

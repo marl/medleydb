@@ -160,17 +160,18 @@ class Track(DeclarativeBase):
         return scipy.io.wavfile.read(self.audio_path)
 
     @hybrid_property
-    def pitch_data(self):
-        """ Get pitch annotation """
-        fname = medleydb.multitrack._PITCH_FMT % \
-            os.path.basename(self.metadata_filename).split('.')[0]
-        pitch_annotation_fpath = os.path.join(
-            medleydb.multitrack.PITCH_DIR,
+    def activations_data(self):
+        """ Get activation confidence annotation """
+        fname = medleydb.multitrack._ACTIVATION_CONFS_FMT % \
+            os.path.basename(self.track_id).split('.')[0]
+
+        activation_annotation_fpath = os.path.join(
+            medleydb.multitrack.ACTIVATIONS_DIR,
+            medleydb.multitrack._ACTIVATION_CONFS_DIR,
             fname
         )
         return medleydb.multitrack.read_annotation_file(
-            pitch_annotation_fpath,
-            num_cols=2
+            activation_annotation_fpath
         )
 
     @hybrid_property
