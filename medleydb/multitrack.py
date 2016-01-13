@@ -7,9 +7,9 @@ import yaml
 import wave
 import csv
 from . import INST_TAXONOMY
-from . import MEDLEYDB_PATH
 from . import ANNOT_PATH
 from . import METADATA_PATH
+from . import AUDIO_PATH
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -20,7 +20,7 @@ _MIX_FMT = "%s_MIX.wav"
 _STEM_FMT = "%s_STEM_%%s.wav"
 _RAW_FMT = "%s_RAW_%%s_%%s.wav"
 
-_AUDIODIR_FMT = "%s_AUDIO"
+_AUDIODIR_FMT = "%s"
 
 _ANNOTDIR_FMT = "%s_ANNOTATIONS"
 _ACTIVCONF_FMT = "%s_ACTIVATION_CONF.lab"
@@ -54,6 +54,7 @@ class MultiTrack(object):
         melody1_annotation (list): time, f0 lists from melody 1 annotation.
         melody2_annotation (list): time, f0 lists from melody 2 annotation.
         melody3_annotation (list): time, f0 lists from melody 3 annotation.
+        melody_rankings (list): melody stem predominance rankings.
         mix_path (str): Full path to MIX file.
         mtrack_path (str): Full path to folder containing multitrack.
         origin (str): Track origin.
@@ -74,30 +75,40 @@ class MultiTrack(object):
         """
 
         # Artist, Title & Track Directory #
-        self.audio_path = os.path.join(MEDLEYDB_PATH, _AUDIODIR_FMT % track_id)
+        if AUDIO_PATH:
+            self.audio_path = os.path.join(
+                AUDIO_PATH, _AUDIODIR_FMT % track_id
+            )
         self.artist = track_id.split('_')[0]
         self.title = track_id.split('_')[1]
         self.track_id = track_id
 
         # Filenames and Filepaths #
-        self._meta_path = \
-            os.path.join(METADATA_PATH, _METADATA_FMT % self.track_id)
+        self._meta_path = os.path.join(
+            METADATA_PATH, _METADATA_FMT % self.track_id
+        )
 
         # break if metadata file cannot be found
         if not os.path.exists(self._meta_path):
             raise IOError("Cannot find metadata for %s" % self.track_id)
 
-        self._annotation_dir = \
-            os.path.join(ANNOT_PATH, _ANNOTDIR_FMT % self.track_id)
-        self._pitch_path = \
-            os.path.join(self._annotation_dir, _PITCHDIR_FMT % self.track_id)
+        self._annotation_dir = os.path.join(
+            ANNOT_PATH, _ANNOTDIR_FMT % self.track_id
+        )
+        self._pitch_path = os.path.join(
+            self._annotation_dir, _PITCHDIR_FMT % self.track_id
+        )
 
-        self._stem_dir_path = \
-            os.path.join(self.audio_path, _STEMDIR_FMT % self.track_id)
-        self._raw_dir_path = \
-            os.path.join(self.audio_path, _RAWDIR_FMT % self.track_id)
-        self.mix_path = \
-            os.path.join(self.audio_path, _MIX_FMT % self.track_id)
+        if AUDIO_PATH:
+            self._stem_dir_path = os.path.join(
+                self.audio_path, _STEMDIR_FMT % self.track_id
+            )
+            self._raw_dir_path = os.path.join(
+                self.audio_path, _RAWDIR_FMT % self.track_id
+            )
+            self.mix_path = os.path.join(
+                self.audio_path, _MIX_FMT % self.track_id
+            )
 
         # Stem & Raw File Formats #
         self._stem_fmt = _STEM_FMT % self.track_id
@@ -105,6 +116,11 @@ class MultiTrack(object):
 
         # Yaml Dictionary of Metadata #
         self._metadata = self._load_metadata()
+
+        self._melody_rankings_fpath = os.path.join(
+            self._annotation_dir, _RANKING_FMT % self.track_id
+        )
+        self.melody_rankings = self._get_melody_rankings()
 
         # Stem & Raw Dictionaries. Lists of filepaths. #
         self.stems, self.raw_audio = self._parse_metadata()
@@ -133,7 +149,9 @@ class MultiTrack(object):
         self.melody1_annotation = None
         self.melody2_annotation = None
         self.melody3_annotation = None
+
         self.predominant_stem = self._get_predominant_stem()
+
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -150,14 +168,25 @@ class MultiTrack(object):
         stem_dict = self._metadata['stems']
 
         for k in stem_dict.keys():
+            stem_idx = int(k[1:])
+
             instrument = stem_dict[k]['instrument']
             component = stem_dict[k]['component']
-            file_name = stem_dict[k]['filename']
-            file_path = os.path.join(self._stem_dir_path, file_name)
+
+            if stem_idx in self.melody_rankings.keys():
+                ranking = self.melody_rankings[stem_idx]
+            else:
+                ranking = None
+
+            if AUDIO_PATH:
+                file_name = stem_dict[k]['filename']
+                file_path = os.path.join(self._stem_dir_path, file_name)
+            else:
+                file_path = None
 
             track = Track(instrument=instrument, file_path=file_path,
-                          component=component, stem_idx=k[1:],
-                          mix_path=self.mix_path,
+                          component=component, stem_idx=stem_idx,
+                          ranking=ranking, mix_path=self.mix_path,
                           pitch_path=self._pitch_path)
 
             stems.append(track)
@@ -165,49 +194,48 @@ class MultiTrack(object):
 
             for j in raw_dict.keys():
                 instrument = raw_dict[j]['instrument']
-                file_name = raw_dict[j]['filename']
-                file_path = os.path.join(self._raw_dir_path, file_name)
+
+                if AUDIO_PATH:
+                    file_name = raw_dict[j]['filename']
+                    file_path = os.path.join(self._raw_dir_path, file_name)
+                else:
+                    file_path = None
 
                 track = Track(instrument=instrument, file_path=file_path,
-                              stem_idx=k[1:], raw_idx=j[1:],
-                              mix_path=self.mix_path)
+                              stem_idx=stem_idx, raw_idx=j[1:],
+                              mix_path=self.mix_path, ranking=ranking)
                 raw_audio.append(track)
 
         return stems, raw_audio
 
+    def _get_melody_rankings(self):
+        """Get rankings from the melody rankings annotation file.
+        """
+        melody_rankings = {}
+        if os.path.exists(self._melody_rankings_fpath):
+            with open(self._melody_rankings_fpath) as f_handle:
+                linereader = csv.reader(f_handle)
+                for line in linereader:
+                    stem_idx = int(line[0].split('_')[-1].split('.')[0])
+                    ranking = int(line[1])
+                    melody_rankings[stem_idx] = ranking
+        return melody_rankings
+
     def _get_predominant_stem(self):
         """Get predominant stem if files exists.
         """
-        rankings_fname = _RANKING_FMT % self.track_id
-        rankings_fpath = os.path.join(self._annotation_dir, rankings_fname)
 
-        # self.predominant_stem = read_annotation_file(rankings_fpath)
-        if os.path.exists(rankings_fpath):
-            with open(rankings_fpath) as f_handle:
-                linereader = csv.reader(f_handle)
-                for line in linereader:
-                    if line[1] == '1':
-                        stem_dict = self._metadata['stems']
-                        stem_id = line[0].split('_')[-1].split('.')[0]
-
-                        instrument = stem_dict['S' + stem_id]['instrument']
-                        component = stem_dict['S' + stem_id]['component']
-                        file_name = stem_dict['S' + stem_id]['filename']
-                        file_path = os.path.join(
-                            self._stem_dir_path, file_name
-                        )
-
-                        track = Track(
-                            instrument=instrument,
-                            file_path=file_path,
-                            component=component,
-                            stem_idx='S' + stem_id,
-                            mix_path=self.mix_path,
-                            pitch_path=self._pitch_path
-                        )
-
-                        return track
-        return None
+        if len(self.melody_rankings.keys()) > 0:
+            predominant_idx = [
+                k for k, v in self.melody_rankings.items() if v == 1
+            ]
+            if len(predominant_idx) > 0:
+                predominant_idx = predominant_idx[0]
+                return self.get_stem(predominant_idx)
+            else:
+                return None
+        else:
+            return None
 
     def load_melody_annotations(self):
         """Get melody annotations if files exists.
@@ -278,6 +306,22 @@ class MultiTrack(object):
         """
         return [track.file_path for track in self.raw_audio]
 
+    def get_stem(self, stem_idx):
+        """Get the stem that corresponds to a given index.
+
+        Args:
+            stem_idx (int): stem index (eg. 2 for stem S02)
+
+        Returns:
+            Track object
+
+        """
+        search = [s for s in self.stems if s.stem_idx == stem_idx]
+        if len(search) > 0:
+            return search[0]
+        else:
+            raise ValueError("Invalid stem index: %s" % stem_idx)
+
     def raw_from_stem(self, stem_idx):
         """Get all raw audio tracks that are children of a given stem.
 
@@ -307,11 +351,12 @@ class Track(object):
         pitch_annotation (list): List of time, f0 values.
         raw_idx (int): Index of corresponding raw audio file (None if a stem)
         stem_idx (int): Index of corresponding stem file.
+        ranking (int): track's melody ranking
 
     """
 
     def __init__(self, instrument, file_path, stem_idx, mix_path,
-                 pitch_path=None, raw_idx=None, component=''):
+                 pitch_path=None, raw_idx=None, component='', ranking=None):
         """Track object __init__ method.
 
         Args:
@@ -328,8 +373,10 @@ class Track(object):
         self.instrument = instrument
         self.file_path = file_path
         self.component = component
+        self.ranking = ranking
         self.stem_idx = self._format_index(stem_idx)
         self.raw_idx = self._format_index(raw_idx)
+
         if os.path.exists(file_path):
             self.duration = get_duration(file_path)
         else:
