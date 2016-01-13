@@ -2,7 +2,7 @@ import unittest
 import os
 from medleydb import multitrack
 
-multitrack.MEDLEYDB_PATH = "/Dummy/Path"
+multitrack.AUDIO_PATH = "/Dummy/Path"
 
 class TestMultitrack(unittest.TestCase):
     def setUp(self):
@@ -16,7 +16,7 @@ class TestMultitrack(unittest.TestCase):
 
     def test_audio_path(self):
         actual = self.mtrack.audio_path
-        expected = "/Dummy/Path/NightPanther_Fire_AUDIO"
+        expected = "/Dummy/Path/NightPanther_Fire"
         self.assertEqual(actual, expected)
 
     def test_artist(self):
