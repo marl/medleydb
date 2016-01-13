@@ -6,7 +6,7 @@ Python tools for using MedleyDB.
 Created by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu
 and Justin Salamon justin (dot) salamon (at) nyu (dot) edu.
 
-This code is released along with MedleyDB: 
+This code is released along with MedleyDB:
 
 http://medleydb.weebly.com (or http://marl.smusic.nyu.edu/medleydb)
 
@@ -40,8 +40,8 @@ the MedleyDB directory (or MedleyDB_sample) lives:
 export MEDLEYDB_PATH="path/to/your/copy/of/MedleyDB"
 ```
 
-To avoid doing this step every time, copy the line above to ```.bash_profile```
-or ```.bashrc```.
+To avoid doing this step every time, copy the line above to ```~/.bash_profile```
+or ```~/.bashrc```.
 
 Optionally, you may also install the SQL submodule using
 
@@ -86,14 +86,14 @@ Loading and accessing the full dataset
 Load the dataset to a list of MultiTrack objects:
 
 ```python
-mtrack_list = mdb.load_all_multitracks()
+mtrack_generator = mdb.load_all_multitracks()
 ```
 
 Some attributes of a multitrack:
 
 ```python
-multitrack_1 = next(mtrack_list)
-multitrack_2 = next(mtrack_list)
+multitrack_1 = next(mtrack_generator)
+multitrack_2 = next(mtrack_generator)
 
 multitrack_1.has_bleed
 multitrack_2.has_bleed
@@ -104,6 +104,7 @@ multitrack_2.artist
 multitrack_1.is_instrumental
 multitrack_2.is_instrumental
 
+multitrack_1.load_melody_annotations()
 multitrack_1.melody1_annotation
 ```
 
@@ -124,7 +125,7 @@ import glob
 import os
 import medleydb as mdb
 
-example_list = glob.glob(os.path.join(mdb.AUDIO_DIR, 'ClaraBerry_*'))
+example_list = glob.glob(os.path.join(mdb.AUDIO_PATH, 'ClaraBerry*'))
 dataset_subset = mdb.load_multitracks(example_list)
 ```
 
