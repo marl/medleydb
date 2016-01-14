@@ -4,7 +4,7 @@ composer:
 - Brandon Webster
 excerpt: 'no'
 genre: Musical Theatre
-has_bleed: 'no'
+has_bleed: 'yes'
 instrumental: 'no'
 mix_filename: BrandonWebster_DontHearAThing_MIX.wav
 origin: Dolan Studio
