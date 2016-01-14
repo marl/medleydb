@@ -186,10 +186,15 @@ class MultiTrack(object):
             else:
                 file_path = None
 
+            pitch_path = os.path.join(
+                self._pitch_path,
+                "%s_STEM_%s.csv" % (self.track_id, k[1:])
+            )
+
             track = Track(instrument=instrument, file_path=file_path,
                           component=component, stem_idx=stem_idx,
                           ranking=ranking, mix_path=self.mix_path,
-                          pitch_path=self._pitch_path)
+                          pitch_path=pitch_path)
 
             stems.append(track)
             raw_dict = stem_dict[k]['raw']
@@ -411,9 +416,6 @@ class Track(object):
         self.pitch_annotation = None
         self._pitch_path = pitch_path
 
-        if self.component == 'melody':
-            self.pitch_annotation = self._get_pitch_annotation()
-
     def _format_index(self, index):
         """Load stem or raw index. Reformat if in string form.
         """
@@ -424,15 +426,14 @@ class Track(object):
         else:
             return int(index)
 
-    def _get_pitch_annotation(self):
+    def get_pitch_annotation(self):
         """Get pitch annotation if file exists.
         """
-        if self._pitch_path:
-            fname = _PITCH_FMT % os.path.basename(self.file_path).split('.')[0]
-            pitch_annotation_fpath = os.path.join(self._pitch_path, fname)
-            return read_annotation_file(pitch_annotation_fpath, num_cols=2)
-        else:
-            return None
+        if (self._pitch_path is not None) and (self.pitch_annotation is None):
+            self.pitch_annotation = read_annotation_file(
+                self._pitch_path, num_cols=2
+            )
+        return self.pitch_annotation
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
@@ -537,6 +538,7 @@ def read_annotation_file(fpath, num_cols=None):
                 annotation.append([float(val) for val in line])
         return annotation
     else:
+        print "Warning: %s does not exist." % fpath
         return None
 
 
