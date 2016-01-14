@@ -39,11 +39,16 @@ if __name__ == "__main__":
 
         license='MIT',
 
-        install_requires=['pyyaml'],
+        install_requires=[
+            'pyyaml',
+            'numpy'
+        ],
 
         extras_require={
             'sql': [
-                'SQLAlchemy'
+                'SQLAlchemy',
+                'scipy',
+                'numpy'
             ],
             'tests': [
                 'pytest',
