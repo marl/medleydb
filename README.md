@@ -17,6 +17,12 @@ R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello,
 15th International Society for Music Information Retrieval Conference,
 Taipei, Taiwan, Oct. 2014.
 
+Annotations
+===========
+As of v1.1, this repository contains the most up to date version of the
+medleydb annotations. If you find any problems with an annotation, or would
+like to contribute annotations, please report an issue submit a pull request. :)
+
 Setup
 =====
 
@@ -61,6 +67,7 @@ Dependencies
 ------------
 
 * Python, will be installed by pip
+  * [numpy](http://www.numpy.org/)
   * [pyyaml](http://pyyaml.org/)
   * [sqlalchemy](http://www.sqlalchemy.org/) (optional)
 * Additional
