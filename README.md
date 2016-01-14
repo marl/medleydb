@@ -1,7 +1,10 @@
 medleydb
 ========
 
-Python tools for using MedleyDB.
+Annotations and Python tools for MedleyDB.
+
+[![Build Status](https://travis-ci.org/marl/medleydb.svg?branch=medleydb_v1.1)](https://travis-ci.org/marl/medleydb)
+[![Coverage Status](https://coveralls.io/repos/marl/medleydb/badge.svg?branch=medleydb_v1.1&service=github)](https://coveralls.io/github/marl/medleydb?branch=medleydb_v1.1)
 
 Created by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu
 and Justin Salamon justin (dot) salamon (at) nyu (dot) edu.
