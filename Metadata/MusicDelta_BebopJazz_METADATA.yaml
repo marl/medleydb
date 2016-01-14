@@ -1,0 +1,57 @@
+album: ''
+artist: Music Delta
+composer:
+- Music Delta
+excerpt: 'no'
+genre: Jazz
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: MusicDelta_BebopJazz_MIX.wav
+origin: Music Delta
+producer:
+- Mike Tierney
+raw_dir: MusicDelta_BebopJazz_RAW
+stem_dir: MusicDelta_BebopJazz_STEMS
+stems:
+  S01:
+    component: ''
+    filename: MusicDelta_BebopJazz_STEM_01.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: MusicDelta_BebopJazz_RAW_01_01.wav
+        instrument: drum set
+  S02:
+    component: bass
+    filename: MusicDelta_BebopJazz_STEM_02.wav
+    instrument: double bass
+    raw:
+      R01:
+        filename: MusicDelta_BebopJazz_RAW_02_01.wav
+        instrument: double bass
+  S03:
+    component: ''
+    filename: MusicDelta_BebopJazz_STEM_03.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: MusicDelta_BebopJazz_RAW_03_01.wav
+        instrument: piano
+  S04:
+    component: melody
+    filename: MusicDelta_BebopJazz_STEM_04.wav
+    instrument: tenor saxophone
+    raw:
+      R01:
+        filename: MusicDelta_BebopJazz_RAW_04_01.wav
+        instrument: tenor saxophone
+  S05:
+    component: melody
+    filename: MusicDelta_BebopJazz_STEM_05.wav
+    instrument: trumpet
+    raw:
+      R01:
+        filename: MusicDelta_BebopJazz_RAW_05_01.wav
+        instrument: trumpet
+title: Bebop Jazz
+website: []

@@ -1,0 +1,191 @@
+album: Shaking Through Volume 4
+artist: Steven Clark
+composer:
+- Steven A. Clark
+excerpt: 'no'
+genre: Pop
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: StevenClark_Bounty_MIX.wav
+origin: Weathervane Music
+producer:
+- Felix Espinosa
+raw_dir: StevenClark_Bounty_RAW
+stem_dir: StevenClark_Bounty_STEMS
+stems:
+  S01:
+    component: ''
+    filename: StevenClark_Bounty_STEM_01.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_01_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: StevenClark_Bounty_RAW_01_02.wav
+        instrument: electric bass
+      R03:
+        filename: StevenClark_Bounty_RAW_01_03.wav
+        instrument: electric bass
+      R04:
+        filename: StevenClark_Bounty_RAW_01_04.wav
+        instrument: electric bass
+  S02:
+    component: bass
+    filename: StevenClark_Bounty_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_02_01.wav
+        instrument: electric bass
+      R02:
+        filename: StevenClark_Bounty_RAW_02_02.wav
+        instrument: electric bass
+      R03:
+        filename: StevenClark_Bounty_RAW_02_03.wav
+        instrument: electric bass
+  S03:
+    component: ''
+    filename: StevenClark_Bounty_STEM_03.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_03_01.wav
+        instrument: vocalists
+      R02:
+        filename: StevenClark_Bounty_RAW_03_02.wav
+        instrument: vocalists
+      R03:
+        filename: StevenClark_Bounty_RAW_03_03.wav
+        instrument: vocalists
+      R04:
+        filename: StevenClark_Bounty_RAW_03_04.wav
+        instrument: male singer
+      R05:
+        filename: StevenClark_Bounty_RAW_03_05.wav
+        instrument: male singer
+      R06:
+        filename: StevenClark_Bounty_RAW_03_06.wav
+        instrument: male singer
+      R07:
+        filename: StevenClark_Bounty_RAW_03_07.wav
+        instrument: male singer
+      R08:
+        filename: StevenClark_Bounty_RAW_03_08.wav
+        instrument: male singer
+      R09:
+        filename: StevenClark_Bounty_RAW_03_09.wav
+        instrument: male singer
+      R10:
+        filename: StevenClark_Bounty_RAW_03_10.wav
+        instrument: female singer
+      R11:
+        filename: StevenClark_Bounty_RAW_03_11.wav
+        instrument: female singer
+      R12:
+        filename: StevenClark_Bounty_RAW_03_12.wav
+        instrument: female singer
+      R13:
+        filename: StevenClark_Bounty_RAW_03_13.wav
+        instrument: female singer
+  S04:
+    component: ''
+    filename: StevenClark_Bounty_STEM_04.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_04_01.wav
+        instrument: synthesizer
+      R02:
+        filename: StevenClark_Bounty_RAW_04_02.wav
+        instrument: synthesizer
+  S05:
+    component: ''
+    filename: StevenClark_Bounty_STEM_05.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_05_01.wav
+        instrument: drum set
+      R02:
+        filename: StevenClark_Bounty_RAW_05_02.wav
+        instrument: drum set
+      R03:
+        filename: StevenClark_Bounty_RAW_05_03.wav
+        instrument: kick drum
+      R04:
+        filename: StevenClark_Bounty_RAW_05_04.wav
+        instrument: kick drum
+      R05:
+        filename: StevenClark_Bounty_RAW_05_05.wav
+        instrument: drum set
+      R06:
+        filename: StevenClark_Bounty_RAW_05_06.wav
+        instrument: drum set
+      R07:
+        filename: StevenClark_Bounty_RAW_05_07.wav
+        instrument: snare drum
+      R08:
+        filename: StevenClark_Bounty_RAW_05_08.wav
+        instrument: snare drum
+      R09:
+        filename: StevenClark_Bounty_RAW_05_09.wav
+        instrument: toms
+  S06:
+    component: ''
+    filename: StevenClark_Bounty_STEM_06.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_06_01.wav
+        instrument: synthesizer
+  S07:
+    component: ''
+    filename: StevenClark_Bounty_STEM_07.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_07_01.wav
+        instrument: male singer
+      R02:
+        filename: StevenClark_Bounty_RAW_07_02.wav
+        instrument: male singer
+      R03:
+        filename: StevenClark_Bounty_RAW_07_03.wav
+        instrument: male singer
+      R04:
+        filename: StevenClark_Bounty_RAW_07_04.wav
+        instrument: male singer
+  S08:
+    component: melody
+    filename: StevenClark_Bounty_STEM_08.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_08_01.wav
+        instrument: male singer
+  S09:
+    component: ''
+    filename: StevenClark_Bounty_STEM_09.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_09_01.wav
+        instrument: piano
+      R02:
+        filename: StevenClark_Bounty_RAW_09_02.wav
+        instrument: piano
+  S10:
+    component: ''
+    filename: StevenClark_Bounty_STEM_10.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: StevenClark_Bounty_RAW_10_01.wav
+        instrument: synthesizer
+      R02:
+        filename: StevenClark_Bounty_RAW_10_02.wav
+        instrument: synthesizer
+title: Bounty
+website:
+- www.shakingthrough.com/stevenaclark

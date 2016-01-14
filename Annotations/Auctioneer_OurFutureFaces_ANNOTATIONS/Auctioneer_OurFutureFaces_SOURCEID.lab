@@ -1,0 +1,34 @@
+start_time,end_time,instrument_label
+67.2914,81.6414,banjo
+84.7528,90.6507,banjo
+94.6445,202.8031,banjo
+30.0931,202.0600,electric bass
+202.8960,204.5214,electric bass
+27.8639,42.3068,vocalists
+46.3935,46.9507,vocalists
+52.4307,64.4586,vocalists
+90.6043,90.9293,vocalists
+96.6415,106.9511,vocalists
+108.3443,159.3818,vocalists
+159.9855,164.8617,vocalists
+30.0002,202.5709,drum set
+203.0817,203.3139,drum set
+0.0464,66.6413,clean electric guitar
+119.3506,201.2241,clean electric guitar
+201.8743,202.3387,clean electric guitar
+18.9475,55.0313,horn section
+67.5701,204.3356,horn section
+24.1488,33.2045,vibraphone
+53.1737,204.5678,vibraphone
+0.9288,22.1054,male singer
+29.9073,36.6875,male singer
+37.6628,42.5854,male singer
+52.3378,65.0159,male singer
+65.6196,70.6351,male singer
+96.8272,107.7870,male singer
+108.3443,164.9546,male singer
+0.2322,53.1273,auxiliary percussion
+53.4988,66.4091,auxiliary percussion
+67.4307,204.7536,auxiliary percussion
+67.5236,92.2297,piano
+93.5764,202.1994,piano

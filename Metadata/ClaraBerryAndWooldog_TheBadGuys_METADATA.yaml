@@ -1,0 +1,43 @@
+album: ''
+artist: Clara Berry and Wooldog
+composer:
+- Clara Berry
+excerpt: 'no'
+genre: Singer/Songwriter
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: ClaraBerryAndWooldog_TheBadGuys_MIX.wav
+origin: Independent Artist
+producer:
+- Bradford Swanson
+raw_dir: ClaraBerryAndWooldog_TheBadGuys_RAW
+stem_dir: ClaraBerryAndWooldog_TheBadGuys_STEMS
+stems:
+  S01:
+    component: ''
+    filename: ClaraBerryAndWooldog_TheBadGuys_STEM_01.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: ClaraBerryAndWooldog_TheBadGuys_RAW_01_01.wav
+        instrument: piano
+      R02:
+        filename: ClaraBerryAndWooldog_TheBadGuys_RAW_01_02.wav
+        instrument: piano
+  S02:
+    component: melody
+    filename: ClaraBerryAndWooldog_TheBadGuys_STEM_02.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: ClaraBerryAndWooldog_TheBadGuys_RAW_02_01.wav
+        instrument: female singer
+      R02:
+        filename: ClaraBerryAndWooldog_TheBadGuys_RAW_02_02.wav
+        instrument: fx/processed sound
+      R03:
+        filename: ClaraBerryAndWooldog_TheBadGuys_RAW_02_03.wav
+        instrument: fx/processed sound
+title: The Bad Guys
+website:
+- www.claraberry.com

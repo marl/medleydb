@@ -1,0 +1,50 @@
+start_time,end_time,instrument_label
+0.0464,197.3696,electric bass
+50.2480,52.5235,vocalists
+53.2201,56.3780,vocalists
+62.4617,64.7372,vocalists
+65.4338,68.8239,vocalists
+127.4311,133.0968,vocalists
+133.3290,139.0411,vocalists
+139.5984,149.8151,vocalists
+152.7873,164.3508,vocalists
+165.0010,174.3819,vocalists
+0.0000,179.0259,drum set
+181.3478,200.6668,acoustic guitar
+4.4118,11.8422,clean electric guitar
+11.9815,33.2974,clean electric guitar
+33.3903,48.1117,clean electric guitar
+48.9477,97.5238,clean electric guitar
+98.0811,178.8401,clean electric guitar
+180.4190,181.8122,clean electric guitar
+128.7779,135.0937,distorted electric guitar
+141.1309,147.4467,distorted electric guitar
+153.4375,159.9390,distorted electric guitar
+165.7905,185.0166,distorted electric guitar
+0.3715,98.0811,lap steel guitar
+115.9605,122.2763,lap steel guitar
+128.1741,140.1556,lap steel guitar
+147.0752,154.5056,lap steel guitar
+98.4062,122.3227,lap steel guitar
+128.2206,137.8801,lap steel guitar
+140.5272,159.4746,lap steel guitar
+162.2146,181.9980,lap steel guitar
+0.9288,8.3592,female singer
+13.1425,20.6658,female singer
+26.3779,35.8980,female singer
+38.6844,45.9755,female singer
+50.0622,57.5390,female singer
+62.3688,69.8921,female singer
+75.6042,84.9850,female singer
+88.0036,95.1089,female singer
+100.5888,108.0192,female singer
+112.8954,125.7593,female singer
+127.2454,148.2362,female singer
+156.1310,156.7811,female singer
+175.0320,176.4252,female singer
+179.2116,181.8587,female singer
+182.4160,186.9671,female singer
+192.2612,194.9083,female singer
+196.9981,199.4594,female singer
+98.2668,178.7008,melodica
+98.2204,178.9330,auxiliary percussion

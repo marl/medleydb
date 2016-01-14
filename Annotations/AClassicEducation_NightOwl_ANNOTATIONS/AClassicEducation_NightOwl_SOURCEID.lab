@@ -1,0 +1,80 @@
+start_time,end_time,instrument_label
+0.7430,18.9475,electric bass
+19.8763,37.8950,electric bass
+38.9631,57.0746,electric bass
+58.3285,167.7410,electric bass
+0.0929,57.9570,drum set
+58.3750,168.2518,drum set
+168.7626,169.9236,drum set
+0.0000,168.7162,distorted electric guitar
+0.0464,4.8762,distorted electric guitar
+18.7617,23.1735,distorted electric guitar
+37.9414,42.3996,distorted electric guitar
+96.1771,135.0473,distorted electric guitar
+0.9752,139.8306,clean electric guitar
+133.1897,171.4097,distorted electric guitar
+94.6445,135.9296,distorted electric guitar
+0.0464,2.9257,male singer
+5.1548,8.3127,male singer
+9.9846,12.7245,male singer
+12.8639,22.1054,male singer
+24.2416,27.5853,male singer
+29.4429,57.5855,male singer
+58.5143,60.4183,male singer
+60.8363,75.7435,male singer
+77.4618,96.9665,male singer
+133.0968,140.0163,male singer
+141.5024,150.5582,male singer
+151.0226,158.0350,male singer
+159.3353,168.4376,male singer
+1.0681,169.2735,synthesizer
+58.5143,76.3472,vocalists
+77.2296,95.8055,vocalists
+2.2756,8.9165,tambourine
+9.1487,11.1456,tambourine
+11.6100,15.7896,tambourine
+16.2075,18.5295,tambourine
+21.0373,22.7556,tambourine
+23.5915,27.6317,tambourine
+28.3748,32.6937,tambourine
+32.9723,37.2912,tambourine
+40.1705,41.7959,tambourine
+42.6318,46.9972,tambourine
+47.4616,51.8734,tambourine
+51.9663,54.3347,tambourine
+54.7062,56.5174,tambourine
+58.9787,73.3751,tambourine
+73.6073,87.5857,tambourine
+87.8179,89.7683,tambourine
+90.1399,92.0439,tambourine
+92.5083,96.7808,tambourine
+97.2916,99.0099,tambourine
+99.6136,101.2854,tambourine
+101.9356,103.7003,tambourine
+104.1647,105.9294,tambourine
+106.5332,108.1585,tambourine
+108.8551,110.5270,tambourine
+111.1307,112.8490,tambourine
+113.4527,115.1245,tambourine
+115.7283,117.6323,tambourine
+117.9574,119.7221,tambourine
+120.3258,121.9976,tambourine
+122.6478,124.3196,tambourine
+124.9698,126.6881,tambourine
+127.2918,129.0101,tambourine
+129.5673,131.2856,tambourine
+131.8429,133.8398,tambourine
+152.1371,153.9947,tambourine
+154.2269,167.3694,tambourine
+58.7465,100.5888,fx/processed sound
+37.7092,48.5761,male singer
+58.5143,60.1861,male singer
+60.8827,62.8332,male singer
+63.1118,70.0314,male singer
+70.4029,76.9974,male singer
+77.4153,96.6879,male singer
+133.0503,139.7841,male singer
+140.5736,140.7129,male singer
+141.2238,150.2795,male singer
+151.0226,157.9421,male singer
+159.1031,168.1589,male singer

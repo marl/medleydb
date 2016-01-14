@@ -1,0 +1,61 @@
+start_time,end_time,instrument_label
+0.0464,296.4724,acoustic guitar
+307.8966,406.9529,acoustic guitar
+407.1387,407.7888,acoustic guitar
+408.1139,408.5783,acoustic guitar
+58.3285,294.2897,clean electric guitar
+318.4849,408.7641,clean electric guitar
+198.9021,232.3389,clean electric guitar
+233.2677,246.2708,clean electric guitar
+246.5495,249.2430,clean electric guitar
+249.6145,285.2339,clean electric guitar
+350.5284,390.9776,clean electric guitar
+391.6278,408.0210,clean electric guitar
+0.0929,293.6395,electric bass
+294.1968,296.0544,electric bass
+307.8037,400.4049,electric bass
+400.7764,403.0055,electric bass
+403.6557,404.5845,electric bass
+405.0953,405.1882,electric bass
+0.0464,289.8315,drum set
+297.3083,405.0953,drum set
+11.5171,16.4862,male singer
+17.1828,21.8732,male singer
+23.2200,33.6225,male singer
+35.5265,40.5420,male singer
+41.2851,45.3254,male singer
+46.5792,51.4090,male singer
+52.9415,57.1211,male singer
+60.1861,62.8796,male singer
+64.9694,92.7405,male singer
+110.4805,115.5425,male singer
+116.4249,121.1617,male singer
+122.4156,127.7098,male singer
+128.7314,138.9946,male singer
+140.9451,144.7996,male singer
+146.7037,150.9761,male singer
+152.9731,156.6418,male singer
+159.2424,163.5149,male singer
+165.0939,193.2365,male singer
+257.7879,282.4011,male singer
+58.4678,66.6413,brass section
+67.1057,75.4184,brass section
+75.6971,86.9820,brass section
+87.2606,98.9634,brass section
+158.4065,160.8678,brass section
+161.3322,163.8400,brass section
+164.2115,187.1528,brass section
+187.3850,199.0879,brass section
+246.8746,249.5681,brass section
+249.8467,252.4009,brass section
+252.7260,287.6952,brass section
+329.1661,406.7207,brass section
+58.7000,98.6848,viola section
+158.5923,198.9021,viola section
+247.1068,287.6952,viola section
+318.7635,371.3335,viola section
+371.8908,403.1913,viola section
+403.7486,405.3740,viola section
+0.0464,11.4707,harmonica
+98.8706,112.1524,harmonica
+222.9116,283.5621,harmonica

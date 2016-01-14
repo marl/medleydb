@@ -1,0 +1,204 @@
+start_time,end_time,instrument_label
+0.0000,208.2366,drum set
+223.7475,320.2032,drum set
+2.6935,16.1611,fx/processed sound
+34.7371,48.2046,fx/processed sound
+66.7341,93.1585,fx/processed sound
+95.6662,128.1741,fx/processed sound
+146.7037,173.1744,fx/processed sound
+175.6822,224.3512,fx/processed sound
+226.7196,240.1408,fx/processed sound
+258.7167,272.1843,fx/processed sound
+290.7138,317.1381,fx/processed sound
+319.6923,336.1321,fx/processed sound
+15.7431,19.2726,synthesizer
+19.5512,23.2664,synthesizer
+23.5450,27.2602,synthesizer
+27.5853,31.2541,synthesizer
+31.5791,35.2479,synthesizer
+35.5730,39.2417,synthesizer
+39.5668,43.2356,synthesizer
+43.5606,47.2294,synthesizer
+47.5545,51.2697,synthesizer
+51.5483,55.2635,synthesizer
+55.5886,59.2573,synthesizer
+59.5824,63.2512,synthesizer
+63.5762,67.2450,synthesizer
+67.5701,71.2388,synthesizer
+71.5639,75.2327,synthesizer
+75.5577,79.2729,synthesizer
+79.5516,83.2668,synthesizer
+83.5454,87.2606,synthesizer
+87.5857,91.2544,synthesizer
+91.5795,95.2483,synthesizer
+95.5733,99.2421,synthesizer
+99.5672,103.2359,synthesizer
+103.5610,107.2298,synthesizer
+107.5548,111.2700,synthesizer
+111.5487,115.2639,synthesizer
+115.5889,119.2577,synthesizer
+119.5828,123.2515,synthesizer
+123.5766,127.2454,synthesizer
+127.5704,131.2392,synthesizer
+131.5643,135.2330,synthesizer
+135.5581,139.2733,synthesizer
+139.5519,143.2671,synthesizer
+143.5458,147.2610,synthesizer
+147.5860,151.2548,synthesizer
+151.5799,155.2486,synthesizer
+155.5737,159.2424,synthesizer
+159.5675,163.2363,synthesizer
+163.5614,167.2301,synthesizer
+167.5552,171.2704,synthesizer
+171.5490,175.2642,synthesizer
+175.5429,179.2580,synthesizer
+179.5831,183.2519,synthesizer
+183.5770,187.2457,synthesizer
+187.5708,191.2395,synthesizer
+191.5646,195.2334,synthesizer
+195.5585,199.2737,synthesizer
+199.5523,203.2675,synthesizer
+203.5461,207.2613,synthesizer
+207.5864,211.2551,synthesizer
+211.5802,215.2490,synthesizer
+215.5741,219.2428,synthesizer
+219.5679,224.4441,synthesizer
+239.7228,243.2522,synthesizer
+243.5773,247.2461,synthesizer
+247.5712,251.2399,synthesizer
+251.5650,255.2337,synthesizer
+255.5588,259.2740,synthesizer
+259.5527,263.2678,synthesizer
+263.5465,267.2617,synthesizer
+267.5868,271.2555,synthesizer
+271.5806,275.2493,synthesizer
+275.5744,279.2432,synthesizer
+279.5683,283.2370,synthesizer
+283.5621,287.2308,synthesizer
+287.5559,291.2711,synthesizer
+291.5498,295.2649,synthesizer
+295.5436,299.2588,synthesizer
+299.5839,303.2526,synthesizer
+303.5777,307.2464,synthesizer
+307.5715,311.2403,synthesizer
+311.5654,315.2341,synthesizer
+315.5592,319.2744,synthesizer
+319.5530,323.2682,synthesizer
+323.5468,327.2620,synthesizer
+327.5871,331.2559,synthesizer
+331.5810,335.2497,synthesizer
+335.5748,339.2435,synthesizer
+339.5686,343.2374,synthesizer
+343.5624,347.2312,synthesizer
+347.5563,351.3644,synthesizer
+64.5979,66.2233,fx/processed sound
+66.6413,68.2202,fx/processed sound
+68.5917,70.1707,fx/processed sound
+70.6351,72.1676,fx/processed sound
+72.7713,74.0717,fx/processed sound
+74.7218,76.0686,fx/processed sound
+76.7652,78.0655,fx/processed sound
+78.7621,80.1088,fx/processed sound
+112.4775,113.9635,fx/processed sound
+114.5673,116.0069,fx/processed sound
+116.4249,118.0038,fx/processed sound
+118.5146,119.9543,fx/processed sound
+120.5580,121.9512,fx/processed sound
+122.4620,123.9481,fx/processed sound
+124.6447,125.9915,fx/processed sound
+126.5952,127.9420,fx/processed sound
+144.6139,146.1928,fx/processed sound
+146.6108,148.1898,fx/processed sound
+148.6077,150.1867,fx/processed sound
+150.6511,152.1836,fx/processed sound
+152.7409,154.0876,fx/processed sound
+154.7378,156.1310,fx/processed sound
+156.7347,158.0350,fx/processed sound
+158.6852,160.0784,fx/processed sound
+176.6110,178.1435,fx/processed sound
+178.6543,180.1404,fx/processed sound
+180.6512,182.1838,fx/processed sound
+182.6482,184.1807,fx/processed sound
+184.6915,186.0847,fx/processed sound
+186.7349,188.0352,fx/processed sound
+188.7318,190.0785,fx/processed sound
+190.6823,192.1683,fx/processed sound
+192.4470,193.9331,fx/processed sound
+194.5832,196.0229,fx/processed sound
+196.4873,198.0198,fx/processed sound
+198.5771,199.9702,fx/processed sound
+200.4811,202.0136,fx/processed sound
+202.5709,203.9641,fx/processed sound
+204.5214,206.0074,fx/processed sound
+206.5183,207.9579,fx/processed sound
+208.6081,210.1870,fx/processed sound
+210.6050,212.1839,fx/processed sound
+212.6019,214.1809,fx/processed sound
+214.5988,216.2242,fx/processed sound
+216.8279,218.0818,fx/processed sound
+218.6855,220.0323,fx/processed sound
+220.7289,222.0292,fx/processed sound
+222.7258,224.1190,fx/processed sound
+288.6240,290.2030,fx/processed sound
+290.6210,292.1999,fx/processed sound
+292.6179,294.1968,fx/processed sound
+294.6612,296.1937,fx/processed sound
+296.7046,298.0513,fx/processed sound
+298.7015,300.0947,fx/processed sound
+300.6984,302.0452,fx/processed sound
+302.7418,304.0885,fx/processed sound
+320.6211,322.2001,fx/processed sound
+322.6180,324.1970,fx/processed sound
+324.6150,326.1939,fx/processed sound
+326.6583,328.1908,fx/processed sound
+328.7017,330.0949,fx/processed sound
+330.6986,332.0454,fx/processed sound
+332.7884,334.0887,fx/processed sound
+334.6924,336.0856,fx/processed sound
+336.4107,337.9897,fx/processed sound
+338.5469,340.0330,fx/processed sound
+340.5903,341.9835,fx/processed sound
+342.5408,343.9804,fx/processed sound
+344.4912,346.0238,fx/processed sound
+346.5346,348.0207,fx/processed sound
+348.5780,350.0176,fx/processed sound
+127.8491,129.1494,synthesizer
+131.4714,134.6293,synthesizer
+135.4188,138.5767,synthesizer
+139.4126,142.5241,synthesizer
+143.4064,146.5179,synthesizer
+147.4467,150.6046,synthesizer
+151.4405,154.7378,synthesizer
+155.3879,158.8245,synthesizer
+159.3818,162.8183,synthesizer
+163.3756,166.9515,synthesizer
+167.3694,170.6667,synthesizer
+171.4097,174.6141,synthesizer
+175.4035,178.7472,synthesizer
+179.3974,182.7875,synthesizer
+183.3912,186.7813,synthesizer
+187.3850,190.6358,synthesizer
+191.3789,194.7690,synthesizer
+195.3727,198.6235,synthesizer
+199.4130,202.5244,synthesizer
+203.4068,206.4718,synthesizer
+207.4006,210.3728,synthesizer
+211.4409,214.5524,synthesizer
+215.4347,218.6391,synthesizer
+219.3821,222.7258,synthesizer
+223.3760,226.2088,synthesizer
+319.8781,321.1320,synthesizer
+323.5004,326.5654,synthesizer
+327.4014,330.5128,synthesizer
+331.4416,334.6924,synthesizer
+335.3890,338.8720,synthesizer
+339.3829,342.9123,synthesizer
+343.3767,346.9061,synthesizer
+347.3705,351.0857,synthesizer
+30.7897,99.1956,synthesizer
+99.9387,129.4280,synthesizer
+130.3568,179.2116,synthesizer
+180.1404,387.0302,synthesizer
+31.7185,385.3584,fx/processed sound
+31.9042,346.1631,mandolin
+63.7620,353.7792,tabla

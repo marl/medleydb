@@ -1,0 +1,83 @@
+start_time,end_time,instrument_label
+0.3251,45.9755,electric bass
+47.3223,51.5483,electric bass
+52.8486,56.8889,electric bass
+58.2356,104.0254,electric bass
+106.3474,109.9697,electric bass
+111.7809,121.1617,electric bass
+129.7067,166.4871,electric bass
+38.1736,42.5854,vocalists
+44.3966,70.4958,vocalists
+72.0283,79.8302,vocalists
+81.1305,92.3690,vocalists
+94.9232,99.0563,vocalists
+108.9945,112.1988,vocalists
+117.3072,120.5116,vocalists
+120.9760,122.0905,vocalists
+123.9017,124.2268,vocalists
+125.0162,163.6078,vocalists
+0.3251,129.1958,drum set
+129.7067,166.4871,drum set
+0.2786,4.0867,distorted electric guitar
+4.4582,5.5728,distorted electric guitar
+5.8514,7.0124,distorted electric guitar
+7.4768,8.3127,distorted electric guitar
+8.7771,12.3995,distorted electric guitar
+12.8639,13.8855,distorted electric guitar
+14.2571,45.6040,distorted electric guitar
+47.1365,51.1768,distorted electric guitar
+52.7093,56.7031,distorted electric guitar
+57.0282,58.0499,distorted electric guitar
+58.2356,100.7746,distorted electric guitar
+100.8675,103.4681,distorted electric guitar
+103.6539,122.3227,distorted electric guitar
+129.7067,166.3942,distorted electric guitar
+5.7121,25.9599,male singer
+27.7246,48.5761,male singer
+49.3656,53.7774,male singer
+54.7991,87.4928,male singer
+88.5609,92.7405,male singer
+96.5486,99.4743,male singer
+103.5610,120.8831,male singer
+127.3847,135.9761,male singer
+136.6727,163.5614,male singer
+33.3903,45.4182,auxiliary percussion
+54.7991,55.1706,auxiliary percussion
+59.7217,99.0099,auxiliary percussion
+121.3475,126.2237,auxiliary percussion
+126.5952,129.2887,auxiliary percussion
+130.2639,162.1217,auxiliary percussion
+118.7468,121.4404,fx/processed sound
+121.9512,122.4156,fx/processed sound
+129.6138,129.8460,fx/processed sound
+130.0317,130.6355,fx/processed sound
+131.4249,131.7500,fx/processed sound
+3.0650,4.4118,synthesizer
+8.8236,11.9351,synthesizer
+14.3035,17.3685,synthesizer
+19.8298,22.8484,synthesizer
+25.3562,28.6070,synthesizer
+33.2974,45.9291,synthesizer
+47.3687,50.6195,synthesizer
+52.8486,56.2387,synthesizer
+58.5143,99.5672,synthesizer
+106.6260,109.8304,synthesizer
+112.0131,115.1245,synthesizer
+120.1865,129.1958,synthesizer
+129.7531,162.4932,synthesizer
+33.3903,45.3254,acoustic guitar
+61.0220,83.4525,acoustic guitar
+150.8368,161.7502,acoustic guitar
+4.6440,5.1548,vibraphone
+5.8979,10.8205,vibraphone
+11.2385,16.1611,vibraphone
+16.7648,21.9196,vibraphone
+22.2912,27.7711,vibraphone
+36.9197,37.0590,vibraphone
+44.4430,49.3192,vibraphone
+50.0158,54.8455,vibraphone
+55.4493,74.1645,vibraphone
+74.4896,79.1336,vibraphone
+79.5516,98.1740,vibraphone
+118.8862,123.1122,vibraphone
+141.1309,162.6326,vibraphone

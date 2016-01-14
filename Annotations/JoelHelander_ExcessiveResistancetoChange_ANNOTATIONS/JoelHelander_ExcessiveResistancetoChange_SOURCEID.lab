@@ -1,0 +1,43 @@
+start_time,end_time,instrument_label
+0.0464,121.5332,tack piano
+116.1927,133.8398,tack piano
+133.4683,207.1220,piano
+203.7319,218.3140,tack piano
+218.6391,231.5029,tack piano
+232.4782,240.0479,tack piano
+240.5123,240.8838,tack piano
+7.5697,133.2361,double bass
+7.0124,135.3259,drum set
+1.7183,2.3220,auxiliary percussion
+3.3437,3.3901,auxiliary percussion
+6.6409,7.1517,auxiliary percussion
+10.4490,10.8669,auxiliary percussion
+17.0899,17.3221,auxiliary percussion
+20.0620,20.5264,auxiliary percussion
+23.9166,24.4274,auxiliary percussion
+59.0251,79.9231,clarinet
+97.3845,133.5612,clarinet
+47.0901,133.4219,acoustic guitar
+24.2416,39.1953,french horn
+39.8919,46.2541,french horn
+47.1365,57.7712,french horn
+58.7000,80.1088,french horn
+97.5238,133.5147,french horn
+24.2416,39.3810,bassoon
+39.8454,46.3006,bassoon
+47.1365,57.9106,bassoon
+58.6072,80.1553,bassoon
+97.5238,133.7005,bassoon
+24.3345,39.2417,horn section
+40.0312,41.3780,horn section
+41.4708,42.8640,horn section
+43.0962,46.2077,horn section
+47.3223,57.7712,horn section
+58.7929,80.0624,horn section
+97.6167,133.5612,horn section
+147.2145,184.4593,violin
+198.5771,202.8031,violin
+147.3074,184.5058,violin
+198.6235,203.1282,violin
+147.3074,184.3664,violin section
+198.7164,202.8031,violin section

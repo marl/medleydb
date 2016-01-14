@@ -1,0 +1,36 @@
+album: ''
+artist: Cameron-Mitchell Ware & Sergi Casanelles
+composer:
+- Brandon Webster
+excerpt: 'no'
+genre: Musical Theatre
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: BrandonWebster_YesSirICanFly_MIX.wav
+origin: Dolan Studio
+producer:
+- Mike Tierney
+raw_dir: BrandonWebster_YesSirICanFly_RAW
+stem_dir: BrandonWebster_YesSirICanFly_STEMS
+stems:
+  S01:
+    component: ''
+    filename: BrandonWebster_YesSirICanFly_STEM_01.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: BrandonWebster_YesSirICanFly_RAW_01_01.wav
+        instrument: piano
+      R02:
+        filename: BrandonWebster_YesSirICanFly_RAW_01_02.wav
+        instrument: piano
+  S02:
+    component: melody
+    filename: BrandonWebster_YesSirICanFly_STEM_02.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: BrandonWebster_YesSirICanFly_RAW_02_01.wav
+        instrument: male singer
+title: Yes Sir I Can Fly
+website: []

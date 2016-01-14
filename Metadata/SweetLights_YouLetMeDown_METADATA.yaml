@@ -1,0 +1,253 @@
+album: Shaking Through Volume 2
+artist: Sweet Lights
+composer:
+- Shai Halperin
+excerpt: 'no'
+genre: Pop
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: SweetLights_YouLetMeDown_MIX.wav
+origin: Weathervane Music
+producer:
+- Andy Williams
+- Morgan Muse
+- Whitney Muse
+raw_dir: SweetLights_YouLetMeDown_RAW
+stem_dir: SweetLights_YouLetMeDown_STEMS
+stems:
+  S01:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_01_01.wav
+        instrument: acoustic guitar
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_01_02.wav
+        instrument: acoustic guitar
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_01_03.wav
+        instrument: acoustic guitar
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_01_04.wav
+        instrument: acoustic guitar
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_01_05.wav
+        instrument: acoustic guitar
+      R06:
+        filename: SweetLights_YouLetMeDown_RAW_01_06.wav
+        instrument: acoustic guitar
+  S02:
+    component: bass
+    filename: SweetLights_YouLetMeDown_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_02_01.wav
+        instrument: electric bass
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_02_02.wav
+        instrument: electric bass
+  S03:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_03.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_03_01.wav
+        instrument: male singer
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_03_02.wav
+        instrument: male singer
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_03_03.wav
+        instrument: male singer
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_03_04.wav
+        instrument: male singer
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_03_05.wav
+        instrument: male singer
+      R06:
+        filename: SweetLights_YouLetMeDown_RAW_03_06.wav
+        instrument: male singer
+      R07:
+        filename: SweetLights_YouLetMeDown_RAW_03_07.wav
+        instrument: male singer
+      R08:
+        filename: SweetLights_YouLetMeDown_RAW_03_08.wav
+        instrument: male singer
+      R09:
+        filename: SweetLights_YouLetMeDown_RAW_03_09.wav
+        instrument: male singer
+      R10:
+        filename: SweetLights_YouLetMeDown_RAW_03_10.wav
+        instrument: male singer
+      R11:
+        filename: SweetLights_YouLetMeDown_RAW_03_11.wav
+        instrument: male singer
+      R12:
+        filename: SweetLights_YouLetMeDown_RAW_03_12.wav
+        instrument: male singer
+  S04:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_04.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_04_01.wav
+        instrument: synthesizer
+  S05:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_05.wav
+    instrument: claps
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_05_01.wav
+        instrument: claps
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_05_02.wav
+        instrument: claps
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_05_03.wav
+        instrument: claps
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_05_04.wav
+        instrument: claps
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_05_05.wav
+        instrument: claps
+  S06:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_06.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_06_01.wav
+        instrument: kick drum
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_06_02.wav
+        instrument: drum machine
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_06_03.wav
+        instrument: drum set
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_06_04.wav
+        instrument: toms
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_06_05.wav
+        instrument: kick drum
+      R06:
+        filename: SweetLights_YouLetMeDown_RAW_06_06.wav
+        instrument: kick drum
+      R07:
+        filename: SweetLights_YouLetMeDown_RAW_06_07.wav
+        instrument: kick drum
+      R08:
+        filename: SweetLights_YouLetMeDown_RAW_06_08.wav
+        instrument: drum set
+      R09:
+        filename: SweetLights_YouLetMeDown_RAW_06_09.wav
+        instrument: drum set
+      R10:
+        filename: SweetLights_YouLetMeDown_RAW_06_10.wav
+        instrument: drum set
+      R11:
+        filename: SweetLights_YouLetMeDown_RAW_06_11.wav
+        instrument: drum set
+      R12:
+        filename: SweetLights_YouLetMeDown_RAW_06_12.wav
+        instrument: snare drum
+      R13:
+        filename: SweetLights_YouLetMeDown_RAW_06_13.wav
+        instrument: snare drum
+      R14:
+        filename: SweetLights_YouLetMeDown_RAW_06_14.wav
+        instrument: snare drum
+  S07:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_07.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_07_01.wav
+        instrument: synthesizer
+  S08:
+    component: melody
+    filename: SweetLights_YouLetMeDown_STEM_08.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_08_01.wav
+        instrument: male singer
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_08_02.wav
+        instrument: male singer
+  S09:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_09.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_09_01.wav
+        instrument: piano
+  S10:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_10.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_10_01.wav
+        instrument: synthesizer
+  S11:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_11.wav
+    instrument: tack piano
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_11_01.wav
+        instrument: tack piano
+  S12:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_12.wav
+    instrument: timpani
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_12_01.wav
+        instrument: timpani
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_12_02.wav
+        instrument: timpani
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_12_03.wav
+        instrument: timpani
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_12_04.wav
+        instrument: timpani
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_12_05.wav
+        instrument: timpani
+  S13:
+    component: ''
+    filename: SweetLights_YouLetMeDown_STEM_13.wav
+    instrument: auxiliary percussion
+    raw:
+      R01:
+        filename: SweetLights_YouLetMeDown_RAW_13_01.wav
+        instrument: cymbal
+      R02:
+        filename: SweetLights_YouLetMeDown_RAW_13_02.wav
+        instrument: shaker
+      R03:
+        filename: SweetLights_YouLetMeDown_RAW_13_03.wav
+        instrument: tambourine
+      R04:
+        filename: SweetLights_YouLetMeDown_RAW_13_04.wav
+        instrument: vibraphone
+      R05:
+        filename: SweetLights_YouLetMeDown_RAW_13_05.wav
+        instrument: vibraphone
+title: You Let Me Down
+website:
+- www.shakingthrough.com/sweetlights

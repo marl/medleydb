@@ -328,39 +328,7 @@ def pad(input_file, output_file, start_duration=0, end_duration=0):
     assert start_duration >= 0, "Start duration must be positive."
     assert end_duration >= 0, "End duration must be positive."
     return sox(['sox', input_file, output_file, 'pad',
-               '%0.8f' % start_duration, '%0.8f' % end_duration])
-
-
-def fade(input_file, output_file, fade_in_time=1, fade_out_time=8,
-         fade_shape='q'):
-    """Add a fade in or fade out to an audio file.
-    Fade shapes are quarter sine waves. If you care to change this write
-
-    Parameters
-    ----------
-    input_file : str
-        Audio file.
-    output_file : str
-        File for writing output.
-    fade_in_time : float
-        Number of seconds of fade in.
-    fade_out_time : float
-        Number of seconds of fade out.
-    fade_shape : str
-        Shape of fade. 'q' for quarter sine (default), 'h' for half sine,
-        't' for linear, 'l' for logarithmic, or 'p' for inverted parabola.
-
-    Returns
-    -------
-    status : bool
-        True on success.
-    """
-    fade_shapes = ['q', 'h', 't', 'l', 'p']
-    assert fade_shape in fade_shapes, "Invalid fade shape."
-    assert fade_in_time >= 0, "Fade in time must be nonnegative."
-    assert fade_out_time >= 0, "Fade out time must be nonnegative."
-    return sox(['sox', input_file, output_file, 'fade', '%s' % fade_shape,
-                '%0.8f' % fade_in_time, '0', '%0.8f' % fade_out_time])
+                '%0.8f' % start_duration, '%0.8f' % end_duration])
 
 
 def convert(input_file, output_file,
@@ -392,8 +360,6 @@ def convert(input_file, output_file,
         args += ['-b%d' % (bytedepth * 8)]
     if channels:
         args += ['-c %d' % channels]
-    if output_file is None:
-        output_file = fu.temp_file(pywave.WAVE_EXT)
 
     args += [output_file]
 

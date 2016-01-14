@@ -1,0 +1,57 @@
+start_time,end_time,instrument_label
+0.0000,241.5340,acoustic guitar
+17.5078,36.6411,vocalists
+57.3997,76.3472,vocalists
+77.1831,80.6661,vocalists
+81.7807,85.3101,vocalists
+189.3820,241.5340,vocalists
+88.3287,241.5340,banjo
+17.4614,241.5340,electric bass
+40.0776,66.2698,vibraphone
+66.4091,66.8270,vibraphone
+172.3385,241.5340,vibraphone
+88.6073,135.5581,vocalists
+0.0000,50.2480,cymbal
+50.7124,52.2449,cymbal
+52.9415,97.0594,cymbal
+106.0688,241.5340,cymbal
+1.7647,2.9257,auxiliary percussion
+3.9474,5.0155,auxiliary percussion
+190.6358,190.7287,auxiliary percussion
+191.3789,192.5399,auxiliary percussion
+193.5615,194.7690,auxiliary percussion
+195.7907,197.0445,auxiliary percussion
+197.9733,199.5987,auxiliary percussion
+200.1560,201.3634,auxiliary percussion
+202.4780,203.6390,auxiliary percussion
+204.6142,205.6824,auxiliary percussion
+206.8898,207.9579,auxiliary percussion
+208.9796,210.0477,auxiliary percussion
+211.3016,212.6948,auxiliary percussion
+213.5307,214.5524,auxiliary percussion
+215.7134,216.7815,auxiliary percussion
+217.7567,218.9177,auxiliary percussion
+220.0787,221.3790,auxiliary percussion
+222.2614,223.9797,auxiliary percussion
+226.6732,229.8311,auxiliary percussion
+230.9921,232.1067,auxiliary percussion
+233.2212,234.6144,auxiliary percussion
+235.3575,236.8435,auxiliary percussion
+237.5866,239.0262,auxiliary percussion
+239.7693,241.2553,auxiliary percussion
+0.0464,241.5340,drum set
+0.0929,19.4119,male singer
+33.1581,37.3377,male singer
+40.2170,85.9603,male singer
+86.7498,86.7962,male singer
+172.5707,208.6081,male singer
+208.7938,239.3977,male singer
+239.7228,241.5340,male singer
+26.3314,44.0250,violin section
+57.1675,92.2297,violin section
+180.0940,181.7194,violin section
+183.0197,184.5058,violin section
+184.7844,186.5956,violin section
+186.8742,188.3603,violin section
+189.3355,241.5340,violin section
+127.3847,176.8432,lap steel guitar

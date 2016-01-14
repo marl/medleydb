@@ -9,8 +9,6 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 
 
-from . import utils
-
 metadata = MetaData()
 DeclarativeBase = declarative_base(metadata=metadata)
 
@@ -229,22 +227,18 @@ class Track(DeclarativeBase):
             for key, stem in list(instance._metadata['stems'].items()):
                 Stem.from_medleydb(stem, session, name=key, track=tmp)
 
-            for dire, fmt in (
-                (
-                    medleydb.multitrack._MELODY1_DIR,
-                    medleydb.multitrack._MELODY1_FMT
-                ),
-                (
-                    medleydb.multitrack._MELODY2_DIR,
-                    medleydb.multitrack._MELODY2_FMT
-                ),
-                (
-                    medleydb.multitrack._MELODY3_DIR,
-                    medleydb.multitrack._MELODY3_FMT
-                )
+            for fmt in (
+                medleydb.multitrack._MELODY1_FMT,
+                medleydb.multitrack._MELODY2_FMT,
+                medleydb.multitrack._MELODY3_FMT
             ):
+
                 Melody.from_medleydb(
-                    os.path.join(dire, fmt % tmp.track_id),
+                    os.path.join(
+                        medleydb.multitrack.ANNOT_PATH,
+                        medleydb.multitrack._ANNOTDIR_FMT % tmp.track_id,
+                        fmt % tmp.track_id
+                    ),
                     session, track=tmp
                 )
 
@@ -316,8 +310,6 @@ class Stem(DeclarativeBase):
             ),
             track=track
         )
-
-        tmp.rank = utils.get_rankings(tmp)
 
         for key, raw in list(instance['raw'].items()):
             Raw.from_medleydb(raw, session, name=key, stem=tmp)

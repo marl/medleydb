@@ -1,0 +1,44 @@
+start_time,end_time,instrument_label
+8.7307,11.5171,auxiliary percussion
+11.8886,14.2571,auxiliary percussion
+15.5574,22.1983,auxiliary percussion
+36.7340,37.1984,auxiliary percussion
+38.1272,39.3346,auxiliary percussion
+39.9848,41.0993,auxiliary percussion
+43.7928,45.0467,auxiliary percussion
+45.6504,55.0777,auxiliary percussion
+55.4957,59.9075,auxiliary percussion
+60.3254,73.0500,auxiliary percussion
+88.9789,92.5083,auxiliary percussion
+92.7405,103.3752,auxiliary percussion
+104.0254,201.8278,auxiliary percussion
+1.1146,74.4432,acoustic guitar
+74.8147,75.1862,acoustic guitar
+75.6042,76.4401,acoustic guitar
+77.4618,79.0872,acoustic guitar
+79.3194,103.0037,acoustic guitar
+103.9790,185.2952,acoustic guitar
+194.6297,201.7814,acoustic guitar
+7.7090,13.5605,oud
+15.9289,20.7122,oud
+23.1735,24.4274,oud
+24.7989,26.1457,oud
+26.6101,37.5699,oud
+37.9878,41.2851,oud
+41.7959,65.8518,oud
+66.4091,76.1150,oud
+77.7868,88.2823,oud
+89.2575,92.3225,oud
+92.9263,104.1183,oud
+184.9237,194.5368,oud
+194.8619,197.9269,oud
+198.7628,201.9672,oud
+7.6626,201.8743,electric bass
+7.7555,113.2669,piano
+114.1493,133.6541,piano
+134.7222,148.4684,piano
+149.5365,168.6698,piano
+169.4128,173.9175,piano
+174.0103,182.9268,piano
+183.2983,184.2271,piano
+185.1095,201.7350,piano

@@ -1,0 +1,36 @@
+album: ''
+artist: Michael Kropf
+composer:
+- Michael Kropf
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: MichaelKropf_AllGoodThings_MIX.wav
+origin: Dolan Studio
+producer:
+- Samuel Nacach
+raw_dir: MichaelKropf_AllGoodThings_RAW
+stem_dir: MichaelKropf_AllGoodThings_STEMS
+stems:
+  S01:
+    component: ''
+    filename: MichaelKropf_AllGoodThings_STEM_01.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: MichaelKropf_AllGoodThings_RAW_01_01.wav
+        instrument: piano
+      R02:
+        filename: MichaelKropf_AllGoodThings_RAW_01_02.wav
+        instrument: piano
+  S02:
+    component: melody
+    filename: MichaelKropf_AllGoodThings_STEM_02.wav
+    instrument: violin
+    raw:
+      R01:
+        filename: MichaelKropf_AllGoodThings_RAW_02_01.wav
+        instrument: violin
+title: All Good Things
+website: []

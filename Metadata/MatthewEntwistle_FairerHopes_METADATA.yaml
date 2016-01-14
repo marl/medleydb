@@ -1,0 +1,165 @@
+album: ''
+artist: Matthew Entwistle
+composer:
+- Matthew Entwistle
+excerpt: 'no'
+genre: Classical
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: MatthewEntwistle_FairerHopes_MIX.wav
+origin: Independent Artist
+producer:
+- Matthew Entwistle
+raw_dir: MatthewEntwistle_FairerHopes_RAW
+stem_dir: MatthewEntwistle_FairerHopes_STEMS
+stems:
+  S01:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_01.wav
+    instrument: bass drum
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_01_01.wav
+        instrument: bass drum
+  S02:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_02.wav
+    instrument: cello section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_02_01.wav
+        instrument: cello section
+  S03:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_03.wav
+    instrument: cello section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_03_01.wav
+        instrument: cello section
+  S04:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_04.wav
+    instrument: cello section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_04_01.wav
+        instrument: cello section
+  S05:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_05.wav
+    instrument: clarinet section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_05_01.wav
+        instrument: clarinet section
+  S06:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_06.wav
+    instrument: cymbal
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_06_01.wav
+        instrument: cymbal
+  S07:
+    component: bass
+    filename: MatthewEntwistle_FairerHopes_STEM_07.wav
+    instrument: double bass
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_07_01.wav
+        instrument: double bass
+  S08:
+    component: bass
+    filename: MatthewEntwistle_FairerHopes_STEM_08.wav
+    instrument: double bass
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_08_01.wav
+        instrument: double bass
+  S09:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_09.wav
+    instrument: gong
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_09_01.wav
+        instrument: gong
+  S10:
+    component: melody
+    filename: MatthewEntwistle_FairerHopes_STEM_10.wav
+    instrument: harp
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_10_01.wav
+        instrument: harp
+  S11:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_11.wav
+    instrument: french horn
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_11_01.wav
+        instrument: french horn
+  S12:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_12.wav
+    instrument: french horn
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_12_01.wav
+        instrument: french horn
+  S13:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_13.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_13_01.wav
+        instrument: piano
+      R02:
+        filename: MatthewEntwistle_FairerHopes_RAW_13_02.wav
+        instrument: piano
+  S14:
+    component: melody
+    filename: MatthewEntwistle_FairerHopes_STEM_14.wav
+    instrument: flute
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_14_01.wav
+        instrument: flute
+  S15:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_15.wav
+    instrument: string section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_15_01.wav
+        instrument: string section
+  S16:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_16.wav
+    instrument: violin section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_16_01.wav
+        instrument: violin section
+  S17:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_17.wav
+    instrument: violin section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_17_01.wav
+        instrument: violin section
+  S18:
+    component: ''
+    filename: MatthewEntwistle_FairerHopes_STEM_18.wav
+    instrument: violin section
+    raw:
+      R01:
+        filename: MatthewEntwistle_FairerHopes_RAW_18_01.wav
+        instrument: violin section
+title: Fairer Hopes
+website:
+- http://mattentwistle.com/

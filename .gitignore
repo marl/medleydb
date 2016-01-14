@@ -1,3 +1,8 @@
+# Audio files #
+###############
+*.wav
+*.mp3
+
 # Compiled source #
 ###################
 *.com

@@ -1,0 +1,4 @@
+MusicDelta_GriegTrolltog_STEM_07.csv,1
+MusicDelta_GriegTrolltog_STEM_01.csv,2
+MusicDelta_GriegTrolltog_STEM_06.csv,3
+MusicDelta_GriegTrolltog_STEM_10.csv,4

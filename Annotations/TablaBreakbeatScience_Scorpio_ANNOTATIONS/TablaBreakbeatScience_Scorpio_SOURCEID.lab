@@ -1,0 +1,113 @@
+start_time,end_time,instrument_label
+49.8765,50.6659,drum machine
+50.8981,54.8455,drum machine
+55.2635,58.9787,drum machine
+59.3038,63.2047,drum machine
+63.6227,250.4504,drum machine
+266.9366,484.1825,drum machine
+8.1734,83.6383,drum machine
+99.9851,167.1372,drum machine
+183.4841,501.0402,drum machine
+33.9940,35.5730,fx/processed sound
+36.0838,37.6628,fx/processed sound
+38.1736,39.7526,fx/processed sound
+40.2634,41.8424,fx/processed sound
+42.3532,43.9322,fx/processed sound
+44.4430,45.9755,fx/processed sound
+46.5328,48.0653,fx/processed sound
+48.6226,51.1768,fx/processed sound
+52.0591,53.2666,fx/processed sound
+54.1489,55.3564,fx/processed sound
+56.1923,57.4462,fx/processed sound
+58.2821,59.5360,fx/processed sound
+60.3719,61.6258,fx/processed sound
+62.4617,63.7156,fx/processed sound
+64.5515,65.8054,fx/processed sound
+66.6413,67.8951,fx/processed sound
+68.7311,69.9385,fx/processed sound
+70.8209,72.0283,fx/processed sound
+72.9107,74.1181,fx/processed sound
+75.0005,76.2079,fx/processed sound
+77.0902,78.2977,fx/processed sound
+79.1800,80.3875,fx/processed sound
+81.2698,82.4773,fx/processed sound
+83.2668,151.0226,fx/processed sound
+152.0907,155.1557,fx/processed sound
+156.2703,159.3353,fx/processed sound
+160.4499,163.5149,fx/processed sound
+164.6295,167.1372,fx/processed sound
+200.2489,201.4563,fx/processed sound
+202.4316,203.4997,fx/processed sound
+204.5214,207.9579,fx/processed sound
+208.7010,209.8155,fx/processed sound
+210.7907,211.8589,fx/processed sound
+212.8341,216.3171,fx/processed sound
+217.0137,218.1747,fx/processed sound
+219.1035,220.2180,fx/processed sound
+221.1933,224.6298,fx/processed sound
+225.3729,226.4874,fx/processed sound
+227.4627,228.5308,fx/processed sound
+229.5525,232.9890,fx/processed sound
+233.4999,536.1488,fx/processed sound
+16.7184,18.8546,accordion
+20.7586,23.0342,accordion
+24.9382,27.4460,accordion
+29.1178,31.6720,accordion
+33.2974,35.7587,accordion
+37.4770,39.9848,accordion
+41.6566,44.1644,accordion
+45.8362,48.3904,accordion
+49.9693,52.5235,accordion
+54.1489,56.5638,accordion
+58.3285,60.7898,accordion
+62.5081,65.1088,accordion
+66.5020,201.8743,accordion
+400.5442,529.7400,accordion
+0.0000,1.5790,synthesizer
+4.0403,5.7585,synthesizer
+8.2199,9.9381,synthesizer
+12.3995,14.1177,synthesizer
+16.5326,18.2509,synthesizer
+20.7122,22.4305,synthesizer
+24.8918,26.6101,synthesizer
+29.0714,30.7897,synthesizer
+33.2510,34.9693,synthesizer
+37.4306,39.1488,synthesizer
+41.6102,46.4863,synthesizer
+49.9693,54.3811,synthesizer
+58.3285,63.4834,synthesizer
+66.6877,84.1956,synthesizer
+302.5096,303.9956,synthesizer
+306.7356,310.3115,synthesizer
+311.2403,317.6954,synthesizer
+319.2279,321.8286,synthesizer
+323.4075,325.9617,synthesizer
+327.5871,330.1413,synthesizer
+331.7203,367.4790,synthesizer
+383.9187,387.8197,synthesizer
+388.5627,396.1789,synthesizer
+396.8755,401.4266,synthesizer
+402.5411,405.5133,synthesizer
+406.7207,409.6929,synthesizer
+410.9003,413.8725,synthesizer
+415.0799,418.0521,synthesizer
+419.2595,422.1852,synthesizer
+423.4391,426.3648,synthesizer
+427.6187,430.5444,synthesizer
+431.7983,501.6439,synthesizer
+0.3251,66.5484,fx/processed sound
+100.0316,270.6518,fx/processed sound
+270.8376,272.6951,fx/processed sound
+273.0202,274.8778,fx/processed sound
+275.0171,276.8747,fx/processed sound
+277.1534,279.0110,fx/processed sound
+279.1503,281.1008,fx/processed sound
+281.2865,283.2834,fx/processed sound
+283.7478,367.2932,fx/processed sound
+368.5007,454.1823,fx/processed sound
+454.4610,458.4083,fx/processed sound
+458.5941,462.5415,fx/processed sound
+462.8201,466.6746,fx/processed sound
+466.9068,514.5078,fx/processed sound
+24.9382,117.9109,tabla
+133.4219,517.8050,tabla

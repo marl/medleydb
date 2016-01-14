@@ -1,0 +1,4 @@
+AlexanderRoss_VelvetCurtain_STEM_06.csv,1
+AlexanderRoss_VelvetCurtain_STEM_07.csv,2
+AlexanderRoss_VelvetCurtain_STEM_08.csv,3
+AlexanderRoss_VelvetCurtain_STEM_01.csv,4

@@ -1,0 +1,210 @@
+album: Shaking Through Volume 3
+artist: Auctioneer
+composer:
+- Craig Hendrix
+excerpt: 'no'
+genre: Singer/Songwriter
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: Auctioneer_OurFutureFaces_MIX.wav
+origin: Weathervane Music
+producer:
+- Laura Grablutz
+- Andy Williams
+raw_dir: Auctioneer_OurFutureFaces_RAW
+stem_dir: Auctioneer_OurFutureFaces_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_01.wav
+    instrument: banjo
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_01_01.wav
+        instrument: banjo
+  S02:
+    component: bass
+    filename: Auctioneer_OurFutureFaces_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_02_01.wav
+        instrument: electric bass
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_02_02.wav
+        instrument: electric bass
+  S03:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_03.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_03_01.wav
+        instrument: male singer
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_03_02.wav
+        instrument: male singer
+      R03:
+        filename: Auctioneer_OurFutureFaces_RAW_03_03.wav
+        instrument: male singer
+      R04:
+        filename: Auctioneer_OurFutureFaces_RAW_03_04.wav
+        instrument: male singer
+      R05:
+        filename: Auctioneer_OurFutureFaces_RAW_03_05.wav
+        instrument: vocalists
+      R06:
+        filename: Auctioneer_OurFutureFaces_RAW_03_06.wav
+        instrument: vocalists
+      R07:
+        filename: Auctioneer_OurFutureFaces_RAW_03_07.wav
+        instrument: vocalists
+      R08:
+        filename: Auctioneer_OurFutureFaces_RAW_03_08.wav
+        instrument: vocalists
+      R09:
+        filename: Auctioneer_OurFutureFaces_RAW_03_09.wav
+        instrument: male singer
+      R10:
+        filename: Auctioneer_OurFutureFaces_RAW_03_10.wav
+        instrument: male singer
+      R11:
+        filename: Auctioneer_OurFutureFaces_RAW_03_11.wav
+        instrument: male singer
+  S04:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_04.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_04_01.wav
+        instrument: drum set
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_04_02.wav
+        instrument: drum set
+      R03:
+        filename: Auctioneer_OurFutureFaces_RAW_04_03.wav
+        instrument: drum set
+      R04:
+        filename: Auctioneer_OurFutureFaces_RAW_04_04.wav
+        instrument: kick drum
+      R05:
+        filename: Auctioneer_OurFutureFaces_RAW_04_05.wav
+        instrument: drum set
+      R06:
+        filename: Auctioneer_OurFutureFaces_RAW_04_06.wav
+        instrument: drum set
+      R07:
+        filename: Auctioneer_OurFutureFaces_RAW_04_07.wav
+        instrument: snare drum
+      R08:
+        filename: Auctioneer_OurFutureFaces_RAW_04_08.wav
+        instrument: snare drum
+      R09:
+        filename: Auctioneer_OurFutureFaces_RAW_04_09.wav
+        instrument: toms
+      R10:
+        filename: Auctioneer_OurFutureFaces_RAW_04_10.wav
+        instrument: toms
+  S05:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_05.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_05_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_05_02.wav
+        instrument: clean electric guitar
+  S06:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_06.wav
+    instrument: horn section
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_06_01.wav
+        instrument: horn section
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_06_02.wav
+        instrument: horn section
+      R03:
+        filename: Auctioneer_OurFutureFaces_RAW_06_03.wav
+        instrument: horn section
+      R04:
+        filename: Auctioneer_OurFutureFaces_RAW_06_04.wav
+        instrument: horn section
+      R05:
+        filename: Auctioneer_OurFutureFaces_RAW_06_05.wav
+        instrument: horn section
+      R06:
+        filename: Auctioneer_OurFutureFaces_RAW_06_06.wav
+        instrument: horn section
+  S07:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_07.wav
+    instrument: vibraphone
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_07_01.wav
+        instrument: vibraphone
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_07_02.wav
+        instrument: vibraphone
+  S08:
+    component: melody
+    filename: Auctioneer_OurFutureFaces_STEM_08.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_08_01.wav
+        instrument: male singer
+  S09:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_09.wav
+    instrument: auxiliary percussion
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_09_01.wav
+        instrument: fx/processed sound
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_09_02.wav
+        instrument: fx/processed sound
+      R03:
+        filename: Auctioneer_OurFutureFaces_RAW_09_03.wav
+        instrument: fx/processed sound
+      R04:
+        filename: Auctioneer_OurFutureFaces_RAW_09_04.wav
+        instrument: fx/processed sound
+      R05:
+        filename: Auctioneer_OurFutureFaces_RAW_09_05.wav
+        instrument: toms
+      R06:
+        filename: Auctioneer_OurFutureFaces_RAW_09_06.wav
+        instrument: toms
+      R07:
+        filename: Auctioneer_OurFutureFaces_RAW_09_07.wav
+        instrument: auxiliary percussion
+      R08:
+        filename: Auctioneer_OurFutureFaces_RAW_09_08.wav
+        instrument: shaker
+      R09:
+        filename: Auctioneer_OurFutureFaces_RAW_09_09.wav
+        instrument: toms
+      R10:
+        filename: Auctioneer_OurFutureFaces_RAW_09_10.wav
+        instrument: toms
+  S10:
+    component: ''
+    filename: Auctioneer_OurFutureFaces_STEM_10.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Auctioneer_OurFutureFaces_RAW_10_01.wav
+        instrument: piano
+      R02:
+        filename: Auctioneer_OurFutureFaces_RAW_10_02.wav
+        instrument: piano
+title: Our Future Faces
+website:
+- www.shakingthrough.com/auctioneer

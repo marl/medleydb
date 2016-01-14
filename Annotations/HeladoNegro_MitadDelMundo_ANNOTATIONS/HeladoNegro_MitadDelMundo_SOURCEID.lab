@@ -1,0 +1,118 @@
+start_time,end_time,instrument_label
+24.3345,27.0280,fx/processed sound
+32.3222,35.0157,fx/processed sound
+35.6194,107.7406,fx/processed sound
+127.5704,128.1277,fx/processed sound
+131.2856,143.6851,fx/processed sound
+144.2888,147.6789,fx/processed sound
+148.2362,174.7534,fx/processed sound
+175.5893,176.4717,fx/processed sound
+12.0744,13.5605,synthesizer
+14.1642,15.9289,synthesizer
+16.0682,17.5543,synthesizer
+18.1580,21.6874,synthesizer
+23.9630,25.5420,synthesizer
+26.1457,29.5822,synthesizer
+30.1859,33.5761,synthesizer
+34.1333,37.6163,synthesizer
+38.1272,41.5173,synthesizer
+42.1210,45.5576,synthesizer
+46.1148,49.5978,synthesizer
+50.1087,53.5917,synthesizer
+54.1025,57.6319,synthesizer
+58.0963,61.5793,synthesizer
+62.1366,65.5732,synthesizer
+66.1304,67.9416,synthesizer
+72.0747,73.6073,synthesizer
+76.0686,77.5546,synthesizer
+80.0624,81.5949,synthesizer
+82.1058,85.5888,synthesizer
+86.1460,93.5764,synthesizer
+94.0873,97.6167,synthesizer
+98.1275,101.5176,synthesizer
+102.1214,105.6044,synthesizer
+106.1152,109.5982,synthesizer
+110.0626,113.5456,synthesizer
+114.1029,117.6323,synthesizer
+118.0967,121.5797,synthesizer
+122.0905,132.0287,synthesizer
+132.1215,171.9670,synthesizer
+23.3128,25.9599,male singer
+26.2385,31.4863,male singer
+32.0900,34.2727,male singer
+36.2231,39.4275,male singer
+40.1705,42.6783,male singer
+44.2108,46.8579,male singer
+48.2511,50.4337,male singer
+51.6412,58.5143,male singer
+60.5112,63.2512,male singer
+65.0623,66.8270,male singer
+69.1026,71.7497,male singer
+73.1429,80.4804,male singer
+81.0376,83.8705,male singer
+85.1244,89.8148,male singer
+91.6724,99.7994,male singer
+100.7746,108.8087,male singer
+110.1555,117.8645,male singer
+118.1896,121.6261,male singer
+122.3227,125.0627,male singer
+126.1308,129.7995,male singer
+130.1711,133.5612,male singer
+134.2578,138.0194,male singer
+138.3909,145.4962,male singer
+146.1928,149.7223,male singer
+150.1867,154.5985,male singer
+155.3879,162.6326,male singer
+165.0939,165.4654,male singer
+166.7193,166.8586,male singer
+23.2664,68.4989,drum machine
+91.2544,171.9670,drum machine
+67.3843,92.3225,synthesizer
+92.8334,93.4835,synthesizer
+93.8086,94.4588,synthesizer
+94.8303,95.4340,synthesizer
+96.4093,97.0130,synthesizer
+98.8706,100.4495,synthesizer
+100.8210,101.4712,synthesizer
+101.8427,102.4464,synthesizer
+102.8644,103.4217,synthesizer
+104.4434,105.0006,synthesizer
+106.9511,107.5548,synthesizer
+107.8799,108.2979,synthesizer
+108.9016,109.4124,synthesizer
+109.9233,110.3877,synthesizer
+110.8521,111.4093,synthesizer
+112.5239,112.8954,synthesizer
+114.9388,115.5889,synthesizer
+115.8211,116.3320,synthesizer
+116.8893,117.4001,synthesizer
+117.9109,118.3753,synthesizer
+118.8397,119.3970,synthesizer
+120.4187,120.9760,synthesizer
+122.8800,124.3196,synthesizer
+124.8769,125.3878,synthesizer
+125.8057,126.3630,synthesizer
+126.8274,127.3382,synthesizer
+128.4063,129.0101,synthesizer
+130.8212,131.5643,synthesizer
+0.0929,24.1023,synthesizer
+35.4337,67.8023,synthesizer
+89.3504,91.9046,synthesizer
+104.1183,177.0289,synthesizer
+75.1862,76.1615,vibraphone
+76.6723,86.4247,vibraphone
+23.2664,35.1550,male singer
+36.2696,43.4213,male singer
+44.2572,47.7402,male singer
+48.2046,59.6288,male singer
+60.6505,64.4122,male singer
+64.9694,67.8951,male singer
+69.1026,71.7032,male singer
+73.0964,80.4804,male singer
+81.0376,83.8240,male singer
+85.1708,90.0005,male singer
+91.7188,163.7936,male singer
+0.0929,22.9413,synthesizer
+23.6379,172.3849,synthesizer
+61.0220,93.8551,tack piano
+131.2856,180.9299,tack piano

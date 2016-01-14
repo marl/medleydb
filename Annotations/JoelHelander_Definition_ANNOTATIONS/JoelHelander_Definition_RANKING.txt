@@ -1,0 +1,5 @@
+JoelHelander_Definition_STEM_01.csv,4
+JoelHelander_Definition_STEM_02.csv,1
+JoelHelander_Definition_STEM_09.csv,2
+JoelHelander_Definition_STEM_12.csv,5
+JoelHelander_Definition_STEM_15.csv,3

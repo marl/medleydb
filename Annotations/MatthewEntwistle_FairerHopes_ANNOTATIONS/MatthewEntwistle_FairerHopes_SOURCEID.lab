@@ -1,0 +1,109 @@
+start_time,end_time,instrument_label
+2.1827,64.0406,bass drum
+64.6444,145.8213,bass drum
+146.1464,147.0752,bass drum
+226.1624,229.8311,bass drum
+233.5463,236.1469,bass drum
+236.4720,295.2185,bass drum
+146.3786,153.3446,cello section
+154.9700,166.5335,cello section
+168.2982,174.6605,cello section
+176.3323,187.7566,cello section
+189.7070,231.5029,cello section
+146.2393,152.8337,cello section
+154.9235,166.3942,cello section
+168.2054,174.5676,cello section
+176.2859,187.8494,cello section
+189.6141,231.5494,cello section
+22.6627,59.2109,cello section
+65.2016,105.2793,cello section
+114.9388,135.7439,cello section
+4.0867,8.7307,clarinet section
+12.9103,18.9475,clarinet section
+106.2081,110.4341,clarinet section
+111.1771,115.4496,clarinet section
+235.4503,244.7848,clarinet section
+245.5278,249.8932,clarinet section
+250.4504,279.8469,clarinet section
+280.8686,288.2525,clarinet section
+220.0323,226.6268,cymbal
+277.3391,282.6333,cymbal
+1.8112,53.1273,double bass
+64.8301,115.4032,double bass
+115.6354,141.5024,double bass
+143.7780,144.3352,double bass
+234.1500,293.5002,double bass
+2.2756,4.1796,double bass
+4.6440,6.5945,double bass
+7.1517,9.2880,double bass
+9.6131,11.6564,double bass
+12.1673,14.1642,double bass
+14.6286,16.7648,double bass
+17.0899,19.2726,double bass
+19.5976,24.2881,double bass
+24.6132,26.7494,double bass
+27.0745,34.1798,double bass
+34.6442,36.6875,double bass
+37.1984,41.7959,double bass
+42.0746,44.0250,double bass
+44.6752,46.5792,double bass
+47.1829,54.1489,double bass
+54.5205,56.7496,double bass
+57.0282,59.8610,double bass
+64.7372,66.7341,double bass
+67.1057,69.2419,double bass
+69.5670,76.6723,double bass
+77.1367,79.1800,double bass
+79.6909,86.8426,double bass
+86.9820,91.6259,double bass
+91.9975,114.7530,double bass
+115.7283,119.5363,double bass
+120.7438,131.9358,double bass
+134.7222,136.6727,double bass
+137.0906,139.1804,double bass
+139.5984,141.6882,double bass
+234.1036,241.0231,double bass
+241.5340,243.3916,double bass
+244.0417,246.1780,double bass
+246.5030,248.5000,double bass
+249.0572,250.9613,double bass
+251.5185,253.6083,double bass
+254.0263,255.9303,double bass
+256.5341,278.7788,double bass
+278.8717,283.8407,double bass
+284.3516,286.5807,double bass
+2.3684,5.2941,gong
+64.9230,67.7094,gong
+104.8149,107.7870,gong
+114.8923,124.6912,gong
+129.7531,137.2764,gong
+234.1036,237.0757,gong
+279.1967,282.1689,gong
+2.5542,62.9261,harp
+65.2481,142.4312,harp
+234.5680,292.2928,harp
+146.3322,153.0659,french horn
+154.8771,166.3478,french horn
+168.2982,174.6141,french horn
+176.3323,187.7101,french horn
+204.1963,230.9921,french horn
+146.1000,153.5303,french horn
+154.7842,166.7193,french horn
+168.1589,174.7998,french horn
+176.1930,187.9423,french horn
+219.1035,231.3172,french horn
+2.2756,63.3905,piano
+63.9013,145.1712,piano
+234.5680,294.5219,piano
+22.4769,62.3224,flute
+64.9230,134.1649,flute
+134.5364,145.4962,flute
+234.1965,294.1039,flute
+65.0159,138.2980,string section
+234.2893,292.7572,string section
+191.7504,231.6423,violin section
+191.7968,231.5494,violin section
+104.2112,142.7098,violin section
+261.4102,267.4474,violin section
+268.6549,277.3391,violin section
+278.2215,292.4321,violin section

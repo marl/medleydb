@@ -1,0 +1,60 @@
+start_time,end_time,instrument_label
+0.0464,106.3010,drum set
+0.0000,33.7154,electric bass
+34.3655,108.1585,electric bass
+0.0000,6.7338,electric piano
+7.2911,23.1735,electric piano
+24.7060,26.4243,electric piano
+27.0745,31.7185,electric piano
+33.4367,36.6875,electric piano
+37.8485,50.0622,electric piano
+50.9446,59.2109,electric piano
+59.6753,66.8270,electric piano
+68.3595,75.5577,electric piano
+77.0902,78.8085,electric piano
+79.3658,81.2698,electric piano
+82.1058,88.5609,electric piano
+90.1863,92.8798,electric piano
+94.5052,108.6694,electric piano
+0.0464,6.9195,synthesizer
+7.7090,12.6317,synthesizer
+13.2818,17.5078,synthesizer
+18.3902,25.6813,synthesizer
+27.0745,32.6008,synthesizer
+32.9259,37.1984,synthesizer
+38.4058,43.8857,synthesizer
+46.5792,47.2294,synthesizer
+48.8548,52.7093,synthesizer
+54.1954,56.6567,synthesizer
+57.6784,58.7465,synthesizer
+59.1180,59.6753,synthesizer
+60.1861,65.6660,synthesizer
+68.8239,73.5144,synthesizer
+73.7001,78.2512,synthesizer
+79.5051,86.0067,synthesizer
+86.9820,89.0717,synthesizer
+91.2544,96.5950,synthesizer
+96.8272,104.7684,synthesizer
+105.8366,106.0688,synthesizer
+9.6131,20.0620,soprano saxophone
+25.4491,34.3655,soprano saxophone
+35.8052,45.4182,soprano saxophone
+61.9508,70.8209,soprano saxophone
+71.5175,77.1367,soprano saxophone
+77.9262,80.2482,soprano saxophone
+81.1305,87.2141,soprano saxophone
+88.0965,95.0625,soprano saxophone
+95.5269,106.0688,soprano saxophone
+106.4403,109.3660,soprano saxophone
+0.0929,3.5294,trumpet
+4.2725,9.5202,trumpet
+16.3004,25.2633,trumpet
+35.8980,42.7712,trumpet
+43.2356,45.3254,trumpet
+46.1148,49.8300,trumpet
+50.7124,58.4214,trumpet
+58.9322,62.4152,trumpet
+65.6196,74.1181,trumpet
+74.8147,78.9014,trumpet
+88.2823,100.4495,trumpet
+101.9820,109.8768,trumpet

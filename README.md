@@ -1,12 +1,15 @@
 medleydb
 ========
 
-Python tools for using MedleyDB.
+Annotations and Python tools for MedleyDB.
+
+[![Build Status](https://travis-ci.org/marl/medleydb.svg?branch=medleydb_v1.1)](https://travis-ci.org/marl/medleydb)
+[![Coverage Status](https://coveralls.io/repos/marl/medleydb/badge.svg?branch=medleydb_v1.1&service=github)](https://coveralls.io/github/marl/medleydb?branch=medleydb_v1.1)
 
 Created by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu
 and Justin Salamon justin (dot) salamon (at) nyu (dot) edu.
 
-This code is released along with MedleyDB: 
+This code is released along with MedleyDB:
 
 http://medleydb.weebly.com (or http://marl.smusic.nyu.edu/medleydb)
 
@@ -16,6 +19,12 @@ R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello,
 "[MedleyDB: A Multitrack Dataset for Annotation-Intensive MIR Research](http://marl.smusic.nyu.edu/medleydb_webfiles/bittner_medleydb_ismir2014.pdf)", in
 15th International Society for Music Information Retrieval Conference,
 Taipei, Taiwan, Oct. 2014.
+
+Annotations
+===========
+As of v1.1, this repository contains the most up to date version of the
+medleydb annotations. If you find any problems with an annotation, or would
+like to contribute annotations, please report an issue submit a pull request. :)
 
 Setup
 =====
@@ -40,8 +49,8 @@ the MedleyDB directory (or MedleyDB_sample) lives:
 export MEDLEYDB_PATH="path/to/your/copy/of/MedleyDB"
 ```
 
-To avoid doing this step every time, copy the line above to ```.bash_profile```
-or ```.bashrc```.
+To avoid doing this step every time, copy the line above to ```~/.bash_profile```
+or ```~/.bashrc```.
 
 Optionally, you may also install the SQL submodule using
 
@@ -61,6 +70,7 @@ Dependencies
 ------------
 
 * Python, will be installed by pip
+  * [numpy](http://www.numpy.org/)
   * [pyyaml](http://pyyaml.org/)
   * [sqlalchemy](http://www.sqlalchemy.org/) (optional)
 * Additional
@@ -86,14 +96,14 @@ Loading and accessing the full dataset
 Load the dataset to a list of MultiTrack objects:
 
 ```python
-mtrack_list = mdb.load_all_multitracks()
+mtrack_generator = mdb.load_all_multitracks()
 ```
 
 Some attributes of a multitrack:
 
 ```python
-multitrack_1 = next(mtrack_list)
-multitrack_2 = next(mtrack_list)
+multitrack_1 = next(mtrack_generator)
+multitrack_2 = next(mtrack_generator)
 
 multitrack_1.has_bleed
 multitrack_2.has_bleed
@@ -104,6 +114,7 @@ multitrack_2.artist
 multitrack_1.is_instrumental
 multitrack_2.is_instrumental
 
+multitrack_1.load_melody_annotations()
 multitrack_1.melody1_annotation
 ```
 
@@ -124,7 +135,7 @@ import glob
 import os
 import medleydb as mdb
 
-example_list = glob.glob(os.path.join(mdb.AUDIO_DIR, 'ClaraBerry_*'))
+example_list = glob.glob(os.path.join(mdb.AUDIO_PATH, 'ClaraBerry*'))
 dataset_subset = mdb.load_multitracks(example_list)
 ```
 

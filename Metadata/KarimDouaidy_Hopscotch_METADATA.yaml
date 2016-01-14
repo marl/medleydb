@@ -1,0 +1,108 @@
+album: ''
+artist: Karim Douaidy
+composer:
+- Karim Douaidy
+excerpt: 'no'
+genre: World/Folk
+has_bleed: 'no'
+instrumental: 'yes'
+mix_filename: KarimDouaidy_Hopscotch_MIX.wav
+origin: Dolan Studio
+producer:
+- Karim Douaidy
+raw_dir: KarimDouaidy_Hopscotch_RAW
+stem_dir: KarimDouaidy_Hopscotch_STEMS
+stems:
+  S01:
+    component: bass
+    filename: KarimDouaidy_Hopscotch_STEM_01.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_01_01.wav
+        instrument: electric bass
+  S02:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_02.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_02_01.wav
+        instrument: acoustic guitar
+  S03:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_03.wav
+    instrument: claps
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_03_01.wav
+        instrument: claps
+      R02:
+        filename: KarimDouaidy_Hopscotch_RAW_03_02.wav
+        instrument: claps
+      R03:
+        filename: KarimDouaidy_Hopscotch_RAW_03_03.wav
+        instrument: claps
+      R04:
+        filename: KarimDouaidy_Hopscotch_RAW_03_04.wav
+        instrument: claps
+      R05:
+        filename: KarimDouaidy_Hopscotch_RAW_03_05.wav
+        instrument: claps
+      R06:
+        filename: KarimDouaidy_Hopscotch_RAW_03_06.wav
+        instrument: claps
+  S04:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_04.wav
+    instrument: darbuka
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_04_01.wav
+        instrument: darbuka
+  S05:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_05.wav
+    instrument: doumbek
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_05_01.wav
+        instrument: doumbek
+  S06:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_06.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_06_01.wav
+        instrument: acoustic guitar
+  S07:
+    component: melody
+    filename: KarimDouaidy_Hopscotch_STEM_07.wav
+    instrument: oud
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_07_01.wav
+        instrument: oud
+  S08:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_08.wav
+    instrument: auxiliary percussion
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_08_01.wav
+        instrument: auxiliary percussion
+  S09:
+    component: ''
+    filename: KarimDouaidy_Hopscotch_STEM_09.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: KarimDouaidy_Hopscotch_RAW_09_01.wav
+        instrument: piano
+      R02:
+        filename: KarimDouaidy_Hopscotch_RAW_09_02.wav
+        instrument: piano
+title: Hopscotch
+website:
+- www.karimdouaidy.com

@@ -1,0 +1,103 @@
+start_time,end_time,instrument_label
+1.9040,26.0992,violin section
+26.7029,46.6257,violin section
+61.4400,61.4864,violin section
+64.1335,65.8054,violin section
+0.2786,43.9786,violin section
+44.2108,46.2077,violin section
+49.6907,50.3873,violin section
+55.2635,59.4431,violin section
+59.6753,61.6258,violin section
+62.6010,63.1118,violin section
+63.9942,65.8982,violin section
+1.6254,25.8670,viola section
+26.7494,47.8795,viola section
+48.2511,54.1489,viola section
+56.0994,57.1211,viola section
+57.7712,57.9106,viola section
+60.4648,61.1614,viola section
+64.0871,65.6196,viola section
+0.1858,61.5329,cello
+64.0871,65.7125,cello
+0.1393,9.0093,double bass
+11.1456,49.8300,double bass
+50.2015,60.5576,double bass
+64.0406,65.4803,double bass
+1.6718,2.2756,flute section
+4.9226,5.8514,flute section
+8.5914,18.8546,flute section
+26.7958,43.9322,flute section
+44.4894,47.5080,flute section
+47.8331,49.3656,flute section
+49.5514,54.4276,flute section
+64.2264,65.7125,flute section
+26.7958,41.6102,piccolo
+64.2264,65.6196,piccolo
+26.7958,41.6102,piccolo
+64.2264,65.6196,piccolo
+4.4582,5.8979,oboe
+7.9877,9.0558,oboe
+26.7494,41.8888,oboe
+43.5606,45.5576,oboe
+47.0436,50.3873,oboe
+61.3936,65.6660,oboe
+1.4396,2.1827,clarinet section
+4.8762,5.9907,clarinet section
+15.0930,17.0434,clarinet section
+18.7617,25.8206,clarinet section
+26.6101,43.9322,clarinet section
+53.3130,53.7774,clarinet section
+55.4493,56.0994,clarinet section
+58.0963,60.3719,clarinet section
+64.1800,65.5732,clarinet section
+1.4396,2.2756,clarinet section
+4.8298,5.9907,clarinet section
+15.1394,17.1363,clarinet section
+18.7153,25.8670,clarinet section
+26.6565,43.9786,clarinet section
+50.8981,51.0839,clarinet section
+53.2666,53.8239,clarinet section
+55.4028,56.1459,clarinet section
+58.0963,60.3719,clarinet section
+64.2728,65.6660,clarinet section
+4.4118,5.3870,brass section
+7.8483,8.9629,brass section
+11.4707,12.4459,brass section
+13.0496,14.3035,brass section
+14.7215,25.6813,brass section
+27.2138,41.5173,brass section
+43.7000,44.8145,brass section
+47.1829,48.2511,brass section
+49.0405,50.0158,brass section
+50.9446,51.2697,brass section
+51.7341,52.1520,brass section
+52.5235,53.1737,brass section
+53.3130,53.9632,brass section
+4.4118,5.3870,brass section
+7.8483,8.9165,brass section
+11.4707,12.4459,brass section
+13.0496,14.2571,brass section
+14.7215,25.6348,brass section
+27.2138,41.3780,brass section
+43.7000,44.8145,brass section
+47.1829,48.2046,brass section
+49.0405,49.9693,brass section
+50.9446,51.2697,brass section
+51.7805,52.1520,brass section
+52.5235,53.1273,brass section
+53.3595,53.9167,brass section
+25.2633,41.8424,brass section
+64.1335,65.7589,brass section
+27.0280,34.9693,trumpet section
+36.5946,38.5451,trumpet section
+40.0312,41.8424,trumpet section
+64.0871,65.9447,trumpet section
+25.2169,41.4244,tuba
+64.1335,65.4803,tuba
+25.0776,41.4708,timpani
+64.0406,65.6660,timpani
+25.1240,41.4708,timpani
+64.1335,65.7125,timpani
+25.0776,34.3655,cymbal
+37.7092,41.7959,cymbal
+64.0871,65.8518,cymbal

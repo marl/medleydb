@@ -1,0 +1,3 @@
+ClaraBerryAndWooldog_WaltzForMyVictims_STEM_05.csv,1
+ClaraBerryAndWooldog_WaltzForMyVictims_STEM_03.csv,2
+ClaraBerryAndWooldog_WaltzForMyVictims_STEM_04.csv,3

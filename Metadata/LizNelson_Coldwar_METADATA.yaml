@@ -1,0 +1,33 @@
+album: ''
+artist: Liz Nelson & Jennifer Davies
+composer:
+- Liz Nelson
+excerpt: 'no'
+genre: Singer/Songwriter
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: LizNelson_Coldwar_MIX.wav
+origin: Dolan Studio
+producer:
+- Mike Tierney
+raw_dir: LizNelson_Coldwar_RAW
+stem_dir: LizNelson_Coldwar_STEMS
+stems:
+  S01:
+    component: ''
+    filename: LizNelson_Coldwar_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: LizNelson_Coldwar_RAW_01_01.wav
+        instrument: acoustic guitar
+  S02:
+    component: melody
+    filename: LizNelson_Coldwar_STEM_02.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: LizNelson_Coldwar_RAW_02_01.wav
+        instrument: female singer
+title: Coldwar
+website: []
