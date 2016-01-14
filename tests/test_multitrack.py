@@ -217,7 +217,7 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(len(mel_tracks), 1)
         self.assertEqual(mel_tracks[0].component, 'melody')
         self.assertEqual(mel_tracks[0].stem_idx, 7)
-        self.assertEqual(len(mel_tracks[0].pitch_annotation), 18268)
+        self.assertEqual(len(mel_tracks[0].get_pitch_annotation()), 18268)
 
     def test_bass_tracks(self):
         bass_tracks = self.mtrack.bass_tracks()
