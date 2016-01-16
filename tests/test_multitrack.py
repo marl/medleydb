@@ -318,12 +318,24 @@ class TestGetDictLeaves(unittest.TestCase):
         expected = set(['z', 'y', 'x', 'w', 't', 'elephant', 'foo'])
         self.assertEqual(actual, expected)
 
+    def test_get_leaves2(self):
+        mtrack = multitrack.MultiTrack('NightPanther_Fire')
+        test_dict = {
+            'a': mtrack,
+            'b': {1: mtrack, 2: mtrack},
+            'c': [mtrack],
+            'd': {'asdf': mtrack},
+            'e': {'borg': [mtrack]}
+        }
+        actual = multitrack.get_dict_leaves(test_dict)
+        expected = set([mtrack, mtrack, mtrack, mtrack, mtrack])
+        self.assertEqual(actual, expected)
+
 
 class TestGetDuration(unittest.TestCase):
     def test_get_duration(self):
         actual = multitrack.get_duration(os.path.join(
-            os.path.dirname(__file__), 'data/short_audio.wav')
-        )
+            os.path.dirname(__file__), 'data/short_audio.wav'))
         expected = 4.0
         self.assertEqual(actual, expected)
 
