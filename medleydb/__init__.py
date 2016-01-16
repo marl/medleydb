@@ -17,7 +17,7 @@ if "MEDLEYDB_PATH" not in environ:
              As a result, any part of the code that requires the audio won't
              work. If you don't need to access the audio, disregard this warning.
              If you do, set the value of MEDLEYDB_PATH to your local path to
-             the top level Audio folder for MedeleyDB."""
+             MedeleyDB."""
     MEDLEYDB_PATH = ""
 else:
     MEDLEYDB_PATH = environ["MEDLEYDB_PATH"]
