@@ -12,17 +12,24 @@ __all__ = ["__version__", "sql"]
 
 logging.basicConfig(level=logging.CRITICAL)
 
-if "MEDLEYDB_PATH" not in environ:
+if "MEDLEYDB_PATH" in environ and path.exists(environ["MEDLEYDB_PATH"]):
+    AUDIO_AVAILABLE = True
+elif "MEDLEYDB_PATH" not in environ:
     print """Warning: The environment variable MEDLEYDB_PATH is not set.
              As a result, any part of the code that requires the audio won't
              work. If you don't need to access the audio, disregard this warning.
              If you do, set the value of MEDLEYDB_PATH to your local path to
              MedeleyDB."""
     MEDLEYDB_PATH = ""
+    AUDIO_AVAILABLE = False
 else:
     MEDLEYDB_PATH = environ["MEDLEYDB_PATH"]
-    assert path.exists(MEDLEYDB_PATH), """The MEDLEYDB_PATH: %s does
-        not exist.""" % MEDLEYDB_PATH
+    print """Warning: The value set for MEDLEYDB_PATH: %s does not exist.
+             As a result, any part of the code that requires the audio won't
+             work. If you don't need to access the audio, disregard this warning.
+             If you do, set the value of MEDLEYDB_PATH to your local path to
+             MedeleyDB.""" % MEDLEYDB_PATH
+    AUDIO_AVAILABLE = False
 
 # The taxonomy, tracklist, annotations and metadata are version controlled and
 # stored inside the repository
@@ -33,13 +40,16 @@ METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
 
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requiring the user to set the MEDLEYDB_PATH
-AUDIO_PATH = path.join(MEDLEYDB_PATH, 'Audio')
-if not path.exists(AUDIO_PATH):
+if AUDIO_AVAILABLE:
+    AUDIO_PATH = path.join(MEDLEYDB_PATH, 'Audio')
+    if not path.exists(AUDIO_PATH):
+        AUDIO_PATH = None
+        print """Warning: The medleydb audio was not found at the expected path.
+                 The module will still function, but without the
+                 ability to access any of the audio."""
+        print """Expected MedleyDB audio path: %s""" % AUDIO_PATH
+else:
     AUDIO_PATH = None
-    print """Warning: The medleydb audio was not found at the expected path.
-             The module will still function, but without the
-             ability to access any of the audio."""
-    print """Expected MedleyDB audio path: %s""" % AUDIO_PATH
 
 from .utils import (
     load_melody_multitracks,
