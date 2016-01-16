@@ -54,7 +54,8 @@ class MultiTrack(object):
         melody1_annotation (list): time, f0 lists from melody 1 annotation.
         melody2_annotation (list): time, f0 lists from melody 2 annotation.
         melody3_annotation (list): time, f0 lists from melody 3 annotation.
-        melody_rankings (list): melody stem predominance rankings.
+        melody_rankings (list): melody stem predominance rankings. 
+            Keys: stem_idx (int), values: ranking (int)
         mix_path (str): Full path to MIX file.
         mtrack_path (str): Full path to folder containing multitrack.
         origin (str): Track origin.
@@ -127,8 +128,12 @@ class MultiTrack(object):
         self.stems, self.raw_audio = self._parse_metadata()
 
         # Lists of Instrument Labels #
-        self.stem_instruments = [s.instrument for s in self.stems]
-        self.raw_instruments = [r.instrument for r in self.raw_audio]
+        self.stem_instruments = sorted(
+            [s.instrument for s in self.stems.values()]
+        )
+        self.raw_instruments = sorted(
+            [r.instrument for r in get_dict_leaves(self.raw_audio)]
+        )
 
         # Basic Track Information #
         if os.path.exists(self.mix_path):
@@ -165,8 +170,8 @@ class MultiTrack(object):
     def _parse_metadata(self):
         """Parse metadata dictionary.
         """
-        stems = []
-        raw_audio = []
+        stems = dict()
+        raw_audio = dict()
         stem_dict = self._metadata['stems']
 
         for k in stem_dict.keys():
@@ -196,10 +201,11 @@ class MultiTrack(object):
                           ranking=ranking, mix_path=self.mix_path,
                           pitch_path=pitch_path)
 
-            stems.append(track)
+            stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
 
             for j in raw_dict.keys():
+                raw_idx = int(j[1:])
                 instrument = raw_dict[j]['instrument']
 
                 if AUDIO_PATH:
@@ -209,9 +215,12 @@ class MultiTrack(object):
                     file_path = None
 
                 track = Track(instrument=instrument, file_path=file_path,
-                              stem_idx=stem_idx, raw_idx=j[1:],
+                              stem_idx=stem_idx, raw_idx=raw_idx,
                               mix_path=self.mix_path, ranking=ranking)
-                raw_audio.append(track)
+                if stem_idx not in raw_audio.keys():
+                    raw_audio[stem_idx] = {}
+
+                raw_audio[stem_idx][raw_idx] = track
 
         return stems, raw_audio
 
@@ -238,7 +247,7 @@ class MultiTrack(object):
             ]
             if len(predominant_idx) > 0:
                 predominant_idx = predominant_idx[0]
-                return self.get_stem(predominant_idx)
+                return self.stems[predominant_idx]
             else:
                 return None
         else:
@@ -266,23 +275,25 @@ class MultiTrack(object):
         activation_annotation_fpath = os.path.join(self._annotation_dir, fname)
         return read_annotation_file(activation_annotation_fpath)
 
-    def melody_tracks(self):
-        """Get list of tracks that contain melody.
+    def melody_stems(self):
+        """Get list of stems that contain melody.
 
         Returns:
             List of track objects where component='melody'.
 
         """
-        return [track for track in self.stems if track.component == 'melody']
+        stem_objects = self.stems.values()
+        return [track for track in stem_objects if track.component == 'melody']
 
-    def bass_tracks(self):
-        """Get list of tracks that contain bass.
+    def bass_stems(self):
+        """Get list of stems that contain bass.
 
         Returns:
             List of track objects where component='bass'.
 
         """
-        return [track for track in self.stems if track.component == 'bass']
+        stem_objects = self.stems.values()
+        return [track for track in stem_objects if track.component == 'bass']
 
     def num_stems(self):
         """Number of stems.
@@ -300,7 +311,7 @@ class MultiTrack(object):
             Number of raw audio files (as an int).
 
         """
-        return len(self.raw_audio)
+        return len(get_dict_leaves(self.raw_audio))
 
     def stem_filepaths(self):
         """Get list of filepaths to stem files.
@@ -309,7 +320,7 @@ class MultiTrack(object):
             List of filepaths to stems.
 
         """
-        return [track.file_path for track in self.stems]
+        return [track.file_path for track in self.stems.values()]
 
     def raw_filepaths(self):
         """Get list of filepaths to raw audio files.
@@ -318,37 +329,8 @@ class MultiTrack(object):
             List of filepaths to raw audio files.
 
         """
-        return [track.file_path for track in self.raw_audio]
+        return [track.file_path for track in get_dict_leaves(self.raw_audio)]
 
-    def get_stem(self, stem_idx):
-        """Get the stem that corresponds to a given index.
-
-        Args:
-            stem_idx (int): stem index (eg. 2 for stem S02)
-
-        Returns:
-            Track object
-
-        """
-        search = [s for s in self.stems if s.stem_idx == stem_idx]
-        if len(search) > 0:
-            return search[0]
-        else:
-            raise ValueError("Invalid stem index: %s" % stem_idx)
-
-    def raw_from_stem(self, stem_idx):
-        """Get all raw audio tracks that are children of a given stem.
-
-        Args:
-            stem_idx (int): stem index (eg. 2 for stem S02)
-
-        Returns:
-            List of Track objects.
-
-        """
-        return [
-            track for track in self.raw_audio if track.stem_idx == stem_idx
-        ]
 
     def activation_conf_from_stem(self, stem_idx):
         """Get activation confidence from given stem.
@@ -446,7 +428,7 @@ def _path_basedir(path):
     return os.path.basename(norm_path)
 
 
-def _get_dict_leaves(dictionary):
+def get_dict_leaves(dictionary):
     """Get the set of all leaves of a dictionary.
 
     Args:
@@ -461,11 +443,14 @@ def _get_dict_leaves(dictionary):
         keys = dictionary.keys()
         for k in keys:
             if type(dictionary[k]) == dict:
-                for val in _get_dict_leaves(dictionary[k]):
+                for val in get_dict_leaves(dictionary[k]):
                     vals.append(val)
             else:
-                for val in dictionary[k]:
-                    vals.append(val)
+                if hasattr(dictionary[k], '__iter__'):
+                    for val in dictionary[k]:
+                        vals.append(val)
+                else:
+                    vals.append(dictionary[k])
     else:
         for val in dictionary:
             vals.append(val)
@@ -558,7 +543,7 @@ def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
     """
     with open(taxonomy_file) as f_handle:
         taxonomy = yaml.load(f_handle)
-    valid_instrument_labels = _get_dict_leaves(taxonomy)
+    valid_instrument_labels = get_dict_leaves(taxonomy)
     return valid_instrument_labels
 
 

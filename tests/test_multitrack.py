@@ -7,8 +7,8 @@ multitrack.AUDIO_PATH = "/Dummy/Path"
 class TestMultitrack(unittest.TestCase):
     def setUp(self):
         self.mtrack = multitrack.MultiTrack("NightPanther_Fire")
-        self.stem = self.mtrack.stems[0]
-        self.raw = self.mtrack.raw_audio[0]
+        self.stem = self.mtrack.stems[8]
+        self.raw = self.mtrack.raw_audio[8][1]
 
     def test_invalid_trackid(self):
         with self.assertRaises(IOError):
@@ -84,8 +84,13 @@ class TestMultitrack(unittest.TestCase):
         expected = 8
         self.assertEqual(actual, expected)
 
-    def test_raw_length(self):
+    def test_raw_length1(self):
         actual = len(self.mtrack.raw_audio)
+        expected = 12
+        self.assertEqual(actual, expected)
+
+    def test_raw_length2(self):
+        actual = len(multitrack.get_dict_leaves(self.mtrack.raw_audio))
         expected = 55
         self.assertEqual(actual, expected)
 
@@ -138,27 +143,33 @@ class TestMultitrack(unittest.TestCase):
         actual = self.mtrack.stem_instruments
         expected = [
             'auxiliary percussion',
-            'string section',
-            'vocalists',
-            'electric bass',
-            'vocalists',
-            'synthesizer',
+            'brass section',
             'drum machine',
             'drum set',
-            'brass section',
+            'electric bass',
             'male singer',
+            'string section',
             'synthesizer',
-            'synthesizer'
+            'synthesizer',
+            'synthesizer',
+            'vocalists',
+            'vocalists',
         ]
+        print actual
+        self.assertEqual(actual, expected)
+
+    def test_raw_instruments_length(self):
+        actual = len(self.mtrack.raw_instruments)
+        expected = 55
         self.assertEqual(actual, expected)
 
     def test_raw_instruments(self):
         actual = self.mtrack.raw_instruments[0:5]
         expected = [
-            'cymbal',
-            'tambourine',
-            'cello',
-            'cello',
+            'brass section',
+            'brass section',
+            'brass section',
+            'brass section',
             'cello'
         ]
         self.assertEqual(actual, expected)
@@ -213,14 +224,14 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(len(actual_mel3[0]), 3)
 
     def test_melody_tracks(self):
-        mel_tracks = self.mtrack.melody_tracks()
+        mel_tracks = self.mtrack.melody_stems()
         self.assertEqual(len(mel_tracks), 1)
         self.assertEqual(mel_tracks[0].component, 'melody')
         self.assertEqual(mel_tracks[0].stem_idx, 7)
         self.assertEqual(len(mel_tracks[0].get_pitch_annotation()), 18268)
 
     def test_bass_tracks(self):
-        bass_tracks = self.mtrack.bass_tracks()
+        bass_tracks = self.mtrack.bass_stems()
         self.assertEqual(len(bass_tracks), 1)
         self.assertEqual(bass_tracks[0].component, 'bass')
         self.assertEqual(bass_tracks[0].stem_idx, 1)
@@ -244,19 +255,6 @@ class TestMultitrack(unittest.TestCase):
         actual = len(self.mtrack.raw_filepaths())
         expected = 55
         self.assertEqual(actual, expected)
-
-    def test_raw_from_stem(self):
-        actual = self.mtrack.raw_from_stem(2)
-        expected_len = 5
-        self.assertEqual(len(actual), expected_len)
-
-        actual_stem_idx = [s.stem_idx for s in actual]
-        expected_stem_idx = [2, 2, 2, 2, 2]
-        self.assertEqual(actual_stem_idx, expected_stem_idx)
-
-        actual_raw_idx = [s.raw_idx for s in actual]
-        expected_raw_idx = [1, 3, 2, 5, 4]
-        self.assertEqual(actual_raw_idx, expected_raw_idx)
 
 
 class TestTrack(unittest.TestCase):
@@ -316,7 +314,7 @@ class TestGetDictLeaves(unittest.TestCase):
             'd': {'asdf': ['z']},
             'e': {'borg': ['foo']}
         }
-        actual = multitrack._get_dict_leaves(test_dict)
+        actual = multitrack.get_dict_leaves(test_dict)
         expected = set(['z', 'y', 'x', 'w', 't', 'elephant', 'foo'])
         self.assertEqual(actual, expected)
 
