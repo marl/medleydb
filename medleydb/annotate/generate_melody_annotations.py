@@ -27,7 +27,7 @@ def make_blank_melody_sequence(total_duration):
 
 
 def sec_to_idx(time_in_seconds, fs=FS, hop=HOP):
-    return int(np.round(time_in_seconds*fs/hop))
+    return int(np.round(time_in_seconds*float(fs)/float(hop)))
 
 
 def add_sequence_to_melody(total_duration, f0_sequence, melody_sequence, dim=1,
@@ -74,7 +74,7 @@ def create_melody1_annotation(mtrack):
 def create_melody2_annotation(mtrack):
 
     intervals_file = os.path.join(
-        mtrack._annotation_dir, _INTERVAL_FMT % mtrack.track_id
+        mtrack.annotation_dir, _INTERVAL_FMT % mtrack.track_id
     )
 
     if os.path.exists(intervals_file):
@@ -92,7 +92,7 @@ def create_melody2_annotation(mtrack):
         melody_sequence = make_blank_melody_sequence(mtrack.duration)
 
         for interval in intervals:
-            stem = mtrack.get_stem(interval[0])
+            stem = mtrack.stems[interval[0]]
             start_t = interval[1]
             end_t = interval[2]
 
@@ -132,7 +132,7 @@ def create_melody3_annotation(mtrack):
                 melody_sequence = temp_mel
                 dim += 1
             first = False
-            stem = mtrack.get_stem(inverse_rankings[k])
+            stem = mtrack.stems[inverse_rankings[k]]
             f0_annotation = stem.get_pitch_annotation()
             melody_sequence = add_sequence_to_melody(
                 mtrack.duration, f0_annotation, melody_sequence, dim
@@ -151,30 +151,30 @@ def write_melodies_to_csv(mtrack, melody1, melody2, melody3):
     melody2_fname = "%s_MELODY2.csv" % mtrack.track_id
     melody3_fname = "%s_MELODY3.csv" % mtrack.track_id
 
-    melody1_fpath = os.path.join(mtrack._annotation_dir, melody1_fname)
-    melody2_fpath = os.path.join(mtrack._annotation_dir, melody2_fname)
-    melody3_fpath = os.path.join(mtrack._annotation_dir, melody3_fname)
+    melody1_fpath = os.path.join(mtrack.annotation_dir, melody1_fname)
+    melody2_fpath = os.path.join(mtrack.annotation_dir, melody2_fname)
+    melody3_fpath = os.path.join(mtrack.annotation_dir, melody3_fname)
 
     if melody1 is not None:
         print "writing melody 1..."
-        with open(melody1_fpath, "wb") as f:
-            writer = csv.writer(f)
+        with open(melody1_fpath, "wb") as fhandle:
+            writer = csv.writer(fhandle)
             writer.writerows(melody1)
     else:
         print "melody 1 empty"
 
     if melody2 is not None:
         print "writing melody 2..."
-        with open(melody2_fpath, "wb") as f:
-            writer = csv.writer(f)
+        with open(melody2_fpath, "wb") as fhandle:
+            writer = csv.writer(fhandle)
             writer.writerows(melody2)
     else:
         print "melody 2 empty"
 
     if melody3 is not None:
         print "writing melody 3..."
-        with open(melody3_fpath, "wb") as f:
-            writer = csv.writer(f)
+        with open(melody3_fpath, "wb") as fhandle:
+            writer = csv.writer(fhandle)
             writer.writerows(melody3)
     else:
         print "melody 3 empty"
@@ -185,7 +185,8 @@ def main(args):
     melody1 = create_melody1_annotation(mtrack)
     melody2 = create_melody2_annotation(mtrack)
     melody3 = create_melody3_annotation(mtrack)
-    write_melodies_to_csv(mtrack, melody1, melody2, melody3)
+    if args.write_output:
+        write_melodies_to_csv(mtrack, melody1, melody2, melody3)
 
 
 if __name__ == "__main__":
@@ -193,5 +194,9 @@ if __name__ == "__main__":
     parser.add_argument("track_id",
                         type=str,
                         help="MedleyDB track id. Ex. MusicDelta_Rock")
+    parser.add_argument("write_output",
+                        type=bool,
+                        default=True,
+                        help="If true, write the output to a file")
 
     main(parser.parse_args())
