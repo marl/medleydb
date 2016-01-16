@@ -94,11 +94,11 @@ class MultiTrack(object):
         if not os.path.exists(self._meta_path):
             raise IOError("Cannot find metadata for %s" % self.track_id)
 
-        self._annotation_dir = os.path.join(
+        self.annotation_dir = os.path.join(
             ANNOT_PATH, _ANNOTDIR_FMT % self.track_id
         )
         self._pitch_path = os.path.join(
-            self._annotation_dir, _PITCHDIR_FMT % self.track_id
+            self.annotation_dir, _PITCHDIR_FMT % self.track_id
         )
 
         if AUDIO_PATH:
@@ -111,6 +111,10 @@ class MultiTrack(object):
             self.mix_path = os.path.join(
                 self.audio_path, _MIX_FMT % self.track_id
             )
+        else:
+            self._stem_dir_path = None
+            self._raw_dir_path = None
+            self.mix_path = None   
 
         # Stem & Raw File Formats #
         self._stem_fmt = _STEM_FMT % self.track_id
@@ -120,7 +124,7 @@ class MultiTrack(object):
         self._metadata = self._load_metadata()
 
         self._melody_rankings_fpath = os.path.join(
-            self._annotation_dir, _RANKING_FMT % self.track_id
+            self.annotation_dir, _RANKING_FMT % self.track_id
         )
         self.melody_rankings = self._get_melody_rankings()
 
@@ -136,7 +140,7 @@ class MultiTrack(object):
         )
 
         # Basic Track Information #
-        if os.path.exists(self.mix_path):
+        if self.mix_path is not None and os.path.exists(self.mix_path):
             self.duration = get_duration(self.mix_path)
         else:
             print "Warning: Audio missing for %s." % self.track_id
@@ -148,7 +152,7 @@ class MultiTrack(object):
         self.origin = self._metadata['origin']
         self.genre = self._metadata['genre']
 
-        mel1_path = os.path.join(self._annotation_dir,
+        mel1_path = os.path.join(self.annotation_dir,
                                  _MELODY1_FMT % self.track_id)
         self.has_melody = os.path.exists(mel1_path)
 
@@ -260,9 +264,9 @@ class MultiTrack(object):
         melody2_fname = _MELODY2_FMT % self.track_id
         melody3_fname = _MELODY3_FMT % self.track_id
 
-        melody1_fpath = os.path.join(self._annotation_dir, melody1_fname)
-        melody2_fpath = os.path.join(self._annotation_dir, melody2_fname)
-        melody3_fpath = os.path.join(self._annotation_dir, melody3_fname)
+        melody1_fpath = os.path.join(self.annotation_dir, melody1_fname)
+        melody2_fpath = os.path.join(self.annotation_dir, melody2_fname)
+        melody3_fpath = os.path.join(self.annotation_dir, melody3_fname)
 
         self.melody1_annotation = read_annotation_file(melody1_fpath)
         self.melody2_annotation = read_annotation_file(melody2_fpath)
@@ -272,7 +276,7 @@ class MultiTrack(object):
         """Get activation confidence annotation if file exists.
         """
         fname = _ACTIVCONF_FMT % self.track_id
-        activation_annotation_fpath = os.path.join(self._annotation_dir, fname)
+        activation_annotation_fpath = os.path.join(self.annotation_dir, fname)
         return read_annotation_file(activation_annotation_fpath)
 
     def melody_stems(self):
@@ -390,7 +394,7 @@ class Track(object):
         self.stem_idx = self._format_index(stem_idx)
         self.raw_idx = self._format_index(raw_idx)
 
-        if os.path.exists(file_path):
+        if file_path is not None and os.path.exists(file_path):
             self.duration = get_duration(file_path)
         else:
             self.duration = None
