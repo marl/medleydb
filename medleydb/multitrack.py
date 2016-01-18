@@ -161,7 +161,8 @@ class MultiTrack(object):
         self.melody3_annotation = None
 
         self.predominant_stem = self._get_predominant_stem()
-        self.stem_activations = self._get_activation_annotations()
+        self.stem_activations, self.stem_activations_idx = \
+            self._get_activation_annotations()
 
 
     def _load_metadata(self):
@@ -268,16 +269,32 @@ class MultiTrack(object):
         melody2_fpath = os.path.join(self.annotation_dir, melody2_fname)
         melody3_fpath = os.path.join(self.annotation_dir, melody3_fname)
 
-        self.melody1_annotation = read_annotation_file(melody1_fpath)
-        self.melody2_annotation = read_annotation_file(melody2_fpath)
-        self.melody3_annotation = read_annotation_file(melody3_fpath)
+        self.melody1_annotation, _ = read_annotation_file(
+            melody1_fpath, header=False
+        )
+        self.melody2_annotation, _ = read_annotation_file(
+            melody2_fpath, header=False
+        )
+        self.melody3_annotation, _ = read_annotation_file(
+            melody3_fpath, header=False
+        )
 
     def _get_activation_annotations(self):
         """Get activation confidence annotation if file exists.
         """
         fname = _ACTIVCONF_FMT % self.track_id
         activation_annotation_fpath = os.path.join(self.annotation_dir, fname)
-        return read_annotation_file(activation_annotation_fpath)
+        activations, header = read_annotation_file(
+            activation_annotation_fpath, header=True
+        )
+        idx_dict = {}
+        for i, stem_str in enumerate(header):
+            if stem_str == 'time':
+                continue
+            else:
+                stem_idx = format_index(stem_str)
+                idx_dict[stem_idx] = i
+        return activations, idx_dict
 
     def melody_stems(self):
         """Get list of stems that contain melody.
@@ -346,10 +363,13 @@ class MultiTrack(object):
             activation_confidence (list): time and activation confidence
 
         """
-
         activations = []
-        for step in self.stem_activations:
-            activations.append([step[0], step[stem_idx]])
+        if stem_idx in self.stem_activations_idx.keys():
+            activ_conf_idx = self.stem_activations_idx[stem_idx]
+            for step in self.stem_activations:            
+                activations.append([step[0], step[activ_conf_idx]])
+        else:
+            activations = None
 
         return activations
 
@@ -391,8 +411,8 @@ class Track(object):
         self.file_path = file_path
         self.component = component
         self.ranking = ranking
-        self.stem_idx = self._format_index(stem_idx)
-        self.raw_idx = self._format_index(raw_idx)
+        self.stem_idx = format_index(stem_idx)
+        self.raw_idx = format_index(raw_idx)
 
         if file_path is not None and os.path.exists(file_path):
             self.duration = get_duration(file_path)
@@ -402,22 +422,12 @@ class Track(object):
         self.pitch_annotation = None
         self._pitch_path = pitch_path
 
-    def _format_index(self, index):
-        """Load stem or raw index. Reformat if in string form.
-        """
-        if isinstance(index, str):
-            return int(index.strip('S').strip('R'))
-        elif index is None:
-            return None
-        else:
-            return int(index)
-
     def get_pitch_annotation(self):
         """Get pitch annotation if file exists.
         """
         if (self._pitch_path is not None) and (self.pitch_annotation is None):
-            self.pitch_annotation = read_annotation_file(
-                self._pitch_path, num_cols=2
+            self.pitch_annotation, _ = read_annotation_file(
+                self._pitch_path, num_cols=2, header=False
             )
         return self.pitch_annotation
 
@@ -431,6 +441,15 @@ def _path_basedir(path):
     norm_path = os.path.normpath(path)
     return os.path.basename(norm_path)
 
+def format_index(index):
+    """Load stem or raw index. Reformat if in string form.
+    """
+    if isinstance(index, str):
+        return int(index.strip('S').strip('R'))
+    elif index is None:
+        return None
+    else:
+        return int(index)
 
 def get_dict_leaves(dictionary):
     """Get the set of all leaves of a dictionary.
@@ -484,15 +503,17 @@ def get_duration(wave_fpath):
     return float(nsamples) / float(sample_rate)
 
 
-def read_annotation_file(fpath, num_cols=None):
+def read_annotation_file(fpath, num_cols=None, header=False):
     """Read an annotation file.
 
     Examples:
         >>> melody_fpath = 'ArtistName_TrackTitle_MELODY1.txt'
         >>> pitch_fpath = 'my_tony_pitch_annotation.csv'
-        >>> melody_annotation = read_annotation_file(melody_fpath)
-        >>> activation_annotation = read_annotation_file(actvation_fpath)
-        >>> pitch_annotation = read_annotation_file(pitch_fpath, num_cols=2)
+        >>> melody_annotation, _ = read_annotation_file(melody_fpath)
+        >>> activation_annotation, header = read_annotation_file(
+                actvation_fpath, header=True
+            )
+        >>> pitch_annotation, _ = read_annotation_file(pitch_fpath, num_cols=2)
 
         The returned annotations can be directly converted to a numpy array,
             if desired.
@@ -510,6 +531,7 @@ def read_annotation_file(fpath, num_cols=None):
 
     Returns:
         annotation (list): List of rows of the annotation file.
+        header (list): Header row. Empty list if header=False.
 
     """
     if os.path.exists(fpath):
@@ -518,17 +540,19 @@ def read_annotation_file(fpath, num_cols=None):
             linereader = csv.reader(f_handle)
 
             # skip the headers for non csv files
-            if os.path.splitext(fpath)[1] == '.lab':
-                next(linereader, None)
+            if header:
+                header = next(linereader)
+            else:
+                header = []
 
             for line in linereader:
                 if num_cols:
                     line = line[:num_cols]
                 annotation.append([float(val) for val in line])
-        return annotation
+        return annotation, header
     else:
         print "Warning: %s does not exist." % fpath
-        return None
+        return None, None
 
 
 def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):

@@ -7,6 +7,7 @@ multitrack.AUDIO_PATH = "/Dummy/Path"
 class TestMultitrack(unittest.TestCase):
     def setUp(self):
         self.mtrack = multitrack.MultiTrack("NightPanther_Fire")
+        self.mtrack2 = multitrack.MultiTrack("Phoenix_ScotchMorris")
         self.stem = self.mtrack.stems[8]
         self.raw = self.mtrack.raw_audio[8][1]
 
@@ -256,6 +257,16 @@ class TestMultitrack(unittest.TestCase):
         expected = 55
         self.assertEqual(actual, expected)
 
+    def test_activation_conf_from_stem1(self):
+        actual = self.mtrack2.activation_conf_from_stem(3)[0]
+        expected = [0.0, 0.0355]
+        self.assertEqual(actual, expected)
+
+    def test_activation_conf_from_stem2(self):
+        actual = self.mtrack2.activation_conf_from_stem(4)
+        expected = None
+        self.assertEqual(actual, expected)    
+
 
 class TestTrack(unittest.TestCase):
     def test_track(self):
@@ -342,7 +353,7 @@ class TestGetDuration(unittest.TestCase):
 
 class TestReadAnnotationFile(unittest.TestCase):
     def test_readpitch(self):
-        actual = multitrack.read_annotation_file(
+        actual, header = multitrack.read_annotation_file(
             os.path.join(os.path.dirname(__file__), 'data/pitch.csv')
         )
         expected = [
@@ -351,10 +362,11 @@ class TestReadAnnotationFile(unittest.TestCase):
             [0.034829931, 200.344]
         ]
         self.assertEqual(actual, expected)
+        self.assertEqual(header, [])
 
     def test_readmelody(self):
-        actual = multitrack.read_annotation_file(
-            os.path.join(os.path.dirname(__file__),'data/melody.csv')
+        actual, header = multitrack.read_annotation_file(
+            os.path.join(os.path.dirname(__file__), 'data/melody.csv')
         )
         expected = [
             [0.0, 0.0],
@@ -364,11 +376,13 @@ class TestReadAnnotationFile(unittest.TestCase):
             [0.023219954648526078, 189.18700000000001]
         ]
         self.assertEqual(actual, expected)
+        self.assertEqual(header, [])
 
     def test_invalidpath(self):
-        actual = multitrack.read_annotation_file('blurb/blork/barg')
+        actual, header = multitrack.read_annotation_file('blurb/blork/barg')
         expected = None
         self.assertEqual(actual, expected)
+        self.assertEqual(header, expected)
 
 
 class TestGetValidInstrumentLabels(unittest.TestCase):

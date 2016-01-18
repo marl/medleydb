@@ -246,7 +246,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
 class TestCreateMelodyAnnotations(unittest.TestCase):
 
     def setUp(self):
-        self.mtrack = MultiTrack("MusicDelta_Hendrix")
+        self.mtrack = MultiTrack("MusicDelta_Beethoven")
         self.mtrack.duration = 19.84146
         self.mtrack.load_melody_annotations()
 
