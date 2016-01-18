@@ -4,18 +4,23 @@ import os
 import csv
 
 import numpy as np
-import librosa  # TODO: do audio loading without librosa
 
 import medleydb
 
 import matplotlib.pyplot as plt
+
+
+def load_audio(filepath, fs):
+    # TODO write me
+    return filepath, fs
+
 
 def make_audio_stack(mtrack, fs=22050):
     stems = mtrack.stems
     n_stems = len(stems)
 
     print "loading stem 1..."
-    stem1_audio, fs = librosa.load(stems[1].file_path, fs)
+    stem1_audio, fs = load_audio(stems[1].file_path, fs)
     n_samples = len(stem1_audio)
 
     audio_stack = np.zeros((n_stems, n_samples))
@@ -26,7 +31,7 @@ def make_audio_stack(mtrack, fs=22050):
         else:
             print "loading stem %s..." % stem_idx
             audio_path = stems[stem_idx].file_path
-            audio_stack[stem_idx-1, :], _ = librosa.load(audio_path, fs)
+            audio_stack[stem_idx-1, :], _ = load_audio(audio_path, fs)
 
     return audio_stack, fs, n_samples
 
