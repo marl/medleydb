@@ -14,6 +14,7 @@ __all__ = ["__version__", "sql"]
 logging.basicConfig(level=logging.CRITICAL)
 
 if "MEDLEYDB_PATH" in environ and path.exists(environ["MEDLEYDB_PATH"]):
+    MEDLEYDB_PATH = environ["MEDLEYDB_PATH"]
     AUDIO_AVAILABLE = True
 elif "MEDLEYDB_PATH" not in environ:
     warnings.warn(
