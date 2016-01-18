@@ -8,6 +8,7 @@ from medleydb.annotate import generate_melody_annotations as G
 HOP = 256.0
 FS = 44100.0
 
+
 def array_almost_equal(array1, array2, tolerance=1e-7):
     diff = np.abs(array1 - array2)
     num_not_equal = diff > tolerance
@@ -247,22 +248,28 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
 
     def setUp(self):
         self.mtrack = MultiTrack("MusicDelta_Beethoven")
-        self.mtrack.duration = 19.84146
+        self.mtrack.duration = 27.371
         self.mtrack.load_melody_annotations()
 
     def test_melody1(self):
         actual = G.create_melody1_annotation(self.mtrack)
         expected = self.mtrack.melody1_annotation
+        print actual[0:2]
+        print expected[0:2]
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody2(self):
         actual = G.create_melody2_annotation(self.mtrack)
         expected = self.mtrack.melody2_annotation
+        print actual[0:2]
+        print expected[0:2]
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody3(self):
         actual = G.create_melody3_annotation(self.mtrack)
         expected = self.mtrack.melody3_annotation
+        print actual[0:2]
+        print expected[0:2]
         self.assertTrue(array_almost_equal(actual, expected))
 
 
