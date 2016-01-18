@@ -70,6 +70,7 @@ Dependencies
 ------------
 
 * Python, will be installed by pip
+  * [librosa](https://bmcfee.github.io/librosa/)
   * [numpy](http://www.numpy.org/)
   * [pyyaml](http://pyyaml.org/)
   * [sqlalchemy](http://www.sqlalchemy.org/) (optional)
