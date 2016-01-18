@@ -1,10 +1,31 @@
 from setuptools import setup
+import glob
+import os
+
+metadata = glob.glob("Metadata/*.yaml")
+
+annotation_dirs = glob.glob("Annotations/*")
+
+data_files = [('Metadata', metadata)]
+for d in annotation_dirs:
+    d_name = os.path.basename(d)
+    files = glob.glob(os.path.join(d, "*.*"))
+    data_files.append(("Annotations/%s" % d_name, files))
+    sub_dir = glob.glob(os.path.join(d, "*_PITCH"))
+    if len(sub_dir) > 0:
+        sub_dir = sub_dir[0]
+        sub_dir_name = os.path.basename(sub_dir)
+        sub_dir_files = glob.glob(os.path.join(sub_dir, "*.*"))
+        data_files.append(
+            ("Annotations/%s/%s" % (d_name, sub_dir_name), sub_dir_files)
+        )
+
 
 if __name__ == "__main__":
     setup(
         name='medleydb',
 
-        version='1.1',
+        version='1.2',
 
         description='Python module for the MedleyDB dataset',
 
@@ -18,9 +39,11 @@ if __name__ == "__main__":
 
         packages=['medleydb', 'medleydb.sql'],
 
-        package_data={'medleydb': ['taxonomy.yaml']},
+        package_data={
+            'medleydb': ['taxonomy.yaml', 'tracklist_v1.txt'],
+        },
 
-        long_description="""A python module for audio and music processing.""",
+        data_files=data_files,
 
         classifiers=[
             "License :: The MIT License (MIT)",
@@ -41,7 +64,8 @@ if __name__ == "__main__":
 
         install_requires=[
             'pyyaml',
-            'numpy'
+            'numpy',
+            'librosa'
         ],
 
         extras_require={
