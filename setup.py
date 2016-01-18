@@ -64,8 +64,7 @@ if __name__ == "__main__":
 
         install_requires=[
             'pyyaml',
-            'numpy',
-            'librosa'
+            'numpy'
         ],
 
         extras_require={

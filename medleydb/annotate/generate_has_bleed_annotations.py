@@ -4,7 +4,7 @@ import os
 import csv
 
 import numpy as np
-import librosa
+import librosa  # TODO: do audio loading without librosa
 
 import medleydb
 
