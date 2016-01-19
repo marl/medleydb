@@ -210,3 +210,16 @@ class TestMelodyAnnotations(unittest.TestCase):
                 array_almost_equal(actual_melody3, generated_melody3)
             )
 
+
+class TestRankingAnnotations(unittest.TestCase):
+    def setUp(self):
+        self.track_list = load_track_list()
+
+    def test_rankings(self):
+        for track in self.track_list:
+            mtrack = MultiTrack(track)
+            rankings = mtrack.melody_rankings.values()
+            # test that there are no duplicate rankings
+            self.assertTrue(len(rankings) == len(set(rankings)))
+            # test that rankings start at 1 and go up by step
+            self.assertTrue(sorted(rankings) == range(1, len(rankings)+1))
