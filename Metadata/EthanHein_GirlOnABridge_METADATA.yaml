@@ -60,11 +60,11 @@ stems:
   S05:
     component: melody
     filename: EthanHein_GirlOnABridge_STEM_05.wav
-    instrument: clean electric guitar
+    instrument: distorted electric guitar
     raw:
       R01:
         filename: EthanHein_GirlOnABridge_RAW_05_01.wav
-        instrument: clean electric guitar
+        instrument: distorted electric guitar
 title: Girl On A Bridge
 website:
 - www.ethanhein.com
