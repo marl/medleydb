@@ -112,7 +112,7 @@ def get_files_for_instrument(instrument, multitrack_list=None):
         multitrack_list = load_all_multitracks()
 
     for multitrack in multitrack_list:
-        for stem in list(multitrack.stems.values()):
+        for stem in multitrack.stems.values():
             if stem.instrument == instrument:
                 yield stem.file_path
 

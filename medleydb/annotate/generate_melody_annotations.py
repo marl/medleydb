@@ -18,7 +18,7 @@ FS = 44100.0  # samples/second
 def get_time_stamps(total_duration):
     time_stamps = []
     n_stamps = int(np.ceil((total_duration*FS)/HOP))
-    time_stamps = np.array(list(range(n_stamps)))*(HOP/FS)
+    time_stamps = np.arange(n_stamps) * (HOP / FS)
     return time_stamps
 
 

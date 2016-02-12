@@ -29,7 +29,7 @@ def make_audio_stack(mtrack, fs=22050):
 
     audio_stack = np.zeros((n_stems, n_samples))
 
-    for stem_idx in list(stems.keys()):
+    for stem_idx in stems:
         if stem_idx == 1:
             audio_stack[0, :] = stem1_audio
         else:
