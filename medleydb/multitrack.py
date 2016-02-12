@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """Class definitions for MedleyDB multitracks."""
 
+from __future__ import print_function
+
 import os
 import yaml
 import wave

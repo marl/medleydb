@@ -1,4 +1,8 @@
+#!/usr/bin/env python
 """Script to create stem level has_bleed annotations."""
+
+from __future__ import print_function
+
 import argparse
 import os
 import csv

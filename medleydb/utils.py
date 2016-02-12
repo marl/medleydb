@@ -3,6 +3,8 @@
 """ Utilities to navigate MedleyDB.
 """
 
+from __future__ import print_function
+
 from . import multitrack as M
 from . import sox
 from . import TRACK_LIST
