@@ -8,6 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 
+import six
 
 metadata = MetaData()
 DeclarativeBase = declarative_base(metadata=metadata)
@@ -55,7 +56,7 @@ class Taxon(DeclarativeBase):
     """ Instruments belonging to this taxon """
 
     def __repr__(self):
-        return '<Taxon: name=%s>' % str(self)
+        return '<Taxon: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -80,7 +81,7 @@ class Instrument(DeclarativeBase):
     """ Raws associated to this instrument """
 
     def __repr__(self):
-        return '<Instrument: name=%s>' % str(self)
+        return '<Instrument: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -205,7 +206,7 @@ class Track(DeclarativeBase):
             origin=instance.origin,
             raw_dir=instance._metadata['raw_dir'],
             stem_dir=instance._metadata['stem_dir'],
-            website=str(instance._metadata['website']),
+            website=six.u(instance._metadata['website']),
             duration=int(instance.duration),
         )
 
@@ -247,7 +248,7 @@ class Track(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Track: name=%s>' % str(self)
+        return '<Track: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -319,7 +320,7 @@ class Stem(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Stem: name=%s>' % str(self)
+        return '<Stem: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -373,7 +374,7 @@ class Raw(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Raw: name=%s>' % str(self)
+        return '<Raw: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -418,7 +419,7 @@ class Melody(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Melody: filename=%s>' % str(self)
+        return '<Melody: filename=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.filename
@@ -441,7 +442,7 @@ class Composer(DeclarativeBase):
     """ Tracks associated with this composer """
 
     def __repr__(self):
-        return '<Composer: name=%s>' % str(self)
+        return '<Composer: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
@@ -464,7 +465,7 @@ class Producer(DeclarativeBase):
     """ Tracks associated with this producer """
 
     def __repr__(self):
-        return '<Producer: name=%s>' % str(self)
+        return '<Producer: name=%s>' % six.u(self)
 
     def __unicode__(self):
         return self.name
