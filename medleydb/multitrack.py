@@ -133,7 +133,7 @@ class MultiTrack(object):
 
         # Lists of Instrument Labels #
         self.stem_instruments = sorted(
-            [s.instrument for s in self.stems.values()]
+            [s.instrument for s in list(self.stems.values())]
         )
         self.raw_instruments = sorted(
             [r.instrument for r in get_dict_leaves(self.raw_audio)]
@@ -143,7 +143,7 @@ class MultiTrack(object):
         if self.mix_path is not None and os.path.exists(self.mix_path):
             self.duration = get_duration(self.mix_path)
         else:
-            print "Warning: Audio missing for %s." % self.track_id
+            print(("Warning: Audio missing for %s." % self.track_id))
             self.duration = None
 
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
@@ -179,13 +179,13 @@ class MultiTrack(object):
         raw_audio = dict()
         stem_dict = self._metadata['stems']
 
-        for k in stem_dict.keys():
+        for k in list(stem_dict.keys()):
             stem_idx = int(k[1:])
 
             instrument = stem_dict[k]['instrument']
             component = stem_dict[k]['component']
 
-            if stem_idx in self.melody_rankings.keys():
+            if stem_idx in list(self.melody_rankings.keys()):
                 ranking = self.melody_rankings[stem_idx]
             else:
                 ranking = None
@@ -209,7 +209,7 @@ class MultiTrack(object):
             stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
 
-            for j in raw_dict.keys():
+            for j in list(raw_dict.keys()):
                 raw_idx = int(j[1:])
                 instrument = raw_dict[j]['instrument']
 
@@ -222,7 +222,7 @@ class MultiTrack(object):
                 track = Track(instrument=instrument, file_path=file_path,
                               stem_idx=stem_idx, raw_idx=raw_idx,
                               mix_path=self.mix_path, ranking=ranking)
-                if stem_idx not in raw_audio.keys():
+                if stem_idx not in list(raw_audio.keys()):
                     raw_audio[stem_idx] = {}
 
                 raw_audio[stem_idx][raw_idx] = track
@@ -246,9 +246,9 @@ class MultiTrack(object):
         """Get predominant stem if files exists.
         """
 
-        if len(self.melody_rankings.keys()) > 0:
+        if len(list(self.melody_rankings.keys())) > 0:
             predominant_idx = [
-                k for k, v in self.melody_rankings.items() if v == 1
+                k for k, v in list(self.melody_rankings.items()) if v == 1
             ]
             if len(predominant_idx) > 0:
                 predominant_idx = predominant_idx[0]
@@ -303,7 +303,7 @@ class MultiTrack(object):
             List of track objects where component='melody'.
 
         """
-        stem_objects = self.stems.values()
+        stem_objects = list(self.stems.values())
         return [track for track in stem_objects if track.component == 'melody']
 
     def bass_stems(self):
@@ -313,7 +313,7 @@ class MultiTrack(object):
             List of track objects where component='bass'.
 
         """
-        stem_objects = self.stems.values()
+        stem_objects = list(self.stems.values())
         return [track for track in stem_objects if track.component == 'bass']
 
     def num_stems(self):
@@ -341,7 +341,7 @@ class MultiTrack(object):
             List of filepaths to stems.
 
         """
-        return [track.file_path for track in self.stems.values()]
+        return [track.file_path for track in list(self.stems.values())]
 
     def raw_filepaths(self):
         """Get list of filepaths to raw audio files.
@@ -364,7 +364,7 @@ class MultiTrack(object):
 
         """
         activations = []
-        if stem_idx in self.stem_activations_idx.keys():
+        if stem_idx in list(self.stem_activations_idx.keys()):
             activ_conf_idx = self.stem_activations_idx[stem_idx]
             for step in self.stem_activations:            
                 activations.append([step[0], step[activ_conf_idx]])
@@ -463,7 +463,7 @@ def get_dict_leaves(dictionary):
     """
     vals = []
     if type(dictionary) == dict:
-        keys = dictionary.keys()
+        keys = list(dictionary.keys())
         for k in keys:
             if type(dictionary[k]) == dict:
                 for val in get_dict_leaves(dictionary[k]):
@@ -551,7 +551,7 @@ def read_annotation_file(fpath, num_cols=None, header=False):
                 annotation.append([float(val) for val in line])
         return annotation, header
     else:
-        print "Warning: %s does not exist." % fpath
+        print("Warning: %s does not exist." % fpath)
         return None, None
 
 

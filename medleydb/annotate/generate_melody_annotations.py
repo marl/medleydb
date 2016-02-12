@@ -14,7 +14,7 @@ FS = 44100.0  # samples/second
 def get_time_stamps(total_duration):
     time_stamps = []
     n_stamps = int(np.ceil((total_duration*FS)/HOP))
-    time_stamps = np.array(range(n_stamps))*(HOP/FS)
+    time_stamps = np.array(list(range(n_stamps)))*(HOP/FS)
     return time_stamps
 
 
@@ -104,7 +104,7 @@ def create_melody2_annotation(mtrack):
                     start_t=start_t, end_t=end_t
                 )
             else:
-                print "Warning: stem %s has no annotation" % interval[0]
+                print("Warning: stem %s has no annotation" % interval[0])
 
         melody2 = melody_sequence
 
@@ -119,7 +119,7 @@ def create_melody3_annotation(mtrack):
     melody_rankings = mtrack.melody_rankings
 
     if melody_rankings is not None:
-        inverse_rankings = dict((v, k) for k, v in melody_rankings.iteritems())
+        inverse_rankings = dict((v, k) for k, v in melody_rankings.items())
 
         melody_sequence = make_blank_melody_sequence(mtrack.duration)
         dim = 1
@@ -156,28 +156,28 @@ def write_melodies_to_csv(mtrack, melody1, melody2, melody3):
     melody3_fpath = os.path.join(mtrack.annotation_dir, melody3_fname)
 
     if melody1 is not None:
-        print "writing melody 1..."
+        print("writing melody 1...")
         with open(melody1_fpath, "wb") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody1)
     else:
-        print "melody 1 empty"
+        print("melody 1 empty")
 
     if melody2 is not None:
-        print "writing melody 2..."
+        print("writing melody 2...")
         with open(melody2_fpath, "wb") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody2)
     else:
-        print "melody 2 empty"
+        print("melody 2 empty")
 
     if melody3 is not None:
-        print "writing melody 3..."
+        print("writing melody 3...")
         with open(melody3_fpath, "wb") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody3)
     else:
-        print "melody 3 empty"
+        print("melody 3 empty")
 
 
 def main(args):

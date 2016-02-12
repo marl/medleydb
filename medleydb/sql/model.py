@@ -55,7 +55,7 @@ class Taxon(DeclarativeBase):
     """ Instruments belonging to this taxon """
 
     def __repr__(self):
-        return '<Taxon: name=%s>' % unicode(self)
+        return '<Taxon: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -80,7 +80,7 @@ class Instrument(DeclarativeBase):
     """ Raws associated to this instrument """
 
     def __repr__(self):
-        return '<Instrument: name=%s>' % unicode(self)
+        return '<Instrument: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -247,7 +247,7 @@ class Track(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Track: name=%s>' % unicode(self)
+        return '<Track: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -319,7 +319,7 @@ class Stem(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Stem: name=%s>' % unicode(self)
+        return '<Stem: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -373,7 +373,7 @@ class Raw(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Raw: name=%s>' % unicode(self)
+        return '<Raw: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -418,7 +418,7 @@ class Melody(DeclarativeBase):
         return tmp
 
     def __repr__(self):
-        return '<Melody: filename=%s>' % unicode(self)
+        return '<Melody: filename=%s>' % str(self)
 
     def __unicode__(self):
         return self.filename
@@ -441,7 +441,7 @@ class Composer(DeclarativeBase):
     """ Tracks associated with this composer """
 
     def __repr__(self):
-        return '<Composer: name=%s>' % unicode(self)
+        return '<Composer: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
@@ -464,7 +464,7 @@ class Producer(DeclarativeBase):
     """ Tracks associated with this producer """
 
     def __repr__(self):
-        return '<Producer: name=%s>' % unicode(self)
+        return '<Producer: name=%s>' % str(self)
 
     def __unicode__(self):
         return self.name
