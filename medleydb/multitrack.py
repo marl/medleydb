@@ -434,6 +434,17 @@ class Track(object):
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
+    def __ne__(self, other):
+        return self.__dict__ != other.__dict__
+
+    def __hash__(self):
+        return hash((self.instrument,
+                     self.file_path,
+                     self.component,
+                     self.stem_idx,
+                     self.raw_idx,
+                     self.mix_path,
+                     self._pitch_path))
 
 def _path_basedir(path):
     """Get the name of the lowest directory of a path.
