@@ -3,6 +3,8 @@
 """ Utilities to navigate MedleyDB.
 """
 
+from __future__ import print_function
+
 from . import multitrack as M
 from . import sox
 from . import TRACK_LIST
@@ -148,17 +150,17 @@ def preview_audio(multitrack, selection='all', preview_length=8):
     mix = mtrack.mix_path
 
     if selection == 'all' or selection == 'mix':
-        print "Previewing the mix..."
+        print("Previewing the mix...")
         sox.quick_play(mix, duration=preview_length)
 
     if selection == 'all' or selection == 'stems':
         for track in stems:
-            print "Previewing stem %r (%s)..." \
-                % (track.stem_idx, track.instrument)
+            print(("Previewing stem %r (%s)..." \
+                % (track.stem_idx, track.instrument)))
             sox.quick_play(track.file_path, duration=preview_length)
 
     if selection == 'all' or selection == 'raw':
         for track in raw_audio:
-            print "Previewing raw audio %r %r (%s)..." \
-                % (track.stem_idx, track.raw_idx, track.instrument)
+            print(("Previewing raw audio %r %r (%s)..." \
+                % (track.stem_idx, track.raw_idx, track.instrument)))
             sox.quick_play(track.file_path, duration=preview_length)

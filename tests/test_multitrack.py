@@ -156,7 +156,7 @@ class TestMultitrack(unittest.TestCase):
             'vocalists',
             'vocalists',
         ]
-        print actual
+        print(actual)
         self.assertEqual(actual, expected)
 
     def test_raw_instruments_length(self):

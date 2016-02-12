@@ -65,7 +65,7 @@ def get_time_stamps(total_duration):
         Array of evenly spaced time stamps spanning the entire annotation.
     """
     n_stamps = int(np.ceil((total_duration*FS)/HOP))
-    return np.array(range(n_stamps))*(HOP/FS)
+    return np.arange(n_stamps)*(HOP/FS)
 
 
 def make_blank_f0_sequence(total_duration):

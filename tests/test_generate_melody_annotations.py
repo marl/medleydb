@@ -12,7 +12,7 @@ FS = 44100.0
 def array_almost_equal(array1, array2, tolerance=1e-7):
     diff = np.abs(array1 - array2)
     num_not_equal = diff > tolerance
-    print "number of unequal elements: %s" % np.sum(num_not_equal)
+    print("number of unequal elements: %s" % np.sum(num_not_equal))
     return np.sum(num_not_equal) == 0
 
 
@@ -45,32 +45,32 @@ class TestSecToIdx(unittest.TestCase):
     def test_defaults1(self):
         actual = G.sec_to_idx(0.0)
         expected = 0
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
     def test_defaults2(self):
         actual = G.sec_to_idx(2.0*256.0/44100.0)
         expected = 2
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
     def test_fs1(self):
         actual = G.sec_to_idx(0.0, fs=1000)
         expected = 0
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
     def test_fs2(self):
         actual = G.sec_to_idx(2.0*256.0/1000.0, fs=1000)
         expected = 2
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
     def test_hop1(self):
         actual = G.sec_to_idx(0.0, hop=2)
         expected = 0
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
     def test_hop2(self):
         actual = G.sec_to_idx(4.0*2.0/44100.0, hop=2)
         expected = 4
-        self.assertEquals(actual, expected)
+        self.assertEqual(actual, expected)
 
 class TestAddSequenceToMelody(unittest.TestCase):
 
@@ -102,8 +102,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody2(self):
@@ -128,8 +128,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 100.0],
             [self.times[4], 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody3(self):
@@ -156,8 +156,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 100.0],
             [self.times[4], 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
@@ -184,8 +184,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
@@ -212,8 +212,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
@@ -240,8 +240,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0, 100.0],
             [self.times[4], 8.1, 0.0]
         ])
-        print actual
-        print expected
+        print(actual)
+        print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
 class TestCreateMelodyAnnotations(unittest.TestCase):
@@ -254,22 +254,22 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
     def test_melody1(self):
         actual = G.create_melody1_annotation(self.mtrack)
         expected = self.mtrack.melody1_annotation
-        print actual[0:2]
-        print expected[0:2]
+        print(actual[0:2])
+        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody2(self):
         actual = G.create_melody2_annotation(self.mtrack)
         expected = self.mtrack.melody2_annotation
-        print actual[0:2]
-        print expected[0:2]
+        print(actual[0:2])
+        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody3(self):
         actual = G.create_melody3_annotation(self.mtrack)
         expected = self.mtrack.melody3_annotation
-        print actual[0:2]
-        print expected[0:2]
+        print(actual[0:2])
+        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
 
 

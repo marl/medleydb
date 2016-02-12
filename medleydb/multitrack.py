@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """Class definitions for MedleyDB multitracks."""
 
+from __future__ import print_function
+
 import os
 import yaml
 import wave
@@ -143,7 +145,7 @@ class MultiTrack(object):
         if self.mix_path is not None and os.path.exists(self.mix_path):
             self.duration = get_duration(self.mix_path)
         else:
-            print "Warning: Audio missing for %s." % self.track_id
+            print(("Warning: Audio missing for %s." % self.track_id))
             self.duration = None
 
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
@@ -179,13 +181,13 @@ class MultiTrack(object):
         raw_audio = dict()
         stem_dict = self._metadata['stems']
 
-        for k in stem_dict.keys():
+        for k in stem_dict:
             stem_idx = int(k[1:])
 
             instrument = stem_dict[k]['instrument']
             component = stem_dict[k]['component']
 
-            if stem_idx in self.melody_rankings.keys():
+            if stem_idx in self.melody_rankings:
                 ranking = self.melody_rankings[stem_idx]
             else:
                 ranking = None
@@ -209,7 +211,7 @@ class MultiTrack(object):
             stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
 
-            for j in raw_dict.keys():
+            for j in raw_dict:
                 raw_idx = int(j[1:])
                 instrument = raw_dict[j]['instrument']
 
@@ -222,7 +224,7 @@ class MultiTrack(object):
                 track = Track(instrument=instrument, file_path=file_path,
                               stem_idx=stem_idx, raw_idx=raw_idx,
                               mix_path=self.mix_path, ranking=ranking)
-                if stem_idx not in raw_audio.keys():
+                if stem_idx not in raw_audio:
                     raw_audio[stem_idx] = {}
 
                 raw_audio[stem_idx][raw_idx] = track
@@ -246,7 +248,7 @@ class MultiTrack(object):
         """Get predominant stem if files exists.
         """
 
-        if len(self.melody_rankings.keys()) > 0:
+        if len(self.melody_rankings) > 0:
             predominant_idx = [
                 k for k, v in self.melody_rankings.items() if v == 1
             ]
@@ -364,7 +366,7 @@ class MultiTrack(object):
 
         """
         activations = []
-        if stem_idx in self.stem_activations_idx.keys():
+        if stem_idx in self.stem_activations_idx:
             activ_conf_idx = self.stem_activations_idx[stem_idx]
             for step in self.stem_activations:            
                 activations.append([step[0], step[activ_conf_idx]])
@@ -434,6 +436,17 @@ class Track(object):
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
+    def __ne__(self, other):
+        return self.__dict__ != other.__dict__
+
+    def __hash__(self):
+        return hash((self.instrument,
+                     self.file_path,
+                     self.component,
+                     self.stem_idx,
+                     self.raw_idx,
+                     self.mix_path,
+                     self._pitch_path))
 
 def _path_basedir(path):
     """Get the name of the lowest directory of a path.
@@ -462,10 +475,9 @@ def get_dict_leaves(dictionary):
 
     """
     vals = []
-    if type(dictionary) == dict:
-        keys = dictionary.keys()
-        for k in keys:
-            if type(dictionary[k]) == dict:
+    if isinstance(dictionary, dict):
+        for k in dictionary:
+            if isinstance(dictionary[k], dict):
                 for val in get_dict_leaves(dictionary[k]):
                     vals.append(val)
             else:
@@ -478,8 +490,7 @@ def get_dict_leaves(dictionary):
         for val in dictionary:
             vals.append(val)
 
-    vals = set(vals)
-    return vals
+    return set(vals)
 
 
 def get_duration(wave_fpath):
@@ -551,7 +562,7 @@ def read_annotation_file(fpath, num_cols=None, header=False):
                 annotation.append([float(val) for val in line])
         return annotation, header
     else:
-        print "Warning: %s does not exist." % fpath
+        print("Warning: %s does not exist." % fpath)
         return None, None
 
 

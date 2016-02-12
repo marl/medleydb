@@ -1,4 +1,8 @@
+#!/usr/bin/env python
 """Script to create stem level has_bleed annotations."""
+
+from __future__ import print_function
+
 import argparse
 import os
 import csv
@@ -19,17 +23,17 @@ def make_audio_stack(mtrack, fs=22050):
     stems = mtrack.stems
     n_stems = len(stems)
 
-    print "loading stem 1..."
+    print("loading stem 1...")
     stem1_audio, fs = load_audio(stems[1].file_path, fs)
     n_samples = len(stem1_audio)
 
     audio_stack = np.zeros((n_stems, n_samples))
 
-    for stem_idx in stems.keys():
+    for stem_idx in stems:
         if stem_idx == 1:
             audio_stack[0, :] = stem1_audio
         else:
-            print "loading stem %s..." % stem_idx
+            print("loading stem %s..." % stem_idx)
             audio_path = stems[stem_idx].file_path
             audio_stack[stem_idx-1, :], _ = load_audio(audio_path, fs)
 
@@ -37,7 +41,7 @@ def make_audio_stack(mtrack, fs=22050):
 
 
 def compute_bleed_estimation_matrix(audio_stack, fs, n_samples):
-    print "computing svd..."
+    print("computing svd...")
     U, S, V = np.linalg.svd(audio_stack, full_matrices=False)
     plt.subplot(2,1,1)
     plt.imshow(U, interpolation='nearest')

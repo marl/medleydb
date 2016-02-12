@@ -64,7 +64,8 @@ if __name__ == "__main__":
 
         install_requires=[
             'pyyaml',
-            'numpy'
+            'numpy',
+            'six'
         ],
 
         extras_require={
