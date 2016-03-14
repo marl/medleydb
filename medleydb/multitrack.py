@@ -8,7 +8,9 @@ import os
 import yaml
 import wave
 import csv
+import json
 from . import INST_TAXONOMY
+from . import INST_F0_TYPE
 from . import ANNOT_PATH
 from . import METADATA_PATH
 from . import AUDIO_PATH
@@ -56,7 +58,7 @@ class MultiTrack(object):
         melody1_annotation (list): time, f0 lists from melody 1 annotation.
         melody2_annotation (list): time, f0 lists from melody 2 annotation.
         melody3_annotation (list): time, f0 lists from melody 3 annotation.
-        melody_rankings (list): melody stem predominance rankings. 
+        melody_rankings (list): melody stem predominance rankings.
             Keys: stem_idx (int), values: ranking (int)
         mix_path (str): Full path to MIX file.
         mtrack_path (str): Full path to folder containing multitrack.
@@ -116,7 +118,7 @@ class MultiTrack(object):
         else:
             self._stem_dir_path = None
             self._raw_dir_path = None
-            self.mix_path = None   
+            self.mix_path = None
 
         # Stem & Raw File Formats #
         self._stem_fmt = _STEM_FMT % self.track_id
@@ -368,7 +370,7 @@ class MultiTrack(object):
         activations = []
         if stem_idx in self.stem_activations_idx:
             activ_conf_idx = self.stem_activations_idx[stem_idx]
-            for step in self.stem_activations:            
+            for step in self.stem_activations:
                 activations.append([step[0], step[activ_conf_idx]])
         else:
             activations = None
@@ -448,11 +450,13 @@ class Track(object):
                      self.mix_path,
                      self._pitch_path))
 
+
 def _path_basedir(path):
     """Get the name of the lowest directory of a path.
     """
     norm_path = os.path.normpath(path)
     return os.path.basename(norm_path)
+
 
 def format_index(index):
     """Load stem or raw index. Reformat if in string form.
@@ -463,6 +467,7 @@ def format_index(index):
         return None
     else:
         return int(index)
+
 
 def get_dict_leaves(dictionary):
     """Get the set of all leaves of a dictionary.
@@ -584,6 +589,29 @@ def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
         taxonomy = yaml.load(f_handle)
     valid_instrument_labels = get_dict_leaves(taxonomy)
     return valid_instrument_labels
+
+
+def get_instrument_f0_type_dict(mapping_file=INST_F0_TYPE):
+    """Get mapping from instrument name to f0 type.
+    Values are:
+        - 'm' (monophonic)
+        - 'p' (polyphonic)
+        - 'u' (unpitched)
+
+    Examples:
+        >>> inst_f0_mapping = get_instrument_f0_type_dict()
+        >>> my_inst_f0_mapping = get_instrument_f0_type_dict('my_mapping.yaml')
+
+    Args:
+        mapping_file (str, optional): Path to instrument f0 type mapping file.
+
+    Returns:
+        f0_type_dict (dict): Dictionary keyed by instrument name.
+
+    """
+    with open(mapping_file, 'r') as f_handle:
+        f0_type_dict = json.load(f_handle)
+    return f0_type_dict
 
 
 def is_valid_instrument(instrument):
