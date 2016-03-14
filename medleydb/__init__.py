@@ -45,6 +45,7 @@ INST_TAXONOMY = path.join(path.dirname(__file__), 'taxonomy.yaml')
 TRACK_LIST = path.join(path.dirname(__file__), 'tracklist_v1.txt')
 ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
+INST_F0_TYPE = path.join(path.dirname(__file__), 'instrument_f0_type.json')
 
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requesting the user to set the MEDLEYDB_PATH
