@@ -40,7 +40,12 @@ if __name__ == "__main__":
         packages=['medleydb', 'medleydb.sql'],
 
         package_data={
-            'medleydb': ['taxonomy.yaml', 'tracklist_v1.txt'],
+            'medleydb': [
+                'taxonomy.yaml',
+                'tracklist_v1.txt',
+                'instrument_f0_type.json',
+                'mixing_coefficients.yaml'
+            ]
         },
 
         data_files=data_files,
