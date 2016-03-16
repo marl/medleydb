@@ -65,7 +65,7 @@ def sox(args):
         args[0] = "sox"
 
     try:
-        logging.info("Executing: %s", "".join(args))
+        logging.info("Executing: %s", " ".join(args))
         process_handle = subprocess.Popen(args, stderr=subprocess.PIPE)
         status = process_handle.wait()
         logging.info(process_handle.stdout)
@@ -365,6 +365,34 @@ def convert(input_file, output_file,
 
     if samplerate:
         args += ['rate', '-I', '%f' % samplerate]
+
+    return sox(args)
+
+
+def mix_weighted(file_list, weights, output_file):
+    """Naively mix (sum) a list of files into one audio file.
+    Volume of each file is set by the value in weights.
+
+    Parameters
+    ----------
+    file_list : list
+        List of paths to audio files.
+    weights : list
+        List of mixing weights.
+    output_file : str
+        Path to output file.
+
+    Returns
+    -------
+    status : bool
+        True on success.
+    """
+    args = ["sox", "-m"]
+    for fname, weight in zip(file_list, weights):
+        args.append("-v")
+        args.append(str(weight))
+        args.append(fname)
+    args.append(output_file)
 
     return sox(args)
 
