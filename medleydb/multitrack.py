@@ -414,7 +414,7 @@ class Track(object):
             pitch_path (str, optional): path to pitch annotation directory
         """
         self.instrument = instrument
-        self.f0_type = INST_F0_TYPE[instrument]
+        self.f0_type = self._get_f0_type(instrument)
         self.file_path = file_path
         self.component = component
         self.ranking = ranking
@@ -438,6 +438,12 @@ class Track(object):
                 self._pitch_path, num_cols=2, header=False
             )
         return self.pitch_annotation
+
+    def _get_f0_type(self, instrument):
+        if instrument in set(INST_F0_TYPE.keys()):
+            return INST_F0_TYPE[instrument]
+        else:
+            return "?"
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
