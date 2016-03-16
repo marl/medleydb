@@ -6,6 +6,8 @@ import logging
 from os import path
 from os import environ
 import warnings
+import yaml
+import json
 
 from medleydb.version import __version__
 
@@ -41,11 +43,25 @@ else:
 
 # The taxonomy, tracklist, annotations and metadata are version controlled and
 # stored inside the repository
-INST_TAXONOMY = path.join(path.dirname(__file__), 'taxonomy.yaml')
-TRACK_LIST = path.join(path.dirname(__file__), 'tracklist_v1.txt')
 ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
-INST_F0_TYPE = path.join(path.dirname(__file__), 'instrument_f0_type.json')
+
+TRACK_LIST = []
+with open(path.join(path.dirname(__file__),
+          'tracklist_v1.txt'), 'r') as fhandle:
+    for line in fhandle.readlines():
+        TRACK_LIST.append(line.strip('\n'))
+
+with open(path.join(path.dirname(__file__), 'taxonomy.yaml'), 'r') as f_handle:
+    INST_TAXONOMY = yaml.load(f_handle)
+
+with open(path.join(path.dirname(__file__),
+          'instrument_f0_type.json'), 'r') as f_handle:
+    INST_F0_TYPE = json.load(f_handle)
+
+with open(path.join(path.dirname(__file__),
+          'mixing_coefficients.yaml'), 'r') as fhandle:
+    MIXING_COEFFICIENTS = yaml.load(fhandle)
 
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requesting the user to set the MEDLEYDB_PATH
