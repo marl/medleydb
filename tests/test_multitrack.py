@@ -1,5 +1,6 @@
 import unittest
 import os
+import yaml
 from medleydb import multitrack
 
 multitrack.AUDIO_PATH = "/Dummy/Path"
@@ -388,6 +389,10 @@ class TestReadAnnotationFile(unittest.TestCase):
 class TestGetValidInstrumentLabels(unittest.TestCase):
     def setUp(self):
         self.labels = multitrack.get_valid_instrument_labels()
+        test_taxonomy_fpath = os.path.join(
+            os.path.dirname(__file__), 'data/test_taxonomy.yaml')
+        with open(test_taxonomy_fpath, 'r') as fhandle:
+            self.test_taxonomy = yaml.load(fhandle)
 
     def test_inclusion(self):
         self.assertTrue('female singer' in self.labels)
@@ -400,9 +405,7 @@ class TestGetValidInstrumentLabels(unittest.TestCase):
 
     def test_alternate_taxonomy(self):
         actual = multitrack.get_valid_instrument_labels(
-            taxonomy_file=os.path.join(
-                os.path.dirname(__file__), 'data/test_taxonomy.yaml'
-            )
+            taxonomy=self.test_taxonomy
         )
         expected = set([
             'rick',

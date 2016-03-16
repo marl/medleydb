@@ -1,13 +1,14 @@
 """ Tests for utils.py """
 
 import unittest
+import medleydb
 from medleydb import utils
 from medleydb import multitrack
 
 
 class TestLoadTrackList(unittest.TestCase):
     def setUp(self):
-        self.track_list = utils.load_track_list()
+        self.track_list = medleydb.TRACK_LIST
 
     def test_length(self):
         self.assertEqual(len(self.track_list), 122)

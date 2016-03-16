@@ -6,7 +6,7 @@ import numpy as np
 from medleydb import AUDIO_AVAILABLE
 from medleydb import ANNOT_PATH
 from medleydb import MultiTrack
-from medleydb.utils import load_track_list
+from medleydb import TRACK_LIST
 from medleydb.annotate import generate_melody_annotations as G
 
 
@@ -19,7 +19,7 @@ def array_almost_equal(array1, array2, tolerance=1e-7):
 
 class TestFileNames(unittest.TestCase):
     def setUp(self):
-        self.track_list = load_track_list()
+        self.track_list = TRACK_LIST
         self.folders = set(
             glob.glob(os.path.join(ANNOT_PATH, "*_ANNOTATIONS"))
         )
@@ -185,7 +185,7 @@ class TestFileNames(unittest.TestCase):
 @unittest.skipIf(not AUDIO_AVAILABLE, "requires audio access")
 class TestMelodyAnnotations(unittest.TestCase):
     def setUp(self):
-        self.track_list = load_track_list()
+        self.track_list = TRACK_LIST
 
     def test_melody_annotations(self):
         for track in self.track_list:
@@ -213,7 +213,7 @@ class TestMelodyAnnotations(unittest.TestCase):
 
 class TestRankingAnnotations(unittest.TestCase):
     def setUp(self):
-        self.track_list = load_track_list()
+        self.track_list = TRACK_LIST
 
     def test_rankings(self):
         for track in self.track_list:
@@ -222,4 +222,6 @@ class TestRankingAnnotations(unittest.TestCase):
             # test that there are no duplicate rankings
             self.assertTrue(len(rankings) == len(set(rankings)))
             # test that rankings start at 1 and go up by step
-            self.assertTrue(sorted(rankings) == list(range(1, len(rankings)+1)))
+            self.assertTrue(
+                sorted(rankings) == list(range(1, len(rankings)+1))
+            )
