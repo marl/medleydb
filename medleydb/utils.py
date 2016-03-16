@@ -10,23 +10,6 @@ from . import sox
 from . import TRACK_LIST
 
 
-def load_track_list():
-    """ Load the list of tracks in the current version of MedleyDB.
-
-    Example:
-        >>> track_list = load_track_list()
-
-    Returns:
-        track_list (list): List of track id strings in format "Artist_Title"
-
-    """
-    track_list = []
-    with open(TRACK_LIST, 'r') as fhandle:
-        for line in fhandle.readlines():
-            track_list.append(line.strip('\n'))
-    return track_list
-
-
 def load_melody_multitracks():
     """Load all multitracks that have melody annotations.
 
@@ -53,8 +36,7 @@ def load_all_multitracks():
         multitracks (list): List of multitrack objects.
 
     """
-    track_list = load_track_list()
-    multitracks = load_multitracks(track_list)
+    multitracks = load_multitracks(TRACK_LIST)
     return multitracks
 
 
@@ -155,12 +137,12 @@ def preview_audio(multitrack, selection='all', preview_length=8):
 
     if selection == 'all' or selection == 'stems':
         for track in stems:
-            print(("Previewing stem %r (%s)..." \
-                % (track.stem_idx, track.instrument)))
+            print(("Previewing stem %r (%s)..."
+                  % (track.stem_idx, track.instrument)))
             sox.quick_play(track.file_path, duration=preview_length)
 
     if selection == 'all' or selection == 'raw':
         for track in raw_audio:
-            print(("Previewing raw audio %r %r (%s)..." \
-                % (track.stem_idx, track.raw_idx, track.instrument)))
+            print(("Previewing raw audio %r %r (%s)..."
+                  % (track.stem_idx, track.raw_idx, track.instrument)))
             sox.quick_play(track.file_path, duration=preview_length)
