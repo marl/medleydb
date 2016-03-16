@@ -34,7 +34,7 @@ def analyze_mix(mtrack):
     coefs, _, _, _ = np.linalg.lstsq(stem_audio.T, mix_audio.T)
 
     mixing_coeffs = {
-        os.path.basename(f): float(c) for f, c in zip(stem_files, coefs)
+        int(i): float(c) for i, c in zip(stem_indices, coefs)
     }
     return mixing_coeffs
 
