@@ -8,9 +8,9 @@ import os
 import yaml
 import wave
 import csv
-import json
 from . import INST_TAXONOMY
 from . import INST_F0_TYPE
+from . import MIXING_COEFFICIENTS
 from . import ANNOT_PATH
 from . import METADATA_PATH
 from . import AUDIO_PATH
@@ -132,6 +132,8 @@ class MultiTrack(object):
         )
         self.melody_rankings = self._get_melody_rankings()
 
+        self.mixing_coefficients = MIXING_COEFFICIENTS[self.track_id]
+
         # Stem & Raw Dictionaries. Lists of filepaths. #
         self.stems, self.raw_audio = self._parse_metadata()
 
@@ -167,7 +169,6 @@ class MultiTrack(object):
         self.predominant_stem = self._get_predominant_stem()
         self.stem_activations, self.stem_activations_idx = \
             self._get_activation_annotations()
-
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -208,7 +209,8 @@ class MultiTrack(object):
             track = Track(instrument=instrument, file_path=file_path,
                           component=component, stem_idx=stem_idx,
                           ranking=ranking, mix_path=self.mix_path,
-                          pitch_path=pitch_path)
+                          pitch_path=pitch_path,
+                          mix_coeff=self.mixing_coefficients[stem_idx])
 
             stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
@@ -356,7 +358,6 @@ class MultiTrack(object):
         """
         return [track.file_path for track in get_dict_leaves(self.raw_audio)]
 
-
     def activation_conf_from_stem(self, stem_idx):
         """Get activation confidence from given stem.
 
@@ -397,7 +398,8 @@ class Track(object):
     """
 
     def __init__(self, instrument, file_path, stem_idx, mix_path,
-                 pitch_path=None, raw_idx=None, component='', ranking=None):
+                 pitch_path=None, raw_idx=None, component='', ranking=None,
+                 mix_coeff=None):
         """Track object __init__ method.
 
         Args:
@@ -412,11 +414,13 @@ class Track(object):
             pitch_path (str, optional): path to pitch annotation directory
         """
         self.instrument = instrument
+        self.f0_type = INST_F0_TYPE[instrument]
         self.file_path = file_path
         self.component = component
         self.ranking = ranking
         self.stem_idx = format_index(stem_idx)
         self.raw_idx = format_index(raw_idx)
+        self.mixing_coefficient = mix_coeff
 
         if file_path is not None and os.path.exists(file_path):
             self.duration = get_duration(file_path)
@@ -571,7 +575,7 @@ def read_annotation_file(fpath, num_cols=None, header=False):
         return None, None
 
 
-def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
+def get_valid_instrument_labels(taxonomy=INST_TAXONOMY):
     """Get set of valid instrument labels based on a taxonomy.
 
     Examples:
@@ -585,33 +589,8 @@ def get_valid_instrument_labels(taxonomy_file=INST_TAXONOMY):
         valid_instrument_labels (set): Set of valid instrument labels.
 
     """
-    with open(taxonomy_file) as f_handle:
-        taxonomy = yaml.load(f_handle)
     valid_instrument_labels = get_dict_leaves(taxonomy)
     return valid_instrument_labels
-
-
-def get_instrument_f0_type_dict(mapping_file=INST_F0_TYPE):
-    """Get mapping from instrument name to f0 type.
-    Values are:
-        - 'm' (monophonic)
-        - 'p' (polyphonic)
-        - 'u' (unpitched)
-
-    Examples:
-        >>> inst_f0_mapping = get_instrument_f0_type_dict()
-        >>> my_inst_f0_mapping = get_instrument_f0_type_dict('my_mapping.yaml')
-
-    Args:
-        mapping_file (str, optional): Path to instrument f0 type mapping file.
-
-    Returns:
-        f0_type_dict (dict): Dictionary keyed by instrument name.
-
-    """
-    with open(mapping_file, 'r') as f_handle:
-        f0_type_dict = json.load(f_handle)
-    return f0_type_dict
 
 
 def is_valid_instrument(instrument):
