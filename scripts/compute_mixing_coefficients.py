@@ -3,6 +3,7 @@ import argparse
 import numpy as np
 import os
 import scipy.io.wavfile as wavfile
+import scipy.optimize.nnls as nnls
 import yaml
 
 import medleydb as mdb
@@ -12,26 +13,25 @@ def flatten(w):
     return w.T.ravel()
 
 
-def loadflat(filename):
-
+def loadmono(filename):
     _, w = wavfile.read(filename)
-    w = flatten(w)
+    w = np.square(w.sum(axis=1))
     return w
 
 
 def analyze_mix(mtrack):
 
     mixfile = mtrack.mix_path
-    mix_audio = loadflat(mixfile)
+    mix_audio = loadmono(mixfile)
 
     stems = mtrack.stems
     stem_indices = list(stems.keys())
     stem_files = [stems[k].file_path for k in stem_indices]
     stem_audio = np.vstack(
-        [loadflat(_) for _ in stem_files]
+        [loadmono(_) for _ in stem_files]
     )
 
-    coefs, _, _, _ = np.linalg.lstsq(stem_audio.T, mix_audio.T)
+    coefs, _ = nnls(stem_audio.T, mix_audio.T)
 
     mixing_coeffs = {
         int(i): float(c) for i, c in zip(stem_indices, coefs)
