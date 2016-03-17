@@ -1,5 +1,7 @@
 """Functions for creating new mixes from medleydb multitracks.
 """
+import shutil
+
 from . import sox
 
 
@@ -57,7 +59,10 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
             filepaths.append(f)
             weights.append(w)
 
-    sox.mix_weighted(filepaths, weights, output_path)
+    if len(filepaths) == 1:
+        shutil.copyfile(filepaths[0], output_path)
+    else:
+        sox.mix_weighted(filepaths, weights, output_path)
 
 
 def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
@@ -69,32 +74,45 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
     inverse_ranking = {v: k for k, v in melody_rankings.items()}
     n_melody_stems = len(list(melody_rankings.keys()))
     stem_indices = []
-    for i in range(1, min([n_melody_stems, max_melody_stems])+1):
+    melody_indices = []
+    n_chosen = 0
+    for i in range(1, n_melody_stems + 1):
+        if n_chosen >= max_melody_stems:
+            break
+
         this_stem_index = inverse_ranking[i]
         if require_mono:
             if mtrack.stems[this_stem_index].f0_type == 'm':
                 stem_indices.append(this_stem_index)
+                melody_indices.append(this_stem_index)
+                n_chosen += 1
         else:
             stem_indices.append(this_stem_index)
+            melody_indices.append(this_stem_index)
+            n_chosen += 1
 
     if include_percussion:
         percussive_indices = [
-            s.stem_idx for s in mtrack.stems if s.f0_type == 'u'
+            i for i, s in mtrack.stems.items() if s.f0_type == 'u'
         ]
 
         for i in percussive_indices:
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
+    return melody_indices
 
 
 def mix_mono_stems(mtrack, output_path, include_percussion=False):
     stems = mtrack.stems
     stem_indices = []
+    mono_indices = []
     for i in stems.keys():
         if stems[i].f0_type == 'm':
             stem_indices.append(i)
+            mono_indices.append(i)
         elif include_percussion and stems[i].f0_type == 'u':
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
+    return mono_indices
