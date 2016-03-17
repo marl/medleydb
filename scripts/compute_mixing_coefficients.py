@@ -1,7 +1,6 @@
 
 import argparse
 import numpy as np
-import os
 import scipy.io.wavfile as wavfile
 import scipy.optimize.nnls as nnls
 import yaml
@@ -15,7 +14,7 @@ def flatten(w):
 
 def loadmono(filename):
     _, w = wavfile.read(filename)
-    w = np.square(w.sum(axis=1))
+    w = np.abs(w.sum(axis=1))
     return w
 
 
@@ -43,7 +42,7 @@ def main(args):
     mtracks = mdb.load_all_multitracks()
     mix_coefs = dict()
     for mtrack in mtracks:
-        mix_coefs[os.path.basename(mtrack.mix_path)] = analyze_mix(mtrack)
+        mix_coefs[mtrack.track_id] = analyze_mix(mtrack)
     with open(args.output_path, 'w') as fdesc:
         yaml.dump(mix_coefs, fdesc)
 
