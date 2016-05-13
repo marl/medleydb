@@ -10,55 +10,36 @@ from . import sox
 from . import TRACK_LIST
 
 
-def load_melody_multitracks():
-    """Load all multitracks that have melody annotations.
-
-    Example:
-        >>> melody_multitracks = load_melody_multitracks()
-
-    Returns:
-        melody_multitracks (list): List of multitrack objects.
-
-    """
-    multitracks = load_all_multitracks()
-    for track in multitracks:
-        if track.has_melody:
-            yield track
-
-
-def load_all_multitracks():
-    """Load all multitracks in MEDLEYDB_PATH.
-
-    Example:
-        >>> multitracks = load_all_multitracks()
-
-    Returns:
-        multitracks (list): List of multitrack objects.
-
-    """
-    multitracks = load_multitracks(TRACK_LIST)
-    return multitracks
-
-
-def load_multitracks(track_list):
+def load_multitracks(track_list=None, melody_only=False):
     """Load a list of multitracks.
 
-    Example:
-        # create a list of paths to multitrack directories
+    Examples:
+        # load all multitracks in MEDLEYDB_PATH.
+        >>> multitracks = load_multitracks()
+
+        # load a subset of the multitracks
         >>> track_list = ['ArtistName1_TrackName1', \
                           'ArtistName2_TrackName2', \
                           'ArtistName3_TrackName3']
         >>> multitracks = load_multitracks(track_list)
 
+        # load all multitracks that have melody annotations.
+        >>> multitracks = load_multitracks(melody_only=True)
+
     Args:
         track_list (list): List of track ids in format 'Artist_Title'
+        melody_only (bool): Only select multitracks with melody annotations.
 
     Returns:
         multitracks (dict): List of multitrack objects.
 
     """
+    if track_list == None:
+        track_list = TRACK_LIST
     for track_id in track_list:
-        yield M.MultiTrack(track_id)
+        track = M.MultiTrack(track_id)
+        if not melody_only or track.has_melody:
+            yield track
 
 
 def get_files_for_instrument(instrument, multitrack_list=None):
