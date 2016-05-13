@@ -79,8 +79,6 @@ else:
     AUDIO_PATH = None
 
 from .utils import (
-    load_melody_multitracks,
-    load_all_multitracks,
     load_multitracks,
     get_files_for_instrument,
     preview_audio
