@@ -72,7 +72,7 @@ def get_files_for_instrument(instrument, multitrack_list=None):
         raise ValueError("%s is not in the instrument taxonomy." % instrument)
 
     if not multitrack_list:
-        multitrack_list = load_all_multitracks()
+        multitrack_list = load_multitracks()
 
     for multitrack in multitrack_list:
         for stem in multitrack.stems.values():
