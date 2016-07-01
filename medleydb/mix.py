@@ -4,6 +4,9 @@ import shutil
 
 from . import sox
 
+VOCALS = ["male singer", "female singer", "male speaker", "female speaker",
+          "male rapper", "female rapper", "beatboxing", "vocalists"]
+
 
 def mix_multitrack(mtrack, output_path, stem_indices=None,
                    alternate_weights=None, alternate_files=None,
@@ -116,3 +119,49 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
     return mono_indices
+
+
+def mix_no_vocals(mtrack, output_path):
+    """
+    This function creates a mix without vocals, only instrumentals.
+    Parameters
+    ----------
+    mtrack : Multitrack
+        Multitrack object
+    output_path : str
+        Path to save output wav file.
+    """
+    stems = mtrack.stems
+    stem_indices = []
+    for i in stems.keys():
+        if stems[i].instrument not in VOCALS:
+            stem_indices.append(i)
+
+    mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
+
+
+
+def remix_vocals(mtrack, output_path, new_weight):
+    """
+    This function creates a mix with either louder or softer volume of vocals.
+    Parameters
+    ----------
+    mtrack : Multitrack
+        Multitrack object
+    output_path : str
+        Path to save output wav file.
+    new_weight : float
+        Create a new weight for the vocals.
+
+    """
+    stems = mtrack.stems
+    alternate_weights = {}
+    for i in stems.keys():
+        if stems[i].instrument in VOCALS:
+            alternate_weights[i] = new_weight
+
+    mix_multitrack(mtrack, output_path, alternate_weights=alternate_weights)
+
+
+
+
