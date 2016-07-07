@@ -12,7 +12,8 @@ from . import TRACK_LIST, sox
 def load_multitracks(track_list=None,
                      has_melody=None,
                      is_excerpt=None,
-                     is_instrumental=None):
+                     is_instrumental=None,
+                     has_bleed=None):
     """Load a list of multitracks.
 
     Examples:
@@ -45,6 +46,8 @@ def load_multitracks(track_list=None,
         is_instrumental (bool, optional): Only select multitracks that are
                                           instrumental. Set to `False` for only
                                           multitracks with vocals.
+        has_bleed (bool, optional): Only select multitracks that have bleed. Set to
+                                    `False` for only multitracks without bleed.
 
     Returns:
         multitracks (dict): List of multitrack objects.
@@ -62,6 +65,9 @@ def load_multitracks(track_list=None,
                 continue
         if is_instrumental is not None:
             if is_instrumental != track.is_instrumental:
+                continue
+        if has_bleed is not None:
+            if has_bleed != track.has_bleed:
                 continue
         yield track
 
