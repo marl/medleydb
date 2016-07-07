@@ -33,16 +33,18 @@ def load_multitracks(track_list=None,
                                            is_excerpt=False)
 
     Args:
-        track_list (list): List of track ids in format 'Artist_Title'
-        has_melody (Optional[bool]): Only select multitracks with melody
-                                 annotations. Set to `False` for only
-                                 multitracks without melody.
-        is_excerpt (Optional[bool]): Only select multitracks that are excerpts.
-                                  Set to `False` for only multitracks that are
-                                  not excerpts.
-        is_instrumental (Optional[bool]): Only select multitracks that are
-                                       instrumental. Set to `False` for only
-                                       multitracks with vocals.
+        track_list (list, optional): List of track ids in format
+                                     'Artist_Title'. Leave `None` for all
+                                     multitracks.
+        has_melody (bool, optional): Only select multitracks with melody
+                                     annotations. Set to `False` for only
+                                     multitracks without melody.
+        is_excerpt (bool, optional): Only select multitracks that are excerpts.
+                                     Set to `False` for only multitracks that are
+                                     not excerpts.
+        is_instrumental (bool, optional): Only select multitracks that are
+                                          instrumental. Set to `False` for only
+                                          multitracks with vocals.
 
     Returns:
         multitracks (dict): List of multitrack objects.
