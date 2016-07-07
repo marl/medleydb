@@ -22,7 +22,7 @@ class TestLoadTrackList(unittest.TestCase):
 
 class TestLoadMelodyMultitracks(unittest.TestCase):
     def setUp(self):
-        self.melody_mtracks = utils.load_multitracks(melody_only=True)
+        self.melody_mtracks = utils.load_multitracks(has_melody=True)
         self.first_track = next(self.melody_mtracks)
 
     def test_object_type(self):
