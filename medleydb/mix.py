@@ -1,8 +1,7 @@
 """Functions for creating new mixes from medleydb multitracks.
 """
 import shutil
-
-from . import sox
+import sox
 
 VOCALS = ["male singer", "female singer", "male speaker", "female speaker",
           "male rapper", "female rapper", "beatboxing", "vocalists"]
@@ -58,18 +57,38 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
             weights.append(mtrack.stems[index].mixing_coefficient)
 
     if additional_files is not None:
-        for f, w in additional_files:
-            filepaths.append(f)
-            weights.append(w)
+        for fpath, weight in additional_files:
+            filepaths.append(fpath)
+            weights.append(weight)
 
     if len(filepaths) == 1:
         shutil.copyfile(filepaths[0], output_path)
     else:
-        sox.mix_weighted(filepaths, weights, output_path)
+        cbn = sox.Combiner(
+            filepaths, output_path, 'mix', input_volumes=weights
+        )
+        cbn.build()
 
 
 def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
                      include_percussion=False, require_mono=False):
+    """Creates a mix using only the stems labeled as melody.
+
+    Parameters
+    ----------
+    mtrack : Multitrack
+        Multitrack object
+    output_path : str
+        Path to save output wav file.
+    max_melody_stems : int or None
+        The maximum number of melody stems to mix. If None, uses the number of
+        melody stems in the mix.
+    include_percussion : bool
+        If true, adds percussion stems to the mix.
+    require_mono : bool
+        If true, only includes melody stems that are monophonic instruments.
+
+    """
     if max_melody_stems is None:
         max_melody_stems = 100
 
@@ -107,6 +126,21 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
 
 
 def mix_mono_stems(mtrack, output_path, include_percussion=False):
+    """Creates a mix using only the stems that are monophonic. For example, in
+    mix with piano, voice, and clarinet, the resulting mix would include
+    only voice and clarinet.
+
+    Parameters
+    ----------
+    mtrack : Multitrack
+        Multitrack object
+    output_path : str
+        Path to save output wav file.
+    include_percussion : bool
+        If true, percussive instruments are included in the mix. If false, they
+        are excluded.
+
+    """
     stems = mtrack.stems
     stem_indices = []
     mono_indices = []
@@ -122,14 +156,15 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
 
 
 def mix_no_vocals(mtrack, output_path):
-    """
-    This function creates a mix without vocals, only instrumentals.
+    """Remixes a multitrack with anything type of voclas removed.
+    If no vocals are present, the mix will be a simple weighted linear remix.
+
     Parameters
     ----------
     mtrack : Multitrack
         Multitrack object
     output_path : str
-        Path to save output wav file.
+        Path to save output file.
     """
     stems = mtrack.stems
     stem_indices = []
@@ -140,28 +175,25 @@ def mix_no_vocals(mtrack, output_path):
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
 
 
+def remix_vocals(mtrack, output_path, vocals_scale):
+    """Remixes a multitrack, changing the volume of the vocals.
 
-def remix_vocals(mtrack, output_path, new_weight):
-    """
-    This function creates a mix with either louder or softer volume of vocals.
     Parameters
     ----------
     mtrack : Multitrack
         Multitrack object
     output_path : str
         Path to save output wav file.
-    new_weight : float
-        Create a new weight for the vocals.
+    vocals_scale : float
+        The target scale factor for vocals. A value of 1 keeps the volume the
+        same. Values above 1 increase the volume and below 1 decrease it.
 
     """
     stems = mtrack.stems
     alternate_weights = {}
     for i in stems.keys():
         if stems[i].instrument in VOCALS:
-            alternate_weights[i] = new_weight
+            vocal_weight = stems[i].mixing_coefficient * vocals_scale
+            alternate_weights[i] = vocal_weight
 
     mix_multitrack(mtrack, output_path, alternate_weights=alternate_weights)
-
-
-
-

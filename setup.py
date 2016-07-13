@@ -37,10 +37,10 @@ if __name__ == "__main__":
 
         download_url='http://github.com/rabitt/medleydb/releases',
 
-        packages=['medleydb', 'medleydb.sql'],
+        packages=['medleydb'],
 
         package_data={
-            'medleydb': [
+            'medleydb/resources': [
                 'taxonomy.yaml',
                 'tracklist_v1.txt',
                 'instrument_f0_type.json',
@@ -68,17 +68,13 @@ if __name__ == "__main__":
         license='MIT',
 
         install_requires=[
+            'sox'
             'pyyaml',
             'numpy',
             'six'
         ],
 
         extras_require={
-            'sql': [
-                'SQLAlchemy',
-                'scipy',
-                'numpy'
-            ],
             'tests': [
                 'pytest',
                 'pytest-cov',
@@ -90,9 +86,5 @@ if __name__ == "__main__":
                 'sphinx_rtd_theme',
                 'numpydoc',
             ],
-        },
-
-        entry_points={'console_scripts': [
-            'medleydb-export=medleydb.sql:export'
-        ]}
+        }
     )
