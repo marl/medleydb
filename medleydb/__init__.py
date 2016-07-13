@@ -11,7 +11,7 @@ import json
 
 from medleydb.version import __version__
 
-__all__ = ["__version__", "sql"]
+__all__ = ["__version__"]
 
 logging.basicConfig(level=logging.CRITICAL)
 
@@ -47,19 +47,20 @@ ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
 
 TRACK_LIST = []
-with open(path.join(path.dirname(__file__),
+with open(path.join(path.dirname(__file__), 'resources',
           'tracklist_v1.txt'), 'r') as fhandle:
     for line in fhandle.readlines():
         TRACK_LIST.append(line.strip('\n'))
 
-with open(path.join(path.dirname(__file__), 'taxonomy.yaml'), 'r') as f_handle:
+with open(path.join(path.dirname(__file__), 'resources',
+          'taxonomy.yaml'), 'r') as f_handle:
     INST_TAXONOMY = yaml.load(f_handle)
 
-with open(path.join(path.dirname(__file__),
+with open(path.join(path.dirname(__file__), 'resources',
           'instrument_f0_type.json'), 'r') as f_handle:
     INST_F0_TYPE = json.load(f_handle)
 
-with open(path.join(path.dirname(__file__),
+with open(path.join(path.dirname(__file__), 'resources',
           'mixing_coefficients.yaml'), 'r') as fhandle:
     MIXING_COEFFICIENTS = yaml.load(fhandle)
 
