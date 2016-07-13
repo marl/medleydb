@@ -1,1 +1,8 @@
-include medleydb/taxonomy.yaml
+recursive-include Annotations/*.lab
+recursive-include Annotations/*.txt
+recursive-include Annotations/*.csv
+recursive-include Annotations/*/*.csv
+recursive-include tests *.py
+recursive-include docs *.rst
+recursive-include docs *.py
+prune docs/_build
