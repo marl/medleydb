@@ -68,7 +68,7 @@ if __name__ == "__main__":
         license='MIT',
 
         install_requires=[
-            'sox'
+            'sox',
             'pyyaml',
             'numpy',
             'six'
