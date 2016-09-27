@@ -1,7 +1,9 @@
-recursive-include Annotations/*.lab
-recursive-include Annotations/*.txt
-recursive-include Annotations/*.csv
-recursive-include Annotations/*/*.csv
+include *.rst *.txt LICENSE README.md .travis.yml docs/Makefile
+recursive-include Annotations *.lab
+recursive-include Annotations *.txt
+recursive-include Annotations *.csv
+recursive-include Annotations */*.csv
+recursive-include METADATA *.yaml
 recursive-include tests *.py
 recursive-include docs *.rst
 recursive-include docs *.py
