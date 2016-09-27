@@ -1,4 +1,4 @@
-DontHearAThingalbum: ''
+album: ''
 artist: Caitlin Michelle Remmel & Benjamin Hood
 composer:
 - Brandon Webster
@@ -41,4 +41,5 @@ stems:
         filename: BrandonWebster_DontHearAThing_RAW_03_02.wav
         instrument: piano
 title: Don't Hear A Thing
+version: 1.2
 website: []
