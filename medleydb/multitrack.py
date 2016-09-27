@@ -157,6 +157,7 @@ class MultiTrack(object):
         self.is_instrumental = _YESNO[self._metadata['instrumental']]
         self.origin = self._metadata['origin']
         self.genre = self._metadata['genre']
+        self.metadata_version = self._metadata['version']
 
         mel1_path = os.path.join(self.annotation_dir,
                                  _MELODY1_FMT % self.track_id)

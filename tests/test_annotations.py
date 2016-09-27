@@ -10,17 +10,6 @@ from medleydb import TRACK_LIST
 from medleydb.annotate import generate_melody_annotations as G
 
 
-import traceback
-import warnings
-import sys
-
-def warn_with_traceback(message, category, filename, lineno, file=None, line=None):
-    traceback.print_stack()
-    log = file if hasattr(file,'write') else sys.stderr
-    log.write(warnings.formatwarning(message, category, filename, lineno, line))
-
-warnings.showwarning = warn_with_traceback
-
 def array_almost_equal(array1, array2, tolerance=1e-7):
     diff = np.abs(array1 - array2)
     num_not_equal = diff > tolerance
