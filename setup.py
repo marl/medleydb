@@ -39,17 +39,6 @@ if __name__ == "__main__":
 
         packages=['medleydb'],
 
-        # package_data={
-        #     'medleydb': [
-        #         'resources/taxonomy.yaml',
-        #         'resources/tracklist_v1.txt',
-        #         'resources/instrument_f0_type.json',
-        #         'resources/mixing_coefficients.yaml'
-        #     ]
-        # },
-
-        # include_package_data=True,
-
         data_files=data_files,
 
         classifiers=[
