@@ -31,7 +31,6 @@ class TestFileNames(unittest.TestCase):
 
     def test_metadata(self):
         for fpath in glob.glob(os.path.join(METADATA_PATH, '*.yaml')):
-            print fpath
             with open(fpath, 'r') as f_in:
                 metadata = yaml.load(f_in)
             actual_keys = sorted(metadata.keys())
