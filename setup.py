@@ -70,6 +70,9 @@ if __name__ == "__main__":
                 'pytest',
                 'pytest-cov',
                 'pytest-pep8',
+                'scipy',
+                'librosa',
+                'soundfile'
             ],
             'docs': [
                 'sphinx==1.2.3',  # autodoc was broken in 1.3.1
