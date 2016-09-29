@@ -5,6 +5,7 @@ import librosa
 import medleydb
 import os
 import argparse
+import math
 
 
 def create_activation_annotation(
@@ -39,7 +40,7 @@ def create_activation_annotation(
     H = scipy.signal.filtfilt(b, a, H, axis=1)
 
     # logistic function to semi-binarize the output; confidence value
-    H = 1 - 1 / (1 + np.exp(np.dot(20, (H-theta))))
+    H = 1 - 1 / (1 + np.exp(np.dot(20, (H - theta))))
 
     # binarize output
     if binarize:
@@ -59,13 +60,27 @@ def create_activation_annotation(
 
 
 def track_activation(wave, win_len):
-
-    # Parameters
     hop_len = win_len // 2
-    win = np.hanning(win_len)
+
+    # MATLAB equivalent to @hanning(win_len)
+    win = scipy.signal.windows.hann(win_len + 2)[1:-1]
 
     # mix down to 1 channel
     wave = np.mean(wave, axis=1)
+
+    wave = np.lib.pad(
+        wave,
+        pad_width=(
+            win_len-hop_len,
+            int(
+                math.ceil(
+                    len(wave) / win_len
+                ) * win_len - len(wave)
+            )
+        ),
+        mode='constant',
+        constant_values=0
+    )
 
     wavmat = librosa.util.frame(
         wave,
@@ -85,8 +100,7 @@ def hwr(x):
 
 
 def write_activations_to_csv(mtrack, activations):
-
-    activation_fname = "%s_ACTIVATION_CONF2.lab" % mtrack.track_id
+    activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
     activations_fpath = os.path.join(mtrack.annotation_dir, activation_fname)
     np.savetxt(
         activations_fpath,
