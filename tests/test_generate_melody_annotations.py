@@ -1,6 +1,5 @@
 """Tests for generate_melody_annotations script"""
 import unittest
-import os
 import numpy as np
 from medleydb import MultiTrack
 from medleydb.annotate import generate_melody_annotations as G
@@ -40,6 +39,7 @@ class TestMakeBlakMelodySequence(unittest.TestCase):
         ])
         self.assertTrue(array_almost_equal(actual, expected))
 
+
 class TestSecToIdx(unittest.TestCase):
 
     def test_defaults1(self):
@@ -72,6 +72,7 @@ class TestSecToIdx(unittest.TestCase):
         expected = 4
         self.assertEqual(actual, expected)
 
+
 class TestAddSequenceToMelody(unittest.TestCase):
 
     def setUp(self):
@@ -79,7 +80,6 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.dur = 0.02902494331  # seconds
 
     def test_add_sequence_to_melody1(self):
-        
         f0_sequence = [
             [self.times[0], 0.0],
             [self.times[1], 0.0],
@@ -94,7 +94,9 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        actual = G.add_sequence_to_melody(self.dur, f0_sequence, melody_sequence)
+        actual = G.add_sequence_to_melody(
+            self.dur, f0_sequence, melody_sequence
+        )
         expected = np.array([
             [self.times[0], 0.0],
             [self.times[1], 0.0],
@@ -107,7 +109,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody2(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -120,7 +122,9 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        actual = G.add_sequence_to_melody(self.dur, f0_sequence, melody_sequence)
+        actual = G.add_sequence_to_melody(
+            self.dur, f0_sequence, melody_sequence
+        )
         expected = np.array([
             [self.times[0], 3.0],
             [self.times[1], 0.0],
@@ -133,7 +137,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody3(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -161,7 +165,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -188,8 +192,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
         print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
-    def test_add_sequence_to_melody4(self):
-        
+    def test_add_sequence_to_melody5(self):
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -216,8 +220,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
         print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
-    def test_add_sequence_to_melody4(self):
-        
+    def test_add_sequence_to_melody6(self):
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -243,6 +247,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         print(actual)
         print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
+
 
 class TestCreateMelodyAnnotations(unittest.TestCase):
 
@@ -271,7 +276,3 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
         print(actual[0:2])
         print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
-
-
-
-

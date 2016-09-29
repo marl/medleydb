@@ -4,29 +4,27 @@ import numpy as np
 import librosa
 import medleydb
 import os
-import csv
 import argparse
-import soundfile as sf
 
 
 def create_activation_annotation(
     mtrack,
     win_len=2048,
     lpf_cutoff=0.075,
-    theta=.4,
+    theta=0.15,
     binarize=False
 ):
 
     H = []
 
     for track_id, track in mtrack.stems.items():
-        audio, rate = sf.read(track.file_path)
-        H.append(track_activation(audio, win_len))
+        audio, rate = librosa.load(track.file_path, mono=False)
+        H.append(track_activation(audio.T, win_len))
 
     # list to numpy array
     H = np.array(H)
-    # normalization (to overall energy and # of sources)
 
+    # normalization (to overall energy and # of sources)
     E0 = np.sum(H, axis=0)
 
     H = len(mtrack.stems) * H / np.max(E0)
@@ -50,7 +48,14 @@ def create_activation_annotation(
     else:
         H_out = H
 
-    return H_out
+    # add time column
+    time = librosa.core.frames_to_time(
+        np.arange(H.shape[1]), sr=rate, hop_length=win_len // 2
+    )
+
+    # stack time column to matrix
+    H_out = np.vstack((time, H_out))
+    return H_out.T
 
 
 def track_activation(wave, win_len):
@@ -62,7 +67,11 @@ def track_activation(wave, win_len):
     # mix down to 1 channel
     wave = np.mean(wave, axis=1)
 
-    wavmat = librosa.util.frame(wave, frame_length=win_len, hop_length=hop_len)
+    wavmat = librosa.util.frame(
+        wave,
+        frame_length=win_len,
+        hop_length=hop_len
+    )
 
     # Envelope follower
     wavmat = hwr(wavmat) ** 0.5  # half-wave rectification + compression
@@ -77,10 +86,14 @@ def hwr(x):
 
 def write_activations_to_csv(mtrack, activations):
 
-    activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
-
+    activation_fname = "%s_ACTIVATION_CONF2.lab" % mtrack.track_id
     activations_fpath = os.path.join(mtrack.annotation_dir, activation_fname)
-    return activations_fpath
+    np.savetxt(
+        activations_fpath,
+        activations,
+        delimiter=',',
+        fmt='%.4f'
+    )
 
 
 def main(args):
