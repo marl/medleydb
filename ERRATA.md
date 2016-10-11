@@ -1,6 +1,6 @@
 # Audio Errata
 
-The following is a list of known issues with the **Audio**. Please report any issues with the code or annotations, submit a Pull Request or open an [Issue](https://github.com/marl/medleydb/issues).
+The following is a list of known issues with the Audio or Metadata. Please report any issues with the code or annotations, submit a Pull Request or open an [Issue](https://github.com/marl/medleydb/issues).
 
 ### Types of Errors:
 1. Stem/Raw contains bleed, track not tagged as `has_bleed`

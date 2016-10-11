@@ -190,7 +190,7 @@ class TestMelodyAnnotations(unittest.TestCase):
     def test_melody_annotations(self):
         for track in self.track_list:
             mtrack = MultiTrack(track)
-            if not mtrack.has_melody:
+            if not mtrack.has_melody or mtrack.duration is None:
                 continue
 
             mtrack.load_melody_annotations()
