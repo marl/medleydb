@@ -266,7 +266,7 @@ class TestMultitrack(unittest.TestCase):
     def test_activation_conf_from_stem2(self):
         actual = self.mtrack2.activation_conf_from_stem(4)
         expected = None
-        self.assertEqual(actual, expected)    
+        self.assertEqual(actual, expected)
 
 
 class TestTrack(unittest.TestCase):
