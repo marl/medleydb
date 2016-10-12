@@ -5,7 +5,6 @@ import librosa
 import medleydb
 import os
 import argparse
-import math
 
 
 def create_activation_annotation(
@@ -68,20 +67,12 @@ def track_activation(wave, win_len):
     # mix down to 1 channel
     wave = np.mean(wave, axis=1)
 
-    wave = np.lib.pad(
-        wave,
-        pad_width=(
-            win_len-hop_len,
-            int(
-                math.ceil(
-                    len(wave) / win_len
-                ) * win_len - len(wave)
-            )
-        ),
-        mode='constant',
-        constant_values=0
+    # post padding
+    wave = librosa.util.fix_length(
+        wave, int(win_len * np.ceil(len(wave) / win_len))
     )
 
+    # cut into frames
     wavmat = librosa.util.frame(
         wave,
         frame_length=win_len,
@@ -99,12 +90,18 @@ def hwr(x):
     return (x + np.abs(x)) / 2
 
 
-def write_activations_to_csv(mtrack, activations):
-    activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
+def write_activations_to_csv(mtrack, activations, debug=False):
+    if debug:
+        activation_fname = "%s_ACTIVATION_CONF_debug.lab" % mtrack.track_id
+    else:
+        activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
+
     activations_fpath = os.path.join(mtrack.annotation_dir, activation_fname)
+    stem_str = ",".join(["S%02d" % id for id in mtrack.stem_activations_idx])
     np.savetxt(
         activations_fpath,
         activations,
+        header='time,' + stem_str,
         delimiter=',',
         fmt='%.4f'
     )
@@ -114,17 +111,21 @@ def main(args):
     mtrack = medleydb.MultiTrack(args.track_id)
     activations = create_activation_annotation(mtrack)
     if args.write_output:
-        write_activations_to_csv(mtrack, activations)
+        write_activations_to_csv(mtrack, activations, args.debug)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("track_id",
                         type=str,
-                        help="MedleyDB track id. Ex. MusicDelta_Rock")
-    parser.add_argument("write_output",
+                        default="LizNelson_Rainfall",
+                        help="MedleyDB track id. Ex. LizNelson_Rainfall")
+    parser.add_argument("--write_output",
                         type=bool,
                         default=True,
                         help="If true, write the output to a file")
-
+    parser.add_argument("--debug",
+                        type=bool,
+                        default=True,
+                        help="If true, use debug filename output")
     main(parser.parse_args())
