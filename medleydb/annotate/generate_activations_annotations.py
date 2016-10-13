@@ -9,7 +9,7 @@ import argparse
 
 def create_activation_annotation(
     mtrack,
-    win_len=2048,
+    win_len=4096,
     lpf_cutoff=0.075,
     theta=0.15,
     binarize=False
@@ -17,9 +17,12 @@ def create_activation_annotation(
 
     H = []
 
+    # MATLAB equivalent to @hanning(win_len)
+    win = scipy.signal.windows.hann(win_len + 2)[1:-1]
+
     for track_id, track in mtrack.stems.items():
-        audio, rate = librosa.load(track.file_path, mono=False)
-        H.append(track_activation(audio.T, win_len))
+        audio, rate = librosa.load(track.file_path, sr=44100, mono=True)
+        H.append(track_activation(audio.T, win_len, win))
 
     # list to numpy array
     H = np.array(H)
@@ -58,14 +61,18 @@ def create_activation_annotation(
     return H_out.T
 
 
-def track_activation(wave, win_len):
+def track_activation(wave, win_len, win):
     hop_len = win_len // 2
 
-    # MATLAB equivalent to @hanning(win_len)
-    win = scipy.signal.windows.hann(win_len + 2)[1:-1]
-
-    # mix down to 1 channel
-    wave = np.mean(wave, axis=1)
+    wave = np.lib.pad(
+        wave,
+        pad_width=(
+            win_len-hop_len,
+            0
+        ),
+        mode='constant',
+        constant_values=0
+    )
 
     # post padding
     wave = librosa.util.fix_length(
