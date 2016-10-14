@@ -11,27 +11,31 @@ VOCALS = ["male singer", "female singer", "male speaker", "female speaker",
 def mix_multitrack(mtrack, output_path, stem_indices=None,
                    alternate_weights=None, alternate_files=None,
                    additional_files=None):
-    """
+    """Mix the stems of a multitrack to create a new mix.
+    Can optionally adjust the volume of stems and replace, remove, or add
+    stems.
+
     Parameters
     ----------
     mtrack : Multitrack
         Multitrack object
     output_path : str
         Path to save output file.
-    stem_indices : list
+    stem_indices : list or None, default=None
         stem indices to include in mix.
         If None, mixes all stems
-    alternate_weights : dict
+    alternate_weights : dict or None, default=None
         Dictionary with stem indices as keys and mixing coefficients as values.
         Stem indices present that are not in this dictionary will use the
         default estimated mixing coefficient.
-    alternate_files : dict
+    alternate_files : dict or None, default=None
         Dictionary with stem indices as keys and filepaths as values.
         Audio file to use in place of original stem. Stem indices present that
         are not in this dictionary will use the original stems.
-    additional_files : list of tuple
+    additional_files : list of tuple or None, default=None
         List of tuples of (filepath, mixing_coefficient) pairs to additionally
         add to final mix.
+
     """
     filepaths, weights = _build_mix_args(
         mtrack, stem_indices, alternate_weights, alternate_files,
@@ -46,30 +50,37 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
             filepaths, output_path, 'mix', input_volumes=weights
         )
 
-    return filepaths, weights
-
 
 def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
                     additional_files):
-    """
+    """Create lists of filepaths and weights to use in final mix.
+
     Parameters
     ----------
     mtrack : Multitrack
         Multitrack object
-    stem_indices : list or None
+    stem_indices : list
         stem indices to include in mix.
         If None, mixes all stems
-    alternate_weights : dict or None
+    alternate_weights : dict
         Dictionary with stem indices as keys and mixing coefficients as values.
         Stem indices present that are not in this dictionary will use the
         default estimated mixing coefficient.
-    alternate_files : dict or None
+    alternate_files : dict
         Dictionary with stem indices as keys and filepaths as values.
         Audio file to use in place of original stem. Stem indices present that
         are not in this dictionary will use the original stems.
-    additional_files : list of tuple or None
+    additional_files : list of tuples
         List of tuples of (filepath, mixing_coefficient) pairs to additionally
         add to final mix.
+
+    Returns
+    -------
+    filepaths : list
+        List of filepaths that were included in mix.
+    weights : list
+        List of weights that were used in mix
+
     """
     if stem_indices is None:
         stem_indices = list(mtrack.stems.keys())
@@ -111,18 +122,20 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
         Multitrack object
     output_path : str
         Path to save output wav file.
-    max_melody_stems : int or None
+    max_melody_stems : int or None, default=None
         The maximum number of melody stems to mix. If None, uses the number of
         melody stems in the mix.
-    include_percussion : bool
+    include_percussion : bool, default=False
         If true, adds percussion stems to the mix.
-    require_mono : bool
+    require_mono : bool, default=False
         If true, only includes melody stems that are monophonic instruments.
 
     Returns
     -------
     melody_indices : list
         List of selected melody indices.
+    stem_indices : list
+        List of stem indices used in mix.
 
     """
     if max_melody_stems is None:
@@ -172,9 +185,16 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
         Multitrack object
     output_path : str
         Path to save output wav file.
-    include_percussion : bool
+    include_percussion : bool, default=False
         If true, percussive instruments are included in the mix. If false, they
         are excluded.
+
+    Returns
+    -------
+    mono_indices : list
+        List of stem indices containing monophonic instruments.
+    stem_indices : list
+        List of stem indices used in mix.
 
     """
     stems = mtrack.stems
@@ -192,7 +212,7 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
 
 
 def mix_no_vocals(mtrack, output_path):
-    """Remixes a multitrack with anything type of voclas removed.
+    """Remixes a multitrack with anything type of vocals removed.
     If no vocals are present, the mix will be a simple weighted linear remix.
 
     Parameters
@@ -201,6 +221,12 @@ def mix_no_vocals(mtrack, output_path):
         Multitrack object
     output_path : str
         Path to save output file.
+
+    Returns
+    -------
+    stem_indices : list
+        List of stem indices used in mix.
+
     """
     stems = mtrack.stems
     stem_indices = []
@@ -224,6 +250,11 @@ def remix_vocals(mtrack, output_path, vocals_scale):
     vocals_scale : float
         The target scale factor for vocals. A value of 1 keeps the volume the
         same. Values above 1 increase the volume and below 1 decrease it.
+
+    Returns
+    -------
+    alternate_weights : dict
+        Dictionary of vocal weights keyed by vocal stem index.
 
     """
     stems = mtrack.stems

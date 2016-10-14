@@ -44,47 +44,99 @@ class MultiTrack(object):
     This class loads all available metadata, annotations, and filepaths for a
     given multitrack directory.
 
-    Examples:
+    Parameters
+    ----------
+    track_id : str
+        Track id in format 'Artist_Title'.
+
+    Attributes
+    ----------
+    artist : str
+        The artist of the multitrack
+    title : str
+        The title of the multitrack
+    track_id : str
+        The unique identifier of the multitrack. In the form 'Artist_Title'
+    annotation_dir : str
+        Path to multitrack's annotation directory
+    audio_path : str
+        Path to multitrack's top level audio directory
+    mix_path : str
+        Path to multitrack's mix file.
+    melody_rankings : dictionary
+        Dictionary of melody rankings keyed by stem id
+    mixing_coefficients : dictionary
+        Dictionary of mixing weights keyed by stem id
+    stems : dictionary
+        Dictionary of stem Track objects keyed by stem id
+    raw_audio : dictionary
+        Dictionary of dictionaries keyed by stem id
+    stem_instruments : list
+        List of stem instrument labels
+    raw_instruments : list
+        List of raw audio instrument labels
+    duration : float or None
+        Duration of mix, or None if audio cannot be found
+    is_excerpt : bool
+        True if multitrack is an excerpt
+    has_bleed : bool
+        True if multitrack has bleed
+    is_instrumental : bool
+        True if multitrack is instrumental
+    origin : str
+        Origin of multitrack
+    genre : str
+        Genre of multitrack
+    metadata_version : str
+        Metadata version
+    has_melody : bool
+        True if multitrack has at least one melody stem
+    melody1_annotation : np.array or None
+        If availalbe and loaded, melody 1 annotation, otherwise None
+    melody2_annotation : np.array or None
+        If availalbe and loaded, melody 2 annotation, otherwise None
+    melody3_annotation : np.array or None
+        If availalbe and loaded, melody 3 annotation, otherwise None
+    predominant_stem : Track or None
+        Track object for the predominant stem if availalbe, otherwise None
+    stem_activations : np.array
+        Matrix of stem activations
+    stem_activations_idx : dictionary
+        Dictionary mapping stem index to column of the stem_activations matrix
+    _meta_path : str
+        Path to metadata file.
+    _pitch_path : str
+        Path to multitrack's pitch annotation directory
+    _stem_dir_path : str
+        Path to multitrack's stem file directory
+    _raw_dir_path : str
+        Path to multitrack's raw file directory
+    _stem_fmt : str
+        Format of stem file basenames
+    _raw_fmt : str
+        format of raw file basenames
+    _metadata : dict
+        dictionary of data loaded from metadata file
+    _melody_rankings_fpath : str
+        Path to melody rankings file
+
+    Examples
+    --------
         >>> mtrack = Multitrack('LizNelson_Rainfall')
         >>> another_mtrack = Multitrack('ArtistName_TrackTitle')
 
-    Attributes:
-        artist (str): Artist.
-        duration (float): Track duration, in seconds.
-        genre (str): Track genre label.
-        has_bleed (bool): True if track has stems with bleed.
-        is_excerpt (bool): True if track is an excerpt.
-        is_instrumental (bool): True if track is instrumental.
-        melody1_annotation (list): time, f0 lists from melody 1 annotation.
-        melody2_annotation (list): time, f0 lists from melody 2 annotation.
-        melody3_annotation (list): time, f0 lists from melody 3 annotation.
-        melody_rankings (list): melody stem predominance rankings.
-            Keys: stem_idx (int), values: ranking (int)
-        mix_path (str): Full path to MIX file.
-        mtrack_path (str): Full path to folder containing multitrack.
-        origin (str): Track origin.
-        raw_audio (list of Track objects): List of raw audio tracks.
-        raw_instruments (list of strings): List of raw track instrument labels.
-        stem_instruments (list of strings): List of stem instrument labels.
-        stem_activations (list): List of stem activation confidence annotations
-        stems (list of Track objects): List of stems.
-        title (str): Track title.
-        track_id (str): Unique track id in the form "ArtistName_TrackTitle".
     """
 
     def __init__(self, track_id):
         """MultiTrack object __init__ method.
 
-        Args:
+        Parameters
+        ----------
             track_id (str): Track id in format 'Artist_Title'.
 
         """
 
         # Artist, Title & Track Directory #
-        if AUDIO_PATH:
-            self.audio_path = os.path.join(
-                AUDIO_PATH, _AUDIODIR_FMT % track_id
-            )
         self.artist = track_id.split('_')[0]
         self.title = track_id.split('_')[1]
         self.track_id = track_id
@@ -106,6 +158,9 @@ class MultiTrack(object):
         )
 
         if AUDIO_PATH:
+            self.audio_path = os.path.join(
+                AUDIO_PATH, _AUDIODIR_FMT % track_id
+            )
             self._stem_dir_path = os.path.join(
                 self.audio_path, _STEMDIR_FMT % self.track_id
             )
@@ -116,6 +171,7 @@ class MultiTrack(object):
                 self.audio_path, _MIX_FMT % self.track_id
             )
         else:
+            self.audio_path = None
             self._stem_dir_path = None
             self._raw_dir_path = None
             self.mix_path = None
