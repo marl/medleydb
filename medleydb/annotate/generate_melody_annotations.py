@@ -161,7 +161,7 @@ def write_melodies_to_csv(mtrack, melody1, melody2, melody3):
 
     if melody1 is not None:
         print("writing melody 1...")
-        with open(melody1_fpath, "wb") as fhandle:
+        with open(melody1_fpath, "wt") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody1)
     else:
@@ -169,7 +169,7 @@ def write_melodies_to_csv(mtrack, melody1, melody2, melody3):
 
     if melody2 is not None:
         print("writing melody 2...")
-        with open(melody2_fpath, "wb") as fhandle:
+        with open(melody2_fpath, "wt") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody2)
     else:
@@ -177,7 +177,7 @@ def write_melodies_to_csv(mtrack, melody1, melody2, melody3):
 
     if melody3 is not None:
         print("writing melody 3...")
-        with open(melody3_fpath, "wb") as fhandle:
+        with open(melody3_fpath, "wt") as fhandle:
             writer = csv.writer(fhandle)
             writer.writerows(melody3)
     else:
