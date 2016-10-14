@@ -4,19 +4,15 @@
 from __future__ import print_function
 
 import argparse
-import os
-import csv
-
+import librosa
 import numpy as np
 
-import medleydb
-
-import matplotlib.pyplot as plt
+from medleydb.multitrack import MultiTrack
 
 
-def load_audio(filepath, fs):
-    # TODO write me
-    return filepath, fs
+def load_audio(filepath, samplerate):
+    y, sr = librosa.load(filepath, sr=samplerate)
+    return y, sr
 
 
 def make_audio_stack(mtrack, fs=22050):
@@ -35,39 +31,21 @@ def make_audio_stack(mtrack, fs=22050):
         else:
             print("loading stem %s..." % stem_idx)
             audio_path = stems[stem_idx].file_path
-            audio_stack[stem_idx-1, :], _ = load_audio(audio_path, fs)
+            audio_stack[stem_idx - 1, :], _ = load_audio(audio_path, fs)
 
     return audio_stack, fs, n_samples
 
 
 def compute_bleed_estimation_matrix(audio_stack, fs, n_samples):
-    print("computing svd...")
-    U, S, V = np.linalg.svd(audio_stack, full_matrices=False)
-    plt.subplot(2,1,1)
-    plt.imshow(U, interpolation='nearest')
-    plt.colorbar()
-    plt.subplot(2,1,2)
-    plt.imshow(np.diag(S), interpolation='nearest')
-    plt.colorbar()
-    plt.show()
-
-    # time_split = 30*fs
-    # i = 0
-    # while i < n_samples:
-    #     
-
-
+    # TODO
+    pass
 
 
 def main(args):
-    mtrack = medleydb.MultiTrack(args.track_id)
+    mtrack = MultiTrack(args.track_id)
     audio_stack, fs, n_samples = make_audio_stack(mtrack)
     compute_bleed_estimation_matrix(audio_stack, fs, n_samples)
-    # melody1 = create_melody1_annotation(mtrack)
-    # melody2 = create_melody2_annotation(mtrack)
-    # melody3 = create_melody3_annotation(mtrack)
-    # if args.write_output:
-    #     write_melodies_to_csv(mtrack, melody1, melody2, melody3)
+    # TODO save output to file
 
 
 if __name__ == "__main__":

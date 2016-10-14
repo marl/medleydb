@@ -3,6 +3,7 @@
 import shutil
 import sox
 
+
 VOCALS = ["male singer", "female singer", "male speaker", "female speaker",
           "male rapper", "female rapper", "beatboxing", "vocalists"]
 
@@ -16,7 +17,7 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
     mtrack : Multitrack
         Multitrack object
     output_path : str
-        Path to save output wav file.
+        Path to save output file.
     stem_indices : list
         stem indices to include in mix.
         If None, mixes all stems
@@ -32,26 +33,62 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
         List of tuples of (filepath, mixing_coefficient) pairs to additionally
         add to final mix.
     """
+    filepaths, weights = _build_mix_args(
+        mtrack, stem_indices, alternate_weights, alternate_files,
+        additional_files
+    )
+
+    if len(filepaths) == 1:
+        shutil.copyfile(filepaths[0], output_path)
+    else:
+        cbn = sox.Combiner()
+        cbn.build(
+            filepaths, output_path, 'mix', input_volumes=weights
+        )
+
+    return filepaths, weights
+
+
+def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
+                    additional_files):
+    """
+    Parameters
+    ----------
+    mtrack : Multitrack
+        Multitrack object
+    stem_indices : list or None
+        stem indices to include in mix.
+        If None, mixes all stems
+    alternate_weights : dict or None
+        Dictionary with stem indices as keys and mixing coefficients as values.
+        Stem indices present that are not in this dictionary will use the
+        default estimated mixing coefficient.
+    alternate_files : dict or None
+        Dictionary with stem indices as keys and filepaths as values.
+        Audio file to use in place of original stem. Stem indices present that
+        are not in this dictionary will use the original stems.
+    additional_files : list of tuple or None
+        List of tuples of (filepath, mixing_coefficient) pairs to additionally
+        add to final mix.
+    """
     if stem_indices is None:
         stem_indices = list(mtrack.stems.keys())
 
     if alternate_files is None:
         alternate_files = {}
-    alternate_files_idx = list(alternate_files.keys())
 
     if alternate_weights is None:
         alternate_weights = {}
-    alternate_weights_idx = list(alternate_weights.keys())
 
     weights = []
     filepaths = []
     for index in stem_indices:
-        if index in alternate_files_idx:
+        if index in alternate_files.keys():
             filepaths.append(alternate_files[index])
         else:
             filepaths.append(mtrack.stems[index].file_path)
 
-        if index in alternate_weights_idx:
+        if index in alternate_weights.keys():
             weights.append(alternate_weights[index])
         else:
             weights.append(mtrack.stems[index].mixing_coefficient)
@@ -61,13 +98,7 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
             filepaths.append(fpath)
             weights.append(weight)
 
-    if len(filepaths) == 1:
-        shutil.copyfile(filepaths[0], output_path)
-    else:
-        cbn = sox.Combiner(
-            filepaths, output_path, 'mix', input_volumes=weights
-        )
-        cbn.build()
+    return filepaths, weights
 
 
 def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
@@ -87,6 +118,11 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
         If true, adds percussion stems to the mix.
     require_mono : bool
         If true, only includes melody stems that are monophonic instruments.
+
+    Returns
+    -------
+    melody_indices : list
+        List of selected melody indices.
 
     """
     if max_melody_stems is None:
@@ -122,7 +158,7 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
-    return melody_indices
+    return melody_indices, stem_indices
 
 
 def mix_mono_stems(mtrack, output_path, include_percussion=False):
@@ -152,7 +188,7 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
-    return mono_indices
+    return mono_indices, stem_indices
 
 
 def mix_no_vocals(mtrack, output_path):
@@ -173,6 +209,7 @@ def mix_no_vocals(mtrack, output_path):
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
+    return stem_indices
 
 
 def remix_vocals(mtrack, output_path, vocals_scale):
@@ -196,4 +233,7 @@ def remix_vocals(mtrack, output_path, vocals_scale):
             vocal_weight = stems[i].mixing_coefficient * vocals_scale
             alternate_weights[i] = vocal_weight
 
-    mix_multitrack(mtrack, output_path, alternate_weights=alternate_weights)
+    mix_multitrack(
+        mtrack, output_path, alternate_weights=alternate_weights
+    )
+    return alternate_weights
