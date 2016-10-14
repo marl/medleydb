@@ -79,7 +79,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.dur = 0.02902494331  # seconds
 
     def test_add_sequence_to_melody1(self):
-        
+
         f0_sequence = [
             [self.times[0], 0.0],
             [self.times[1], 0.0],
@@ -107,7 +107,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody2(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -133,7 +133,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody3(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -161,7 +161,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -189,7 +189,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -217,7 +217,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_add_sequence_to_melody4(self):
-        
+
         f0_sequence = [
             [self.times[0], 3.0],
             [self.times[2], 1.7],
@@ -273,5 +273,56 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
 
+class TestWriteMelodiesToCsv(unittest.TestCase):
 
+    def setUp(self):
+        self.mtrack = MultiTrack("TablaBreakbeatScience_Animoog")
+        self.melody1 = np.array([
+            [0.0, 0.0],
+            [1.0, 440.0],
+            [2.0, 450.0],
+            [3.0, 460.0],
+            [4.0, 0.0]
+        ])
+        self.melody2 = np.array([
+            [0.0, 430.0],
+            [1.0, 440.0],
+            [2.0, 450.0],
+            [3.0, 460.0],
+            [4.0, 0.0]
+        ])
+        self.melody3 = np.array([
+            [0.0, 0.0, 120.0],
+            [1.0, 440.0, 0.0],
+            [2.0, 450.0, 0.0],
+            [3.0, 460.0, 234.1],
+            [4.0, 0.0, 123.1]
+        ])
+
+    def test_melody1(self):
+        expected_output_path = os.path.join(
+            self.mtrack.annotation_dir,
+            'TablaBreakbeatScience_Animoog_MELODY1.csv'
+        )
+        G.write_melodies_to_csv(self.mtrack, self.melody1, None, None)
+        self.assertTrue(os.path.exists(expected_output_path))
+        os.remove(expected_output_path)
+
+    def test_melody2(self):
+        expected_output_path = os.path.join(
+            self.mtrack.annotation_dir,
+            'TablaBreakbeatScience_Animoog_MELODY2.csv'
+        )
+        G.write_melodies_to_csv(self.mtrack, None, self.melody2, None)
+        self.assertTrue(os.path.exists(expected_output_path))
+        os.remove(expected_output_path)
+
+    def test_melody3(self):
+        expected_output_path = os.path.join(
+            self.mtrack.annotation_dir,
+            'TablaBreakbeatScience_Animoog_MELODY3.csv'
+        )
+        G.write_melodies_to_csv(self.mtrack, None, None, self.melody3)
+        self.assertTrue(os.path.exists(expected_output_path))
+        os.remove(expected_output_path)
 
