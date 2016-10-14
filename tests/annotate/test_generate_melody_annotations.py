@@ -250,27 +250,37 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
         self.mtrack = MultiTrack("MusicDelta_Beethoven")
         self.mtrack.duration = 27.371
         self.mtrack.load_melody_annotations()
+        self.mtrack_nomel = MultiTrack("TablaBreakbeatScience_Animoog")
 
     def test_melody1(self):
         actual = G.create_melody1_annotation(self.mtrack)
         expected = self.mtrack.melody1_annotation
-        print(actual[0:2])
-        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody2(self):
         actual = G.create_melody2_annotation(self.mtrack)
         expected = self.mtrack.melody2_annotation
-        print(actual[0:2])
-        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
 
     def test_melody3(self):
         actual = G.create_melody3_annotation(self.mtrack)
         expected = self.mtrack.melody3_annotation
-        print(actual[0:2])
-        print(expected[0:2])
         self.assertTrue(array_almost_equal(actual, expected))
+
+    def test_melody1none(self):
+        actual = G.create_melody1_annotation(self.mtrack_nomel)
+        expected = None
+        self.assertEqual(expected, actual)
+
+    def test_melody2none(self):
+        actual = G.create_melody2_annotation(self.mtrack_nomel)
+        expected = None
+        self.assertEqual(expected, actual)
+
+    def test_melody3none(self):
+        actual = G.create_melody3_annotation(self.mtrack_nomel)
+        expected = None
+        self.assertEqual(expected, actual)
 
 
 class TestWriteMelodiesToCsv(unittest.TestCase):

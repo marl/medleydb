@@ -122,7 +122,7 @@ def create_melody3_annotation(mtrack):
 
     melody_rankings = mtrack.melody_rankings
 
-    if melody_rankings is not None:
+    if melody_rankings != {}:
         inverse_rankings = dict((v, k) for k, v in melody_rankings.items())
 
         melody_sequence = make_blank_melody_sequence(mtrack.duration)
