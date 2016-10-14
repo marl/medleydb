@@ -3,7 +3,6 @@ import os
 import yaml
 from medleydb import multitrack
 
-multitrack.AUDIO_PATH = "/Dummy/Path"
 
 class TestMultitrack(unittest.TestCase):
     def setUp(self):
@@ -18,7 +17,7 @@ class TestMultitrack(unittest.TestCase):
 
     def test_audio_path(self):
         actual = self.mtrack.audio_path
-        expected = "/Dummy/Path/NightPanther_Fire"
+        expected = os.path.join(medleydb.AUDIOPATH, "NightPanther_Fire")
         self.assertEqual(actual, expected)
 
     def test_artist(self):
@@ -266,7 +265,7 @@ class TestMultitrack(unittest.TestCase):
     def test_activation_conf_from_stem2(self):
         actual = self.mtrack2.activation_conf_from_stem(4)
         expected = None
-        self.assertEqual(actual, expected)    
+        self.assertEqual(actual, expected)
 
 
 class TestTrack(unittest.TestCase):
