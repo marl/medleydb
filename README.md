@@ -10,23 +10,26 @@ Annotations and Python tools for MedleyDB. [Read the Docs here](http://medleydb.
 [![Build Status](https://travis-ci.org/marl/medleydb.svg?branch=medleydb_v1.1)](https://travis-ci.org/marl/medleydb)
 [![Coverage Status](https://coveralls.io/repos/marl/medleydb/badge.svg?branch=medleydb_v1.1&service=github)](https://coveralls.io/github/marl/medleydb?branch=medleydb_v1.1)
 
-Created by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu.
+Maintained by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu.
 
-This code is released along with MedleyDB:
+This code is released along with [MedleyDB](http://medleydb.weebly.com) and is a component of the work presented in the following publications:
 
-http://medleydb.weebly.com (or http://marl.smusic.nyu.edu/medleydb)
-
-This code is a component of the work presented in the following publications:
-
-R. Bittner, J. Salamon, M. Tierney, M. Mauch, C. Cannam and J. P. Bello,
+[R. Bittner](https://github.com/rabitt), [J. Salamon](https://github.com/justinsalamon), M. Tierney, M. Mauch, [C. Cannam](https://github.com/cannam) and J. P. Bello,
 "[MedleyDB: A Multitrack Dataset for Annotation-Intensive MIR Research](http://marl.smusic.nyu.edu/medleydb_webfiles/bittner_medleydb_ismir2014.pdf)", in
 15th International Society for Music Information Retrieval Conference,
 Taipei, Taiwan, Oct. 2014.
 
-R. Bittner, J. Wilkins, H. Yip and J. P. Bello,
+[R. Bittner](https://github.com/rabitt), [J. Wilkins](https://github.com/jlw365), [H. Yip](https://github.com/hmyip1) and J. P. Bello,
 "[MedleyDB 2.0: New Data and a System for Sustainable Data Collection](https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/08/bittner-medleydb.pdf)", in
 Proceedings of the 17th International Society for Music Information Retrieval Conference Late Breaking and Demo Papers,
 New York City, USA, Aug. 2016.
+
+
+See Also
+========
+[MedleyDeBugger](https://github.com/marl/medley-de-bugger)
+[MedleyDB Manager](https://github.com/marl/medleydb_manager)
+
 
 Annotations
 ===========
@@ -47,7 +50,7 @@ Install the package
 
 ```bash
 cd medleydb
-pip install -e .
+python setup.py install
 ```
 
 Next, set the environment variable MEDLEYDB_PATH to the local path where
@@ -75,3 +78,7 @@ If you use homebrew, you can install sox by doing:
 brew install sox  # install the binary
 pip install sox  # install the python package
 ```
+
+Known Issues
+============
+Known issues with the Audio and Metadata can be found [here](https://github.com/marl/medleydb/blob/master/ERRATA.md).
