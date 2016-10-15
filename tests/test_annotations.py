@@ -1,3 +1,7 @@
+"""Tests to check annotation consistency
+"""
+from __future__ import print_function
+
 import unittest
 import os
 import glob
@@ -192,8 +196,6 @@ class TestMelodyAnnotations(unittest.TestCase):
             mtrack = MultiTrack(track)
             if not mtrack.has_melody or mtrack.duration is None:
                 continue
-
-            mtrack.load_melody_annotations()
 
             generated_melody1 = G.create_melody1_annotation(mtrack)
             actual_melody1 = mtrack.melody1_annotation

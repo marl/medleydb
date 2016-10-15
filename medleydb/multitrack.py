@@ -93,11 +93,11 @@ class MultiTrack(object):
     has_melody : bool
         True if multitrack has at least one melody stem
     melody1_annotation : np.array or None
-        If availalbe and loaded, melody 1 annotation, otherwise None
+        Melody 1 annotation if exists, otherwise None
     melody2_annotation : np.array or None
-        If availalbe and loaded, melody 2 annotation, otherwise None
+        Melody 2 annotation if exists, otherwise None
     melody3_annotation : np.array or None
-        If availalbe and loaded, melody 3 annotation, otherwise None
+        Melody 3 annotation if exists, otherwise None
     predominant_stem : Track or None
         Track object for the predominant stem if availalbe, otherwise None
     stem_activations : np.array
@@ -120,6 +120,12 @@ class MultiTrack(object):
         dictionary of data loaded from metadata file
     _melody_rankings_fpath : str
         Path to melody rankings file
+    _melody1_annotation : np.array or None
+        Melody 1 annotation if exists, otherwise None
+    _melody2_annotation : np.array or None
+        Melody 2 annotation if exists, otherwise None
+    _melody3_annotation : np.array or None
+        Melody 3 annotation if exists, otherwise None
 
     Examples
     --------
@@ -215,13 +221,76 @@ class MultiTrack(object):
                                  _MELODY1_FMT % self.track_id)
         self.has_melody = os.path.exists(mel1_path)
 
-        self.melody1_annotation = None
-        self.melody2_annotation = None
-        self.melody3_annotation = None
+        self._melody1_annotation = None
+        self._melody2_annotation = None
+        self._melody3_annotation = None
 
         self.predominant_stem = self._get_predominant_stem()
         self.stem_activations, self.stem_activations_idx = \
             self._get_activation_annotations()
+
+    @property
+    def melody1_annotation(self):
+        """Melody 1 annotation.
+        If the annotation has not yet been loaded, loads into memory, otherwise
+        returns the annotation in memory.
+
+        Returns
+        -------
+        melody1_annotation : np.array or None
+            Melody 1 annotation if exists, otherwise None
+
+        """
+        if self._melody1_annotation is None:
+            melody1_fname = _MELODY1_FMT % self.track_id
+            melody1_fpath = os.path.join(self.annotation_dir, melody1_fname)
+
+            self._melody1_annotation, _ = read_annotation_file(
+                melody1_fpath, header=False
+            )
+        return self._melody1_annotation
+
+    @property
+    def melody2_annotation(self):
+        """Melody 2 annotation.
+        If the annotation has not yet been loaded, loads into memory, otherwise
+        returns the annotation in memory.
+
+        Returns
+        -------
+        melody2_annotation : np.array or None
+            Melody 2 annotation if exists, otherwise None
+
+        """
+        if self._melody2_annotation is None:
+            melody2_fname = _MELODY2_FMT % self.track_id
+            melody2_fpath = os.path.join(self.annotation_dir, melody2_fname)
+
+            self._melody2_annotation, _ = read_annotation_file(
+                melody2_fpath, header=False
+            )
+        return self._melody2_annotation
+
+    @property
+    def melody3_annotation(self):
+        """Melody 3 annotation.
+        If the annotation has not yet been loaded, loads into memory, otherwise
+        returns the annotation in memory.
+
+        Returns
+        -------
+        melody3_annotation : np.array or None
+            Melody 3 annotation if exists, otherwise None
+
+        """
+        if self._melody3_annotation is None:
+            melody3_fname = _MELODY3_FMT % self.track_id
+            melody3_fpath = os.path.join(self.annotation_dir, melody3_fname)
+
+            self._melody3_annotation, _ = read_annotation_file(
+                melody3_fpath, header=False
+            )
+        return self._melody3_annotation
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -344,27 +413,6 @@ class MultiTrack(object):
                 return None
         else:
             return None
-
-    def load_melody_annotations(self):
-        """Load melody annotations if files exist.
-        """
-        melody1_fname = _MELODY1_FMT % self.track_id
-        melody2_fname = _MELODY2_FMT % self.track_id
-        melody3_fname = _MELODY3_FMT % self.track_id
-
-        melody1_fpath = os.path.join(self.annotation_dir, melody1_fname)
-        melody2_fpath = os.path.join(self.annotation_dir, melody2_fname)
-        melody3_fpath = os.path.join(self.annotation_dir, melody3_fname)
-
-        self.melody1_annotation, _ = read_annotation_file(
-            melody1_fpath, header=False
-        )
-        self.melody2_annotation, _ = read_annotation_file(
-            melody2_fpath, header=False
-        )
-        self.melody3_annotation, _ = read_annotation_file(
-            melody3_fpath, header=False
-        )
 
     def _get_activation_annotations(self):
         """Get activation confidence annotation if file exists.
@@ -710,7 +758,9 @@ def get_duration(wave_fpath):
         Duration of wave file in seconds.
 
     """
-    return sox.file_info.duration(wave_fpath)
+    n_samples = float(sox.file_info.num_samples(wave_fpath))
+    sample_rate = float(sox.file_info.sample_rate(wave_fpath))
+    return n_samples / sample_rate
 
 
 def read_annotation_file(fpath, num_cols=None, header=False):

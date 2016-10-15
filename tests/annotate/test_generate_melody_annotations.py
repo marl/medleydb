@@ -1,4 +1,6 @@
 """Tests for generate_melody_annotations script"""
+from __future__ import print_function
+
 import unittest
 import os
 import numpy as np
@@ -20,7 +22,7 @@ class TestGetTimeStamps(unittest.TestCase):
 
     def test_get_time_stamps(self):
         dur = 0.02902494331  # seconds
-        actual = G.get_time_stamps(dur)
+        actual = G.get_time_stamps(dur, FS, HOP)
         expected = np.array([0.0, HOP/FS, 2.0*HOP/FS, 3.0*HOP/FS, 4.0*HOP/FS])
         self.assertTrue(array_almost_equal(actual, expected))
 
@@ -29,7 +31,7 @@ class TestMakeBlakMelodySequence(unittest.TestCase):
 
     def test_get_blank_melody_sequence(self):
         dur = 0.02902494331  # seconds
-        actual = G.make_blank_melody_sequence(dur)
+        actual = G.make_blank_melody_sequence(dur, FS, HOP)
         times = [0.0, HOP/FS, 2.0*HOP/FS, 3.0*HOP/FS, 4.0*HOP/FS]
         expected = np.array([
             [times[0], 0.0],
@@ -43,32 +45,32 @@ class TestMakeBlakMelodySequence(unittest.TestCase):
 class TestSecToIdx(unittest.TestCase):
 
     def test_defaults1(self):
-        actual = G.sec_to_idx(0.0)
+        actual = G.sec_to_idx(0.0, FS, HOP)
         expected = 0
         self.assertEqual(actual, expected)
 
     def test_defaults2(self):
-        actual = G.sec_to_idx(2.0*256.0/44100.0)
+        actual = G.sec_to_idx(2.0*256.0/44100.0, FS, HOP)
         expected = 2
         self.assertEqual(actual, expected)
 
     def test_fs1(self):
-        actual = G.sec_to_idx(0.0, fs=1000)
+        actual = G.sec_to_idx(0.0, 1000, HOP)
         expected = 0
         self.assertEqual(actual, expected)
 
     def test_fs2(self):
-        actual = G.sec_to_idx(2.0*256.0/1000.0, fs=1000)
+        actual = G.sec_to_idx(2.0*256.0/1000.0, 1000, HOP)
         expected = 2
         self.assertEqual(actual, expected)
 
     def test_hop1(self):
-        actual = G.sec_to_idx(0.0, hop=2)
+        actual = G.sec_to_idx(0.0, FS, 2)
         expected = 0
         self.assertEqual(actual, expected)
 
     def test_hop2(self):
-        actual = G.sec_to_idx(4.0*2.0/44100.0, hop=2)
+        actual = G.sec_to_idx(4.0*2.0/44100.0, FS, 2)
         expected = 4
         self.assertEqual(actual, expected)
 
@@ -94,7 +96,9 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        actual = G.add_sequence_to_melody(self.dur, f0_sequence, melody_sequence)
+        actual = G.add_sequence_to_melody(
+            self.dur, f0_sequence, melody_sequence, FS, HOP
+        )
         expected = np.array([
             [self.times[0], 0.0],
             [self.times[1], 0.0],
@@ -120,7 +124,9 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[3], 0.0],
             [self.times[4], 0.0]
         ])
-        actual = G.add_sequence_to_melody(self.dur, f0_sequence, melody_sequence)
+        actual = G.add_sequence_to_melody(
+            self.dur, f0_sequence, melody_sequence, FS, HOP
+        )
         expected = np.array([
             [self.times[0], 3.0],
             [self.times[1], 0.0],
@@ -147,7 +153,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[4], 0.0]
         ])
         actual = G.add_sequence_to_melody(
-            self.dur, f0_sequence, melody_sequence, start_t=0.0059
+            self.dur, f0_sequence, melody_sequence, FS, HOP, start_t=0.0059
         )
         expected = np.array([
             [self.times[0], 0.0],
@@ -175,7 +181,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[4], 0.0]
         ])
         actual = G.add_sequence_to_melody(
-            self.dur, f0_sequence, melody_sequence, end_t=0.0059
+            self.dur, f0_sequence, melody_sequence, FS, HOP, end_t=0.0059
         )
         expected = np.array([
             [self.times[0], 3.0],
@@ -203,7 +209,8 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[4], 0.0]
         ])
         actual = G.add_sequence_to_melody(
-            self.dur, f0_sequence, melody_sequence, start_t=0.0059, end_t=0.017
+            self.dur, f0_sequence, melody_sequence, FS, HOP,
+            start_t=0.0059, end_t=0.017
         )
         expected = np.array([
             [self.times[0], 0.0],
@@ -231,7 +238,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
             [self.times[4], 8.1, 0.0]
         ])
         actual = G.add_sequence_to_melody(
-            self.dur, f0_sequence, melody_sequence, dim=2
+            self.dur, f0_sequence, melody_sequence, FS, HOP, dim=2
         )
         expected = np.array([
             [self.times[0], 0.0, 3.0],
@@ -249,7 +256,6 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
     def setUp(self):
         self.mtrack = MultiTrack("MusicDelta_Beethoven")
         self.mtrack.duration = 27.371
-        self.mtrack.load_melody_annotations()
         self.mtrack_nomel = MultiTrack("TablaBreakbeatScience_Animoog")
 
     def test_melody1(self):
