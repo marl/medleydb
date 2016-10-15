@@ -2,6 +2,11 @@ sudo: false
 
 language: python
 
+cache:
+  directories:
+  - $HOME/env
+  - $HOME/data
+
 python:
   - "2.7"
   - "3.4"
@@ -20,6 +25,10 @@ before_install:
   - wget http://marl.smusic.nyu.edu/medleydb_webfiles/MedleyDB_sample.tar.gz -O $HOME/data/MedleyDB_sample.tar.gz
   - gzip -d $HOME/data/MedleyDB_sample.tar.gz
   - tar xvf $HOME/data/MedleyDB_sample.tar -C $HOME/data/
+  - bash .travis_dependencies.sh
+  - export PATH="$HOME/env/miniconda$TRAVIS_PYTHON_VERSION/bin:$PATH";
+  - hash -r
+  - source activate test-environment
 
 # command to install dependencies
 install:

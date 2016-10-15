@@ -1,3 +1,4 @@
+"""medleydb setup script"""
 from setuptools import setup
 import glob
 import os
@@ -62,7 +63,8 @@ if __name__ == "__main__":
             'sox',
             'pyyaml',
             'numpy',
-            'six'
+            'six',
+            'librosa'
         ],
 
         extras_require={
