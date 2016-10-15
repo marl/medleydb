@@ -4,8 +4,8 @@ language: python
 
 cache:
   directories:
-  - $HOME/env
-  - $HOME/data
+    - $HOME/env
+    - $HOME/data
 
 python:
   - "2.7"
@@ -15,13 +15,12 @@ python:
 addons:
   apt:
     packages:
-    - sox
+      - sox
 
 env:
-- MEDLEYDB_PATH=$HOME/data/MedleyDB_sample
+  - MEDLEYDB_PATH=$HOME/data/MedleyDB_sample
 
 before_install:
-  - mkdir -p $HOME/data
   - bash .travis_download_mdb.sh
   - bash .travis_dependencies.sh
   - export PATH="$HOME/env/miniconda$TRAVIS_PYTHON_VERSION/bin:$PATH";
@@ -37,8 +36,8 @@ install:
 script: nosetests --with-coverage --cover-erase --cover-package=medleydb -v -w tests/
 
 after_success:
-    - coveralls
-    - pip uninstall -y medleydb
+  - coveralls
+  - pip uninstall -y medleydb
 
 after_failure:
-    - pip uninstall -y medleydb
+  - pip uninstall -y medleydb

@@ -92,12 +92,6 @@ class MultiTrack(object):
         Metadata version
     has_melody : bool
         True if multitrack has at least one melody stem
-    melody1_annotation : np.array or None
-        Melody 1 annotation if exists, otherwise None
-    melody2_annotation : np.array or None
-        Melody 2 annotation if exists, otherwise None
-    melody3_annotation : np.array or None
-        Melody 3 annotation if exists, otherwise None
     predominant_stem : Track or None
         Track object for the predominant stem if availalbe, otherwise None
     stem_activations : np.array
@@ -231,15 +225,7 @@ class MultiTrack(object):
 
     @property
     def melody1_annotation(self):
-        """Melody 1 annotation.
-        If the annotation has not yet been loaded, loads into memory, otherwise
-        returns the annotation in memory.
-
-        Returns
-        -------
-        melody1_annotation : np.array or None
-            Melody 1 annotation if exists, otherwise None
-
+        """np.array: Melody 1 annotation.
         """
         if self._melody1_annotation is None:
             melody1_fname = _MELODY1_FMT % self.track_id
@@ -252,15 +238,7 @@ class MultiTrack(object):
 
     @property
     def melody2_annotation(self):
-        """Melody 2 annotation.
-        If the annotation has not yet been loaded, loads into memory, otherwise
-        returns the annotation in memory.
-
-        Returns
-        -------
-        melody2_annotation : np.array or None
-            Melody 2 annotation if exists, otherwise None
-
+        """np.array: Melody 2 annotation.
         """
         if self._melody2_annotation is None:
             melody2_fname = _MELODY2_FMT % self.track_id
@@ -273,15 +251,7 @@ class MultiTrack(object):
 
     @property
     def melody3_annotation(self):
-        """Melody 3 annotation.
-        If the annotation has not yet been loaded, loads into memory, otherwise
-        returns the annotation in memory.
-
-        Returns
-        -------
-        melody3_annotation : np.array or None
-            Melody 3 annotation if exists, otherwise None
-
+        """np.array: Melody 3 annotation.
         """
         if self._melody3_annotation is None:
             melody3_fname = _MELODY3_FMT % self.track_id
@@ -618,13 +588,7 @@ class Track(object):
 
     @property
     def pitch_annotation(self):
-        """Get pitch annotation if file exists.
-
-        Returns
-        -------
-        pitch_annotation : list
-            List of pairs of time (seconds), frequency (Hz)
-
+        """list: List of pairs of time (seconds), frequency (Hz)
         """
         if (self._pitch_path is not None) and (self._pitch_annotation is None):
             self._pitch_annotation, _ = read_annotation_file(

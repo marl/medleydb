@@ -27,7 +27,7 @@ class TestGetTimeStamps(unittest.TestCase):
         self.assertTrue(array_almost_equal(actual, expected))
 
 
-class TestMakeBlakMelodySequence(unittest.TestCase):
+class TestMakeBlankMelodySequence(unittest.TestCase):
 
     def test_get_blank_melody_sequence(self):
         dur = 0.02902494331  # seconds
