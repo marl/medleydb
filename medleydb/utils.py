@@ -12,11 +12,14 @@ from . import TRACK_LIST
 def load_melody_multitracks():
     """Load all multitracks that have melody annotations.
 
-    Example:
-        >>> melody_multitracks = load_melody_multitracks()
+    Returns
+    -------
+    melody_multitracks : list
+        List of multitrack objects.
 
-    Returns:
-        melody_multitracks (list): List of multitrack objects.
+    Examples
+    --------
+    >>> melody_multitracks = load_melody_multitracks()
 
     """
     multitracks = load_all_multitracks()
@@ -28,11 +31,14 @@ def load_melody_multitracks():
 def load_all_multitracks():
     """Load all multitracks in MEDLEYDB_PATH.
 
-    Example:
-        >>> multitracks = load_all_multitracks()
+    Returns
+    -------
+    multitracks : list
+        List of multitrack objects.
 
-    Returns:
-        multitracks (list): List of multitrack objects.
+    Examples
+    --------
+    >>> multitracks = load_all_multitracks()
 
     """
     multitracks = load_multitracks(TRACK_LIST)
@@ -42,18 +48,23 @@ def load_all_multitracks():
 def load_multitracks(track_list):
     """Load a list of multitracks.
 
-    Example:
-        # create a list of paths to multitrack directories
-        >>> track_list = ['ArtistName1_TrackName1', \
-                          'ArtistName2_TrackName2', \
-                          'ArtistName3_TrackName3']
-        >>> multitracks = load_multitracks(track_list)
+    Parameters
+    ----------
+    track_list : list
+        List of track ids in format 'Artist_Title'
 
-    Args:
-        track_list (list): List of track ids in format 'Artist_Title'
+    Returns
+    -------
+    multitracks : dict
+        List of multitrack objects.
 
-    Returns:
-        multitracks (dict): List of multitrack objects.
+    Examples
+    --------
+    # create a list of paths to multitrack directories
+    >>> track_list = ['ArtistName1_TrackName1', \
+                      'ArtistName2_TrackName2', \
+                      'ArtistName3_TrackName3']
+    >>> multitracks = load_multitracks(track_list)
 
     """
     for track_id in track_list:
@@ -63,27 +74,32 @@ def load_multitracks(track_list):
 def get_files_for_instrument(instrument, multitrack_list=None):
     """Get all (stem) files for a particular instrument from the dataset.
 
-    Examples:
-        # load drum set files from the full dataset:
-        >>> drumset_files = get_files_for_instrument('drum set')
+    Parameters
+    ----------
+    instrument : str
+        Instrument files to extract.
+    multitrack_list : list of MultiTrack objects or None, default=None
+        List of MultiTrack objects.
+        If None, uses all multitracks.
 
-        # load violin files from a subset of the dataset:
-        >>> track_list = ['ArtistName1_TrackName1', \
-                          'ArtistName2_TrackName2', \
-                          'ArtistName3_TrackName3']
-        >>> multitrack_subset = load_multitracks(track_list)
-        >>> violin_files = get_files_for_instrument(
-                'violin', multitrack_subset
-            )
+    Returns
+    -------
+    inst_list : list
+        List of filepaths corresponding to instrument label.
 
-    Args:
-        instrument (str): Instrument files to extract.
-        multitrack_list (list of MultiTracks, optional):
-            List of MultiTrack objects.
-            If None, uses all multitracks.
+    Examples
+    --------
+    # load drum set files from the full dataset:
+    >>> drumset_files = get_files_for_instrument('drum set')
 
-    Returns:
-        inst_list (list): List of filepaths corresponding to instrument label.
+    # load violin files from a subset of the dataset:
+    >>> track_list = ['ArtistName1_TrackName1', \
+                      'ArtistName2_TrackName2', \
+                      'ArtistName3_TrackName3']
+    >>> multitrack_subset = load_multitracks(track_list)
+    >>> violin_files = get_files_for_instrument(
+            'violin', multitrack_subset
+        )
 
     """
     if not M.is_valid_instrument(instrument):
