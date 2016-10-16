@@ -60,7 +60,6 @@ def load_multitracks(track_list):
 
     Examples
     --------
-    # create a list of paths to multitrack directories
     >>> track_list = ['ArtistName1_TrackName1', \
                       'ArtistName2_TrackName2', \
                       'ArtistName3_TrackName3']

@@ -17,7 +17,7 @@ Utils
 .. automodule:: medleydb.utils
     :members:
 
-Annotate
---------
-.. automodule:: medleydb.annotate
+Generate Melody Annotations
+---------------------------
+.. automodule:: medleydb.annotate.generate_melody_annotations
     :members:
