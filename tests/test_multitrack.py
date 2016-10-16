@@ -1,14 +1,16 @@
 import unittest
 import os
+import yaml
 from medleydb import multitrack
+from medleydb import AUDIO_PATH
 
-multitrack.AUDIO_PATH = "/Dummy/Path"
 
 class TestMultitrack(unittest.TestCase):
     def setUp(self):
         self.mtrack = multitrack.MultiTrack("NightPanther_Fire")
-        self.stem = self.mtrack.stems[0]
-        self.raw = self.mtrack.raw_audio[0]
+        self.mtrack2 = multitrack.MultiTrack("Phoenix_ScotchMorris")
+        self.stem = self.mtrack.stems[8]
+        self.raw = self.mtrack.raw_audio[8][1]
 
     def test_invalid_trackid(self):
         with self.assertRaises(IOError):
@@ -16,7 +18,7 @@ class TestMultitrack(unittest.TestCase):
 
     def test_audio_path(self):
         actual = self.mtrack.audio_path
-        expected = "/Dummy/Path/NightPanther_Fire"
+        expected = os.path.join(AUDIO_PATH, "NightPanther_Fire")
         self.assertEqual(actual, expected)
 
     def test_artist(self):
@@ -84,8 +86,13 @@ class TestMultitrack(unittest.TestCase):
         expected = 8
         self.assertEqual(actual, expected)
 
-    def test_raw_length(self):
+    def test_raw_length1(self):
         actual = len(self.mtrack.raw_audio)
+        expected = 12
+        self.assertEqual(actual, expected)
+
+    def test_raw_length2(self):
+        actual = len(multitrack.get_dict_leaves(self.mtrack.raw_audio))
         expected = 55
         self.assertEqual(actual, expected)
 
@@ -138,27 +145,33 @@ class TestMultitrack(unittest.TestCase):
         actual = self.mtrack.stem_instruments
         expected = [
             'auxiliary percussion',
-            'string section',
-            'vocalists',
-            'electric bass',
-            'vocalists',
-            'synthesizer',
+            'brass section',
             'drum machine',
             'drum set',
-            'brass section',
+            'electric bass',
             'male singer',
+            'string section',
             'synthesizer',
-            'synthesizer'
+            'synthesizer',
+            'synthesizer',
+            'vocalists',
+            'vocalists',
         ]
+        print(actual)
+        self.assertEqual(actual, expected)
+
+    def test_raw_instruments_length(self):
+        actual = len(self.mtrack.raw_instruments)
+        expected = 55
         self.assertEqual(actual, expected)
 
     def test_raw_instruments(self):
         actual = self.mtrack.raw_instruments[0:5]
         expected = [
-            'cymbal',
-            'tambourine',
-            'cello',
-            'cello',
+            'brass section',
+            'brass section',
+            'brass section',
+            'brass section',
             'cello'
         ]
         self.assertEqual(actual, expected)
@@ -166,21 +179,6 @@ class TestMultitrack(unittest.TestCase):
     def test_has_melody(self):
         actual = self.mtrack.has_melody
         expected = True
-        self.assertEqual(actual, expected)
-
-    def test_mel1(self):
-        actual = self.mtrack.melody1_annotation
-        expected = None
-        self.assertEqual(actual, expected)
-
-    def test_mel2(self):
-        actual = self.mtrack.melody2_annotation
-        expected = None
-        self.assertEqual(actual, expected)
-
-    def test_mel3(self):
-        actual = self.mtrack.melody3_annotation
-        expected = None
         self.assertEqual(actual, expected)
 
     def test_predominant_stem_type(self):
@@ -198,8 +196,7 @@ class TestMultitrack(unittest.TestCase):
         expected = 7
         self.assertEqual(actual, expected)
 
-    def test_load_melody_annotations(self):
-        self.mtrack.load_melody_annotations()
+    def test_melody_annotations(self):
         actual_mel1 = self.mtrack.melody1_annotation
         actual_mel2 = self.mtrack.melody2_annotation
         actual_mel3 = self.mtrack.melody3_annotation
@@ -213,14 +210,14 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(len(actual_mel3[0]), 3)
 
     def test_melody_tracks(self):
-        mel_tracks = self.mtrack.melody_tracks()
+        mel_tracks = self.mtrack.melody_stems()
         self.assertEqual(len(mel_tracks), 1)
         self.assertEqual(mel_tracks[0].component, 'melody')
         self.assertEqual(mel_tracks[0].stem_idx, 7)
         self.assertEqual(len(mel_tracks[0].pitch_annotation), 18268)
 
     def test_bass_tracks(self):
-        bass_tracks = self.mtrack.bass_tracks()
+        bass_tracks = self.mtrack.bass_stems()
         self.assertEqual(len(bass_tracks), 1)
         self.assertEqual(bass_tracks[0].component, 'bass')
         self.assertEqual(bass_tracks[0].stem_idx, 1)
@@ -245,18 +242,15 @@ class TestMultitrack(unittest.TestCase):
         expected = 55
         self.assertEqual(actual, expected)
 
-    def test_raw_from_stem(self):
-        actual = self.mtrack.raw_from_stem(2)
-        expected_len = 5
-        self.assertEqual(len(actual), expected_len)
+    def test_activation_conf_from_stem1(self):
+        actual = self.mtrack2.activation_conf_from_stem(3)[0]
+        expected = [0.0, 0.0355]
+        self.assertEqual(actual, expected)
 
-        actual_stem_idx = [s.stem_idx for s in actual]
-        expected_stem_idx = [2, 2, 2, 2, 2]
-        self.assertEqual(actual_stem_idx, expected_stem_idx)
-
-        actual_raw_idx = [s.raw_idx for s in actual]
-        expected_raw_idx = [1, 3, 2, 5, 4]
-        self.assertEqual(actual_raw_idx, expected_raw_idx)
+    def test_activation_conf_from_stem2(self):
+        actual = self.mtrack2.activation_conf_from_stem(4)
+        expected = None
+        self.assertEqual(actual, expected)
 
 
 class TestTrack(unittest.TestCase):
@@ -316,23 +310,35 @@ class TestGetDictLeaves(unittest.TestCase):
             'd': {'asdf': ['z']},
             'e': {'borg': ['foo']}
         }
-        actual = multitrack._get_dict_leaves(test_dict)
+        actual = multitrack.get_dict_leaves(test_dict)
         expected = set(['z', 'y', 'x', 'w', 't', 'elephant', 'foo'])
+        self.assertEqual(actual, expected)
+
+    def test_get_leaves2(self):
+        mtrack = multitrack.MultiTrack('NightPanther_Fire')
+        test_dict = {
+            'a': mtrack,
+            'b': {1: mtrack, 2: mtrack},
+            'c': [mtrack],
+            'd': {'asdf': mtrack},
+            'e': {'borg': [mtrack]}
+        }
+        actual = multitrack.get_dict_leaves(test_dict)
+        expected = set([mtrack, mtrack, mtrack, mtrack, mtrack])
         self.assertEqual(actual, expected)
 
 
 class TestGetDuration(unittest.TestCase):
     def test_get_duration(self):
         actual = multitrack.get_duration(os.path.join(
-            os.path.dirname(__file__), 'data/short_audio.wav')
-        )
+            os.path.dirname(__file__), 'data/short_audio.wav'))
         expected = 4.0
         self.assertEqual(actual, expected)
 
 
 class TestReadAnnotationFile(unittest.TestCase):
     def test_readpitch(self):
-        actual = multitrack.read_annotation_file(
+        actual, header = multitrack.read_annotation_file(
             os.path.join(os.path.dirname(__file__), 'data/pitch.csv')
         )
         expected = [
@@ -341,10 +347,11 @@ class TestReadAnnotationFile(unittest.TestCase):
             [0.034829931, 200.344]
         ]
         self.assertEqual(actual, expected)
+        self.assertEqual(header, [])
 
     def test_readmelody(self):
-        actual = multitrack.read_annotation_file(
-            os.path.join(os.path.dirname(__file__),'data/melody.csv')
+        actual, header = multitrack.read_annotation_file(
+            os.path.join(os.path.dirname(__file__), 'data/melody.csv')
         )
         expected = [
             [0.0, 0.0],
@@ -354,16 +361,22 @@ class TestReadAnnotationFile(unittest.TestCase):
             [0.023219954648526078, 189.18700000000001]
         ]
         self.assertEqual(actual, expected)
+        self.assertEqual(header, [])
 
     def test_invalidpath(self):
-        actual = multitrack.read_annotation_file('blurb/blork/barg')
+        actual, header = multitrack.read_annotation_file('blurb/blork/barg')
         expected = None
         self.assertEqual(actual, expected)
+        self.assertEqual(header, expected)
 
 
 class TestGetValidInstrumentLabels(unittest.TestCase):
     def setUp(self):
         self.labels = multitrack.get_valid_instrument_labels()
+        test_taxonomy_fpath = os.path.join(
+            os.path.dirname(__file__), 'data/test_taxonomy.yaml')
+        with open(test_taxonomy_fpath, 'r') as fhandle:
+            self.test_taxonomy = yaml.load(fhandle)
 
     def test_inclusion(self):
         self.assertTrue('female singer' in self.labels)
@@ -376,9 +389,7 @@ class TestGetValidInstrumentLabels(unittest.TestCase):
 
     def test_alternate_taxonomy(self):
         actual = multitrack.get_valid_instrument_labels(
-            taxonomy_file=os.path.join(
-                os.path.dirname(__file__), 'data/test_taxonomy.yaml'
-            )
+            taxonomy=self.test_taxonomy
         )
         expected = set([
             'rick',

@@ -25,7 +25,7 @@ stems:
         filename: EthanHein_BluesForNofi_RAW_01_02.wav
         instrument: drum set
   S02:
-    component: melody
+    component: ''
     filename: EthanHein_BluesForNofi_STEM_02.wav
     instrument: electric bass
     raw:
@@ -33,5 +33,6 @@ stems:
         filename: EthanHein_BluesForNofi_RAW_02_01.wav
         instrument: electric bass
 title: Blues For Nofi
+version: 1.2
 website:
 - www.ethanhein.com

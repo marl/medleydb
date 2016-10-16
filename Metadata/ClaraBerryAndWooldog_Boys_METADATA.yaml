@@ -4,7 +4,7 @@ composer:
 - Clara Berry
 excerpt: 'no'
 genre: Singer/Songwriter
-has_bleed: 'no'
+has_bleed: 'yes'
 instrumental: 'no'
 mix_filename: ClaraBerryAndWooldog_Boys_MIX.wav
 origin: Independent Artist
@@ -137,5 +137,6 @@ stems:
         filename: ClaraBerryAndWooldog_Boys_RAW_09_01.wav
         instrument: tack piano
 title: Boys
+version: 1.2
 website:
 - www.claraberry.com

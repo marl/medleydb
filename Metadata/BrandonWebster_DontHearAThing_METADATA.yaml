@@ -1,10 +1,10 @@
-DontHearAThingalbum: ''
+album: ''
 artist: Caitlin Michelle Remmel & Benjamin Hood
 composer:
 - Brandon Webster
 excerpt: 'no'
 genre: Musical Theatre
-has_bleed: 'no'
+has_bleed: 'yes'
 instrumental: 'no'
 mix_filename: BrandonWebster_DontHearAThing_MIX.wav
 origin: Dolan Studio
@@ -41,4 +41,5 @@ stems:
         filename: BrandonWebster_DontHearAThing_RAW_03_02.wav
         instrument: piano
 title: Don't Hear A Thing
+version: 1.2
 website: []

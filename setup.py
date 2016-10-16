@@ -1,10 +1,32 @@
+"""medleydb setup script"""
 from setuptools import setup
+import glob
+import os
+
+metadata = glob.glob("Metadata/*.yaml")
+
+annotation_dirs = glob.glob("Annotations/*")
+
+data_files = [('Metadata', metadata)]
+for d in annotation_dirs:
+    d_name = os.path.basename(d)
+    files = glob.glob(os.path.join(d, "*.*"))
+    data_files.append(("Annotations/%s" % d_name, files))
+    sub_dir = glob.glob(os.path.join(d, "*_PITCH"))
+    if len(sub_dir) > 0:
+        sub_dir = sub_dir[0]
+        sub_dir_name = os.path.basename(sub_dir)
+        sub_dir_files = glob.glob(os.path.join(sub_dir, "*.*"))
+        data_files.append(
+            ("Annotations/%s/%s" % (d_name, sub_dir_name), sub_dir_files)
+        )
+
 
 if __name__ == "__main__":
     setup(
         name='medleydb',
 
-        version='1.1',
+        version='1.2',
 
         description='Python module for the MedleyDB dataset',
 
@@ -16,11 +38,9 @@ if __name__ == "__main__":
 
         download_url='http://github.com/rabitt/medleydb/releases',
 
-        packages=['medleydb', 'medleydb.sql'],
+        packages=['medleydb'],
 
-        package_data={'medleydb': ['taxonomy.yaml']},
-
-        long_description="""A python module for audio and music processing.""",
+        data_files=data_files,
 
         classifiers=[
             "License :: The MIT License (MIT)",
@@ -40,16 +60,14 @@ if __name__ == "__main__":
         license='MIT',
 
         install_requires=[
+            'sox',
             'pyyaml',
-            'numpy'
+            'numpy',
+            'six',
+            'librosa'
         ],
 
         extras_require={
-            'sql': [
-                'SQLAlchemy',
-                'scipy',
-                'numpy'
-            ],
             'tests': [
                 'pytest',
                 'pytest-cov',
@@ -61,9 +79,5 @@ if __name__ == "__main__":
                 'sphinx_rtd_theme',
                 'numpydoc',
             ],
-        },
-
-        entry_points={'console_scripts': [
-            'medleydb-export=medleydb.sql:export'
-        ]}
+        }
     )

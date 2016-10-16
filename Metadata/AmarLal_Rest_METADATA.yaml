@@ -42,5 +42,6 @@ stems:
         filename: AmarLal_Rest_RAW_02_02.wav
         instrument: fx/processed sound
 title: Rest
+version: 1.2
 website:
 - amar.bandcamp.com

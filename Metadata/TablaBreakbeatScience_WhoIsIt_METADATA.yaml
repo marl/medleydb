@@ -73,6 +73,7 @@ stems:
       R02:
         filename: TablaBreakbeatScience_WhoIsIt_RAW_06_02.wav
         instrument: tabla
-title: Vger
+title: WhoIsIt
+version: 1.2
 website:
 - www.ethanhein.com
