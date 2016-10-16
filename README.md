@@ -8,7 +8,7 @@ Annotations and Python tools for MedleyDB. [Read the Docs here](http://medleydb.
 [![PyPI](https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000)]()
 
 [![Build Status](https://travis-ci.org/marl/medleydb.svg?branch=medleydb_v1.1)](https://travis-ci.org/marl/medleydb)
-[![Coverage Status](https://coveralls.io/repos/marl/medleydb/badge.svg?branch=medleydb_v1.1&service=github)](https://coveralls.io/github/marl/medleydb?branch=medleydb_v1.1)
+[![Coverage Status](https://coveralls.io/repos/github/marl/medleydb/badge.svg?branch=master)](https://coveralls.io/github/marl/medleydb?branch=master)
 
 Maintained by Rachel Bittner rachel (dot) bittner (at) nyu (dot) edu.
 
@@ -28,6 +28,7 @@ New York City, USA, Aug. 2016.
 See Also
 ========
 [MedleyDeBugger](https://github.com/marl/medley-de-bugger)
+
 [MedleyDB Manager](https://github.com/marl/medleydb_manager)
 
 
