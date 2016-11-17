@@ -44,7 +44,7 @@ Setup
 First clone this repository:
 
 ```bash
-git clone https://github.com/rabitt/medleydb.git
+git clone https://github.com/marl/medleydb.git
 ```
 
 Install the package
@@ -52,6 +52,12 @@ Install the package
 ```bash
 cd medleydb
 python setup.py install
+```
+
+Alternatively, you can do this all in one step:
+
+```
+$ pip install git+git://github.com/marl/medleydb.git
 ```
 
 Next, set the environment variable MEDLEYDB_PATH to the local path where
