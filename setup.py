@@ -8,6 +8,7 @@ metadata = glob.glob("Metadata/*.yaml")
 annotation_dirs = glob.glob("Annotations/*")
 
 data_files = [('Metadata', metadata)]
+data_files.append(('medleydb/resources', glob.glob('medleydb/resources/*')))
 for d in annotation_dirs:
     d_name = os.path.basename(d)
     files = glob.glob(os.path.join(d, "*.*"))
