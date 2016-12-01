@@ -24,7 +24,7 @@ elif "MEDLEYDB_PATH" not in environ:
         "As a result, any part of the code that requires the audio won't work. "
         "If you don't need to access the audio, disregard this warning. "
         "If you do, set the environment variable MEDLEYDB_PATH to your "
-        "local copy of MedeleyDB.",
+        "local copy of MedleyDB.",
         UserWarning
     )
     MEDLEYDB_PATH = ""
@@ -36,7 +36,7 @@ else:
         "As a result, any part of the code that requires the audio won't work. "
         "If you don't need to access the audio, disregard this warning. "
         "If you do, set the environment variable MEDLEYDB_PATH to your local "
-        "copy of MedeleyDB." % MEDLEYDB_PATH,
+        "copy of MedleyDB." % MEDLEYDB_PATH,
         UserWarning
     )
     AUDIO_AVAILABLE = False

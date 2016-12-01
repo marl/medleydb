@@ -9,7 +9,7 @@ Basic Usage
     import medleydb as mdb
 
     # Load all multitracks
-    mtrack_generator = mdb.load_all_mulitracks()
+    mtrack_generator = mdb.load_all_multitracks()
     for mtrack in mtrack_generator:
         print(mtrack.track_id)
         # do stuff
