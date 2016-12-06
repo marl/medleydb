@@ -66,6 +66,12 @@ class MultiTrack(object):
         Path to multitrack's mix file.
     melody_rankings : dictionary
         Dictionary of melody rankings keyed by stem id
+    melody1_fpath : str
+        Path to melody 1 annotation file
+    melody2_fpath : str
+        Path to melody 2 annotation file
+    melody3_fpath : str
+        Path to melody 3 annotation file
     mixing_coefficients : dictionary
         Dictionary of mixing weights keyed by stem id
     stems : dictionary
@@ -94,9 +100,9 @@ class MultiTrack(object):
         True if multitrack has at least one melody stem
     predominant_stem : Track or None
         Track object for the predominant stem if availalbe, otherwise None
-    stem_activations : np.array
+    _stem_activations : np.array
         Matrix of stem activations
-    stem_activations_idx : dictionary
+    _stem_activations_idx : dictionary
         Dictionary mapping stem index to column of the stem_activations matrix
     _meta_path : str
         Path to metadata file.
@@ -211,28 +217,34 @@ class MultiTrack(object):
         self.genre = self._metadata['genre']
         self.metadata_version = self._metadata['version']
 
-        mel1_path = os.path.join(self.annotation_dir,
-                                 _MELODY1_FMT % self.track_id)
-        self.has_melody = os.path.exists(mel1_path)
+        # Melody annotation paths
+        self.melody1_fpath = os.path.join(
+            self.annotation_dir, _MELODY1_FMT % self.track_id
+        )
+        self.melody2_fpath = os.path.join(
+            self.annotation_dir, _MELODY2_FMT % self.track_id
+        )
+        self.melody3_fpath = os.path.join(
+            self.annotation_dir, _MELODY3_FMT % self.track_id
+        )
+
+        self.has_melody = os.path.exists(self.melody1_fpath)
 
         self._melody1_annotation = None
         self._melody2_annotation = None
         self._melody3_annotation = None
 
         self.predominant_stem = self._get_predominant_stem()
-        self.stem_activations, self.stem_activations_idx = \
-            self._get_activation_annotations()
+        self._stem_activations = None
+        self._stem_activations_idx = None
 
     @property
     def melody1_annotation(self):
         """np.array: Melody 1 annotation.
         """
         if self._melody1_annotation is None:
-            melody1_fname = _MELODY1_FMT % self.track_id
-            melody1_fpath = os.path.join(self.annotation_dir, melody1_fname)
-
             self._melody1_annotation, _ = read_annotation_file(
-                melody1_fpath, header=False
+                self.melody1_fpath, header=False
             )
         return self._melody1_annotation
 
@@ -241,11 +253,8 @@ class MultiTrack(object):
         """np.array: Melody 2 annotation.
         """
         if self._melody2_annotation is None:
-            melody2_fname = _MELODY2_FMT % self.track_id
-            melody2_fpath = os.path.join(self.annotation_dir, melody2_fname)
-
             self._melody2_annotation, _ = read_annotation_file(
-                melody2_fpath, header=False
+                self.melody2_fpath, header=False
             )
         return self._melody2_annotation
 
@@ -254,13 +263,29 @@ class MultiTrack(object):
         """np.array: Melody 3 annotation.
         """
         if self._melody3_annotation is None:
-            melody3_fname = _MELODY3_FMT % self.track_id
-            melody3_fpath = os.path.join(self.annotation_dir, melody3_fname)
-
             self._melody3_annotation, _ = read_annotation_file(
-                melody3_fpath, header=False
+                self.melody3_fpath, header=False
             )
         return self._melody3_annotation
+
+    @property
+    def stem_activations(self):
+        """np.array: Matrix of stem activations
+        """
+        if self._stem_activations is None:
+            (self._stem_activations,
+             self._stem_activations_idx) = self._get_activation_annotations()
+        return self._stem_activations
+
+    @property
+    def stem_activations_idx(self):
+        """dictionary : Dictionary mapping stem index to column of the
+        stem_activations matrix.
+        """
+        if self._stem_activations_idx is None:
+            (self._stem_activations,
+             self._stem_activations_idx) = self._get_activation_annotations()
+        return self._stem_activations_idx
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -363,7 +388,7 @@ class MultiTrack(object):
 
     def _get_predominant_stem(self):
         """Get predominant stem if files exists.
-        
+
         Returns
         -------
         predominant_stem : Track or None
@@ -654,7 +679,7 @@ def _path_basedir(path):
 
 def format_index(index):
     """Load stem or raw index. Reformat if in string form.
-    
+
     Parameters
     ----------
     index : int or str
