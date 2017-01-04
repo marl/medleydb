@@ -6,7 +6,7 @@
 from __future__ import print_function
 
 from . import multitrack as M
-from . import TRACK_LIST
+from . import TRACK_LIST_V1
 
 
 def load_melody_multitracks():
@@ -41,7 +41,7 @@ def load_all_multitracks():
     >>> multitracks = load_all_multitracks()
 
     """
-    multitracks = load_multitracks(TRACK_LIST)
+    multitracks = load_multitracks(TRACK_LIST_V1)
     return multitracks
 
 

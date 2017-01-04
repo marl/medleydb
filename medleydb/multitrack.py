@@ -15,6 +15,7 @@ from . import MIXING_COEFFICIENTS
 from . import ANNOT_PATH
 from . import METADATA_PATH
 from . import AUDIO_PATH
+from . import TRACK_LIST_V1
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -100,6 +101,9 @@ class MultiTrack(object):
         True if multitrack has at least one melody stem
     predominant_stem : Track or None
         Track object for the predominant stem if availalbe, otherwise None
+    dataset_version : string
+        Iteration a multitrack came from. (E.g. "V1" for MedleyDB dataset_version 1,
+        "V2" for MedleyDB dataset_version 2)
     _stem_activations : np.array
         Matrix of stem activations
     _stem_activations_idx : dictionary
@@ -142,6 +146,11 @@ class MultiTrack(object):
         self.artist = track_id.split('_')[0]
         self.title = track_id.split('_')[1]
         self.track_id = track_id
+
+        if track_id in TRACK_LIST_V1:
+            self.dataset_version = 'V1'
+        else:
+            self.dataset_version = ''
 
         # Filenames and Filepaths #
         self._meta_path = os.path.join(

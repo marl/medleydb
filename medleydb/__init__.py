@@ -46,11 +46,11 @@ else:
 ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
 
-TRACK_LIST = []
+TRACK_LIST_V1 = []
 with open(path.join(path.dirname(__file__), 'resources',
           'tracklist_v1.txt'), 'r') as fhandle:
     for line in fhandle.readlines():
-        TRACK_LIST.append(line.strip('\n'))
+        TRACK_LIST_V1.append(line.strip('\n'))
 
 with open(path.join(path.dirname(__file__), 'resources',
           'taxonomy.yaml'), 'r') as f_handle:
@@ -78,6 +78,12 @@ if AUDIO_AVAILABLE:
         )
 else:
     AUDIO_PATH = None
+
+GDRIVE = {
+    'V1': '0B72xIeDqCfuUdFhhWUJOb0l2eDg',
+    'V2': '0B72xIeDqCfuURlo2M3U4eXhiRmM',
+    'EXTRA': '0B72xIeDqCfuULUkySDVQUXhIWGs'
+}
 
 from .utils import (
     load_melody_multitracks,
