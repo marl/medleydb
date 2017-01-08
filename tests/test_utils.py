@@ -99,8 +99,8 @@ class TestTrainTestSplit(unittest.TestCase):
         actual_len = len(splits)
         self.assertEqual(expected_len, actual_len)
 
-        expected_keys = ['train', 'test']
-        actual_keys = splits[0].keys()
+        expected_keys = ['test', 'train']
+        actual_keys = sorted(splits[0].keys())
         self.assertEqual(expected_keys, actual_keys)
 
     def test_trackid_list(self):
@@ -119,7 +119,7 @@ class TestTrainTestSplit(unittest.TestCase):
         self.assertEqual(1, len(splits))
         self.assertEqual(
             sorted(trackid_list),
-            sorted(splits[0]['train'] + splits[0]['test'])
+            sorted(list(splits[0]['train']) + list(splits[0]['test']))
         )
 
     def test_artist_index(self):
@@ -146,6 +146,6 @@ class TestTrainTestSplit(unittest.TestCase):
         self.assertEqual(1, len(splits))
         self.assertEqual(
             sorted(trackid_list),
-            sorted(splits[0]['train'] + splits[0]['test'])
+            sorted(list(splits[0]['train']) + list(splits[0]['test']))
         )
 
