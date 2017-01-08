@@ -119,7 +119,7 @@ class TestTrainTestSplit(unittest.TestCase):
         self.assertEqual(1, len(splits))
         self.assertEqual(
             sorted(trackid_list),
-            sorted(list(splits[0]['train']) + list(splits[0]['test']))
+            sorted(splits[0]['train'] + splits[0]['test'])
         )
 
     def test_artist_index(self):
@@ -146,6 +146,6 @@ class TestTrainTestSplit(unittest.TestCase):
         self.assertEqual(1, len(splits))
         self.assertEqual(
             sorted(trackid_list),
-            sorted(list(splits[0]['train']) + list(splits[0]['test']))
+            sorted(splits[0]['train'] + splits[0]['test'])
         )
 

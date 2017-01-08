@@ -165,8 +165,8 @@ def artist_conditional_split(trackid_list=None, test_size=0.15, num_splits=5,
     splits = []
     for train, test in splitter:
         splits.append({
-            'train': trackid_array[train],
-            'test': trackid_array[test]
+            'train': list(trackid_array[train]),
+            'test': list(trackid_array[test])
         })
 
     return splits
