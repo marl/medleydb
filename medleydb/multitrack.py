@@ -207,7 +207,6 @@ class MultiTrack(object):
         if self.mix_path is not None and os.path.exists(self.mix_path):
             self.duration = get_duration(self.mix_path)
         else:
-            print(("Warning: Audio missing for %s." % self.track_id))
             self.duration = None
 
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
@@ -805,7 +804,6 @@ def read_annotation_file(fpath, num_cols=None, header=False):
                 annotation.append([float(val) for val in line])
         return annotation, header
     else:
-        print("Warning: %s does not exist." % fpath)
         return None, None
 
 
