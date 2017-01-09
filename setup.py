@@ -2,32 +2,37 @@
 from setuptools import setup
 import glob
 import os
+import imp
 
-metadata = glob.glob("Metadata/*.yaml")
+version = imp.load_source('medleydb.__version___', 'medleydb/version.py')
 
-annotation_dirs = glob.glob("Annotations/*")
+# metadata = glob.glob("Metadata/*.yaml")
 
-data_files = [('Metadata', metadata)]
+# annotation_dirs = glob.glob("Annotations/*")
+
+# data_files = [('Metadata', metadata)]
+data_files = []
 data_files.append(('medleydb/resources', glob.glob('medleydb/resources/*')))
-for d in annotation_dirs:
-    d_name = os.path.basename(d)
-    files = glob.glob(os.path.join(d, "*.*"))
-    data_files.append(("Annotations/%s" % d_name, files))
-    sub_dir = glob.glob(os.path.join(d, "*_PITCH"))
-    if len(sub_dir) > 0:
-        sub_dir = sub_dir[0]
-        sub_dir_name = os.path.basename(sub_dir)
-        sub_dir_files = glob.glob(os.path.join(sub_dir, "*.*"))
-        data_files.append(
-            ("Annotations/%s/%s" % (d_name, sub_dir_name), sub_dir_files)
-        )
+data_files.append(('medleydb/data', glob.glob('medleydb/data/*')))
+# for d in annotation_dirs:
+#     d_name = os.path.basename(d)
+#     files = glob.glob(os.path.join(d, "*.*"))
+#     data_files.append(("Annotations/%s" % d_name, files))
+#     sub_dir = glob.glob(os.path.join(d, "*_PITCH"))
+#     if len(sub_dir) > 0:
+#         sub_dir = sub_dir[0]
+#         sub_dir_name = os.path.basename(sub_dir)
+#         sub_dir_files = glob.glob(os.path.join(sub_dir, "*.*"))
+#         data_files.append(
+#             ("Annotations/%s/%s" % (d_name, sub_dir_name), sub_dir_files)
+#         )
 
 
 if __name__ == "__main__":
     setup(
         name='medleydb',
 
-        version='1.2',
+        version=version.version,
 
         description='Python module for the MedleyDB dataset',
 

@@ -1,1 +1,5 @@
-__version__ = "1.2.1"
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""Version info"""
+
+version = "1.2.1"
