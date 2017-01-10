@@ -9,7 +9,7 @@ import numpy as np
 from medleydb import AUDIO_AVAILABLE
 from medleydb import ANNOT_PATH
 from medleydb import MultiTrack
-from medleydb import TRACK_LIST
+from medleydb import TRACK_LIST_V1
 from medleydb.annotate import generate_melody_annotations as G
 from medleydb import multitrack
 
@@ -23,7 +23,7 @@ def array_almost_equal(array1, array2, tolerance=1e-7):
 
 class TestFileNames(unittest.TestCase):
     def setUp(self):
-        self.track_list = TRACK_LIST
+        self.track_list = TRACK_LIST_V1
 
     def test_annotation_folders_exist(self):
         self.assertTrue(os.path.exists(ANNOT_PATH))
@@ -52,7 +52,7 @@ class TestFileNames(unittest.TestCase):
 @unittest.skipIf(not AUDIO_AVAILABLE, "requires audio access")
 class TestMelodyAnnotations(unittest.TestCase):
     def setUp(self):
-        self.track_list = TRACK_LIST
+        self.track_list = TRACK_LIST_V1
 
     def test_melody_annotations(self):
         for track in self.track_list:
@@ -81,7 +81,7 @@ class TestMelodyAnnotations(unittest.TestCase):
 
 class TestRankingAnnotations(unittest.TestCase):
     def setUp(self):
-        self.track_list = TRACK_LIST
+        self.track_list = TRACK_LIST_V1
 
     def test_rankings(self):
         for track in self.track_list:

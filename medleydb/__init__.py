@@ -46,11 +46,11 @@ else:
 ANNOT_PATH = path.join(path.dirname(__file__), 'data', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), 'data', 'Metadata')
 
-TRACK_LIST = []
+TRACK_LIST_V1 = []
 with open(path.join(path.dirname(__file__), 'resources',
                     'tracklist_v1.txt'), 'r') as fhandle:
     for line in fhandle.readlines():
-        TRACK_LIST.append(line.strip('\n'))
+        TRACK_LIST_V1.append(line.strip('\n'))
 
 with open(path.join(path.dirname(__file__), 'resources',
                     'taxonomy.yaml'), 'r') as fhandle:
