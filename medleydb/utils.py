@@ -6,7 +6,7 @@
 from __future__ import print_function
 
 from . import multitrack as M
-from . import TRACK_LIST
+from . import TRACK_LIST_V1
 from . import ARTIST_INDEX
 
 import numpy as np
@@ -45,7 +45,7 @@ def load_all_multitracks():
     >>> multitracks = load_all_multitracks()
 
     """
-    multitracks = load_multitracks(TRACK_LIST)
+    multitracks = load_multitracks(TRACK_LIST_V1)
     return multitracks
 
 
@@ -149,7 +149,7 @@ def artist_conditional_split(trackid_list=None, test_size=0.15, num_splits=5,
 
     """
     if trackid_list is None:
-        trackid_list = TRACK_LIST
+        trackid_list = TRACK_LIST_V1
 
     if artist_index is None:
         artist_index = ARTIST_INDEX
@@ -226,4 +226,3 @@ class _ShuffleLabelsOut(ShuffleSplit):
             test = np.flatnonzero(np.in1d(self.y_indices, y_test))
 
             yield train, test
-

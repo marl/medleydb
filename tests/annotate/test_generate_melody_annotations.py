@@ -16,9 +16,6 @@ def array_almost_equal(array1, array2, tolerance=1e-7):
     diff = np.abs(array1 - array2)
     num_not_equal = diff > tolerance
     print("number of unequal elements: %s" % np.sum(num_not_equal))
-    # for i, elt in enumerate(num_not_equal):
-    #     if any(elt):
-    #         print(i, array1[i], array2[i])
     return np.sum(num_not_equal) == 0
 
 
