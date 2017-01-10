@@ -114,14 +114,14 @@ def get_files_for_instrument(instrument, multitrack_list=None):
     for multitrack in multitrack_list:
         for stem in multitrack.stems.values():
             if stem.instrument == instrument:
-                yield stem.file_path
+                yield stem.audio_path
 
 
 def artist_conditional_split(trackid_list=None, test_size=0.15, num_splits=5,
                              random_state=None, artist_index=None):
     """Create artist-conditional train-test splits.
     The same artist (as defined by the artist_index) cannot appear
-    in both the training and testing set. 
+    in both the training and testing set.
 
     Parameters
     ----------

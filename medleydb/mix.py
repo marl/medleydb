@@ -97,7 +97,7 @@ def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
         if index in alternate_files.keys():
             filepaths.append(alternate_files[index])
         else:
-            filepaths.append(mtrack.stems[index].file_path)
+            filepaths.append(mtrack.stems[index].audio_path)
 
         if index in alternate_weights.keys():
             weights.append(alternate_weights[index])
