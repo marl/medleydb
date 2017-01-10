@@ -8,7 +8,7 @@ from medleydb import multitrack
 
 class TestLoadTrackList(unittest.TestCase):
     def setUp(self):
-        self.track_list = medleydb.TRACK_LIST
+        self.track_list = medleydb.TRACK_LIST_V1
 
     def test_length(self):
         self.assertEqual(len(self.track_list), 122)
@@ -87,4 +87,65 @@ class TestGetFilesForInstrument(unittest.TestCase):
     def test_invalid_inst(self):
         with self.assertRaises(ValueError):
             list(utils.get_files_for_instrument('mayonnaise'))
+
+
+
+class TestTrainTestSplit(unittest.TestCase):
+
+    def test_defaults(self):
+        splits = utils.artist_conditional_split()
+
+        expected_len = 5
+        actual_len = len(splits)
+        self.assertEqual(expected_len, actual_len)
+
+        expected_keys = ['test', 'train']
+        actual_keys = sorted(splits[0].keys())
+        self.assertEqual(expected_keys, actual_keys)
+
+    def test_trackid_list(self):
+        trackid_list = [
+            'EthanHein_BluesForNofi',
+            'EthanHein_GirlOnABridge',
+            'CroqueMadame_Oil',
+            'CroqueMadame_Pilot',
+            'Meaxic_TakeAStep',
+            'Meaxic_YouListen'
+        ]
+        splits = utils.artist_conditional_split(
+            trackid_list=trackid_list, num_splits=1
+        )
+
+        self.assertEqual(1, len(splits))
+        self.assertEqual(
+            sorted(trackid_list),
+            sorted(splits[0]['train'] + splits[0]['test'])
+        )
+
+    def test_artist_index(self):
+        trackid_list = [
+            'EthanHein_BluesForNofi',
+            'EthanHein_GirlOnABridge',
+            'CroqueMadame_Oil',
+            'CroqueMadame_Pilot',
+            'Meaxic_TakeAStep',
+            'Meaxic_YouListen'
+        ]
+        artist_index = {
+            'EthanHein_BluesForNofi': 'E',
+            'EthanHein_GirlOnABridge': 'E',
+            'CroqueMadame_Oil': 'C1',
+            'CroqueMadame_Pilot': 'C2',
+            'Meaxic_TakeAStep': 'M',
+            'Meaxic_YouListen': 'M'
+        }
+        splits = utils.artist_conditional_split(
+            trackid_list=trackid_list, artist_index=artist_index, num_splits=1
+        )
+
+        self.assertEqual(1, len(splits))
+        self.assertEqual(
+            sorted(trackid_list),
+            sorted(splits[0]['train'] + splits[0]['test'])
+        )
 

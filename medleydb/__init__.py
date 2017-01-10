@@ -9,7 +9,7 @@ import warnings
 import yaml
 import json
 
-from medleydb.version import __version__
+from .version import version as __version__
 
 __all__ = ["__version__"]
 
@@ -43,26 +43,30 @@ else:
 
 # The taxonomy, tracklist, annotations and metadata are version controlled and
 # stored inside the repository
-ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
-METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
+ANNOT_PATH = path.join(path.dirname(__file__), 'data', 'Annotations')
+METADATA_PATH = path.join(path.dirname(__file__), 'data', 'Metadata')
 
 TRACK_LIST_V1 = []
 with open(path.join(path.dirname(__file__), 'resources',
-          'tracklist_v1.txt'), 'r') as fhandle:
+                    'tracklist_v1.txt'), 'r') as fhandle:
     for line in fhandle.readlines():
         TRACK_LIST_V1.append(line.strip('\n'))
 
 with open(path.join(path.dirname(__file__), 'resources',
-          'taxonomy.yaml'), 'r') as f_handle:
-    INST_TAXONOMY = yaml.load(f_handle)
+                    'taxonomy.yaml'), 'r') as fhandle:
+    INST_TAXONOMY = yaml.load(fhandle)
 
 with open(path.join(path.dirname(__file__), 'resources',
-          'instrument_f0_type.json'), 'r') as f_handle:
-    INST_F0_TYPE = json.load(f_handle)
+                    'instrument_f0_type.json'), 'r') as fhandle:
+    INST_F0_TYPE = json.load(fhandle)
 
 with open(path.join(path.dirname(__file__), 'resources',
-          'mixing_coefficients.yaml'), 'r') as fhandle:
+                    'mixing_coefficients.yaml'), 'r') as fhandle:
     MIXING_COEFFICIENTS = yaml.load(fhandle)
+
+with open(path.join(path.dirname(__file__), 'resources',
+                    'artist_index.json'), 'r') as fhandle:
+    ARTIST_INDEX = json.load(fhandle)
 
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requesting the user to set the MEDLEYDB_PATH

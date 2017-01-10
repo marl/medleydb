@@ -28,6 +28,16 @@ _RAW_FMT = "%s_RAW_%%s_%%s.wav"
 
 _AUDIODIR_FMT = "%s"
 
+_ACTIVATION_CONF_PATH = os.path.join(ANNOT_PATH, 'Activation_Confidence')
+_MELODY_PATH = os.path.join(ANNOT_PATH, 'Melody')
+_INTERVALS_PATH = os.path.join(_MELODY_PATH, 'Intervals')
+_MELODY1_PATH = os.path.join(_MELODY_PATH, 'Melody1')
+_MELODY2_PATH = os.path.join(_MELODY_PATH, 'Melody2')
+_MELODY3_PATH = os.path.join(_MELODY_PATH, 'Melody3')
+_RANKING_PATH = os.path.join(_MELODY_PATH, 'Ranking')
+_PITCH_PATH = os.path.join(ANNOT_PATH, 'Pitch')
+_SOURCEID_PATH = os.path.join(ANNOT_PATH, 'Source_ID')
+
 _ANNOTDIR_FMT = "%s_ANNOTATIONS"
 _ACTIVCONF_FMT = "%s_ACTIVATION_CONF.lab"
 _INTERVAL_FMT = "%s_INTERVALS.txt"
@@ -73,6 +83,10 @@ class MultiTrack(object):
         Path to melody 2 annotation file
     melody3_fpath : str
         Path to melody 3 annotation file
+    melody_intervals_fpath : str
+        Path to melody intervals file
+    melody_rankings_fpath : str
+        Path to melody rankings file
     mixing_coefficients : dictionary
         Dictionary of mixing weights keyed by stem id
     stems : dictionary
@@ -110,8 +124,6 @@ class MultiTrack(object):
         Dictionary mapping stem index to column of the stem_activations matrix
     _meta_path : str
         Path to metadata file.
-    _pitch_path : str
-        Path to multitrack's pitch annotation directory
     _stem_dir_path : str
         Path to multitrack's stem file directory
     _raw_dir_path : str
@@ -122,8 +134,6 @@ class MultiTrack(object):
         format of raw file basenames
     _metadata : dict
         dictionary of data loaded from metadata file
-    _melody_rankings_fpath : str
-        Path to melody rankings file
     _melody1_annotation : np.array or None
         Melody 1 annotation if exists, otherwise None
     _melody2_annotation : np.array or None
@@ -161,13 +171,6 @@ class MultiTrack(object):
         if not os.path.exists(self._meta_path):
             raise IOError("Cannot find metadata for %s" % self.track_id)
 
-        self.annotation_dir = os.path.join(
-            ANNOT_PATH, _ANNOTDIR_FMT % self.track_id
-        )
-        self._pitch_path = os.path.join(
-            self.annotation_dir, _PITCHDIR_FMT % self.track_id
-        )
-
         if AUDIO_PATH:
             self.audio_path = os.path.join(
                 AUDIO_PATH, _AUDIODIR_FMT % track_id
@@ -194,8 +197,17 @@ class MultiTrack(object):
         # Yaml Dictionary of Metadata #
         self._metadata = self._load_metadata()
 
-        self._melody_rankings_fpath = os.path.join(
-            self.annotation_dir, _RANKING_FMT % self.track_id
+        self.activation_conf_fpath = os.path.join(
+            _ACTIVATION_CONF_PATH, _ACTIVCONF_FMT % self.track_id
+        )
+        self.source_id_fpath = os.path.join(
+            _SOURCEID_PATH, _SOURCEID_FMT % self.track_id
+        )
+        self.melody_intervals_fpath = os.path.join(
+            _INTERVALS_PATH, _INTERVAL_FMT % self.track_id
+        )
+        self.melody_rankings_fpath = os.path.join(
+            _RANKING_PATH, _RANKING_FMT % self.track_id
         )
         self.melody_rankings = self._get_melody_rankings()
 
@@ -216,7 +228,6 @@ class MultiTrack(object):
         if self.mix_path is not None and os.path.exists(self.mix_path):
             self.duration = get_duration(self.mix_path)
         else:
-            print(("Warning: Audio missing for %s." % self.track_id))
             self.duration = None
 
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
@@ -228,13 +239,13 @@ class MultiTrack(object):
 
         # Melody annotation paths
         self.melody1_fpath = os.path.join(
-            self.annotation_dir, _MELODY1_FMT % self.track_id
+            _MELODY1_PATH, _MELODY1_FMT % self.track_id
         )
         self.melody2_fpath = os.path.join(
-            self.annotation_dir, _MELODY2_FMT % self.track_id
+            _MELODY2_PATH, _MELODY2_FMT % self.track_id
         )
         self.melody3_fpath = os.path.join(
-            self.annotation_dir, _MELODY3_FMT % self.track_id
+            _MELODY3_PATH, _MELODY3_FMT % self.track_id
         )
 
         self.has_melody = os.path.exists(self.melody1_fpath)
@@ -338,19 +349,16 @@ class MultiTrack(object):
 
             if AUDIO_PATH:
                 file_name = stem_dict[k]['filename']
-                file_path = os.path.join(self._stem_dir_path, file_name)
+                audio_path = os.path.join(self._stem_dir_path, file_name)
             else:
-                file_path = None
+                audio_path = None
 
-            pitch_path = os.path.join(
-                self._pitch_path,
-                "%s_STEM_%s.csv" % (self.track_id, k[1:])
-            )
+            file_id = "%s_STEM_%s" % (self.track_id, k[1:])
 
-            track = Track(instrument=instrument, file_path=file_path,
+            track = Track(instrument=instrument, audio_path=audio_path,
                           component=component, stem_idx=stem_idx,
                           ranking=ranking, mix_path=self.mix_path,
-                          pitch_path=pitch_path,
+                          file_id=file_id,
                           mix_coeff=self.mixing_coefficients[stem_idx])
 
             stems[stem_idx] = track
@@ -362,11 +370,11 @@ class MultiTrack(object):
 
                 if AUDIO_PATH:
                     file_name = raw_dict[j]['filename']
-                    file_path = os.path.join(self._raw_dir_path, file_name)
+                    audio_path = os.path.join(self._raw_dir_path, file_name)
                 else:
-                    file_path = None
+                    audio_path = None
 
-                track = Track(instrument=instrument, file_path=file_path,
+                track = Track(instrument=instrument, audio_path=audio_path,
                               stem_idx=stem_idx, raw_idx=raw_idx,
                               mix_path=self.mix_path, ranking=ranking)
                 if stem_idx not in raw_audio:
@@ -386,8 +394,8 @@ class MultiTrack(object):
 
         """
         melody_rankings = {}
-        if os.path.exists(self._melody_rankings_fpath):
-            with open(self._melody_rankings_fpath) as f_handle:
+        if os.path.exists(self.melody_rankings_fpath):
+            with open(self.melody_rankings_fpath) as f_handle:
                 linereader = csv.reader(f_handle)
                 for line in linereader:
                     stem_idx = int(line[0].split('_')[-1].split('.')[0])
@@ -429,10 +437,8 @@ class MultiTrack(object):
             Dictionary of column ids in the activations table keyed by stem_id
 
         """
-        fname = _ACTIVCONF_FMT % self.track_id
-        activation_annotation_fpath = os.path.join(self.annotation_dir, fname)
         activations, header = read_annotation_file(
-            activation_annotation_fpath, header=True
+            self.activation_conf_fpath, header=True
         )
         idx_dict = {}
         for i, stem_str in enumerate(header):
@@ -498,7 +504,7 @@ class MultiTrack(object):
             List of filepaths to stems.
 
         """
-        return [track.file_path for track in self.stems.values()]
+        return [track.audio_path for track in self.stems.values()]
 
     def raw_filepaths(self):
         """Get list of filepaths to raw audio files.
@@ -509,7 +515,7 @@ class MultiTrack(object):
             List of filepaths to raw audio files.
 
         """
-        return [track.file_path for track in get_dict_leaves(self.raw_audio)]
+        return [track.audio_path for track in get_dict_leaves(self.raw_audio)]
 
     def activation_conf_from_stem(self, stem_idx):
         """Get activation confidence from given stem.
@@ -544,15 +550,15 @@ class Track(object):
     ----------
     instrument : str
         The track's instrument label.
-    file_path : str
+    audio_path : str
         Path to corresponding audio file.
     stem_idx : int or str
         stem index, either as int or str
         For ArtistName_TrackTitle_STEM_05.wav, either 5 or 'S05'
     mix_path : str
         Path to corresponding mix audio file.
-    pitch_path : str or None, default=None
-        Path to pitch annotation directory
+    file_id : str or None, default=None
+        The file's basename - e.g. Artist_Track_STEM_01
     raw_idx : int str or None, default=None
         Raw index, either as int or str
         For ArtistName_TrackTitle_RAW_05_02.wav, either 2 or 'R02'
@@ -572,7 +578,7 @@ class Track(object):
             - 'm' for monophonic sources
             - 'p' for polyphonic sources
             - 'u' for unpitched sources
-    file_path : str
+    audio_path : str
         Path to corresponding audio file
     component : str or None
         The Track's component label, if exists
@@ -589,44 +595,49 @@ class Track(object):
         The track's duration in seconds, if the audio is availalbe
     mix_path : str
         The path to the track's corresponding mix
+    pitch_path : str
+        The path to the track's pitch annotation
     pitch_annotation : list or None
         List of pairs of time (seconds), frequency (Hz)
     _pitch_annotation : list or None
         List of pairs of time (seconds), frequency (Hz)
-    _pitch_path : str or None
-        Path to pitch annotation file, if exists
 
     """
-
-    def __init__(self, instrument, file_path, stem_idx, mix_path,
-                 pitch_path=None, raw_idx=None, component='', ranking=None,
+    def __init__(self, instrument, audio_path, stem_idx, mix_path,
+                 file_id=None, raw_idx=None, component='', ranking=None,
                  mix_coeff=None):
         """Track object __init__ method.
         """
         self.instrument = instrument
         self.f0_type = get_f0_type(instrument)
-        self.file_path = file_path
+        self.audio_path = audio_path
         self.component = component
         self.ranking = ranking
         self.stem_idx = format_index(stem_idx)
         self.raw_idx = format_index(raw_idx)
+
+        if file_id is not None:
+            self.pitch_path = os.path.join(_PITCH_PATH, _PITCH_FMT % file_id)
+        else:
+            self.pitch_path = None
+
         self.mixing_coefficient = mix_coeff
 
-        if file_path is not None and os.path.exists(file_path):
-            self.duration = get_duration(file_path)
+        if audio_path is not None and os.path.exists(audio_path):
+            self.duration = get_duration(audio_path)
         else:
             self.duration = None
+
         self.mix_path = mix_path
         self._pitch_annotation = None
-        self._pitch_path = pitch_path
 
     @property
     def pitch_annotation(self):
         """list: List of pairs of time (seconds), frequency (Hz)
         """
-        if (self._pitch_path is not None) and (self._pitch_annotation is None):
+        if self._pitch_annotation is None:
             self._pitch_annotation, _ = read_annotation_file(
-                self._pitch_path, num_cols=2, header=False
+                self.pitch_path, num_cols=2, header=False
             )
         return self._pitch_annotation
 
@@ -638,12 +649,12 @@ class Track(object):
 
     def __hash__(self):
         return hash((self.instrument,
-                     self.file_path,
+                     self.audio_path,
                      self.component,
                      self.stem_idx,
                      self.raw_idx,
                      self.mix_path,
-                     self._pitch_path))
+                     self.pitch_path))
 
 
 def get_f0_type(instrument):
@@ -797,7 +808,7 @@ def read_annotation_file(fpath, num_cols=None, header=False):
     >>> pitch_annotation, _ = read_annotation_file(pitch_fpath, num_cols=2)
 
     """
-    if os.path.exists(fpath):
+    if fpath is not None and os.path.exists(fpath):
         with open(fpath) as f_handle:
             annotation = []
             linereader = csv.reader(f_handle)
@@ -814,7 +825,6 @@ def read_annotation_file(fpath, num_cols=None, header=False):
                 annotation.append([float(val) for val in line])
         return annotation, header
     else:
-        print("Warning: %s does not exist." % fpath)
         return None, None
 
 
