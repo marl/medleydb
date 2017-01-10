@@ -6,6 +6,7 @@ import os
 import numpy as np
 from medleydb import MultiTrack
 from medleydb.annotate import generate_melody_annotations as G
+from medleydb.multitrack import _MELODY1_PATH, _MELODY2_PATH, _MELODY3_PATH
 
 HOP = 256.0
 FS = 44100.0
@@ -15,6 +16,9 @@ def array_almost_equal(array1, array2, tolerance=1e-7):
     diff = np.abs(array1 - array2)
     num_not_equal = diff > tolerance
     print("number of unequal elements: %s" % np.sum(num_not_equal))
+    # for i, elt in enumerate(num_not_equal):
+    #     if any(elt):
+    #         print(i, array1[i], array2[i])
     return np.sum(num_not_equal) == 0
 
 
@@ -317,7 +321,7 @@ class TestWriteMelodiesToCsv(unittest.TestCase):
 
     def test_melody1(self):
         expected_output_path = os.path.join(
-            self.mtrack.annotation_dir,
+            _MELODY1_PATH,
             'TablaBreakbeatScience_Animoog_MELODY1.csv'
         )
         G.write_melodies_to_csv(self.mtrack, self.melody1, None, None)
@@ -326,7 +330,7 @@ class TestWriteMelodiesToCsv(unittest.TestCase):
 
     def test_melody2(self):
         expected_output_path = os.path.join(
-            self.mtrack.annotation_dir,
+            _MELODY2_PATH,
             'TablaBreakbeatScience_Animoog_MELODY2.csv'
         )
         G.write_melodies_to_csv(self.mtrack, None, self.melody2, None)
@@ -335,7 +339,7 @@ class TestWriteMelodiesToCsv(unittest.TestCase):
 
     def test_melody3(self):
         expected_output_path = os.path.join(
-            self.mtrack.annotation_dir,
+            _MELODY3_PATH,
             'TablaBreakbeatScience_Animoog_MELODY3.csv'
         )
         G.write_melodies_to_csv(self.mtrack, None, None, self.melody3)

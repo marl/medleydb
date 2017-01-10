@@ -9,7 +9,7 @@ import warnings
 import yaml
 import json
 
-from medleydb.version import __version__
+from .version import version as __version__
 
 __all__ = ["__version__"]
 
@@ -43,8 +43,8 @@ else:
 
 # The taxonomy, tracklist, annotations and metadata are version controlled and
 # stored inside the repository
-ANNOT_PATH = path.join(path.dirname(__file__), '../', 'Annotations')
-METADATA_PATH = path.join(path.dirname(__file__), '../', 'Metadata')
+ANNOT_PATH = path.join(path.dirname(__file__), 'data', 'Annotations')
+METADATA_PATH = path.join(path.dirname(__file__), 'data', 'Metadata')
 
 TRACK_LIST = []
 with open(path.join(path.dirname(__file__), 'resources',

@@ -57,7 +57,7 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_stem_fname(self):
-        actual = os.path.basename(self.stem.file_path)
+        actual = os.path.basename(self.stem.audio_path)
         expected = "NightPanther_Fire_STEM_08.wav"
         self.assertEqual(actual, expected)
 
@@ -107,12 +107,13 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_raw_duration(self):
+        print(self.raw.audio_path)
         actual = self.raw.duration
         expected = None
         self.assertEqual(actual, expected)
 
     def test_raw_fname(self):
-        actual = os.path.basename(self.raw.file_path)
+        actual = os.path.basename(self.raw.audio_path)
         expected = "NightPanther_Fire_RAW_08_01.wav"
         self.assertEqual(actual, expected)
 
@@ -260,25 +261,24 @@ class TestTrack(unittest.TestCase):
             component='melody'
         )
         self.assertEqual(track.instrument, 'blurbophone')
-        self.assertEqual(track.file_path, 'fake/path1')
+        self.assertEqual(track.audio_path, 'fake/path1')
         self.assertEqual(track.component, 'melody')
         self.assertEqual(track.stem_idx, 12)
         self.assertEqual(track.raw_idx, None)
         self.assertEqual(track.mix_path, 'fake/path2')
-        self.assertEqual(track._pitch_path, None)
+        self.assertEqual(track.pitch_path, None)
 
     def test_track2(self):
         track = multitrack.Track(
             'kazoo', 'fake/path1', 50, 'fake/path2',
-            pitch_path='fake/path3', raw_idx='R07'
+            raw_idx='R07'
         )
         self.assertEqual(track.instrument, 'kazoo')
-        self.assertEqual(track.file_path, 'fake/path1')
+        self.assertEqual(track.audio_path, 'fake/path1')
         self.assertEqual(track.component, '')
         self.assertEqual(track.stem_idx, 50)
         self.assertEqual(track.raw_idx, 7)
         self.assertEqual(track.mix_path, 'fake/path2')
-        self.assertEqual(track._pitch_path, 'fake/path3')
 
 
 class TestPathBasedir(unittest.TestCase):
