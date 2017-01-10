@@ -8,7 +8,7 @@ from medleydb import multitrack
 
 class TestLoadTrackList(unittest.TestCase):
     def setUp(self):
-        self.track_list = medleydb.TRACK_LIST
+        self.track_list = medleydb.TRACK_LIST_V1
 
     def test_length(self):
         self.assertEqual(len(self.track_list), 122)
