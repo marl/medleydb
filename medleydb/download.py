@@ -1,21 +1,40 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Methods for downloading audio from google drive."""
-from medleydb import GDRIVE 
 from medleydb import MEDLEYDB_PATH
 from medleydb import AUDIO_PATH
+from medleydb import GRDIVE_CONFIG_PATH
 
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
-GAUTH = GoogleAuth()
-# Creates local webserver and auto handles authentication.
-GAUTH.LocalWebserverAuth()
-DRIVE = GoogleDrive(GAUTH)
+GAUTH = None
+DRIVE = None
+
 FOLDER_MIME = 'application/vnd.google-apps.folder'
 BASEDIR_WRITEABLE = False
 DOWNLOADED_FILEPATHS = []
+
+GDRIVE_FOLDERS = {
+    'V1': '0B72xIeDqCfuUdFhhWUJOb0l2eDg',
+    'V2': '0B72xIeDqCfuURlo2M3U4eXhiRmM',
+    'EXTRA': '0B72xIeDqCfuULUkySDVQUXhIWGs'
+}
+
+
+def authorize_google_drive():
+    global GAUTH
+    global DRIVE
+    if GAUTH is None or DRIVE is None:
+        GAUTH = GoogleAuth()
+        # Creates local webserver and auto handles authentication.
+        GAUTH.LoadClientConfigFile(client_config_file=GRDIVE_CONFIG_PATH)
+        GAUTH.LocalWebserverAuth()
+        DRIVE = GoogleDrive(GAUTH)
+        return True
+    else:
+        return True
 
 
 def purge_downloaded_files():
@@ -23,7 +42,6 @@ def purge_downloaded_files():
     """
     for fpath in DOWNLOADED_FILEPATHS:
         os.remove(fpath)
-    #TODO: Figure out how to make this happen when module is exited.
 
 
 def check_basedir_writeable():
@@ -54,6 +72,7 @@ def check_basedir_writeable():
     if not os.path.exists(AUDIO_PATH):
         os.mkdir(AUDIO_PATH)
 
+    global BASEDIR_WRITEABLE
     BASEDIR_WRITEABLE = True
     return True
 
@@ -102,7 +121,7 @@ def download_mix(mtrack):
         return True
 
     try:
-        top_folderid = GDRIVE[mtrack.dataset_version]
+        top_folderid = GDRIVE_FOLDERS[mtrack.dataset_version]
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
@@ -128,7 +147,6 @@ def download_mix(mtrack):
     return True
 
 
-
 def download_stem(mtrack, stemid):
     """Download a multitrack's stem to the stem's audio path.
 
@@ -147,11 +165,11 @@ def download_stem(mtrack, stemid):
     """
     stem = mtrack.stems[stemid]
 
-    if os.path.exists(stem.file_path):
+    if os.path.exists(stem.audio_path):
         return True
 
     try:
-        top_folderid = GDRIVE[mtrack.dataset_version]
+        top_folderid = GDRIVE_FOLDERS[mtrack.dataset_version]
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
@@ -170,7 +188,7 @@ def download_stem(mtrack, stemid):
         raise IOError("Could not find stems folder")
 
     stem_file_list2 = get_named_child(
-        stem_folder['id'], os.path.basename(stem.file_path)
+        stem_folder['id'], os.path.basename(stem.audio_path)
     )
     if len(stem_file_list2) > 0:
         stem_file = stem_file_list2[0]
@@ -178,9 +196,9 @@ def download_stem(mtrack, stemid):
         raise IOError("Could not find stem file")
 
     make_mtrack_basedir(mtrack)
-    download_file(stem_file['id'], stem.file_path)
+    download_file(stem_file['id'], stem.audio_path)
 
-    DOWNLOADED_FILEPATHS.append(stem.file_path)
+    DOWNLOADED_FILEPATHS.append(stem.audio_path)
 
     return True
 
@@ -205,11 +223,11 @@ def download_raw(mtrack, stemid, rawid):
     """
     raw_track = mtrack.raw_audio[stemid][rawid]
 
-    if os.path.exists(raw_track.file_path):
+    if os.path.exists(raw_track.audio_path):
         return True
 
     try:
-        top_folderid = GDRIVE[mtrack.dataset_version]
+        top_folderid = GDRIVE_FOLDERS[mtrack.dataset_version]
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
@@ -228,7 +246,7 @@ def download_raw(mtrack, stemid, rawid):
         raise IOError("Could not find raws folder")
 
     raw_file_list2 = get_named_child(
-        raw_folder['id'], os.path.basename(raw_track.file_path)
+        raw_folder['id'], os.path.basename(raw_track.audio_path)
     )
     if len(raw_file_list2) > 0:
         raw_file = raw_file_list2[0]
@@ -236,9 +254,9 @@ def download_raw(mtrack, stemid, rawid):
         raise IOError("Could not find raw file")
 
     make_mtrack_basedir(mtrack)
-    download_file(raw_file['id'], raw_track.file_path)
+    download_file(raw_file['id'], raw_track.audio_path)
 
-    DOWNLOADED_FILEPATHS.append(raw_track.file_path)
+    DOWNLOADED_FILEPATHS.append(raw_track.audio_path)
 
     return True
 
@@ -259,6 +277,7 @@ def get_named_child(parent_id, child_name):
         List of files matching the query.
 
     """
+    authorize_google_drive()
     query = "'{}' in parents and title contains '{}' and trashed=false".format(
         parent_id, child_name
     )
@@ -271,6 +290,7 @@ def get_named_child(parent_id, child_name):
 def get_files_in_folder(folderid):
     """get a list of the files in a google drive folder given the folder id
     """
+    authorize_google_drive()
     file_list = DRIVE.ListFile(
         {'q': "'{}' in parents and trashed=false".format(folderid)}
     ).GetList()
@@ -292,6 +312,7 @@ def download_file(fileid, save_path):
         True on success
 
     """
+    authorize_google_drive()
     file_object = DRIVE.CreateFile({'id': fileid})
     file_object.GetContentFile(save_path)
     return True
