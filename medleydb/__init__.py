@@ -52,6 +52,18 @@ with open(path.join(path.dirname(__file__), 'resources',
     for line in fhandle.readlines():
         TRACK_LIST_V1.append(line.strip('\n'))
 
+TRACK_LIST_V2 = []
+with open(path.join(path.dirname(__file__), 'resources',
+                    'tracklist_v2.txt'), 'r') as fhandle:
+    for line in fhandle.readlines():
+        TRACK_LIST_V2.append(line.strip('\n'))
+
+TRACK_LIST_EXTRA = []
+with open(path.join(path.dirname(__file__), 'resources',
+                    'tracklist_extra.txt'), 'r') as fhandle:
+    for line in fhandle.readlines():
+        TRACK_LIST_EXTRA.append(line.strip('\n'))
+
 with open(path.join(path.dirname(__file__), 'resources',
                     'taxonomy.yaml'), 'r') as fhandle:
     INST_TAXONOMY = yaml.load(fhandle)
@@ -67,6 +79,10 @@ with open(path.join(path.dirname(__file__), 'resources',
 with open(path.join(path.dirname(__file__), 'resources',
                     'artist_index.json'), 'r') as fhandle:
     ARTIST_INDEX = json.load(fhandle)
+
+GRDIVE_CONFIG_PATH = path.join(
+    path.dirname(__file__), 'resources', 'client_secrets.json'
+)
 
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requesting the user to set the MEDLEYDB_PATH

@@ -52,7 +52,8 @@ if __name__ == "__main__":
             'pyyaml',
             'numpy',
             'six',
-            'librosa'
+            'librosa',
+            'pydrive'
         ],
 
         extras_require={
