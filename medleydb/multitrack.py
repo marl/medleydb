@@ -16,6 +16,8 @@ from . import ANNOT_PATH
 from . import METADATA_PATH
 from . import AUDIO_PATH
 from . import TRACK_LIST_V1
+from . import TRACK_LIST_V2
+from . import TRACK_LIST_EXTRA
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -116,7 +118,8 @@ class MultiTrack(object):
     predominant_stem : Track or None
         Track object for the predominant stem if availalbe, otherwise None
     dataset_version : string
-        Iteration a multitrack came from. (E.g. "V1" for MedleyDB dataset_version 1,
+        Iteration a multitrack came from.
+        (E.g. "V1" for MedleyDB dataset_version 1,
         "V2" for MedleyDB dataset_version 2)
     _stem_activations : np.array
         Matrix of stem activations
@@ -159,6 +162,10 @@ class MultiTrack(object):
 
         if track_id in TRACK_LIST_V1:
             self.dataset_version = 'V1'
+        elif track_id in TRACK_LIST_V2:
+            self.dataset_version = 'V2'
+        elif track_id in TRACK_LIST_EXTRA:
+            self.dataset_version = 'EXTRA'
         else:
             self.dataset_version = ''
 
