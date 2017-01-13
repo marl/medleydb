@@ -70,7 +70,7 @@ class TestDownloadMetadata(unittest.TestCase):
 
     def test_not_in_tracklist(self):
         with self.assertRaises(IOError):
-            download._download_metadata('MusicDelta_Beethoven', 'asdf')
+            download._download_metadata('Artist_Title', 'asdf')
 
     def test_failed_download(self):
         pass
