@@ -69,10 +69,8 @@ class TestDownloadMetadata(unittest.TestCase):
         self.assertTrue(os.path.exists(mtrack.mix_path))
 
     def test_not_in_tracklist(self):
-        mtrack = MultiTrack('MusicDelta_Beethoven')
-        mtrack.dataset_version = 'asdf'
         with self.assertRaises(IOError):
-            download._download_metadata(mtrack.track_id, mtrack.dataset_version)
+            download._download_metadata('MusicDelta_Beethoven', 'asdf')
 
     def test_failed_download(self):
         pass
