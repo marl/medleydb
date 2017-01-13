@@ -81,14 +81,14 @@ stems:
   S07:
     component: melody
     filename: BrunoMars_Grenade_STEM_07.wav
-    instrument: male singer vocalists
+    instrument: [male singer, vocalists]
     raw:
       R01:
         filename: BrunoMars_Grenade_RAW_07_01.wav
-        instrument: male singer vocalists
+        instrument: [male singer, vocalists]
       R02:
         filename: BrunoMars_Grenade_RAW_07_02.wav
-        instrument: male singer vocalists
+        instrument: [male singer, vocalists]
 title: Grenade
 version: 1.2
 website: ''

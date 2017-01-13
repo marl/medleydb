@@ -51,14 +51,14 @@ stems:
   S04:
     component: melody
     filename: Tesla_ModernDayCowboy_STEM_04.wav
-    instrument: male singer distorted electric guitar
+    instrument: [male singer, distorted electric guitar]
     raw:
       R01:
         filename: Tesla_ModernDayCowboy_RAW_04_01.wav
-        instrument: male singer distorted electric guitar
+        instrument: [male singer, distorted electric guitar]
       R02:
         filename: Tesla_ModernDayCowboy_RAW_04_02.wav
-        instrument: male singer distorted electric guitar
+        instrument: [male singer, distorted electric guitar]
 title: Modern Day Cowboy
 version: 1.2
 website: ''

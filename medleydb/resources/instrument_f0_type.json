@@ -112,6 +112,13 @@
     "fx/processed sound": "u",
     "scratches": "u",
     "sampler": "p",
+    "snaps": "u",
+    "crowd": "m",
+    "choir": "p",
+    "male screamer": "m",
+    "female screamer": "m",
+    "dilruba": "p",
+    "sitar": "p",
     "Main System": "",
     "Unlabeled": ""
 }
