@@ -1,6 +1,7 @@
 """Tests for medleydb.download
 """
 import os
+import shutil
 import unittest
 from pydrive.auth import AuthenticationError
 
@@ -47,6 +48,9 @@ class TestMakeMtrackBasedir(unittest.TestCase):
     def test_make_mtrack_basedir(self):
         mtrack = MultiTrack('MusicDelta_Rock')
 
+        if os.path.exists(mtrack.audio_path):
+            shutil.rmtree(mtrack.audio_path)
+
         self.assertFalse(os.path.exists(mtrack.audio_path))
         self.assertFalse(os.path.exists(mtrack._stem_dir_path))
         self.assertFalse(os.path.exists(mtrack._raw_dir_path))
@@ -56,6 +60,22 @@ class TestMakeMtrackBasedir(unittest.TestCase):
         self.assertTrue(os.path.exists(mtrack.audio_path))
         self.assertTrue(os.path.exists(mtrack._stem_dir_path))
         self.assertTrue(os.path.exists(mtrack._raw_dir_path))
+
+
+class TestDownloadMetadata(unittest.TestCase):
+    def test_existing(self):
+        mtrack = MultiTrack('LizNelson_Rainfall')
+        download._download_metadata(mtrack.track_id, mtrack.dataset_version)
+        self.assertTrue(os.path.exists(mtrack.mix_path))
+
+    def test_not_in_tracklist(self):
+        mtrack = MultiTrack('MusicDelta_Beethoven')
+        mtrack.dataset_version = 'asdf'
+        with self.assertRaises(IOError):
+            download._download_metadata(mtrack.track_id, mtrack.dataset_version)
+
+    def test_failed_download(self):
+        pass
 
 
 class TestDownloadMix(unittest.TestCase):
