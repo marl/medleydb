@@ -9,7 +9,6 @@ mix_filename: AHa_TakeOnMe_MIX.wav
 origin: Mogg
 producer: ''
 raw_dir: AHa_TakeOnMe_RAW
-release date: null
 stem_dir: AHa_TakeOnMe_STEMS
 stems:
   S01:
@@ -26,14 +25,20 @@ stems:
   S02:
     component: melody
     filename: AHa_TakeOnMe_STEM_02.wav
-    instrument: [male singer, vocalists]
+    instrument:
+    - male singer
+    - vocalists
     raw:
       R01:
         filename: AHa_TakeOnMe_RAW_02_01.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
       R02:
         filename: AHa_TakeOnMe_RAW_02_02.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
   S03:
     component: bass
     filename: AHa_TakeOnMe_STEM_03.wav

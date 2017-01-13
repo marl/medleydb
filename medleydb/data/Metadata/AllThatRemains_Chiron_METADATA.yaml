@@ -9,7 +9,6 @@ mix_filename: AllThatRemains_Chiron_MIX.wav
 origin: Mogg
 producer: ''
 raw_dir: AllThatRemains_Chiron_RAW
-release date: null
 stem_dir: AllThatRemains_Chiron_STEMS
 stems:
   S01:
@@ -51,25 +50,40 @@ stems:
   S04:
     component: melody
     filename: AllThatRemains_Chiron_STEM_04.wav
-    instrument: [male singer, male screamer]
+    instrument:
+    - male singer
+    - male screamer
     raw:
       R01:
         filename: AllThatRemains_Chiron_RAW_04_01.wav
-        instrument: [male singer, male screamer]
+        instrument:
+        - male singer
+        - male screamer
       R02:
         filename: AllThatRemains_Chiron_RAW_04_02.wav
-        instrument: [male singer, male screamer]
+        instrument:
+        - male singer
+        - male screamer
   S05:
     component: ''
     filename: AllThatRemains_Chiron_STEM_05.wav
-    instrument: [high hat, distorted electric guitar, acoustic guitar]
+    instrument:
+    - high hat
+    - distorted electric guitar
+    - acoustic guitar
     raw:
       R01:
         filename: AllThatRemains_Chiron_RAW_05_01.wav
-        instrument: [high hat, distorted electric guitar, acoustic guitar]
+        instrument:
+        - high hat
+        - distorted electric guitar
+        - acoustic guitar
       R02:
         filename: AllThatRemains_Chiron_RAW_05_02.wav
-        instrument: [high hat, distorted electric guitar, acoustic guitar]
+        instrument:
+        - high hat
+        - distorted electric guitar
+        - acoustic guitar
 title: Chiron
 version: 1.2
 website: ''

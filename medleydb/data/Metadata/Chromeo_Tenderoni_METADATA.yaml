@@ -9,7 +9,6 @@ mix_filename: Chromeo_Tenderoni_MIX.wav
 origin: Mogg
 producer: ''
 raw_dir: Chromeo_Tenderoni_RAW
-release date: null
 stem_dir: Chromeo_Tenderoni_STEMS
 stems:
   S01:
@@ -94,14 +93,20 @@ stems:
   S06:
     component: melody
     filename: Chromeo_Tenderoni_STEM_06.wav
-    instrument: [male singer, vocalists]
+    instrument:
+    - male singer
+    - vocalists
     raw:
       R01:
         filename: Chromeo_Tenderoni_RAW_06_01.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
       R02:
         filename: Chromeo_Tenderoni_RAW_06_02.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
 title: Tenderoni
 version: 1.2
 website: ''

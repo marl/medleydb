@@ -9,7 +9,6 @@ mix_filename: Aerosmith_LoveInAnElevator_MIX.wav
 origin: Mogg
 producer: ''
 raw_dir: Aerosmith_LoveInAnElevator_RAW
-release date: null
 stem_dir: Aerosmith_LoveInAnElevator_STEMS
 stems:
   S01:
@@ -66,25 +65,49 @@ stems:
   S04:
     component: ''
     filename: Aerosmith_LoveInAnElevator_STEM_04.wav
-    instrument: [female speaker, distorted electric guitar, drum set, piano, synthesizer, shaker]
+    instrument:
+    - female speaker
+    - distorted electric guitar
+    - drum set
+    - piano
+    - synthesizer
+    - shaker
     raw:
       R01:
         filename: Aerosmith_LoveInAnElevator_RAW_04_01.wav
-        instrument: [female speaker, distorted electric guitar, drum set, piano, synthesizer, shaker]
+        instrument:
+        - female speaker
+        - distorted electric guitar
+        - drum set
+        - piano
+        - synthesizer
+        - shaker
       R02:
         filename: Aerosmith_LoveInAnElevator_RAW_04_02.wav
-        instrument: [female speaker, distorted electric guitar, drum set, piano, synthesizer, shaker]
+        instrument:
+        - female speaker
+        - distorted electric guitar
+        - drum set
+        - piano
+        - synthesizer
+        - shaker
   S05:
     component: melody
     filename: Aerosmith_LoveInAnElevator_STEM_05.wav
-    instrument: [male singer, vocalists]
+    instrument:
+    - male singer
+    - vocalists
     raw:
       R01:
         filename: Aerosmith_LoveInAnElevator_RAW_05_01.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
       R02:
         filename: Aerosmith_LoveInAnElevator_RAW_05_02.wav
-        instrument: [male singer, vocalists]
+        instrument:
+        - male singer
+        - vocalists
 title: Love in an Elevator
 version: 1.2
 website: ''

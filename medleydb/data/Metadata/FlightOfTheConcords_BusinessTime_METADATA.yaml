@@ -9,7 +9,6 @@ mix_filename: FlightOfTheConcords_BusinessTime_MIX.wav
 origin: Mogg
 producer: ''
 raw_dir: FlightOfTheConcords_BusinessTime_RAW
-release date: null
 stem_dir: FlightOfTheConcords_BusinessTime_STEMS
 stems:
   S01:
@@ -71,14 +70,20 @@ stems:
   S05:
     component: melody
     filename: FlightOfTheConcords_BusinessTime_STEM_05.wav
-    instrument: [male singer, male speaker]
+    instrument:
+    - male singer
+    - male speaker
     raw:
       R01:
         filename: FlightOfTheConcords_BusinessTime_RAW_05_01.wav
-        instrument: [male singer, male speaker]
+        instrument:
+        - male singer
+        - male speaker
       R02:
         filename: FlightOfTheConcords_BusinessTime_RAW_05_02.wav
-        instrument: [male singer, male speaker]
+        instrument:
+        - male singer
+        - male speaker
 title: Business Time
 version: 1.2
 website: ''
