@@ -45,11 +45,10 @@ def purge_downloaded_files():
     for fpath in DOWNLOADED_FILEPATHS:
         if os.path.exists(fpath):
             os.remove(fpath)
-        DOWNLOADED_FILEPATHS.remove(fpath)
 
 
 def check_basedir_writeable():
-    """Check if the AUDIO_PATH exists and is writeable. 
+    """Check if the AUDIO_PATH exists and is writeable.
     If it doesn't exist, this tries to create it.
 
     Returns
