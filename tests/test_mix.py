@@ -96,6 +96,22 @@ class TestBuildMixArgs(unittest.TestCase):
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
 
+    def test_defaults_no_mixing_coeffs(self):
+        mtrack = multitrack.MultiTrack('AHa_TakeOnMe')
+        actual_filepaths, actual_weights = mix._build_mix_args(
+            mtrack, None, None, None, None
+        )
+        expected_filepaths = [
+            os.path.join(AUDIO_PATH, 'AHa_TakeOnMe',
+                         'AHa_TakeOnMe_STEMS',
+                         'AHa_TakeOnMe_STEM_{}.wav'.format(i))
+            for i in ['01', '02', '03', '04', '05', '06']
+        ]
+        expected_weights = [1, 1, 1, 1, 1, 1]
+        self.assertEqual(expected_filepaths, actual_filepaths)
+        self.assertEqual(expected_weights, actual_weights)
+
+
     def test_less_stems(self):
         actual_filepaths, actual_weights = mix._build_mix_args(
             self.mtrack, [2, 4], None, None, None
