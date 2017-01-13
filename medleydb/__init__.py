@@ -84,6 +84,8 @@ GRDIVE_CONFIG_PATH = path.join(
     path.dirname(__file__), 'resources', 'client_secrets.json'
 )
 
+PYIN_N3_PATH = path.join(path.dirname(__file__), 'resources', 'pyin.n3')
+
 # Audio is downloaded separately and is not version controlled :'(.
 # This is the motivation for requesting the user to set the MEDLEYDB_PATH
 if AUDIO_AVAILABLE:

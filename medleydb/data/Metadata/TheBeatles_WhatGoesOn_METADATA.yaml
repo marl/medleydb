@@ -1,0 +1,71 @@
+album: None
+artist: The Beatles
+composer: ''
+excerpt: 'no'
+genre: Rock
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: TheBeatles_WhatGoesOn_MIX.wav
+origin: Mogg
+producer: ''
+raw_dir: TheBeatles_WhatGoesOn_RAW
+stem_dir: TheBeatles_WhatGoesOn_STEMS
+stems:
+  S01:
+    component: ''
+    filename: TheBeatles_WhatGoesOn_STEM_01.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: TheBeatles_WhatGoesOn_RAW_01_01.wav
+        instrument: drum set
+      R02:
+        filename: TheBeatles_WhatGoesOn_RAW_01_02.wav
+        instrument: drum set
+  S02:
+    component: bass
+    filename: TheBeatles_WhatGoesOn_STEM_02.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: TheBeatles_WhatGoesOn_RAW_02_01.wav
+        instrument: electric bass
+      R02:
+        filename: TheBeatles_WhatGoesOn_RAW_02_02.wav
+        instrument: electric bass
+  S03:
+    component: melody
+    filename: TheBeatles_WhatGoesOn_STEM_03.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: TheBeatles_WhatGoesOn_RAW_03_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: TheBeatles_WhatGoesOn_RAW_03_02.wav
+        instrument: clean electric guitar
+  S04:
+    component: melody
+    filename: TheBeatles_WhatGoesOn_STEM_04.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: TheBeatles_WhatGoesOn_RAW_04_01.wav
+        instrument: vocalists
+      R02:
+        filename: TheBeatles_WhatGoesOn_RAW_04_02.wav
+        instrument: vocalists
+  S05:
+    component: ''
+    filename: TheBeatles_WhatGoesOn_STEM_05.wav
+    instrument: male speaker
+    raw:
+      R01:
+        filename: TheBeatles_WhatGoesOn_RAW_05_01.wav
+        instrument: male speaker
+      R02:
+        filename: TheBeatles_WhatGoesOn_RAW_05_02.wav
+        instrument: male speaker
+title: What Goes On
+version: 1.2
+website: ''

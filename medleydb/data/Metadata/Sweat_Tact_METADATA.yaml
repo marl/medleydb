@@ -1,0 +1,268 @@
+album: Miiiiiiiike
+artist: SWEAT
+composer: ''
+excerpt: 'no'
+genre: Jazz
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: Sweat_Tact_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: Sweat_Tact_RAW
+stem_dir: Sweat_Tact_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Sweat_Tact_STEM_01.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_01_01.wav
+        instrument: Main System
+      R02:
+        filename: Sweat_Tact_RAW_01_02.wav
+        instrument: Main System
+      R03:
+        filename: Sweat_Tact_RAW_01_03.wav
+        instrument: Main System
+      R04:
+        filename: Sweat_Tact_RAW_01_04.wav
+        instrument: Main System
+  S02:
+    component: melody
+    filename: Sweat_Tact_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Sweat_Tact_RAW_02_02.wav
+        instrument: piano
+      R03:
+        filename: Sweat_Tact_RAW_02_03.wav
+        instrument: piano
+      R04:
+        filename: Sweat_Tact_RAW_02_04.wav
+        instrument: piano
+      R05:
+        filename: Sweat_Tact_RAW_02_05.wav
+        instrument: piano
+      R06:
+        filename: Sweat_Tact_RAW_02_06.wav
+        instrument: piano
+      R07:
+        filename: Sweat_Tact_RAW_02_07.wav
+        instrument: piano
+      R08:
+        filename: Sweat_Tact_RAW_02_08.wav
+        instrument: piano
+  S03:
+    component: melody
+    filename: Sweat_Tact_STEM_03.wav
+    instrument: tenor saxophone
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_03_01.wav
+        instrument: tenor saxophone
+      R02:
+        filename: Sweat_Tact_RAW_03_02.wav
+        instrument: tenor saxophone
+      R03:
+        filename: Sweat_Tact_RAW_03_03.wav
+        instrument: tenor saxophone
+      R04:
+        filename: Sweat_Tact_RAW_03_04.wav
+        instrument: tenor saxophone
+      R05:
+        filename: Sweat_Tact_RAW_03_05.wav
+        instrument: tenor saxophone
+      R06:
+        filename: Sweat_Tact_RAW_03_06.wav
+        instrument: tenor saxophone
+  S04:
+    component: melody
+    filename: Sweat_Tact_STEM_04.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_04_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: Sweat_Tact_RAW_04_02.wav
+        instrument: clean electric guitar
+      R03:
+        filename: Sweat_Tact_RAW_04_03.wav
+        instrument: clean electric guitar
+      R04:
+        filename: Sweat_Tact_RAW_04_04.wav
+        instrument: clean electric guitar
+      R05:
+        filename: Sweat_Tact_RAW_04_05.wav
+        instrument: clean electric guitar
+      R06:
+        filename: Sweat_Tact_RAW_04_06.wav
+        instrument: clean electric guitar
+      R07:
+        filename: Sweat_Tact_RAW_04_07.wav
+        instrument: clean electric guitar
+      R08:
+        filename: Sweat_Tact_RAW_04_08.wav
+        instrument: clean electric guitar
+  S05:
+    component: ''
+    filename: Sweat_Tact_STEM_05.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_05_01.wav
+        instrument: drum set
+      R02:
+        filename: Sweat_Tact_RAW_05_02.wav
+        instrument: drum set
+      R03:
+        filename: Sweat_Tact_RAW_05_03.wav
+        instrument: drum set
+      R04:
+        filename: Sweat_Tact_RAW_05_04.wav
+        instrument: drum set
+      R05:
+        filename: Sweat_Tact_RAW_05_05.wav
+        instrument: drum set
+      R06:
+        filename: Sweat_Tact_RAW_05_06.wav
+        instrument: drum set
+      R07:
+        filename: Sweat_Tact_RAW_05_07.wav
+        instrument: drum set
+      R08:
+        filename: Sweat_Tact_RAW_05_08.wav
+        instrument: drum set
+      R09:
+        filename: Sweat_Tact_RAW_05_09.wav
+        instrument: drum set
+      R10:
+        filename: Sweat_Tact_RAW_05_10.wav
+        instrument: drum set
+      R11:
+        filename: Sweat_Tact_RAW_05_11.wav
+        instrument: drum set
+      R12:
+        filename: Sweat_Tact_RAW_05_12.wav
+        instrument: drum set
+      R13:
+        filename: Sweat_Tact_RAW_05_13.wav
+        instrument: drum set
+      R14:
+        filename: Sweat_Tact_RAW_05_14.wav
+        instrument: drum set
+      R15:
+        filename: Sweat_Tact_RAW_05_15.wav
+        instrument: drum set
+      R16:
+        filename: Sweat_Tact_RAW_05_16.wav
+        instrument: drum set
+      R17:
+        filename: Sweat_Tact_RAW_05_17.wav
+        instrument: drum set
+      R18:
+        filename: Sweat_Tact_RAW_05_18.wav
+        instrument: drum set
+      R19:
+        filename: Sweat_Tact_RAW_05_19.wav
+        instrument: drum set
+      R20:
+        filename: Sweat_Tact_RAW_05_20.wav
+        instrument: drum set
+      R21:
+        filename: Sweat_Tact_RAW_05_21.wav
+        instrument: drum set
+      R22:
+        filename: Sweat_Tact_RAW_05_22.wav
+        instrument: drum set
+      R23:
+        filename: Sweat_Tact_RAW_05_23.wav
+        instrument: drum set
+      R24:
+        filename: Sweat_Tact_RAW_05_24.wav
+        instrument: drum set
+  S06:
+    component: ''
+    filename: Sweat_Tact_STEM_06.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: Sweat_Tact_RAW_06_01.wav
+        instrument: Main System
+      R02:
+        filename: Sweat_Tact_RAW_06_02.wav
+        instrument: Main System
+      R03:
+        filename: Sweat_Tact_RAW_06_03.wav
+        instrument: Main System
+      R04:
+        filename: Sweat_Tact_RAW_06_04.wav
+        instrument: Main System
+      R05:
+        filename: Sweat_Tact_RAW_06_05.wav
+        instrument: Main System
+      R06:
+        filename: Sweat_Tact_RAW_06_06.wav
+        instrument: Main System
+      R07:
+        filename: Sweat_Tact_RAW_06_07.wav
+        instrument: Main System
+      R08:
+        filename: Sweat_Tact_RAW_06_08.wav
+        instrument: Main System
+      R09:
+        filename: Sweat_Tact_RAW_06_09.wav
+        instrument: Main System
+      R10:
+        filename: Sweat_Tact_RAW_06_10.wav
+        instrument: Main System
+      R11:
+        filename: Sweat_Tact_RAW_06_11.wav
+        instrument: Main System
+      R12:
+        filename: Sweat_Tact_RAW_06_12.wav
+        instrument: Main System
+      R13:
+        filename: Sweat_Tact_RAW_06_13.wav
+        instrument: Main System
+      R14:
+        filename: Sweat_Tact_RAW_06_14.wav
+        instrument: Main System
+      R15:
+        filename: Sweat_Tact_RAW_06_15.wav
+        instrument: Main System
+      R16:
+        filename: Sweat_Tact_RAW_06_16.wav
+        instrument: Main System
+      R17:
+        filename: Sweat_Tact_RAW_06_17.wav
+        instrument: Main System
+      R18:
+        filename: Sweat_Tact_RAW_06_18.wav
+        instrument: Main System
+      R19:
+        filename: Sweat_Tact_RAW_06_19.wav
+        instrument: Main System
+      R20:
+        filename: Sweat_Tact_RAW_06_20.wav
+        instrument: Main System
+      R21:
+        filename: Sweat_Tact_RAW_06_21.wav
+        instrument: Main System
+      R22:
+        filename: Sweat_Tact_RAW_06_22.wav
+        instrument: Main System
+      R23:
+        filename: Sweat_Tact_RAW_06_23.wav
+        instrument: Main System
+      R24:
+        filename: Sweat_Tact_RAW_06_24.wav
+        instrument: Main System
+title: Tact
+version: 1.2
+website: ''

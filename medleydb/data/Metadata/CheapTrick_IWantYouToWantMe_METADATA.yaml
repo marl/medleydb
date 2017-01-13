@@ -1,0 +1,83 @@
+album: ''
+artist: Cheap Trick
+composer: ''
+excerpt: 'no'
+genre: Rock
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: CheapTrick_IWantYouToWantMe_MIX.wav
+origin: Mogg
+producer: ''
+raw_dir: CheapTrick_IWantYouToWantMe_RAW
+stem_dir: CheapTrick_IWantYouToWantMe_STEMS
+stems:
+  S01:
+    component: ''
+    filename: CheapTrick_IWantYouToWantMe_STEM_01.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_01.wav
+        instrument: kick drum
+      R02:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_02.wav
+        instrument: kick drum
+      R03:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_03.wav
+        instrument: snare drum
+      R04:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_04.wav
+        instrument: snare drum
+      R05:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_05.wav
+        instrument: high hat
+      R06:
+        filename: CheapTrick_IWantYouToWantMe_RAW_01_06.wav
+        instrument: high hat
+  S02:
+    component: ''
+    filename: CheapTrick_IWantYouToWantMe_STEM_02.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: CheapTrick_IWantYouToWantMe_RAW_02_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: CheapTrick_IWantYouToWantMe_RAW_02_02.wav
+        instrument: distorted electric guitar
+  S03:
+    component: bass
+    filename: CheapTrick_IWantYouToWantMe_STEM_03.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: CheapTrick_IWantYouToWantMe_RAW_03_01.wav
+        instrument: electric bass
+      R02:
+        filename: CheapTrick_IWantYouToWantMe_RAW_03_02.wav
+        instrument: electric bass
+  S04:
+    component: melody
+    filename: CheapTrick_IWantYouToWantMe_STEM_04.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: CheapTrick_IWantYouToWantMe_RAW_04_01.wav
+        instrument: male singer
+      R02:
+        filename: CheapTrick_IWantYouToWantMe_RAW_04_02.wav
+        instrument: male singer
+  S05:
+    component: ''
+    filename: CheapTrick_IWantYouToWantMe_STEM_05.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: CheapTrick_IWantYouToWantMe_RAW_05_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: CheapTrick_IWantYouToWantMe_RAW_05_02.wav
+        instrument: distorted electric guitar
+title: I Want You To Want Me
+version: 1.2
+website: ''

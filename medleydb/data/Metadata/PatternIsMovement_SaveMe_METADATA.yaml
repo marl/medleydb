@@ -1,0 +1,151 @@
+album: Weathervane
+artist: Pattern Is Movement
+composer: ''
+excerpt: 'no'
+genre: Electronic/Fusion
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: PatternIsMovement_SaveMe_MIX.wav
+origin: Weathervane Music
+producer: ''
+raw_dir: PatternIsMovement_SaveMe_RAW
+stem_dir: PatternIsMovement_SaveMe_STEMS
+stems:
+  S01:
+    component: bass
+    filename: PatternIsMovement_SaveMe_STEM_01.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_01_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_01_02.wav
+        instrument: electronic organ
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_01_03.wav
+        instrument: electronic organ
+  S02:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_02.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_02_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_02_02.wav
+        instrument: electronic organ
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_02_03.wav
+        instrument: electronic organ
+  S03:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_03.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_03_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_03_02.wav
+        instrument: electronic organ
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_03_03.wav
+        instrument: electronic organ
+  S04:
+    component: melody
+    filename: PatternIsMovement_SaveMe_STEM_04.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_04_01.wav
+        instrument: male singer
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_04_02.wav
+        instrument: male singer
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_04_03.wav
+        instrument: male singer
+  S05:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_05.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_05_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_05_02.wav
+        instrument: electronic organ
+  S06:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_06.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_06_01.wav
+        instrument: drum set
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_06_02.wav
+        instrument: drum set
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_06_03.wav
+        instrument: drum set
+      R04:
+        filename: PatternIsMovement_SaveMe_RAW_06_04.wav
+        instrument: drum set
+      R05:
+        filename: PatternIsMovement_SaveMe_RAW_06_05.wav
+        instrument: drum set
+      R06:
+        filename: PatternIsMovement_SaveMe_RAW_06_06.wav
+        instrument: drum set
+      R07:
+        filename: PatternIsMovement_SaveMe_RAW_06_07.wav
+        instrument: drum set
+      R08:
+        filename: PatternIsMovement_SaveMe_RAW_06_08.wav
+        instrument: drum set
+      R09:
+        filename: PatternIsMovement_SaveMe_RAW_06_09.wav
+        instrument: drum set
+  S07:
+    component: melody
+    filename: PatternIsMovement_SaveMe_STEM_07.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_07_01.wav
+        instrument: male singer
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_07_02.wav
+        instrument: male singer
+  S08:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_08.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_08_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_08_02.wav
+        instrument: electronic organ
+  S09:
+    component: ''
+    filename: PatternIsMovement_SaveMe_STEM_09.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: PatternIsMovement_SaveMe_RAW_09_01.wav
+        instrument: electronic organ
+      R02:
+        filename: PatternIsMovement_SaveMe_RAW_09_02.wav
+        instrument: electronic organ
+      R03:
+        filename: PatternIsMovement_SaveMe_RAW_09_03.wav
+        instrument: electronic organ
+title: Save Me
+version: 1.2
+website: ''

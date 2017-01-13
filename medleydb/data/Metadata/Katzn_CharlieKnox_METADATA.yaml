@@ -1,0 +1,91 @@
+album: Dolan 2015
+artist: Katzn
+composer: ''
+excerpt: 'yes'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: Katzn_CharlieKnox_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: Katzn_CharlieKnox_RAW
+stem_dir: Katzn_CharlieKnox_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Katzn_CharlieKnox_STEM_01.wav
+    instrument: auxiliary percussion
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_01_01.wav
+        instrument: auxiliary percussion
+      R02:
+        filename: Katzn_CharlieKnox_RAW_01_02.wav
+        instrument: auxiliary percussion
+      R03:
+        filename: Katzn_CharlieKnox_RAW_01_03.wav
+        instrument: auxiliary percussion
+      R04:
+        filename: Katzn_CharlieKnox_RAW_01_04.wav
+        instrument: auxiliary percussion
+      R05:
+        filename: Katzn_CharlieKnox_RAW_01_05.wav
+        instrument: auxiliary percussion
+      R06:
+        filename: Katzn_CharlieKnox_RAW_01_06.wav
+        instrument: auxiliary percussion
+  S02:
+    component: melody
+    filename: Katzn_CharlieKnox_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Katzn_CharlieKnox_RAW_02_02.wav
+        instrument: piano
+  S03:
+    component: ''
+    filename: Katzn_CharlieKnox_STEM_03.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_03_01.wav
+        instrument: Main System
+      R02:
+        filename: Katzn_CharlieKnox_RAW_03_02.wav
+        instrument: Main System
+  S04:
+    component: melody
+    filename: Katzn_CharlieKnox_STEM_04.wav
+    instrument: clarinet
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_04_01.wav
+        instrument: clarinet
+      R02:
+        filename: Katzn_CharlieKnox_RAW_04_02.wav
+        instrument: clarinet
+  S05:
+    component: melody
+    filename: Katzn_CharlieKnox_STEM_05.wav
+    instrument: violin
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_05_01.wav
+        instrument: violin
+  S06:
+    component: melody
+    filename: Katzn_CharlieKnox_STEM_06.wav
+    instrument: cello
+    raw:
+      R01:
+        filename: Katzn_CharlieKnox_RAW_06_01.wav
+        instrument: cello
+      R02:
+        filename: Katzn_CharlieKnox_RAW_06_02.wav
+        instrument: cello
+title: Charlie Knox
+version: 1.2
+website: ''

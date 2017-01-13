@@ -1,0 +1,44 @@
+album: ' '
+artist: Verdi
+composer: ''
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'no'
+mix_filename: Verdi_IlTrovatore_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: Verdi_IlTrovatore_RAW
+stem_dir: Verdi_IlTrovatore_STEMS
+stems:
+  S01:
+    component: melody
+    filename: Verdi_IlTrovatore_STEM_01.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: Verdi_IlTrovatore_RAW_01_01.wav
+        instrument: female singer
+      R02:
+        filename: Verdi_IlTrovatore_RAW_01_02.wav
+        instrument: female singer
+      R03:
+        filename: Verdi_IlTrovatore_RAW_01_03.wav
+        instrument: female singer
+      R04:
+        filename: Verdi_IlTrovatore_RAW_01_04.wav
+        instrument: female singer
+  S02:
+    component: ''
+    filename: Verdi_IlTrovatore_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Verdi_IlTrovatore_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: Verdi_IlTrovatore_RAW_02_02.wav
+        instrument: piano
+title: Il Trovatore
+version: 1.2
+website: ''

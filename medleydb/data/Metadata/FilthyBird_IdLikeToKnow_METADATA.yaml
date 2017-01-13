@@ -1,0 +1,153 @@
+album: Weathervane
+artist: Filthy Bird
+composer: ''
+excerpt: 'no'
+genre: Rock
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: FilthyBird_IdLikeToKnow_MIX.wav
+origin: Weathervane Music
+producer: ''
+raw_dir: FilthyBird_IdLikeToKnow_RAW
+stem_dir: FilthyBird_IdLikeToKnow_STEMS
+stems:
+  S01:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_01_01.wav
+        instrument: acoustic guitar
+  S02:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_02.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_01.wav
+        instrument: female singer
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_02.wav
+        instrument: female singer
+      R03:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_03.wav
+        instrument: female singer
+      R04:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_04.wav
+        instrument: female singer
+      R05:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_05.wav
+        instrument: female singer
+      R06:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_06.wav
+        instrument: female singer
+      R07:
+        filename: FilthyBird_IdLikeToKnow_RAW_02_07.wav
+        instrument: female singer
+  S03:
+    component: ''
+    filename: FilthyBird_IdLikeToKnow_STEM_03.wav
+    instrument: tambourine
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_03_01.wav
+        instrument: tambourine
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_03_02.wav
+        instrument: tambourine
+  S04:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_04.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_04_01.wav
+        instrument: distorted electric guitar
+  S05:
+    component: ''
+    filename: FilthyBird_IdLikeToKnow_STEM_05.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_01.wav
+        instrument: drum set
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_02.wav
+        instrument: drum set
+      R03:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_03.wav
+        instrument: drum set
+      R04:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_04.wav
+        instrument: drum set
+      R05:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_05.wav
+        instrument: drum set
+      R06:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_06.wav
+        instrument: drum set
+      R07:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_07.wav
+        instrument: drum set
+      R08:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_08.wav
+        instrument: drum set
+      R09:
+        filename: FilthyBird_IdLikeToKnow_RAW_05_09.wav
+        instrument: drum set
+  S06:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_06.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_06_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_06_02.wav
+        instrument: distorted electric guitar
+  S07:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_07.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_07_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_07_02.wav
+        instrument: distorted electric guitar
+  S08:
+    component: bass
+    filename: FilthyBird_IdLikeToKnow_STEM_08.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_08_01.wav
+        instrument: electric bass
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_08_02.wav
+        instrument: electric bass
+  S09:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_09.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_09_01.wav
+        instrument: female singer
+      R02:
+        filename: FilthyBird_IdLikeToKnow_RAW_09_02.wav
+        instrument: female singer
+  S10:
+    component: melody
+    filename: FilthyBird_IdLikeToKnow_STEM_10.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: FilthyBird_IdLikeToKnow_RAW_10_01.wav
+        instrument: distorted electric guitar
+title: I'd Like To Know
+version: 1.2
+website: ''

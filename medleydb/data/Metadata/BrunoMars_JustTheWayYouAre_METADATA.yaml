@@ -1,0 +1,94 @@
+album: ''
+artist: Bruno Mars
+composer: ''
+excerpt: 'no'
+genre: Pop
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: BrunoMars_JustTheWayYouAre_MIX.wav
+origin: Mogg
+producer: ''
+raw_dir: BrunoMars_JustTheWayYouAre_RAW
+stem_dir: BrunoMars_JustTheWayYouAre_STEMS
+stems:
+  S01:
+    component: ''
+    filename: BrunoMars_JustTheWayYouAre_STEM_01.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_01_01.wav
+        instrument: kick drum
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_01_02.wav
+        instrument: kick drum
+      R03:
+        filename: BrunoMars_JustTheWayYouAre_RAW_01_03.wav
+        instrument: drum set
+      R04:
+        filename: BrunoMars_JustTheWayYouAre_RAW_01_04.wav
+        instrument: drum set
+  S02:
+    component: ''
+    filename: BrunoMars_JustTheWayYouAre_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_02_02.wav
+        instrument: piano
+  S03:
+    component: bass
+    filename: BrunoMars_JustTheWayYouAre_STEM_03.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_03_01.wav
+        instrument: electric bass
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_03_02.wav
+        instrument: electric bass
+  S04:
+    component: melody
+    filename: BrunoMars_JustTheWayYouAre_STEM_04.wav
+    instrument:
+    - male singer
+    - vocalists
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_04_01.wav
+        instrument:
+        - male singer
+        - vocalists
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_04_02.wav
+        instrument:
+        - male singer
+        - vocalists
+  S05:
+    component: ''
+    filename: BrunoMars_JustTheWayYouAre_STEM_05.wav
+    instrument: synthesizer
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_05_01.wav
+        instrument: synthesizer
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_05_02.wav
+        instrument: synthesizer
+  S06:
+    component: ''
+    filename: BrunoMars_JustTheWayYouAre_STEM_06.wav
+    instrument: Unlabeled
+    raw:
+      R01:
+        filename: BrunoMars_JustTheWayYouAre_RAW_06_01.wav
+        instrument: Unlabeled
+      R02:
+        filename: BrunoMars_JustTheWayYouAre_RAW_06_02.wav
+        instrument: Unlabeled
+title: Just The Way You Are
+version: 1.2
+website: ''

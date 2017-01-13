@@ -1,0 +1,38 @@
+album: ''
+artist: Matthew Entwistle
+composer: ''
+excerpt: 'no'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: MatthewEntwistle_ReturnToVenezia_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: MatthewEntwistle_ReturnToVenezia_RAW
+stem_dir: MatthewEntwistle_ReturnToVenezia_STEMS
+stems:
+  S01:
+    component: melody
+    filename: MatthewEntwistle_ReturnToVenezia_STEM_01.wav
+    instrument: viola
+    raw:
+      R01:
+        filename: MatthewEntwistle_ReturnToVenezia_RAW_01_01.wav
+        instrument: viola
+      R02:
+        filename: MatthewEntwistle_ReturnToVenezia_RAW_01_02.wav
+        instrument: viola
+  S02:
+    component: melody
+    filename: MatthewEntwistle_ReturnToVenezia_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: MatthewEntwistle_ReturnToVenezia_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: MatthewEntwistle_ReturnToVenezia_RAW_02_02.wav
+        instrument: piano
+title: Return To Venezia
+version: 1.2
+website: ''

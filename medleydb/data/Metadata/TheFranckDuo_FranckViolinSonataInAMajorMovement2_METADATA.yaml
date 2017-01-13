@@ -1,0 +1,55 @@
+album: Dolan 2015
+artist: The Franck Duo
+composer: ''
+excerpt: 'yes'
+genre: Classical
+has_bleed: 'yes'
+instrumental: 'yes'
+mix_filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_MIX.wav
+origin: Dolan Studio
+producer: ''
+raw_dir: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW
+stem_dir: TheFranckDuo_FranckViolinSonataInAMajorMovement2_STEMS
+stems:
+  S01:
+    component: ''
+    filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_STEM_01.wav
+    instrument: Main System
+    raw:
+      R01:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_01_01.wav
+        instrument: Main System
+      R02:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_01_02.wav
+        instrument: Main System
+      R03:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_01_03.wav
+        instrument: Main System
+      R04:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_01_04.wav
+        instrument: Main System
+  S02:
+    component: melody
+    filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_STEM_02.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_02_01.wav
+        instrument: piano
+      R02:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_02_02.wav
+        instrument: piano
+  S03:
+    component: melody
+    filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_STEM_03.wav
+    instrument: violin
+    raw:
+      R01:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_03_01.wav
+        instrument: violin
+      R02:
+        filename: TheFranckDuo_FranckViolinSonataInAMajorMovement2_RAW_03_02.wav
+        instrument: violin
+title: Franck Violin Sonata in A Major Movement 2
+version: 1.2
+website: ''

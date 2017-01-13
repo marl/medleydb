@@ -102,7 +102,15 @@ def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
         if index in alternate_weights.keys():
             weights.append(alternate_weights[index])
         else:
-            weights.append(mtrack.stems[index].mixing_coefficient)
+            if mtrack.stems[index].mixing_coefficient is not None:
+                mix_coeff = mtrack.stems[index].mixing_coefficient
+            else:
+                print(
+                    '[Warning] Multitrack does not have mixing coefficients. '
+                    'Using uniform stem weights.'
+                )
+                mix_coeff = 1
+            weights.append(mix_coeff)
 
     if additional_files is not None:
         for fpath, weight in additional_files:
@@ -153,7 +161,11 @@ def mix_melody_stems(mtrack, output_path, max_melody_stems=None,
 
         this_stem_index = inverse_ranking[i]
         if require_mono:
-            if mtrack.stems[this_stem_index].f0_type == 'm':
+            mono = all([
+                f0_type == 'm' for f0_type
+                in mtrack.stems[this_stem_index].f0_type
+            ])
+            if mono:
                 stem_indices.append(this_stem_index)
                 melody_indices.append(this_stem_index)
                 n_chosen += 1
@@ -201,10 +213,20 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
     stem_indices = []
     mono_indices = []
     for i in stems.keys():
-        if stems[i].f0_type == 'm':
+        print(stems[i].instrument)
+        print(stems[i].f0_type)
+        mono = all([
+            f0_type == 'm' for f0_type in mtrack.stems[i].f0_type
+        ])
+        unvoiced = all([
+            f0_type == 'u' for f0_type in mtrack.stems[i].f0_type
+        ])
+        print(mono)
+        print(unvoiced)
+        if mono:
             stem_indices.append(i)
             mono_indices.append(i)
-        elif include_percussion and stems[i].f0_type == 'u':
+        elif include_percussion and unvoiced:
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
@@ -231,7 +253,8 @@ def mix_no_vocals(mtrack, output_path):
     stems = mtrack.stems
     stem_indices = []
     for i in stems.keys():
-        if stems[i].instrument not in VOCALS:
+        not_vocal = all([inst not in VOCALS for inst in stems[i].instrument])
+        if not_vocal:
             stem_indices.append(i)
 
     mix_multitrack(mtrack, output_path, stem_indices=stem_indices)
@@ -260,7 +283,8 @@ def remix_vocals(mtrack, output_path, vocals_scale):
     stems = mtrack.stems
     alternate_weights = {}
     for i in stems.keys():
-        if stems[i].instrument in VOCALS:
+        vocal = any([inst in VOCALS for inst in stems[i].instrument])
+        if vocal:
             vocal_weight = stems[i].mixing_coefficient * vocals_scale
             alternate_weights[i] = vocal_weight
 

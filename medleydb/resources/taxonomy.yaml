@@ -10,6 +10,7 @@ strings:
     - viola section
     - cello section
     - string section
+    - dilruba
   plucked:
     - acoustic guitar
     - banjo
@@ -22,6 +23,7 @@ strings:
     - slide guitar
     - ukulele
     - zhongruan
+    - sitar
   struck:
     - dulcimer
     - yangqin
@@ -78,6 +80,10 @@ voices:
   - female rapper
   - beatboxing
   - vocalists
+  - choir
+  - crowd
+  - male screamer
+  - female screamer
 percussion:
   idiophones:
     - triangle
@@ -100,6 +106,7 @@ percussion:
     - marimba
     - glockenspiel
     - whistle
+    - snaps
   drums:
     - timpani
     - toms
@@ -129,3 +136,6 @@ electric:
     - fx/processed sound
     - scratches
     - sampler
+other:
+    - Main System
+    - Unlabeled

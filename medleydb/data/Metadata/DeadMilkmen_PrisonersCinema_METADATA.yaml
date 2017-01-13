@@ -1,0 +1,193 @@
+album: Weathervane
+artist: Dead Milkmen
+composer: ''
+excerpt: 'no'
+genre: Rock
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: DeadMilkmen_PrisonersCinema_MIX.wav
+origin: Weathervane Music
+producer: ''
+raw_dir: DeadMilkmen_PrisonersCinema_RAW
+stem_dir: DeadMilkmen_PrisonersCinema_STEMS
+stems:
+  S01:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_01.wav
+    instrument: acoustic guitar
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_01_01.wav
+        instrument: acoustic guitar
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_01_02.wav
+        instrument: acoustic guitar
+  S02:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_02.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_02_01.wav
+        instrument: electronic organ
+  S03:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_03.wav
+    instrument: tambourine
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_03_01.wav
+        instrument: tambourine
+  S04:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_04.wav
+    instrument: electronic organ
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_04_01.wav
+        instrument: electronic organ
+  S05:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_05.wav
+    instrument: shaker
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_05_01.wav
+        instrument: shaker
+  S06:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_06.wav
+    instrument: glockenspiel
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_06_01.wav
+        instrument: glockenspiel
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_06_02.wav
+        instrument: glockenspiel
+  S07:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_07.wav
+    instrument: drum set
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_01.wav
+        instrument: drum set
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_02.wav
+        instrument: drum set
+      R03:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_03.wav
+        instrument: drum set
+      R04:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_04.wav
+        instrument: drum set
+      R05:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_05.wav
+        instrument: drum set
+      R06:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_06.wav
+        instrument: drum set
+      R07:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_07.wav
+        instrument: drum set
+      R08:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_08.wav
+        instrument: drum set
+      R09:
+        filename: DeadMilkmen_PrisonersCinema_RAW_07_09.wav
+        instrument: drum set
+  S08:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_08.wav
+    instrument: castanet
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_08_01.wav
+        instrument: castanet
+  S09:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_09.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_09_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_09_02.wav
+        instrument: clean electric guitar
+  S10:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_10.wav
+    instrument: clean electric guitar
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_10_01.wav
+        instrument: clean electric guitar
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_10_02.wav
+        instrument: clean electric guitar
+  S11:
+    component: bass
+    filename: DeadMilkmen_PrisonersCinema_STEM_11.wav
+    instrument: electric bass
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_11_01.wav
+        instrument: electric bass
+  S12:
+    component: melody
+    filename: DeadMilkmen_PrisonersCinema_STEM_12.wav
+    instrument: male singer
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_12_01.wav
+        instrument: male singer
+  S13:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_13.wav
+    instrument: distorted electric guitar
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_13_01.wav
+        instrument: distorted electric guitar
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_13_02.wav
+        instrument: distorted electric guitar
+  S14:
+    component: ''
+    filename: DeadMilkmen_PrisonersCinema_STEM_14.wav
+    instrument: fx/processed sound
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_14_01.wav
+        instrument: fx/processed sound
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_14_02.wav
+        instrument: fx/processed sound
+  S15:
+    component: melody
+    filename: DeadMilkmen_PrisonersCinema_STEM_15.wav
+    instrument: vocalists
+    raw:
+      R01:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_01.wav
+        instrument: vocalists
+      R02:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_02.wav
+        instrument: vocalists
+      R03:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_03.wav
+        instrument: vocalists
+      R04:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_04.wav
+        instrument: vocalists
+      R05:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_05.wav
+        instrument: vocalists
+      R06:
+        filename: DeadMilkmen_PrisonersCinema_RAW_15_06.wav
+        instrument: vocalists
+title: Prisoner's Cinema
+version: 1.2
+website: ''
