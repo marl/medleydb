@@ -22,6 +22,7 @@ strings:
     - slide guitar
     - ukulele
     - zhongruan
+    - sitar
   struck:
     - dulcimer
     - yangqin
@@ -78,6 +79,7 @@ voices:
   - female rapper
   - beatboxing
   - vocalists
+  - crowd
 percussion:
   idiophones:
     - triangle
@@ -129,3 +131,6 @@ electric:
     - fx/processed sound
     - scratches
     - sampler
+other:
+    - Main System
+    - Unlabeled

@@ -7,33 +7,43 @@ from __future__ import print_function
 
 from . import multitrack as M
 from . import TRACK_LIST_V1
+from . import TRACK_LIST_V2
+from . import TRACK_LIST_EXTRA
 from . import ARTIST_INDEX
 
 import numpy as np
 from sklearn.cross_validation import ShuffleSplit
 
 
-def load_melody_multitracks():
+def load_melody_multitracks(dataset_version=None):
     """Load all multitracks that have melody annotations.
 
     Returns
     -------
     melody_multitracks : list
         List of multitrack objects.
+    dataset_version : list or None, default=None
+        List of dataset version ids. If None, uses version 1.
 
     Examples
     --------
     >>> melody_multitracks = load_melody_multitracks()
+    >>> multitracks = load_melody_multitracks(dataset_version=['V2'])
 
     """
-    multitracks = load_all_multitracks()
+    multitracks = load_all_multitracks(dataset_version=dataset_version)
     for track in multitracks:
         if track.has_melody:
             yield track
 
 
-def load_all_multitracks():
+def load_all_multitracks(dataset_version=None):
     """Load all multitracks in MEDLEYDB_PATH.
+
+    Parameters
+    ----------
+    dataset_version : list or None, default=None
+        List of dataset version ids. If None, uses version 1.
 
     Returns
     -------
@@ -43,9 +53,21 @@ def load_all_multitracks():
     Examples
     --------
     >>> multitracks = load_all_multitracks()
+    >>> multitracks = load_all_multitracks(dataset_version=['V1', 'V2'])
 
     """
-    multitracks = load_multitracks(TRACK_LIST_V1)
+    if dataset_version is None:
+        dataset_version = ['V1']
+
+    track_list = []
+    if 'V1' in dataset_version:
+        track_list.extend(TRACK_LIST_V1)
+    if 'V2' in dataset_version:
+        track_list.extend(TRACK_LIST_V2)
+    if 'EXTRA' in dataset_version:
+        track_list.extend(TRACK_LIST_EXTRA)
+
+    multitracks = load_multitracks(track_list)
     return multitracks
 
 

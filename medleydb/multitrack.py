@@ -38,6 +38,7 @@ _MELODY2_PATH = os.path.join(_MELODY_PATH, 'Melody2')
 _MELODY3_PATH = os.path.join(_MELODY_PATH, 'Melody3')
 _RANKING_PATH = os.path.join(_MELODY_PATH, 'Ranking')
 _PITCH_PATH = os.path.join(ANNOT_PATH, 'Pitch')
+_PITCH_PYIN_PATH = os.path.join(ANNOT_PATH, 'Pitch_Pyin')
 _SOURCEID_PATH = os.path.join(ANNOT_PATH, 'Source_ID')
 
 _ANNOTDIR_FMT = "%s_ANNOTATIONS"
@@ -50,6 +51,7 @@ _RANKING_FMT = "%s_RANKING.txt"
 _SOURCEID_FMT = "%s_SOURCEID.lab"
 _PITCHDIR_FMT = "%s_PITCH"
 _PITCH_FMT = "%s.csv"
+_PITCH_PYIN_FMT = "%s_vamp_pyin_pyin_smoothedpitchtrack.csv"
 
 
 class MultiTrack(object):
@@ -218,7 +220,10 @@ class MultiTrack(object):
         )
         self.melody_rankings = self._get_melody_rankings()
 
-        self.mixing_coefficients = MIXING_COEFFICIENTS[self.track_id]
+        if self.track_id in MIXING_COEFFICIENTS:
+            self.mixing_coefficients = MIXING_COEFFICIENTS[self.track_id]
+        else:
+            self.mixing_coefficients = None
 
         # Stem & Raw Dictionaries. Lists of filepaths. #
         self.stems, self.raw_audio = self._parse_metadata()
@@ -362,11 +367,16 @@ class MultiTrack(object):
 
             file_id = "%s_STEM_%s" % (self.track_id, k[1:])
 
+            if self.mixing_coefficients is not None:
+                mix_coeff = self.mixing_coefficients[stem_idx]
+            else:
+                mix_coeff = None
+
             track = Track(instrument=instrument, audio_path=audio_path,
                           component=component, stem_idx=stem_idx,
                           ranking=ranking, mix_path=self.mix_path,
                           file_id=file_id,
-                          mix_coeff=self.mixing_coefficients[stem_idx])
+                          mix_coeff=mix_coeff)
 
             stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
@@ -616,7 +626,10 @@ class Track(object):
         """Track object __init__ method.
         """
         self.instrument = instrument
-        self.f0_type = get_f0_type(instrument)
+        if isinstance(instrument, list):
+            self.f0_type = [get_f0_type(inst) for inst in instrument]
+        else:
+            self.f0_type = get_f0_type(instrument)
         self.audio_path = audio_path
         self.component = component
         self.ranking = ranking
@@ -625,8 +638,12 @@ class Track(object):
 
         if file_id is not None:
             self.pitch_path = os.path.join(_PITCH_PATH, _PITCH_FMT % file_id)
+            self.pitch_pyin_path = os.path.join(
+                _PITCH_PYIN_PATH, _PITCH_PYIN_FMT % file_id
+            )
         else:
             self.pitch_path = None
+            self.pitch_pyin_path = None
 
         self.mixing_coefficient = mix_coeff
 
@@ -637,6 +654,7 @@ class Track(object):
 
         self.mix_path = mix_path
         self._pitch_annotation = None
+        self._pitch_estimate_pyin = None
 
     @property
     def pitch_annotation(self):
@@ -648,6 +666,16 @@ class Track(object):
             )
         return self._pitch_annotation
 
+    @property
+    def pitch_estimate_pyin(self):
+        """list: List of pairs of time (seconds), frequency (Hz)
+        """
+        if self._pitch_estimate_pyin is None:
+            self._pitch_estimate_pyin, _ = read_annotation_file(
+                self.pitch_pyin_path, num_cols=2, header=False
+            )
+        return self._pitch_estimate_pyin
+
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
 
@@ -655,7 +683,7 @@ class Track(object):
         return self.__dict__ != other.__dict__
 
     def __hash__(self):
-        return hash((self.instrument,
+        return hash((tuple(self.instrument),
                      self.audio_path,
                      self.component,
                      self.stem_idx,

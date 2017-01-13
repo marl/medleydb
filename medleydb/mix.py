@@ -102,7 +102,15 @@ def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
         if index in alternate_weights.keys():
             weights.append(alternate_weights[index])
         else:
-            weights.append(mtrack.stems[index].mixing_coefficient)
+            if mtrack.stems[index].mixing_coefficient is not None:
+                mix_coeff = mtrack.stems[index].mixing_coefficient
+            else:
+                print(
+                    '[Warning] Multitrack does not have mixing coefficients. '
+                    'Using uniform stem weights.'
+                )
+                mix_coeff = 1
+            weights.append(mix_coeff)
 
     if additional_files is not None:
         for fpath, weight in additional_files:
