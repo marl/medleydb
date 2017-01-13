@@ -80,7 +80,12 @@ class TestMultitrack(unittest.TestCase):
 
     def test_stem_instrument(self):
         actual = self.stem.instrument
-        expected = "auxiliary percussion"
+        expected = ["auxiliary percussion"]
+        self.assertEqual(actual, expected)
+
+    def test_stem_f0_type(self):
+        actual = self.stem.f0_type
+        expected = ["u"]
         self.assertEqual(actual, expected)
 
     def test_stem_mixpath(self):
@@ -124,7 +129,6 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_raw_duration(self):
-        print(self.raw.audio_path)
         actual = self.raw.duration
         expected = None
         self.assertEqual(actual, expected)
@@ -136,7 +140,12 @@ class TestMultitrack(unittest.TestCase):
 
     def test_raw_instrument(self):
         actual = self.raw.instrument
-        expected = "cymbal"
+        expected = ["cymbal"]
+        self.assertEqual(actual, expected)
+
+    def test_raw_f0type(self):
+        actual = self.raw.f0_type
+        expected = ["u"]
         self.assertEqual(actual, expected)
 
     def test_raw_mixpath(self):
@@ -281,7 +290,7 @@ class TestTrack(unittest.TestCase):
             'blurbophone', 'fake/path1', 'S12', 'fake/path2',
             component='melody'
         )
-        self.assertEqual(track.instrument, 'blurbophone')
+        self.assertEqual(track.instrument, ['blurbophone'])
         self.assertEqual(track.audio_path, 'fake/path1')
         self.assertEqual(track.component, 'melody')
         self.assertEqual(track.stem_idx, 12)
@@ -294,7 +303,7 @@ class TestTrack(unittest.TestCase):
             'kazoo', 'fake/path1', 50, 'fake/path2',
             raw_idx='R07'
         )
-        self.assertEqual(track.instrument, 'kazoo')
+        self.assertEqual(track.instrument, ['kazoo'])
         self.assertEqual(track.audio_path, 'fake/path1')
         self.assertEqual(track.component, '')
         self.assertEqual(track.stem_idx, 50)

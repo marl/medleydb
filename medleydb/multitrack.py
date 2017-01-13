@@ -230,10 +230,12 @@ class MultiTrack(object):
 
         # Lists of Instrument Labels #
         self.stem_instruments = sorted(
-            [s.instrument for s in self.stems.values()]
+            [inst for sublist in self.stems.values()
+             for inst in sublist.instrument]
         )
         self.raw_instruments = sorted(
-            [r.instrument for r in get_dict_leaves(self.raw_audio)]
+            [inst for sublist in get_dict_leaves(self.raw_audio)
+             for inst in sublist.instrument]
         )
 
         # Basic Track Information #
@@ -565,8 +567,8 @@ class Track(object):
 
     Parameters
     ----------
-    instrument : str
-        The track's instrument label.
+    instrument : list of str
+        The track's instrument label(s).
     audio_path : str
         Path to corresponding audio file.
     stem_idx : int or str
@@ -625,11 +627,13 @@ class Track(object):
                  mix_coeff=None):
         """Track object __init__ method.
         """
-        self.instrument = instrument
         if isinstance(instrument, list):
-            self.f0_type = [get_f0_type(inst) for inst in instrument]
+            self.instrument = instrument
         else:
-            self.f0_type = get_f0_type(instrument)
+            self.instrument = [instrument]
+
+        self.f0_type = [get_f0_type(inst) for inst in self.instrument]
+
         self.audio_path = audio_path
         self.component = component
         self.ranking = ranking

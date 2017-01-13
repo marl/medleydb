@@ -78,7 +78,7 @@ def main(args):
     """
     mtrack = medleydb.MultiTrack(args.track_id)
     for stem in mtrack.stems.values():
-        if stem.f0_type == 'm' and not os.path.exists(stem.pitch_pyin_path):
+        if 'm' in stem.f0_type and not os.path.exists(stem.pitch_pyin_path):
             if os.path.exists(stem.audio_path):
                 run_pyin(stem.audio_path, _PITCH_PYIN_PATH)
             else:

@@ -135,7 +135,7 @@ def get_files_for_instrument(instrument, multitrack_list=None):
 
     for multitrack in multitrack_list:
         for stem in multitrack.stems.values():
-            if stem.instrument == instrument:
+            if instrument in stem.instrument:
                 yield stem.audio_path
 
 
