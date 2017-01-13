@@ -1,0 +1,39 @@
+album: None
+artist: Adele
+composer: ''
+excerpt: 'no'
+genre: Pop
+has_bleed: 'no'
+instrumental: 'no'
+mix_filename: Adele_SomeoneLikeYou_MIX.wav
+origin: Mogg
+producer: ''
+raw_dir: Adele_SomeoneLikeYou_RAW
+release date: null
+stem_dir: Adele_SomeoneLikeYou_STEMS
+stems:
+  S01:
+    component: ''
+    filename: Adele_SomeoneLikeYou_STEM_01.wav
+    instrument: piano
+    raw:
+      R01:
+        filename: Adele_SomeoneLikeYou_RAW_01_01.wav
+        instrument: piano
+      R02:
+        filename: Adele_SomeoneLikeYou_RAW_01_02.wav
+        instrument: piano
+  S02:
+    component: melody
+    filename: Adele_SomeoneLikeYou_STEM_02.wav
+    instrument: female singer
+    raw:
+      R01:
+        filename: Adele_SomeoneLikeYou_RAW_02_01.wav
+        instrument: female singer
+      R02:
+        filename: Adele_SomeoneLikeYou_RAW_02_02.wav
+        instrument: female singer
+title: Someone Like You
+version: 1.2
+website: ''
