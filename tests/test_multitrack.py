@@ -12,6 +12,23 @@ class TestMultitrack(unittest.TestCase):
         self.stem = self.mtrack.stems[8]
         self.raw = self.mtrack.raw_audio[8][1]
 
+    def test_dataset_version_v1(self):
+        actual = self.mtrack.dataset_version
+        expected = 'V1'
+        self.assertEqual(expected, actual)
+
+    def test_dataset_version_v2(self):
+        mtrack = multitrack.MultiTrack("FennelCartwright_DearTessie")
+        actual = mtrack.dataset_version
+        expected = 'V2'
+        self.assertEqual(expected, actual)
+
+    def test_dataset_version_extra(self):
+        mtrack = multitrack.MultiTrack("AHa_TakeOnMe")
+        actual = mtrack.dataset_version
+        expected = 'EXTRA'
+        self.assertEqual(expected, actual)
+
     def test_invalid_trackid(self):
         with self.assertRaises(IOError):
             multitrack.MultiTrack("RickAstley_NeverGonnaGiveYouUp")
@@ -242,6 +259,10 @@ class TestMultitrack(unittest.TestCase):
         actual = len(self.mtrack.raw_filepaths())
         expected = 55
         self.assertEqual(actual, expected)
+
+    def test_stem_activations(self):
+        actual = self.mtrack.stem_activations
+        self.assertEqual(type(actual), list)
 
     def test_activation_conf_from_stem1(self):
         actual = self.mtrack2.activation_conf_from_stem(3)[0]

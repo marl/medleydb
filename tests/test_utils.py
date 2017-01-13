@@ -34,17 +34,32 @@ class TestLoadMelodyMultitracks(unittest.TestCase):
         )
 
 
-class TestLoadAllMultitracks(unittest.TestCase):
-    def setUp(self):
-        self.mtracks = utils.load_all_multitracks()
-        self.first_track = next(self.mtracks)
+class TestLoadAllMultitracks(unittest.TestCase):        
 
     def test_object_type(self):
-        self.assertTrue(isinstance(self.first_track, multitrack.MultiTrack))
+        mtracks = utils.load_all_multitracks()
+        first_track = next(mtracks)
+        self.assertTrue(isinstance(first_track, multitrack.MultiTrack))
 
     def test_id(self):
+        mtracks = utils.load_all_multitracks()
+        first_track = next(mtracks)
         self.assertEqual(
-            self.first_track.track_id, 'AClassicEducation_NightOwl'
+            first_track.track_id, 'AClassicEducation_NightOwl'
+        )
+
+    def test_load_version2(self):
+        mtracks = utils.load_all_multitracks(dataset_version=['V2'])
+        first_track = next(mtracks)
+        self.assertEqual(
+            first_track.track_id, 'Allegria_MendelssohnMovement1'
+        )
+
+    def test_load_version_extra(self):
+        mtracks = utils.load_all_multitracks(dataset_version=['EXTRA'])
+        first_track = next(mtracks)
+        self.assertEqual(
+            first_track.track_id, 'AHa_TakeOnMe'
         )
 
 
@@ -71,6 +86,10 @@ class TestGetFilesForInstrument(unittest.TestCase):
     def setUp(self):
         self.files = ['AimeeNorwich_Flying', 'MusicDelta_Reggae']
         self.mtrack_list = utils.load_multitracks(self.files)
+
+    def test_defaults(self):
+        erhu_files = utils.get_files_for_instrument('erhu')
+        self.assertEqual(len(list(erhu_files)), 6)
 
     def test_subset(self):
         trombone_files = utils.get_files_for_instrument(
