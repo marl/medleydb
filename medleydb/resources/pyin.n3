@@ -1,0 +1,33 @@
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix vamp:     <http://purl.org/ontology/vamp/> .
+@prefix :         <#> .
+
+:transform a vamp:Transform ;
+    vamp:plugin <http://vamp-plugins.org/rdf/plugins/pyin#pyin> ;
+    vamp:step_size "256"^^xsd:int ; 
+    vamp:block_size "8192"^^xsd:int ; 
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "lowampsuppression" ] ;
+        vamp:value "0.1"^^xsd:float ;
+    ] ;
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "onsetsensitivity" ] ;
+        vamp:value "0.7"^^xsd:float ;
+    ] ;
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "outputunvoiced" ] ;
+        vamp:value "0"^^xsd:float ;
+    ] ;
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "precisetime" ] ;
+        vamp:value "0"^^xsd:float ;
+    ] ;
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "prunethresh" ] ;
+        vamp:value "0.1"^^xsd:float ;
+    ] ;
+    vamp:parameter_binding [
+        vamp:parameter [ vamp:identifier "threshdistr" ] ;
+        vamp:value "2"^^xsd:float ;
+    ] ;
+    vamp:output <http://vamp-plugins.org/rdf/plugins/pyin#pyin_output_smoothedpitchtrack> .

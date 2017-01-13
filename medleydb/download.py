@@ -4,6 +4,8 @@
 from medleydb import MEDLEYDB_PATH
 from medleydb import AUDIO_PATH
 from medleydb import GRDIVE_CONFIG_PATH
+from medleydb import METADATA_PATH
+from medleydb.multitrack import _METADATA_FMT
 
 import os
 from pydrive.auth import GoogleAuth
@@ -41,7 +43,9 @@ def purge_downloaded_files():
     """Delete all files downloaded this session.
     """
     for fpath in DOWNLOADED_FILEPATHS:
-        os.remove(fpath)
+        if os.path.exists(fpath):
+            os.remove(fpath)
+        DOWNLOADED_FILEPATHS.remove(fpath)
 
 
 def check_basedir_writeable():
@@ -98,6 +102,56 @@ def make_mtrack_basedir(mtrack):
 
     if not os.path.exists(mtrack._raw_dir_path):
         os.mkdir(mtrack._raw_dir_path)
+
+    return True
+
+
+def _download_metadata(track_id, dataset_version):
+    """Download a multitracks metadata to the metadata path.
+
+    Parameters
+    ----------
+    track_id : str
+        a track_id
+    dataset_version : str
+        dataset version identifier string ('V1', 'V2', etc.)
+
+    Returns
+    -------
+    status : bool
+        True on success
+
+    """
+    metadata_path = os.path.join(METADATA_PATH, _METADATA_FMT % track_id)
+    if os.path.exists(metadata_path):
+        return True
+
+    try:
+        top_folderid = GDRIVE_FOLDERS[dataset_version]
+    except KeyError:
+        raise IOError("Unable to find data in Google Drive for this version.")
+
+    file_list = get_named_child(top_folderid, track_id)
+    correct_file = [f for f in file_list if f['title'] == track_id]
+
+    if len(correct_file) == 0:
+        raise IOError("Could not find multitrack")
+    else:
+        mtrack_file = correct_file[0]
+
+    metadata_file_list = get_named_child(mtrack_file['id'], 'METADATA')
+    if len(metadata_file_list) > 0:
+        metadata_file = metadata_file_list[0]
+    else:
+        folder_file_list = get_files_in_folder(mtrack_file['id'])
+        print(len(folder_file_list))
+        for fobject in folder_file_list:
+            print(fobject['title'])
+        raise IOError("Could not find Metadata")
+
+    download_file(metadata_file['id'], metadata_path)
+
+    DOWNLOADED_FILEPATHS.append(metadata_path)
 
     return True
 
