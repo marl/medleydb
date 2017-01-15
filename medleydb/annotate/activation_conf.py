@@ -1,3 +1,5 @@
+"""Generate activation confidence annotations.
+"""
 from __future__ import division
 import scipy.signal
 import numpy as np
@@ -7,13 +9,8 @@ import os
 import argparse
 
 
-def create_activation_annotation(
-    mtrack,
-    win_len=4096,
-    lpf_cutoff=0.075,
-    theta=0.15,
-    binarize=False
-):
+def create_activation_annotation(mtrack, win_len=4096, lpf_cutoff=0.075,
+                                 theta=0.15, binarize=False):
 
     H = []
 
@@ -29,13 +26,9 @@ def create_activation_annotation(
 
     # normalization (to overall energy and # of sources)
     E0 = np.sum(H, axis=0)
-
+    
     H = len(mtrack.stems) * H / np.max(E0)
-
-    # binary thresholding for low overall energy events
-    mask = np.ones(H.shape)
-    mask[:, E0 < 0.01] = 0
-    H = H * mask
+    H[:, E0 < 0.01] = 0.0  # binary thresholding for low overall energy events
 
     # LP filter
     b, a = scipy.signal.butter(2, lpf_cutoff, 'low')
@@ -104,7 +97,9 @@ def write_activations_to_csv(mtrack, activations, debug=False):
         activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
 
     activations_fpath = os.path.join(mtrack.annotation_dir, activation_fname)
-    stem_str = ",".join(["S%02d" % id for id in mtrack.stem_activations_idx])
+    stem_str = ",".join(
+        ["S%02d" % stem_idx for stem_idx in mtrack.stem_activations_idx]
+    )
     np.savetxt(
         activations_fpath,
         activations,
