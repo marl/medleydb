@@ -11,8 +11,21 @@ from medleydb.multitrack import _PITCH_PYIN_PATH
 import shutil
 import sox
 
-from medleydb.annotate.generate_pyin_pitch_annotations import run_pyin
+from medleydb.annotate.pyin_pitch import get_pyin_annotation
 import os
+
+
+
+def ensure_samplerate(audio_path):
+    samplerate = sox.file_info.sample_rate(audio_path)
+    if samplerate != 44100:
+        print("[SAMPLERATE] Check {}".format(track_id))
+        tfm = sox.Transformer()
+        tfm.rate(44100)
+        pyin_audio = 'dumbtempfile.wav'
+        tfm.build(audio_path, pyin_audio)
+        os.remove(audio_path)
+        shutil.move(pyin_audio, audio_path)
 
 
 def main():
@@ -41,7 +54,9 @@ def main():
                         tfm.build(stem.audio_path, pyin_audio)
                         os.remove(stem.audio_path)
                         shutil.move(pyin_audio, stem.audio_path)
-                    run_pyin(stem.audio_path, _PITCH_PYIN_PATH)
+
+                    get_pyin_annotation(mtrack, stem.stem_id, raw_id=None)
+
                     download.purge_downloaded_files()
         except:
             print("Something failed...")

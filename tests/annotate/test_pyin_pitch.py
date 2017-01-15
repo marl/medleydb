@@ -2,7 +2,7 @@
 from __future__ import print_function
 
 import unittest
-from medleydb.annotate import generate_pyin_pitch_annotations as G
+from medleydb.annotate import pyin_pitch as G
 
 
 class TestCheckBinary(unittest.TestCase):
