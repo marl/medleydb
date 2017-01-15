@@ -10,7 +10,7 @@ from medleydb import AUDIO_AVAILABLE
 from medleydb import ANNOT_PATH
 from medleydb import MultiTrack
 from medleydb import TRACK_LIST_V1
-from medleydb.annotate import generate_melody_annotations as G
+from medleydb.annotate import melody as G
 from medleydb import multitrack
 
 
