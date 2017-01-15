@@ -15,4 +15,4 @@ class TestCheckBinary(unittest.TestCase):
 class TestRunPyin(unittest.TestCase):
     def test_env_error(self):
         with self.assertRaises(EnvironmentError):
-            G.pyin_pitch("asdf", "asdf")
+            G.pyin_call("asdf", "asdf")
