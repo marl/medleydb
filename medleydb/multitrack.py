@@ -91,6 +91,10 @@ class MultiTrack(object):
         Path to melody intervals file
     melody_rankings_fpath : str
         Path to melody rankings file
+    activation_conf_fpath : str
+        Path to activation confidence file
+    source_id_fpath : str
+        Path to source id file
     mixing_coefficients : dictionary
         Dictionary of mixing weights keyed by stem id
     stems : dictionary
@@ -456,17 +460,20 @@ class MultiTrack(object):
             Dictionary of column ids in the activations table keyed by stem_id
 
         """
-        activations, header = read_annotation_file(
-            self.activation_conf_fpath, header=True
-        )
-        idx_dict = {}
-        for i, stem_str in enumerate(header):
-            if stem_str == 'time':
-                continue
-            else:
-                stem_idx = format_index(stem_str)
-                idx_dict[stem_idx] = i
-        return activations, idx_dict
+        if os.path.exists(self.activation_conf_fpath):
+            activations, header = read_annotation_file(
+                self.activation_conf_fpath, header=True
+            )
+            idx_dict = {}
+            for i, stem_str in enumerate(header):
+                if stem_str == 'time':
+                    continue
+                else:
+                    stem_idx = format_index(stem_str)
+                    idx_dict[stem_idx] = i
+            return activations, idx_dict
+        else:
+            return None, None
 
     def melody_stems(self):
         """Get list of stems that contain melody.

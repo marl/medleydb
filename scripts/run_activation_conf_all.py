@@ -11,7 +11,9 @@ import shutil
 import sox
 import tempfile
 
-from medleydb.annotate.pyin_pitch import get_pyin_annotation
+from medleydb.annotate.activation_conf import create_activation_annotation
+from medleydb.annotate.activation_conf import write_activations_to_csv
+
 import os
 
 
@@ -31,22 +33,18 @@ def main():
         print(track_id)
         try:
             mtrack = medleydb.MultiTrack(track_id)
-            if mtrack.has_bleed:
+            if mtrack.has_bleed or os.path.exists(mtrack.activation_conf_fpath):
                 continue
 
             for stem in mtrack.stems.values():
+                print(stem.stem_idx)
+                download.download_stem(mtrack, stem.stem_idx)
+                ensure_samplerate(stem.audio_path)
 
-                if not isinstance(stem.f0_type, list):
-                    f0_type = [stem.f0_type]
-                else:
-                    f0_type = stem.f0_type
+            activations, index_list = create_activation_annotation(mtrack)
+            write_activations_to_csv(mtrack, activations, index_list, debug=True)
 
-                if 'm' in f0_type and not os.path.exists(stem.pitch_pyin_path):
-                    download.download_stem(mtrack, stem.stem_idx)
-
-                    get_pyin_annotation(mtrack, stem.stem_idx, raw_id=None)
-
-                    download.purge_downloaded_files()
+            download.purge_downloaded_files()
         except:
             print("Something failed...")
 

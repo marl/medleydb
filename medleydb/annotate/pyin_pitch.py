@@ -56,6 +56,17 @@ def pyin_call(audio_fpath, save_dir):
     -------
     True on success
     '''
+    input_file_name = os.path.basename(audio_fpath)
+    vamp_output_name = "{}_{}.csv".format(
+        input_file_name.split('.')[0], OUTPUT_FILE_STRING
+    )
+    vamp_output_dir = os.path.dirname(audio_fpath)
+    vamp_output_path = os.path.join(vamp_output_dir, vamp_output_name)
+    output_path = os.path.join(save_dir, vamp_output_name)
+
+    if os.path.exists(output_path):
+        return True
+
     if not BINARY_AVAILABLE:
         raise EnvironmentError(
             "Either the vamp plugin {} or "
@@ -64,13 +75,6 @@ def pyin_call(audio_fpath, save_dir):
 
     if not os.path.exists(audio_fpath):
         raise IOError("Audio path {} does not exist".format(audio_fpath))
-
-    input_file_name = os.path.basename(audio_fpath)
-    vamp_output_name = "{}_{}.csv".format(
-        input_file_name.split('.')[0], OUTPUT_FILE_STRING
-    )
-    vamp_output_dir = os.path.dirname(audio_fpath)
-    vamp_output_path = os.path.join(vamp_output_dir, vamp_output_name)
 
     args = [
         "sonic-annotator", "-t", PYIN_N3_PATH,
@@ -82,8 +86,6 @@ def pyin_call(audio_fpath, save_dir):
         raise IOError(
             "Unable to find vamp output file {}".format(vamp_output_path)
         )
-
-    output_path = os.path.join(save_dir, vamp_output_name)
 
     shutil.move(vamp_output_path, output_path)
 

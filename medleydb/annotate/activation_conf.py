@@ -5,6 +5,7 @@ import scipy.signal
 import numpy as np
 import librosa
 import medleydb
+from medleydb.multitrack import _ACTIVATION_CONF_PATH
 import os
 import argparse
 
@@ -13,13 +14,15 @@ def create_activation_annotation(mtrack, win_len=4096, lpf_cutoff=0.075,
                                  theta=0.15, binarize=False):
 
     H = []
+    index_list = []
 
     # MATLAB equivalent to @hanning(win_len)
     win = scipy.signal.windows.hann(win_len + 2)[1:-1]
 
-    for track_id, track in mtrack.stems.items():
-        audio, rate = librosa.load(track.file_path, sr=44100, mono=True)
+    for stem_idx, track in mtrack.stems.items():
+        audio, rate = librosa.load(track.audio_path, sr=44100, mono=True)
         H.append(track_activation(audio.T, win_len, win))
+        index_list.append(stem_idx)
 
     # list to numpy array
     H = np.array(H)
@@ -51,7 +54,7 @@ def create_activation_annotation(mtrack, win_len=4096, lpf_cutoff=0.075,
 
     # stack time column to matrix
     H_out = np.vstack((time, H_out))
-    return H_out.T
+    return H_out.T, index_list
 
 
 def track_activation(wave, win_len, win):
@@ -90,30 +93,29 @@ def hwr(x):
     return (x + np.abs(x)) / 2
 
 
-def write_activations_to_csv(mtrack, activations, debug=False):
-    if debug:
-        activation_fname = "%s_ACTIVATION_CONF_debug.lab" % mtrack.track_id
-    else:
-        activation_fname = "%s_ACTIVATION_CONF.lab" % mtrack.track_id
+def write_activations_to_csv(mtrack, activations, index_list, debug=False):
 
-    activations_fpath = os.path.join(mtrack.annotation_dir, activation_fname)
     stem_str = ",".join(
-        ["S%02d" % stem_idx for stem_idx in mtrack.stem_activations_idx]
+        ["S%02d" % stem_idx for stem_idx in index_list]
     )
     np.savetxt(
-        activations_fpath,
+        mtrack.activation_conf_fpath,
         activations,
-        header='time,' + stem_str,
+        header='time,{}'.format(stem_str),
         delimiter=',',
-        fmt='%.4f'
+        fmt='%.4f',
+        comments=''
     )
 
 
 def main(args):
     mtrack = medleydb.MultiTrack(args.track_id)
-    activations = create_activation_annotation(mtrack)
+    if os.path.exists(mtrack.activation_conf_fpath):
+        return True
+
+    activations, index_list = create_activation_annotation(mtrack)
     if args.write_output:
-        write_activations_to_csv(mtrack, activations, args.debug)
+        write_activations_to_csv(mtrack, activations, index_list, args.debug)
 
 
 if __name__ == "__main__":
