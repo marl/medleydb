@@ -12,7 +12,7 @@ import shutil
 import sox
 import tempfile
 
-from medleydb.annotate.activation_conf import create_activation_annotation
+from medleydb.annotate.activation_conf import compute_activation_confidence
 from medleydb.annotate.activation_conf import write_activations_to_csv
 
 import os
@@ -45,7 +45,7 @@ def main():
                 download.download_stem(mtrack, stem.stem_idx)
                 ensure_samplerate(stem.audio_path)
 
-            activations, index_list = create_activation_annotation(mtrack)
+            activations, index_list = compute_activation_confidence(mtrack)
             write_activations_to_csv(
                 mtrack, activations, index_list, debug=True
             )
