@@ -94,7 +94,7 @@ stems:
         filename: MatthewEntwistle_FairerHopes_RAW_10_01.wav
         instrument: harp
   S11:
-    component: ''
+    component: melody
     filename: MatthewEntwistle_FairerHopes_STEM_11.wav
     instrument: french horn
     raw:
@@ -137,7 +137,7 @@ stems:
         filename: MatthewEntwistle_FairerHopes_RAW_15_01.wav
         instrument: string section
   S16:
-    component: ''
+    component: melody
     filename: MatthewEntwistle_FairerHopes_STEM_16.wav
     instrument: violin section
     raw:
@@ -153,7 +153,7 @@ stems:
         filename: MatthewEntwistle_FairerHopes_RAW_17_01.wav
         instrument: violin section
   S18:
-    component: ''
+    component: melody
     filename: MatthewEntwistle_FairerHopes_STEM_18.wav
     instrument: violin section
     raw:

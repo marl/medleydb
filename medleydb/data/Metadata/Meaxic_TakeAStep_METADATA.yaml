@@ -33,7 +33,7 @@ stems:
         filename: Meaxic_TakeAStep_RAW_02_02.wav
         instrument: clean electric guitar
   S03:
-    component: ''
+    component: melody
     filename: Meaxic_TakeAStep_STEM_03.wav
     instrument: distorted electric guitar
     raw:

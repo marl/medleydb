@@ -15,7 +15,7 @@ raw_dir: JoelHelander_IntheAtticBedroom_RAW
 stem_dir: JoelHelander_IntheAtticBedroom_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: JoelHelander_IntheAtticBedroom_STEM_01.wav
     instrument: violin
     raw:

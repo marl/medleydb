@@ -50,7 +50,7 @@ stems:
         filename: SweetLights_YouLetMeDown_RAW_02_02.wav
         instrument: electric bass
   S03:
-    component: ''
+    component: melody
     filename: SweetLights_YouLetMeDown_STEM_03.wav
     instrument: vocalists
     raw:

@@ -119,7 +119,7 @@ stems:
         filename: CelestialShore_DieForUs_RAW_07_02.wav
         instrument: tack piano
   S08:
-    component: ''
+    component: melody
     filename: CelestialShore_DieForUs_STEM_08.wav
     instrument: clean electric guitar
     raw:

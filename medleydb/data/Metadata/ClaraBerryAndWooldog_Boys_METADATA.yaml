@@ -76,7 +76,7 @@ stems:
         filename: ClaraBerryAndWooldog_Boys_RAW_04_03.wav
         instrument: synthesizer
   S05:
-    component: ''
+    component: melody
     filename: ClaraBerryAndWooldog_Boys_STEM_05.wav
     instrument: piano
     raw:
@@ -118,7 +118,7 @@ stems:
         filename: ClaraBerryAndWooldog_Boys_RAW_07_03.wav
         instrument: female singer
   S08:
-    component: ''
+    component: melody
     filename: ClaraBerryAndWooldog_Boys_STEM_08.wav
     instrument: tenor saxophone
     raw:

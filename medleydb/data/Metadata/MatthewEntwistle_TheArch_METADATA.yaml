@@ -110,7 +110,7 @@ stems:
         filename: MatthewEntwistle_TheArch_RAW_12_01.wav
         instrument: trombone section
   S13:
-    component: ''
+    component: melody
     filename: MatthewEntwistle_TheArch_STEM_13.wav
     instrument: trumpet section
     raw:

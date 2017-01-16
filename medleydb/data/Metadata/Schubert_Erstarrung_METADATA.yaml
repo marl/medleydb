@@ -22,7 +22,7 @@ stems:
         filename: Schubert_Erstarrung_RAW_01_01.wav
         instrument: male singer
   S02:
-    component: ''
+    component: melody
     filename: Schubert_Erstarrung_STEM_02.wav
     instrument: piano
     raw:

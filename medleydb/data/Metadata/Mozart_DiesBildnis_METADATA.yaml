@@ -22,7 +22,7 @@ stems:
         filename: Mozart_DiesBildnis_RAW_01_01.wav
         instrument: male singer
   S02:
-    component: ''
+    component: melody
     filename: Mozart_DiesBildnis_STEM_02.wav
     instrument: piano
     raw:

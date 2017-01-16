@@ -73,7 +73,7 @@ stems:
         filename: JoelHelander_ExcessiveResistancetoChange_RAW_02_08.wav
         instrument: tack piano
   S03:
-    component: ''
+    component: melody
     filename: JoelHelander_ExcessiveResistancetoChange_STEM_03.wav
     instrument: piano
     raw:
@@ -216,7 +216,7 @@ stems:
         filename: JoelHelander_ExcessiveResistancetoChange_RAW_12_02.wav
         instrument: horn section
   S13:
-    component: ''
+    component: melody
     filename: JoelHelander_ExcessiveResistancetoChange_STEM_13.wav
     instrument: violin
     raw:

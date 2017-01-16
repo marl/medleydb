@@ -118,7 +118,7 @@ stems:
         filename: Auctioneer_OurFutureFaces_RAW_05_02.wav
         instrument: clean electric guitar
   S06:
-    component: ''
+    component: melody
     filename: Auctioneer_OurFutureFaces_STEM_06.wav
     instrument: horn section
     raw:

@@ -108,7 +108,7 @@ stems:
         filename: HopAlong_SisterCities_RAW_05_03.wav
         instrument: vibraphone
   S06:
-    component: ''
+    component: melody
     filename: HopAlong_SisterCities_STEM_06.wav
     instrument: distorted electric guitar
     raw:

@@ -89,7 +89,7 @@ stems:
         filename: AlexanderRoss_GoodbyeBolero_RAW_06_01.wav
         instrument: male singer
   S07:
-    component: ''
+    component: melody
     filename: AlexanderRoss_GoodbyeBolero_STEM_07.wav
     instrument: brass section
     raw:
@@ -100,7 +100,7 @@ stems:
         filename: AlexanderRoss_GoodbyeBolero_RAW_07_02.wav
         instrument: euphonium
   S08:
-    component: ''
+    component: melody
     filename: AlexanderRoss_GoodbyeBolero_STEM_08.wav
     instrument: viola section
     raw:
@@ -111,7 +111,7 @@ stems:
         filename: AlexanderRoss_GoodbyeBolero_RAW_08_02.wav
         instrument: viola
   S09:
-    component: ''
+    component: melody
     filename: AlexanderRoss_GoodbyeBolero_STEM_09.wav
     instrument: harmonica
     raw:

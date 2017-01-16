@@ -22,7 +22,7 @@ stems:
         filename: HezekiahJones_BorrowedHeart_RAW_01_01.wav
         instrument: acoustic guitar
   S02:
-    component: ''
+    component: melody
     filename: HezekiahJones_BorrowedHeart_STEM_02.wav
     instrument: vocalists
     raw:
@@ -177,7 +177,7 @@ stems:
         filename: HezekiahJones_BorrowedHeart_RAW_11_02.wav
         instrument: lap steel guitar
   S12:
-    component: ''
+    component: melody
     filename: HezekiahJones_BorrowedHeart_STEM_12.wav
     instrument: lap steel guitar
     raw:

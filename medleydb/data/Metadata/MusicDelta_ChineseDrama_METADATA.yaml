@@ -30,7 +30,7 @@ stems:
         filename: MusicDelta_ChineseDrama_RAW_02_01.wav
         instrument: erhu
   S03:
-    component: ''
+    component: melody
     filename: MusicDelta_ChineseDrama_STEM_03.wav
     instrument: guzheng
     raw:

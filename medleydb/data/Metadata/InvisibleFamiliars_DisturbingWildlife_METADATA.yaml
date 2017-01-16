@@ -34,7 +34,7 @@ stems:
         filename: InvisibleFamiliars_DisturbingWildlife_RAW_02_02.wav
         instrument: claps
   S03:
-    component: ''
+    component: melody
     filename: InvisibleFamiliars_DisturbingWildlife_STEM_03.wav
     instrument: trumpet section
     raw:
@@ -141,7 +141,7 @@ stems:
         filename: InvisibleFamiliars_DisturbingWildlife_RAW_09_02.wav
         instrument: male singer
   S10:
-    component: ''
+    component: melody
     filename: InvisibleFamiliars_DisturbingWildlife_STEM_10.wav
     instrument: tack piano
     raw:

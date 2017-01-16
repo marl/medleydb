@@ -117,7 +117,7 @@ stems:
         filename: TheDistricts_Vermont_RAW_06_03.wav
         instrument: clean electric guitar
   S07:
-    component: ''
+    component: melody
     filename: TheDistricts_Vermont_STEM_07.wav
     instrument: clean electric guitar
     raw:

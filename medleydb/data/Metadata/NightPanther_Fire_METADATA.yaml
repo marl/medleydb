@@ -120,7 +120,7 @@ stems:
         filename: NightPanther_Fire_RAW_05_09.wav
         instrument: drum set
   S06:
-    component: ''
+    component: melody
     filename: NightPanther_Fire_STEM_06.wav
     instrument: brass section
     raw:
