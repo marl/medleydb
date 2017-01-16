@@ -34,7 +34,7 @@ class TestLoadMelodyMultitracks(unittest.TestCase):
         )
 
 
-class TestLoadAllMultitracks(unittest.TestCase):        
+class TestLoadAllMultitracks(unittest.TestCase):
 
     def test_object_type(self):
         mtracks = utils.load_all_multitracks()
@@ -60,6 +60,13 @@ class TestLoadAllMultitracks(unittest.TestCase):
         first_track = next(mtracks)
         self.assertEqual(
             first_track.track_id, 'AHa_TakeOnMe'
+        )
+
+    def test_load_bach10(self):
+        mtracks = utils.load_all_multitracks(dataset_version=['BACH10'])
+        first_track = next(mtracks)
+        self.assertEqual(
+            first_track.track_id, 'Bach10_01AchGottundHerr'
         )
 
 
