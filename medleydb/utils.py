@@ -228,19 +228,6 @@ class _ShuffleLabelsOut(ShuffleSplit):
         self.classes = classes
         self.y_indices = y_indices
 
-    def __repr__(self):
-        return ('%s(labels=%s, n_iter=%d, test_size=%s, '
-                'random_state=%s)' % (
-                    self.__class__.__name__,
-                    self.y_indices,
-                    self.n_iter,
-                    str(self.test_size),
-                    self.random_state,
-                ))
-
-    def __len__(self):
-        return self.n_iter
-
     def _iter_indices(self):
 
         for y_train, y_test in super(_ShuffleLabelsOut, self)._iter_indices():
