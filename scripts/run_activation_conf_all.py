@@ -7,6 +7,7 @@ from medleydb import download
 from medleydb import TRACK_LIST_V1
 from medleydb import TRACK_LIST_V2
 from medleydb import TRACK_LIST_EXTRA
+from medleydb import TRACK_LIST_BACH10
 import shutil
 import sox
 import tempfile
@@ -29,7 +30,10 @@ def ensure_samplerate(audio_path):
 
 
 def main():
-    for track_id in TRACK_LIST_EXTRA + TRACK_LIST_V2 + TRACK_LIST_V1:
+    full_list = (
+        TRACK_LIST_EXTRA + TRACK_LIST_V2 + TRACK_LIST_V1 + TRACK_LIST_BACH10
+    )
+    for track_id in full_list:
         print(track_id)
         try:
             mtrack = medleydb.MultiTrack(track_id)
@@ -42,7 +46,9 @@ def main():
                 ensure_samplerate(stem.audio_path)
 
             activations, index_list = create_activation_annotation(mtrack)
-            write_activations_to_csv(mtrack, activations, index_list, debug=True)
+            write_activations_to_csv(
+                mtrack, activations, index_list, debug=True
+            )
 
             download.purge_downloaded_files()
         except:
