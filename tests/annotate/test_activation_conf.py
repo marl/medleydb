@@ -53,11 +53,11 @@ class TestHwr(unittest.TestCase):
 class TestWriteActivationsToCsv(unittest.TestCase):
 
     def test_default(self):
-        activations = np.array(
+        activations = np.array([
             [0.0, 1.0, 1.0, 0.4],
             [0.5, 0.9, 0.9, 0.7],
             [1.0, 0.8, 0.8, 0.8]
-        )
+        ])
         mtrack = MultiTrack('Phoenix_ScotchMorris')
         stem_idx_list = [1, 2, 3]
         A.write_activations_to_csv(mtrack, activations, stem_idx_list)
