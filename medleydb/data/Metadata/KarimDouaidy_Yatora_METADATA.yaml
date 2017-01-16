@@ -58,7 +58,7 @@ stems:
         filename: KarimDouaidy_Yatora_RAW_04_01.wav
         instrument: electric bass
   S05:
-    component: ''
+    component: melody
     filename: KarimDouaidy_Yatora_STEM_05.wav
     instrument: piano
     raw:

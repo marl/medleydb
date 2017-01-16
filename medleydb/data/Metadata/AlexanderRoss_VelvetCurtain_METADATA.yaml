@@ -14,7 +14,7 @@ raw_dir: AlexanderRoss_VelvetCurtain_RAW
 stem_dir: AlexanderRoss_VelvetCurtain_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: AlexanderRoss_VelvetCurtain_STEM_01.wav
     instrument: acoustic guitar
     raw:
@@ -86,7 +86,7 @@ stems:
         filename: AlexanderRoss_VelvetCurtain_RAW_06_01.wav
         instrument: male singer
   S07:
-    component: ''
+    component: melody
     filename: AlexanderRoss_VelvetCurtain_STEM_07.wav
     instrument: brass section
     raw:
@@ -100,7 +100,7 @@ stems:
         filename: AlexanderRoss_VelvetCurtain_RAW_07_03.wav
         instrument: euphonium
   S08:
-    component: ''
+    component: melody
     filename: AlexanderRoss_VelvetCurtain_STEM_08.wav
     instrument: string section
     raw:

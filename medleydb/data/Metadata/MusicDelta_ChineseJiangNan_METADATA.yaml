@@ -46,7 +46,7 @@ stems:
         filename: MusicDelta_ChineseJiangNan_RAW_04_01.wav
         instrument: yangqin
   S05:
-    component: ''
+    component: melody
     filename: MusicDelta_ChineseJiangNan_STEM_05.wav
     instrument: zhongruan
     raw:

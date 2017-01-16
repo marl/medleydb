@@ -14,7 +14,7 @@ raw_dir: LizNelson_Coldwar_RAW
 stem_dir: LizNelson_Coldwar_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: LizNelson_Coldwar_STEM_01.wav
     instrument: acoustic guitar
     raw:

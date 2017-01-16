@@ -14,7 +14,7 @@ raw_dir: Creepoid_OldTree_RAW
 stem_dir: Creepoid_OldTree_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: Creepoid_OldTree_STEM_01.wav
     instrument: vocalists
     raw:
@@ -108,7 +108,7 @@ stems:
         filename: Creepoid_OldTree_RAW_05_03.wav
         instrument: distorted electric guitar
   S06:
-    component: ''
+    component: melody
     filename: Creepoid_OldTree_STEM_06.wav
     instrument: distorted electric guitar
     raw:
@@ -125,7 +125,7 @@ stems:
         filename: Creepoid_OldTree_RAW_06_04.wav
         instrument: distorted electric guitar
   S07:
-    component: ''
+    component: melody
     filename: Creepoid_OldTree_STEM_07.wav
     instrument: male singer
     raw:

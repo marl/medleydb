@@ -14,7 +14,7 @@ raw_dir: MichaelKropf_AllGoodThings_RAW
 stem_dir: MichaelKropf_AllGoodThings_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: MichaelKropf_AllGoodThings_STEM_01.wav
     instrument: piano
     raw:

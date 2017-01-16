@@ -10,7 +10,7 @@ from medleydb import AUDIO_AVAILABLE
 from medleydb import ANNOT_PATH
 from medleydb import MultiTrack
 from medleydb import TRACK_LIST_V1
-from medleydb.annotate import generate_melody_annotations as G
+from medleydb.annotate import melody as G
 from medleydb import multitrack
 
 
@@ -35,12 +35,14 @@ class TestFileNames(unittest.TestCase):
         self.assertTrue(os.path.exists(multitrack._MELODY3_PATH))
         self.assertTrue(os.path.exists(multitrack._RANKING_PATH))
         self.assertTrue(os.path.exists(multitrack._PITCH_PATH))
+        self.assertTrue(os.path.exists(multitrack._PITCH_PYIN_PATH))
         self.assertTrue(os.path.exists(multitrack._SOURCEID_PATH))
 
     def test_activation_conf_names(self):
         for track in self.track_list:
             mtrack = MultiTrack(track)
-            self.assertTrue(os.path.exists(mtrack.activation_conf_fpath))
+            if not mtrack.has_bleed:
+                self.assertTrue(os.path.exists(mtrack.activation_conf_fpath))
 
     def test_sourceid_names(self):
         for track in self.track_list:

@@ -18,6 +18,7 @@ from . import AUDIO_PATH
 from . import TRACK_LIST_V1
 from . import TRACK_LIST_V2
 from . import TRACK_LIST_EXTRA
+from . import TRACK_LIST_BACH10
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -91,6 +92,10 @@ class MultiTrack(object):
         Path to melody intervals file
     melody_rankings_fpath : str
         Path to melody rankings file
+    activation_conf_fpath : str
+        Path to activation confidence file
+    source_id_fpath : str
+        Path to source id file
     mixing_coefficients : dictionary
         Dictionary of mixing weights keyed by stem id
     stems : dictionary
@@ -161,15 +166,7 @@ class MultiTrack(object):
         self.artist = track_id.split('_')[0]
         self.title = track_id.split('_')[1]
         self.track_id = track_id
-
-        if track_id in TRACK_LIST_V1:
-            self.dataset_version = 'V1'
-        elif track_id in TRACK_LIST_V2:
-            self.dataset_version = 'V2'
-        elif track_id in TRACK_LIST_EXTRA:
-            self.dataset_version = 'EXTRA'
-        else:
-            self.dataset_version = ''
+        self.dataset_version = get_dataset_version(track_id)
 
         # Filenames and Filepaths #
         self._meta_path = os.path.join(
@@ -456,17 +453,20 @@ class MultiTrack(object):
             Dictionary of column ids in the activations table keyed by stem_id
 
         """
-        activations, header = read_annotation_file(
-            self.activation_conf_fpath, header=True
-        )
-        idx_dict = {}
-        for i, stem_str in enumerate(header):
-            if stem_str == 'time':
-                continue
-            else:
-                stem_idx = format_index(stem_str)
-                idx_dict[stem_idx] = i
-        return activations, idx_dict
+        if os.path.exists(self.activation_conf_fpath):
+            activations, header = read_annotation_file(
+                self.activation_conf_fpath, header=True
+            )
+            idx_dict = {}
+            for i, stem_str in enumerate(header):
+                if stem_str == 'time':
+                    continue
+                else:
+                    stem_idx = format_index(stem_str)
+                    idx_dict[stem_idx] = i
+            return activations, idx_dict
+        else:
+            return None, None
 
     def melody_stems(self):
         """Get list of stems that contain melody.
@@ -774,20 +774,16 @@ def get_dict_leaves(dictionary):
 
     """
     vals = []
-    if isinstance(dictionary, dict):
-        for k in dictionary:
-            if isinstance(dictionary[k], dict):
-                for val in get_dict_leaves(dictionary[k]):
+    for k in dictionary:
+        if isinstance(dictionary[k], dict):
+            for val in get_dict_leaves(dictionary[k]):
+                vals.append(val)
+        else:
+            if hasattr(dictionary[k], '__iter__'):
+                for val in dictionary[k]:
                     vals.append(val)
             else:
-                if hasattr(dictionary[k], '__iter__'):
-                    for val in dictionary[k]:
-                        vals.append(val)
-                else:
-                    vals.append(dictionary[k])
-    else:
-        for val in dictionary:
-            vals.append(val)
+                vals.append(dictionary[k])
 
     return set(vals)
 
@@ -915,3 +911,31 @@ def is_valid_instrument(instrument):
 
     """
     return instrument in get_valid_instrument_labels()
+
+
+def get_dataset_version(track_id):
+    """Get the dataset version a track id appears in.
+
+    Parameters
+    ----------
+    track_id : str
+        Track id
+
+    Returns
+    -------
+    dataset_version : str
+        The dataset version string
+
+    """
+    if track_id in TRACK_LIST_V1:
+        dataset_version = 'V1'
+    elif track_id in TRACK_LIST_V2:
+        dataset_version = 'V2'
+    elif track_id in TRACK_LIST_EXTRA:
+        dataset_version = 'EXTRA'
+    elif track_id in TRACK_LIST_BACH10:
+        dataset_version = 'BACH10'
+    else:
+        dataset_version = ''
+
+    return dataset_version

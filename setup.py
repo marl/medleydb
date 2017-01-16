@@ -53,7 +53,8 @@ if __name__ == "__main__":
             'numpy',
             'six',
             'librosa',
-            'pydrive'
+            'pydrive',
+            'scipy'
         ],
 
         extras_require={

@@ -46,23 +46,18 @@ else:
 ANNOT_PATH = path.join(path.dirname(__file__), 'data', 'Annotations')
 METADATA_PATH = path.join(path.dirname(__file__), 'data', 'Metadata')
 
-TRACK_LIST_V1 = []
-with open(path.join(path.dirname(__file__), 'resources',
-                    'tracklist_v1.txt'), 'r') as fhandle:
-    for line in fhandle.readlines():
-        TRACK_LIST_V1.append(line.strip('\n'))
+def read_tracklist(filename):
+    tracklist = []
+    with open(path.join(path.dirname(__file__), 'resources',
+                        filename), 'r') as fhand:
+        for line in fhand.readlines():
+            tracklist.append(line.strip('\n'))
+    return tracklist
 
-TRACK_LIST_V2 = []
-with open(path.join(path.dirname(__file__), 'resources',
-                    'tracklist_v2.txt'), 'r') as fhandle:
-    for line in fhandle.readlines():
-        TRACK_LIST_V2.append(line.strip('\n'))
-
-TRACK_LIST_EXTRA = []
-with open(path.join(path.dirname(__file__), 'resources',
-                    'tracklist_extra.txt'), 'r') as fhandle:
-    for line in fhandle.readlines():
-        TRACK_LIST_EXTRA.append(line.strip('\n'))
+TRACK_LIST_V1 = read_tracklist('tracklist_v1.txt')
+TRACK_LIST_V2 = read_tracklist('tracklist_v2.txt')
+TRACK_LIST_EXTRA = read_tracklist('tracklist_extra.txt')
+TRACK_LIST_BACH10 = read_tracklist('tracklist_bach10.txt')
 
 with open(path.join(path.dirname(__file__), 'resources',
                     'taxonomy.yaml'), 'r') as fhandle:

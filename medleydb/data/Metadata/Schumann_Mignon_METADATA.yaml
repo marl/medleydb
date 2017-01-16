@@ -28,7 +28,7 @@ stems:
         filename: Schumann_Mignon_RAW_01_03.wav
         instrument: piano
   S02:
-    component: ''
+    component: melody
     filename: Schumann_Mignon_STEM_02.wav
     instrument: female singer
     raw:

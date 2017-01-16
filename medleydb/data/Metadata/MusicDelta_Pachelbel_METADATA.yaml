@@ -14,7 +14,7 @@ raw_dir: MusicDelta_Pachelbel_RAW
 stem_dir: MusicDelta_Pachelbel_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: MusicDelta_Pachelbel_STEM_01.wav
     instrument: violin
     raw:
@@ -30,7 +30,7 @@ stems:
         filename: MusicDelta_Pachelbel_RAW_02_01.wav
         instrument: cello
   S03:
-    component: ''
+    component: melody
     filename: MusicDelta_Pachelbel_STEM_03.wav
     instrument: viola
     raw:

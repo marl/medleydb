@@ -22,7 +22,7 @@ stems:
         filename: Wolf_DieBekherte_RAW_01_01.wav
         instrument: female singer
   S02:
-    component: ''
+    component: melody
     filename: Wolf_DieBekherte_STEM_02.wav
     instrument: piano
     raw:

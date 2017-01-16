@@ -93,10 +93,25 @@ class TestMultitrack(unittest.TestCase):
         expected = "NightPanther_Fire_MIX.wav"
         self.assertEqual(actual, expected)
 
-    def test_stem_pitch_annot(self):
+    def test_stem_pitch_annot_none(self):
         actual = self.stem.pitch_annotation
         expected = None
         self.assertEqual(actual, expected)
+
+    def test_stem_pitch_pyin_none(self):
+        actual = self.stem.pitch_estimate_pyin
+        expected = None
+        self.assertEqual(actual, expected)
+
+    def test_stem_pitch_annot_exists(self):
+        actual = self.mtrack.stems[7].pitch_annotation
+        expected_len = 18268
+        self.assertEqual(len(actual), expected_len)
+
+    def test_stem_pitch_pyin_exists(self):
+        actual = self.mtrack.stems[7].pitch_estimate_pyin
+        expected_len = 25175
+        self.assertEqual(len(actual), expected_len)
 
     def test_stem_raw_idx(self):
         actual = self.stem.raw_idx
@@ -238,10 +253,10 @@ class TestMultitrack(unittest.TestCase):
 
     def test_melody_tracks(self):
         mel_tracks = self.mtrack.melody_stems()
-        self.assertEqual(len(mel_tracks), 1)
+        self.assertEqual(len(mel_tracks), 2)
         self.assertEqual(mel_tracks[0].component, 'melody')
-        self.assertEqual(mel_tracks[0].stem_idx, 7)
-        self.assertEqual(len(mel_tracks[0].pitch_annotation), 18268)
+        self.assertEqual(mel_tracks[0].stem_idx, 6)
+        self.assertEqual(len(mel_tracks[0].pitch_annotation), 6591)
 
     def test_bass_tracks(self):
         bass_tracks = self.mtrack.bass_stems()
@@ -274,12 +289,12 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(type(actual), list)
 
     def test_activation_conf_from_stem1(self):
-        actual = self.mtrack2.activation_conf_from_stem(3)[0]
-        expected = [0.0, 0.0355]
+        actual = self.mtrack.activation_conf_from_stem(3)[0]
+        expected = [0.0, 0.0474]
         self.assertEqual(actual, expected)
 
     def test_activation_conf_from_stem2(self):
-        actual = self.mtrack2.activation_conf_from_stem(4)
+        actual = self.mtrack.activation_conf_from_stem(50)
         expected = None
         self.assertEqual(actual, expected)
 
@@ -309,6 +324,32 @@ class TestTrack(unittest.TestCase):
         self.assertEqual(track.stem_idx, 50)
         self.assertEqual(track.raw_idx, 7)
         self.assertEqual(track.mix_path, 'fake/path2')
+
+    def test_track_equality(self):
+        track1 = multitrack.Track(
+            'blurbophone', 'fake/path1', 'S12', 'fake/path2',
+            component='melody'
+        )
+        track2 = multitrack.Track(
+            'blurbophone', 'fake/path1', 'S12', 'fake/path2',
+            component='melody'
+        )
+        actual = track1 == track2
+        expected = True
+        self.assertEqual(expected, actual)
+
+    def test_track_inequality(self):
+        track1 = multitrack.Track(
+            'blurbophone', 'fake/path1', 'S12', 'fake/path2',
+            component='melody'
+        )
+        track2 = multitrack.Track(
+            'kazoo', 'fake/path1', 50, 'fake/path2',
+            raw_idx='R07'
+        )
+        actual = track1 != track2
+        expected = True
+        self.assertEqual(expected, actual)
 
 
 class TestPathBasedir(unittest.TestCase):
@@ -451,3 +492,30 @@ class TestIsValidInstrument(unittest.TestCase):
         actual = multitrack.is_valid_instrument('mayonnaise')
         expected = False
         self.assertEqual(actual, expected)
+
+
+class TestGetDatasetVersion(unittest.TestCase):
+    def test_version_1(self):
+        actual = multitrack.get_dataset_version('MusicDelta_Beethoven')
+        expected = 'V1'
+        self.assertEqual(expected, actual)
+
+    def test_version_v2(self):
+        actual = multitrack.get_dataset_version("FennelCartwright_DearTessie")
+        expected = 'V2'
+        self.assertEqual(expected, actual)
+
+    def test_version_extra(self):
+        actual = multitrack.get_dataset_version("AHa_TakeOnMe")
+        expected = 'EXTRA'
+        self.assertEqual(expected, actual)
+
+    def test_version_bach10(self):
+        actual = multitrack.get_dataset_version("Bach10_05DieNacht")
+        expected = 'BACH10'
+        self.assertEqual(expected, actual)
+
+    def test_version_none(self):
+        actual = multitrack.get_dataset_version("ManateeCommune_Blueberry")
+        expected = ''
+        self.assertEqual(expected, actual)

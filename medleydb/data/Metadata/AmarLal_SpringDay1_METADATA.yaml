@@ -14,7 +14,7 @@ raw_dir: AmarLal_SpringDay1_RAW
 stem_dir: AmarLal_SpringDay1_STEMS
 stems:
   S01:
-    component: ''
+    component: melody
     filename: AmarLal_SpringDay1_STEM_01.wav
     instrument: acoustic guitar
     raw:

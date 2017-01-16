@@ -5,7 +5,7 @@ import unittest
 import os
 import numpy as np
 from medleydb import MultiTrack
-from medleydb.annotate import generate_melody_annotations as G
+from medleydb.annotate import melody as G
 from medleydb.multitrack import _MELODY1_PATH, _MELODY2_PATH, _MELODY3_PATH
 
 HOP = 256.0
@@ -195,7 +195,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
-    def test_add_sequence_to_melody4(self):
+    def test_add_sequence_to_melody5(self):
 
         f0_sequence = [
             [self.times[0], 3.0],
@@ -224,7 +224,7 @@ class TestAddSequenceToMelody(unittest.TestCase):
         print(expected)
         self.assertTrue(array_almost_equal(actual, expected))
 
-    def test_add_sequence_to_melody4(self):
+    def test_add_sequence_to_melody6(self):
 
         f0_sequence = [
             [self.times[0], 3.0],

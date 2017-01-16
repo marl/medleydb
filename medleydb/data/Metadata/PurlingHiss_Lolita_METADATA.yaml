@@ -60,7 +60,7 @@ stems:
         filename: PurlingHiss_Lolita_RAW_02_10.wav
         instrument: drum set
   S03:
-    component: ''
+    component: melody
     filename: PurlingHiss_Lolita_STEM_03.wav
     instrument: distorted electric guitar
     raw:

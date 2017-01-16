@@ -81,7 +81,7 @@ stems:
         filename: MatthewEntwistle_ImpressionsOfSaturn_RAW_08_01.wav
         instrument: violin
   S09:
-    component: ''
+    component: melody
     filename: MatthewEntwistle_ImpressionsOfSaturn_STEM_09.wav
     instrument: violin
     raw:

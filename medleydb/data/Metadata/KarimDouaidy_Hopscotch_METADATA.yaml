@@ -93,7 +93,7 @@ stems:
         filename: KarimDouaidy_Hopscotch_RAW_08_01.wav
         instrument: auxiliary percussion
   S09:
-    component: ''
+    component: melody
     filename: KarimDouaidy_Hopscotch_STEM_09.wav
     instrument: piano
     raw:

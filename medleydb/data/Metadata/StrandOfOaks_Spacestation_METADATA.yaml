@@ -115,7 +115,7 @@ stems:
         filename: StrandOfOaks_Spacestation_RAW_07_01.wav
         instrument: synthesizer
   S08:
-    component: ''
+    component: melody
     filename: StrandOfOaks_Spacestation_STEM_08.wav
     instrument: tack piano
     raw:

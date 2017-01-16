@@ -38,7 +38,7 @@ stems:
         filename: MusicDelta_ChineseXinJing_RAW_03_01.wav
         instrument: liuqin
   S04:
-    component: ''
+    component: melody
     filename: MusicDelta_ChineseXinJing_STEM_04.wav
     instrument: yangqin
     raw:
@@ -46,7 +46,7 @@ stems:
         filename: MusicDelta_ChineseXinJing_RAW_04_01.wav
         instrument: yangqin
   S05:
-    component: ''
+    component: melody
     filename: MusicDelta_ChineseXinJing_STEM_05.wav
     instrument: zhongruan
     raw:

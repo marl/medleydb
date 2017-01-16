@@ -83,7 +83,7 @@ stems:
         filename: TheSoSoGlos_Emergency_RAW_03_11.wav
         instrument: drum set
   S04:
-    component: ''
+    component: melody
     filename: TheSoSoGlos_Emergency_STEM_04.wav
     instrument: distorted electric guitar
     raw:

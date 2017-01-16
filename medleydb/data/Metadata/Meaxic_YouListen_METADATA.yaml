@@ -96,7 +96,7 @@ stems:
         filename: Meaxic_YouListen_RAW_05_06.wav
         instrument: clean electric guitar
   S06:
-    component: ''
+    component: melody
     filename: Meaxic_YouListen_STEM_06.wav
     instrument: distorted electric guitar
     raw:

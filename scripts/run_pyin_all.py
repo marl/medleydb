@@ -7,16 +7,31 @@ from medleydb import download
 from medleydb import TRACK_LIST_V1
 from medleydb import TRACK_LIST_V2
 from medleydb import TRACK_LIST_EXTRA
-from medleydb.multitrack import _PITCH_PYIN_PATH
+from medleydb import TRACK_LIST_BACH10
 import shutil
 import sox
+import tempfile
 
-from medleydb.annotate.generate_pyin_pitch_annotations import run_pyin
+from medleydb.annotate.pyin_pitch import get_pyin_annotation
 import os
 
 
+def ensure_samplerate(audio_path):
+    samplerate = sox.file_info.sample_rate(audio_path)
+    if samplerate != 44100:
+        tfm = sox.Transformer()
+        tfm.rate(44100)
+        _, pyin_audio = tempfile.mkstemp(suffix='.wav')
+        tfm.build(audio_path, pyin_audio)
+        os.remove(audio_path)
+        shutil.move(pyin_audio, audio_path)
+
+
 def main():
-    for track_id in TRACK_LIST_EXTRA + TRACK_LIST_V2 + TRACK_LIST_V1:
+    full_list = (
+        TRACK_LIST_EXTRA + TRACK_LIST_V2 + TRACK_LIST_V1 + TRACK_LIST_BACH10
+    )
+    for track_id in full_list:
         print(track_id)
         try:
             mtrack = medleydb.MultiTrack(track_id)
@@ -32,16 +47,9 @@ def main():
 
                 if 'm' in f0_type and not os.path.exists(stem.pitch_pyin_path):
                     download.download_stem(mtrack, stem.stem_idx)
-                    samplerate = sox.file_info.sample_rate(stem.audio_path)
-                    if samplerate != 44100:
-                        print("[SAMPLERATE] Check {}".format(track_id))
-                        tfm = sox.Transformer()
-                        tfm.rate(44100)
-                        pyin_audio = 'dumbtempfile.wav'
-                        tfm.build(stem.audio_path, pyin_audio)
-                        os.remove(stem.audio_path)
-                        shutil.move(pyin_audio, stem.audio_path)
-                    run_pyin(stem.audio_path, _PITCH_PYIN_PATH)
+
+                    get_pyin_annotation(mtrack, stem.stem_idx, raw_id=None)
+
                     download.purge_downloaded_files()
         except:
             print("Something failed...")
