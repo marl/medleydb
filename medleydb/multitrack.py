@@ -774,20 +774,16 @@ def get_dict_leaves(dictionary):
 
     """
     vals = []
-    if isinstance(dictionary, dict):
-        for k in dictionary:
-            if isinstance(dictionary[k], dict):
-                for val in get_dict_leaves(dictionary[k]):
+    for k in dictionary:
+        if isinstance(dictionary[k], dict):
+            for val in get_dict_leaves(dictionary[k]):
+                vals.append(val)
+        else:
+            if hasattr(dictionary[k], '__iter__'):
+                for val in dictionary[k]:
                     vals.append(val)
             else:
-                if hasattr(dictionary[k], '__iter__'):
-                    for val in dictionary[k]:
-                        vals.append(val)
-                else:
-                    vals.append(dictionary[k])
-    else:
-        for val in dictionary:
-            vals.append(val)
+                vals.append(dictionary[k])
 
     return set(vals)
 
@@ -918,6 +914,19 @@ def is_valid_instrument(instrument):
 
 
 def get_dataset_version(track_id):
+    """Get the dataset version a track id appears in.
+
+    Parameters
+    ----------
+    track_id : str
+        Track id
+
+    Returns
+    -------
+    dataset_version : str
+        The dataset version string
+
+    """
     if track_id in TRACK_LIST_V1:
         dataset_version = 'V1'
     elif track_id in TRACK_LIST_V2:
