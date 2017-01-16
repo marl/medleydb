@@ -9,6 +9,7 @@ from . import multitrack as M
 from . import TRACK_LIST_V1
 from . import TRACK_LIST_V2
 from . import TRACK_LIST_EXTRA
+from . import TRACK_LIST_BACH10
 from . import ARTIST_INDEX
 
 import numpy as np
@@ -66,6 +67,8 @@ def load_all_multitracks(dataset_version=None):
         track_list.extend(TRACK_LIST_V2)
     if 'EXTRA' in dataset_version:
         track_list.extend(TRACK_LIST_EXTRA)
+    if 'BACH10' in dataset_version:
+        track_list.extend(TRACK_LIST_BACH10)
 
     multitracks = load_multitracks(track_list)
     return multitracks

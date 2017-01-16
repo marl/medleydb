@@ -18,6 +18,7 @@ from . import AUDIO_PATH
 from . import TRACK_LIST_V1
 from . import TRACK_LIST_V2
 from . import TRACK_LIST_EXTRA
+from . import TRACK_LIST_BACH10
 
 _YESNO = dict(yes=True, no=False)
 _TRACKID_FMT = "%s_%s"
@@ -165,15 +166,7 @@ class MultiTrack(object):
         self.artist = track_id.split('_')[0]
         self.title = track_id.split('_')[1]
         self.track_id = track_id
-
-        if track_id in TRACK_LIST_V1:
-            self.dataset_version = 'V1'
-        elif track_id in TRACK_LIST_V2:
-            self.dataset_version = 'V2'
-        elif track_id in TRACK_LIST_EXTRA:
-            self.dataset_version = 'EXTRA'
-        else:
-            self.dataset_version = ''
+        self.dataset_version = get_dataset_version(track_id)
 
         # Filenames and Filepaths #
         self._meta_path = os.path.join(
@@ -922,3 +915,18 @@ def is_valid_instrument(instrument):
 
     """
     return instrument in get_valid_instrument_labels()
+
+
+def get_dataset_version(track_id):
+    if track_id in TRACK_LIST_V1:
+        dataset_version = 'V1'
+    elif track_id in TRACK_LIST_V2:
+        dataset_version = 'V2'
+    elif track_id in TRACK_LIST_EXTRA:
+        dataset_version = 'EXTRA'
+    elif track_id in TRACK_LIST_BACH10:
+        dataset_version = 'BACH10'
+    else:
+        dataset_version = ''
+
+    return dataset_version
