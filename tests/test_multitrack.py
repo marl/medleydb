@@ -238,10 +238,10 @@ class TestMultitrack(unittest.TestCase):
 
     def test_melody_tracks(self):
         mel_tracks = self.mtrack.melody_stems()
-        self.assertEqual(len(mel_tracks), 1)
+        self.assertEqual(len(mel_tracks), 2)
         self.assertEqual(mel_tracks[0].component, 'melody')
-        self.assertEqual(mel_tracks[0].stem_idx, 7)
-        self.assertEqual(len(mel_tracks[0].pitch_annotation), 18268)
+        self.assertEqual(mel_tracks[0].stem_idx, 6)
+        self.assertEqual(len(mel_tracks[0].pitch_annotation), 6591)
 
     def test_bass_tracks(self):
         bass_tracks = self.mtrack.bass_stems()
@@ -274,12 +274,12 @@ class TestMultitrack(unittest.TestCase):
         self.assertEqual(type(actual), list)
 
     def test_activation_conf_from_stem1(self):
-        actual = self.mtrack2.activation_conf_from_stem(3)[0]
-        expected = [0.0, 0.0355]
+        actual = self.mtrack.activation_conf_from_stem(3)[0]
+        expected = [0.0, 0.0474]
         self.assertEqual(actual, expected)
 
     def test_activation_conf_from_stem2(self):
-        actual = self.mtrack2.activation_conf_from_stem(4)
+        actual = self.mtrack.activation_conf_from_stem(50)
         expected = None
         self.assertEqual(actual, expected)
 

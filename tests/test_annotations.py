@@ -35,12 +35,14 @@ class TestFileNames(unittest.TestCase):
         self.assertTrue(os.path.exists(multitrack._MELODY3_PATH))
         self.assertTrue(os.path.exists(multitrack._RANKING_PATH))
         self.assertTrue(os.path.exists(multitrack._PITCH_PATH))
+        self.assertTrue(os.path.exists(multitrack._PITCH_PYIN_PATH))
         self.assertTrue(os.path.exists(multitrack._SOURCEID_PATH))
 
     def test_activation_conf_names(self):
         for track in self.track_list:
             mtrack = MultiTrack(track)
-            self.assertTrue(os.path.exists(mtrack.activation_conf_fpath))
+            if not mtrack.has_bleed:
+                self.assertTrue(os.path.exists(mtrack.activation_conf_fpath))
 
     def test_sourceid_names(self):
         for track in self.track_list:
