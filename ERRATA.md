@@ -13,6 +13,9 @@ The following is a list of known issues with the Audio or Metadata. Please repor
 | File | Error |
 | ------------- |-------------|
 | **AClassicEducation_NightOwl** | |
+| `AClassicEducation_NightOwl_RAW_02_09.wav` |  4 |
+| `AClassicEducation_NightOwl_RAW_02_10.wav` |  4 |
+| `AClassicEducation_NightOwl_RAW_02_13.wav` |  4 |
 | `AClassicEducation_NightOwl_RAW_13_01.wav` |  2 |
 | `AClassicEducation_NightOwl_RAW_13_02.wav` | 2 |
 | **BrandonWebster_DontHearAThing** |
