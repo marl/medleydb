@@ -22,6 +22,7 @@ execfile('../medleydb/version.py')
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
+sys.path.insert(0, os.path.abspath('./'))
 sys.path.insert(0, os.path.abspath('../'))
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -77,10 +78,9 @@ class Mock(MagicMock):
 MOCK_MODULES = [
     'librosa', 'sox', 'numpy', 'numpy.polynomial',
     'numpy.polynomial.polynomial', 'sklearn', 'sklearn.ensemble',
-    'sklearn.grid_search', 'sklearn.utils', 'sklearn.model_selection',
-    'sklearn.model_selection.RandomizedSearchCV', 'mir_eval', 'mir_eval.melody',
+    'sklearn.cross_validation', 'mir_eval', 'mir_eval.melody',
     'mir_eval.melody.hz2cents' 'seaborn', 'scipy', 'scipy.signal',
-    'scipy.stats', 'matplotlib', 'matplotlib.pyplot'
+    'scipy.stats', 'matplotlib', 'matplotlib.pyplot', 'multitrack'
 ]
 
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
