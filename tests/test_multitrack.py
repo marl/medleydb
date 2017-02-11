@@ -288,8 +288,17 @@ class TestMultitrack(unittest.TestCase):
         actual = self.mtrack.stem_activations
         self.assertEqual(type(actual), list)
 
+    def test_stem_activations_v2(self):
+        actual = self.mtrack.stem_activations_v2
+        self.assertEqual(type(actual), list)
+
     def test_activation_conf_from_stem1(self):
         actual = self.mtrack.activation_conf_from_stem(3)[0]
+        expected = [0.0, 0.0474]
+        self.assertEqual(actual, expected)
+
+    def test_activation_conf_from_stem_v2(self):
+        actual = self.mtrack.activation_conf_from_stem(3, version='v2')[0]
         expected = [0.0, 0.0474]
         self.assertEqual(actual, expected)
 
