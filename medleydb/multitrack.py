@@ -32,6 +32,8 @@ _RAW_FMT = "%s_RAW_%%s_%%s.wav"
 _AUDIODIR_FMT = "%s"
 
 _ACTIVATION_CONF_PATH = os.path.join(ANNOT_PATH, 'Activation_Confidence')
+_ACTIVATION_CONF_ORIG_PATH = os.path.join(_ACTIVATION_CONF_PATH, 'original')
+_ACTIVATION_CONF_V2_PATH = os.path.join(_ACTIVATION_CONF_PATH, 'v2')
 _MELODY_PATH = os.path.join(ANNOT_PATH, 'Melody')
 _INTERVALS_PATH = os.path.join(_MELODY_PATH, 'Intervals')
 _MELODY1_PATH = os.path.join(_MELODY_PATH, 'Melody1')
@@ -93,7 +95,9 @@ class MultiTrack(object):
     melody_rankings_fpath : str
         Path to melody rankings file
     activation_conf_fpath : str
-        Path to activation confidence file
+        Path to original activation confidence file
+    activation_conf_v2_fpath : str
+        Path to version 2 activation confidence file
     source_id_fpath : str
         Path to source id file
     mixing_coefficients : dictionary
@@ -204,7 +208,10 @@ class MultiTrack(object):
         self._metadata = self._load_metadata()
 
         self.activation_conf_fpath = os.path.join(
-            _ACTIVATION_CONF_PATH, _ACTIVCONF_FMT % self.track_id
+            _ACTIVATION_CONF_ORIG_PATH, _ACTIVCONF_FMT % self.track_id
+        )
+        self.activation_conf_v2_fpath = os.path.join(
+            _ACTIVATION_CONF_V2_PATH, _ACTIVCONF_FMT % self.track_id
         )
         self.source_id_fpath = os.path.join(
             _SOURCEID_PATH, _SOURCEID_FMT % self.track_id
@@ -268,6 +275,8 @@ class MultiTrack(object):
         self.predominant_stem = self._get_predominant_stem()
         self._stem_activations = None
         self._stem_activations_idx = None
+        self._stem_activations_v2 = None
+        self._stem_activations_idx_v2 = None
 
     @property
     def melody1_annotation(self):
@@ -317,6 +326,27 @@ class MultiTrack(object):
             (self._stem_activations,
              self._stem_activations_idx) = self._get_activation_annotations()
         return self._stem_activations_idx
+
+    @property
+    def stem_activations_v2(self):
+        """np.array: Matrix of stem activations (annotations version 2)
+        """
+        if self._stem_activations_v2 is None:
+            (self._stem_activations_v2,
+             self._stem_activations_idx_v2
+             ) = self._get_activation_annotations(version='v2')
+        return self._stem_activations_v2
+
+    @property
+    def stem_activations_idx_v2(self):
+        """dictionary : Dictionary mapping stem index to column of the
+        stem_activations matrix. (annotations version 2)
+        """
+        if self._stem_activations_idx_v2 is None:
+            (self._stem_activations_v2,
+             self._stem_activations_idx_v2
+             ) = self._get_activation_annotations(version='v2')
+        return self._stem_activations_idx_v2
 
     def _load_metadata(self):
         """Load the metadata file.
@@ -442,8 +472,14 @@ class MultiTrack(object):
         else:
             return None
 
-    def _get_activation_annotations(self):
+    def _get_activation_annotations(self, version=None):
         """Get activation confidence annotation if file exists.
+
+        Parameters
+        ----------
+        version : str
+            If 'v2', uses the version 2 annotations. Otherwise uses acitvation
+            annotations from the original release.
 
         Returns
         -------
@@ -453,7 +489,12 @@ class MultiTrack(object):
             Dictionary of column ids in the activations table keyed by stem_id
 
         """
-        if os.path.exists(self.activation_conf_fpath):
+        if version == 'v2':
+            fpath = self.activation_conf_v2_fpath
+        else:
+            fpath = self.activation_conf_fpath
+
+        if os.path.exists(fpath):
             activations, header = read_annotation_file(
                 self.activation_conf_fpath, header=True
             )
@@ -536,13 +577,16 @@ class MultiTrack(object):
         """
         return [track.audio_path for track in get_dict_leaves(self.raw_audio)]
 
-    def activation_conf_from_stem(self, stem_idx):
+    def activation_conf_from_stem(self, stem_idx, version=None):
         """Get activation confidence from given stem.
 
         Parameters
         ----------
         stem_idx : int
             stem index (eg. 2 for stem S02)
+        version : str
+            If 'v2', uses the version 2 annotations. Otherwise uses acitvation
+            annotations from the original release.
 
         Returns
         -------
@@ -550,10 +594,17 @@ class MultiTrack(object):
             List of time, activation confidence pairs
 
         """
+        if version == 'v2':
+            activation_idx = self.stem_activations_idx_v2
+            stem_activations = self.stem_activations_v2
+        else:
+            activation_idx = self.stem_activations_idx
+            stem_activations = self.stem_activations
+
         activations = []
-        if stem_idx in self.stem_activations_idx:
-            activ_conf_idx = self.stem_activations_idx[stem_idx]
-            for step in self.stem_activations:
+        if stem_idx in activation_idx:
+            activ_conf_idx = activation_idx[stem_idx]
+            for step in stem_activations:
                 activations.append([step[0], step[activ_conf_idx]])
         else:
             activations = None
