@@ -51,13 +51,7 @@ Install the package
 
 ```bash
 cd medleydb
-python setup.py install
-```
-
-Alternatively, you can do this all in one step:
-
-```
-$ pip install git+git://github.com/marl/medleydb.git
+pip install .
 ```
 
 Next, set the environment variable MEDLEYDB_PATH to the local path where
@@ -77,7 +71,7 @@ Dependencies
   * [librosa](https://bmcfee.github.io/librosa/)
   * [numpy](http://www.numpy.org/)
   * [pyyaml](http://pyyaml.org/)
-  * [sox](http://sox.sourceforge.net/)
+  * [sox](https://github.com/rabitt/pysox)
 
 If you use homebrew, you can install sox by doing:
 
