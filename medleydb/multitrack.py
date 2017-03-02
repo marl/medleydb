@@ -243,11 +243,7 @@ class MultiTrack(object):
         )
 
         # Basic Track Information #
-        if self.mix_path is not None and os.path.exists(self.mix_path):
-            self.duration = get_duration(self.mix_path)
-        else:
-            self.duration = None
-
+        self._duration = None
         self.is_excerpt = _YESNO[self._metadata['excerpt']]
         self.has_bleed = _YESNO[self._metadata['has_bleed']]
         self.is_instrumental = _YESNO[self._metadata['instrumental']]
@@ -277,6 +273,16 @@ class MultiTrack(object):
         self._stem_activations_idx = None
         self._stem_activations_v2 = None
         self._stem_activations_idx_v2 = None
+
+    @property
+    def duration(self):
+        """float: Duration of the mix
+        """
+        if self._duration is None:
+            if self.mix_path is not None and os.path.exists(self.mix_path):
+                self._duration = get_duration(self.mix_path)
+
+        return self._duration
 
     @property
     def melody1_annotation(self):
@@ -496,7 +502,7 @@ class MultiTrack(object):
 
         if os.path.exists(fpath):
             activations, header = read_annotation_file(
-                self.activation_conf_fpath, header=True
+                fpath, header=True
             )
             idx_dict = {}
             for i, stem_str in enumerate(header):
@@ -700,16 +706,21 @@ class Track(object):
             self.pitch_path = None
             self.pitch_pyin_path = None
 
+        self._duration = None
         self.mixing_coefficient = mix_coeff
-
-        if audio_path is not None and os.path.exists(audio_path):
-            self.duration = get_duration(audio_path)
-        else:
-            self.duration = None
 
         self.mix_path = mix_path
         self._pitch_annotation = None
         self._pitch_estimate_pyin = None
+
+    @property
+    def duration(self):
+        """float: duration of audio file
+        """
+        if self._duration is None:
+            if self.audio_path is not None and os.path.exists(self.audio_path):
+                self._duration = get_duration(self.audio_path)
+        return self._duration
 
     @property
     def pitch_annotation(self):
