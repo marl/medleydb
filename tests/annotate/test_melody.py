@@ -256,7 +256,7 @@ class TestCreateMelodyAnnotations(unittest.TestCase):
 
     def setUp(self):
         self.mtrack = MultiTrack("MusicDelta_Beethoven")
-        self.mtrack.duration = 27.371
+        self.mtrack._duration = 27.371
         self.mtrack_nomel = MultiTrack("TablaBreakbeatScience_Animoog")
 
     def test_melody1(self):
