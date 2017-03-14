@@ -7,7 +7,7 @@ version = imp.load_source('medleydb.__version___', 'medleydb/version.py')
 
 data_files = []
 data_files.append(('medleydb/resources', glob.glob('medleydb/resources/*')))
-data_files.append(('medleydb/data', glob.glob('medleydb/data/*')))
+data_files.append(('medleydb/data', glob.glob('medleydb/data/*.*')))
 
 
 if __name__ == "__main__":
