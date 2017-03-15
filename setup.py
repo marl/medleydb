@@ -1,6 +1,5 @@
 """medleydb setup script"""
 from setuptools import setup
-import glob
 import imp
 import os
 
@@ -8,7 +7,8 @@ version = imp.load_source('medleydb.__version___', 'medleydb/version.py')
 
 package_data = ['resources/*']
 os.chdir('medleydb')
-package_data.extend([f'{root}/*' for root, dirs, files in os.walk('data')])
+package_data.extend(['{0}/*'.format(root)
+                    for root, dirs, files in os.walk('data')])
 os.chdir('..')
 
 if __name__ == "__main__":
