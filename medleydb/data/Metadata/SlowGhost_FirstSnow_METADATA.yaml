@@ -40,18 +40,6 @@ stems:
       R08:
         filename: SlowGhost_FirstSnow_RAW_01_08.wav
         instrument: drum set
-      R09:
-        filename: SlowGhost_FirstSnow_RAW_01_09.wav
-        instrument: drum set
-      R10:
-        filename: SlowGhost_FirstSnow_RAW_01_10.wav
-        instrument: drum set
-      R11:
-        filename: SlowGhost_FirstSnow_RAW_01_11.wav
-        instrument: drum set
-      R12:
-        filename: SlowGhost_FirstSnow_RAW_01_12.wav
-        instrument: drum set
   S02:
     component: bass
     filename: SlowGhost_FirstSnow_STEM_02.wav
@@ -59,9 +47,6 @@ stems:
     raw:
       R01:
         filename: SlowGhost_FirstSnow_RAW_02_01.wav
-        instrument: electric bass
-      R02:
-        filename: SlowGhost_FirstSnow_RAW_02_02.wav
         instrument: electric bass
   S03:
     component: melody
@@ -73,12 +58,6 @@ stems:
         instrument: electric piano
       R02:
         filename: SlowGhost_FirstSnow_RAW_03_02.wav
-        instrument: electric piano
-      R03:
-        filename: SlowGhost_FirstSnow_RAW_03_03.wav
-        instrument: electric piano
-      R04:
-        filename: SlowGhost_FirstSnow_RAW_03_04.wav
         instrument: electric piano
 title: First Snow
 version: 1.2
