@@ -20,7 +20,7 @@ def make_audio_stack(mtrack, fs=22050):
     n_stems = len(stems)
 
     print("loading stem 1...")
-    stem1_audio, fs = load_audio(stems[1].file_path, fs)
+    stem1_audio, fs = load_audio(stems[1].audio_path, fs)
     n_samples = len(stem1_audio)
 
     audio_stack = np.zeros((n_stems, n_samples))
