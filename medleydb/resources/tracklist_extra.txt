@@ -120,3 +120,5 @@ VampireWeekend_Holiday
 VanHalen_Jump
 VanillaIce_IceIceBaby
 VillagePeople_Ymca
+Weezer_IslandInTheSun
+WildCherry_PlayThatFunkyMusic
