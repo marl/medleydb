@@ -142,11 +142,20 @@ class TestTrainTestSplit(unittest.TestCase):
             trackid_list=trackid_list, num_splits=1
         )
 
+        # Verify that the number of splits is correct
         self.assertEqual(1, len(splits))
+
+        # Verify that the splits span the entire track list
         self.assertEqual(
             sorted(trackid_list),
             sorted(splits[0]['train'] + splits[0]['test'])
         )
+
+        # Verify that sets don't intersect, and that neither is empty
+        self.assertEqual(set(splits[0]['train']) & set(splits[0]['test']),
+                         set())
+        self.assertNotEqual(len(splits[0]['train']), 0)
+        self.assertNotEqual(len(splits[0]['test']), 0)
 
     def test_artist_index(self):
         trackid_list = [
@@ -175,3 +184,13 @@ class TestTrainTestSplit(unittest.TestCase):
             sorted(splits[0]['train'] + splits[0]['test'])
         )
 
+        # Same tests as above
+        self.assertEqual(set(splits[0]['train']) & set(splits[0]['test']),
+                         set())
+        self.assertNotEqual(len(splits[0]['train']), 0)
+        self.assertNotEqual(len(splits[0]['test']), 0)
+
+        # Also make sure that artists are partitioned properly
+        train_artists = set([artist_index[t] for t in splits[0]['train']])
+        test_artists = set([artist_index[t] for t in splits[0]['test']])
+        self.assertEqual(train_artists & test_artists, set())
