@@ -54,7 +54,8 @@ if __name__ == "__main__":
             'six',
             'librosa',
             'pydrive',
-            'scipy'
+            'scipy',
+            'scikit-learn >= 0.18'
         ],
 
         extras_require={

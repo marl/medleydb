@@ -13,7 +13,7 @@ from . import TRACK_LIST_BACH10
 from . import ARTIST_INDEX
 
 import numpy as np
-from sklearn.cross_validation import ShuffleSplit
+from sklearn.model_selection import GroupShuffleSplit
 
 
 def load_melody_multitracks(dataset_version=None):
@@ -181,60 +181,16 @@ def artist_conditional_split(trackid_list=None, test_size=0.15, num_splits=5,
 
     artists = np.asarray([ARTIST_INDEX[trackid] for trackid in trackid_list])
 
-    splitter = _ShuffleLabelsOut(
-        artists, random_state=random_state, test_size=test_size,
-        n_iter=num_splits
-    )
+    splitter = GroupShuffleSplit(n_splits=num_splits,
+                                 random_state=random_state,
+                                 test_size=test_size)
 
     trackid_array = np.array(trackid_list)
     splits = []
-    for train, test in splitter:
+    for train, test in splitter.split(trackid_array, groups=artists):
         splits.append({
             'train': list(trackid_array[train]),
             'test': list(trackid_array[test])
         })
 
     return splits
-
-
-class _ShuffleLabelsOut(ShuffleSplit):
-    '''Shuffle- Labels-Out cross-validation iterator
-
-    Parameters
-    ----------
-    y :  array, [n_samples]
-        Labels of samples
-
-    n_iter : int (default 5)
-        Number of shuffles to generate
-
-    test_size : float (default 0.2), int, or None
-
-    train_size : float, int, or None (default is None)
-
-    random_state : int or RandomState
-    '''
-
-    def __init__(self, y, n_iter=5, test_size=0.2, train_size=None,
-                 random_state=None):
-
-        classes, y_indices = np.unique(y, return_inverse=True)
-
-        super(_ShuffleLabelsOut, self).__init__(
-            len(classes), n_iter=n_iter, test_size=test_size,
-            train_size=train_size, random_state=random_state
-        )
-
-        self.classes = classes
-        self.y_indices = y_indices
-
-    def _iter_indices(self):
-
-        for y_train, y_test in super(_ShuffleLabelsOut, self)._iter_indices():
-            # these are the indices of classes in the partition
-            # invert them into data indices
-
-            train = np.flatnonzero(np.in1d(self.y_indices, y_train))
-            test = np.flatnonzero(np.in1d(self.y_indices, y_test))
-
-            yield train, test
