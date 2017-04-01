@@ -49,13 +49,13 @@ if __name__ == "__main__":
         license='MIT',
 
         install_requires=[
-            'sox',
-            'pyyaml',
-            'numpy',
-            'six',
-            'librosa',
-            'pydrive',
-            'scipy',
+            'sox >= 1.2.3',
+            'pyyaml >= 3.11',
+            'numpy >= 1.8.0',
+            'six >= 1.3',
+            'librosa >= 0.5.0',
+            'pydrive >= 1.3.1',
+            'scipy >= 0.13.0',
             'scikit-learn >= 0.18'
         ],
 

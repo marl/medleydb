@@ -78,7 +78,7 @@ class Mock(MagicMock):
 MOCK_MODULES = [
     'librosa', 'sox', 'numpy', 'numpy.polynomial',
     'numpy.polynomial.polynomial', 'sklearn', 'sklearn.ensemble',
-    'sklearn.cross_validation', 'mir_eval', 'mir_eval.melody',
+    'sklearn.model_selection', 'mir_eval', 'mir_eval.melody',
     'mir_eval.melody.hz2cents' 'seaborn', 'scipy', 'scipy.signal',
     'scipy.stats', 'matplotlib', 'matplotlib.pyplot', 'multitrack'
 ]
