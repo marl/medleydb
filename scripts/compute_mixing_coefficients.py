@@ -18,7 +18,9 @@ def get_feature_stft(filename):
     sr = 8192
     nfft = 8192
     y, fs = librosa.load(filename, mono=True, sr=sr)
-    feature = np.abs(librosa.stft(y, n_fft=nfft, hop_length=nfft, win_length=nfft))
+    feature = np.abs(
+        librosa.stft(y, n_fft=nfft, hop_length=nfft, win_length=nfft)
+    )
     return feature
 
 
@@ -34,7 +36,6 @@ def linear_model(x, A, y):
 
 
 def analyze_mix_stft(mtrack):
-
     mixfile = mtrack.mix_path
     mix_audio = get_feature_stft(mixfile)
 
@@ -46,12 +47,12 @@ def analyze_mix_stft(mtrack):
         [get_feature_stft(_) for _ in stem_files]
     )
 
+    # force weights to be between 0.5 and 4
     bounds = tuple([(0.5, 4.0) for _ in range(n_stems)])
     res = minimize(
         linear_model, x0=np.ones((n_stems, )), args=(stem_audio.T, mix_audio.T),
         bounds=bounds
     )
-    print(res)
     coefs = res['x']
 
     mixing_coeffs = {
@@ -61,7 +62,6 @@ def analyze_mix_stft(mtrack):
 
 
 def analyze_mix_audio(mtrack):
-
     mixfile = mtrack.mix_path
     mix_audio = get_feature_audio(mixfile)
 
@@ -73,6 +73,7 @@ def analyze_mix_audio(mtrack):
         [get_feature_audio(_) for _ in stem_files]
     )
 
+    # force weights to be between 0.5 and 4
     bounds = tuple([(0.5, 4.0) for _ in range(n_stems)])
     res = minimize(
         linear_model, x0=np.ones((n_stems, )), args=(stem_audio.T, mix_audio.T),
@@ -92,6 +93,8 @@ def main(args):
     for mtrack in mtracks:
 
         print(mtrack.track_id)
+
+        # compute mixing weights on both stft and squared audio
         coeffs_stft = analyze_mix_stft(mtrack)
         coeffs_audio = analyze_mix_audio(mtrack)
 

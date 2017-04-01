@@ -68,7 +68,7 @@ with open(path.join(path.dirname(__file__), 'resources',
     INST_F0_TYPE = json.load(fhandle)
 
 with open(path.join(path.dirname(__file__), 'resources',
-                    'mixing_coefficients.yaml'), 'r') as fhandle:
+                    'mixing_coefficients_version2.yaml'), 'r') as fhandle:
     MIXING_COEFFICIENTS = yaml.load(fhandle)
 
 with open(path.join(path.dirname(__file__), 'resources',

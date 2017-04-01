@@ -403,7 +403,10 @@ class MultiTrack(object):
             file_id = "%s_STEM_%s" % (self.track_id, k[1:])
 
             if self.mixing_coefficients is not None:
-                mix_coeff = self.mixing_coefficients[stem_idx]
+                mix_coeff = (
+                    self.mixing_coefficients['audio'][stem_idx] +
+                    self.mixing_coefficients['stft'][stem_idx]
+                ) * 0.5
             else:
                 mix_coeff = None
 
