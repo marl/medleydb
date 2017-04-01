@@ -1,14 +1,15 @@
 """medleydb setup script"""
 from setuptools import setup
-import glob
 import imp
+import os
 
 version = imp.load_source('medleydb.__version___', 'medleydb/version.py')
 
-data_files = []
-data_files.append(('medleydb/resources', glob.glob('medleydb/resources/*')))
-data_files.append(('medleydb/data', glob.glob('medleydb/data/*')))
-
+package_data = ['resources/*']
+os.chdir('medleydb')
+package_data.extend(['{0}/*'.format(root)
+                    for root, dirs, files in os.walk('data')])
+os.chdir('..')
 
 if __name__ == "__main__":
     setup(
@@ -28,7 +29,7 @@ if __name__ == "__main__":
 
         packages=['medleydb'],
 
-        data_files=data_files,
+        package_data={'medleydb': package_data},
 
         classifiers=[
             "License :: The MIT License (MIT)",
