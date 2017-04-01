@@ -65,9 +65,6 @@ stems:
       R09:
         filename: SlowGhost_YoureAMystery_RAW_03_09.wav
         instrument: drum set
-      R10:
-        filename: SlowGhost_YoureAMystery_RAW_03_10.wav
-        instrument: drum set
 title: "You\u2019re a Mystery"
 version: 1.2
 website: ''

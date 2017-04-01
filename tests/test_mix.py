@@ -87,17 +87,19 @@ class TestBuildMixArgs(unittest.TestCase):
             for i in ['01', '02', '03', '04', '05']
         ]
         expected_weights = [
-            0.6354871509502455,
-            0.12610504621272442,
-            0.0624147327727016,
-            0.8433924607944484,
-            0.29222231756693756
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723
         ]
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
 
     def test_defaults_no_mixing_coeffs(self):
         mtrack = multitrack.MultiTrack('AHa_TakeOnMe')
+        for k in mtrack.stems.keys():
+            mtrack.stems[k].mixing_coefficient = None
         actual_filepaths, actual_weights = mix._build_mix_args(
             mtrack, None, None, None, None
         )
@@ -123,8 +125,7 @@ class TestBuildMixArgs(unittest.TestCase):
             for i in ['02', '04']
         ]
         expected_weights = [
-            0.12610504621272442,
-            0.8433924607944484,
+            0.88655832334783, 0.9709353677932278
         ]
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
@@ -140,11 +141,11 @@ class TestBuildMixArgs(unittest.TestCase):
             for i in ['01', '02', '03', '04', '05']
         ]
         expected_weights = [
-            0.6354871509502455,
+            0.9138225670999782,
             2.0,
-            0.0624147327727016,
+            0.7820245646673145,
             0.5,
-            0.29222231756693756
+            0.7734022629465723
         ]
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
@@ -165,11 +166,11 @@ class TestBuildMixArgs(unittest.TestCase):
             for i in ['02', '03', '04', '05']
         ])
         expected_weights = [
-            0.6354871509502455,
-            0.12610504621272442,
-            0.0624147327727016,
-            0.8433924607944484,
-            0.29222231756693756
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723
         ]
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
@@ -187,13 +188,14 @@ class TestBuildMixArgs(unittest.TestCase):
         ]
         expected_filepaths.append(self.mtrack.mix_path)
         expected_weights = [
-            0.6354871509502455,
-            0.12610504621272442,
-            0.0624147327727016,
-            0.8433924607944484,
-            0.29222231756693756,
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723,
             2.1
         ]
+
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
 
@@ -208,7 +210,7 @@ class TestBuildMixArgs(unittest.TestCase):
             for i in ['02']
         ]
         expected_weights = [
-            0.12610504621272442
+            0.88655832334783
         ]
         self.assertEqual(expected_filepaths, actual_filepaths)
         self.assertEqual(expected_weights, actual_weights)
@@ -333,9 +335,9 @@ class TestRemixVocals(unittest.TestCase):
             self.mtrack, OUTPUT_PATH, 2.0
         )
         expected_weights = {
-            1: 1.270974301900491,
-            2: 0.25221009242544884,
-            3: 0.1248294655454032
+            1: 1.8276451341999564,
+            2: 1.77311664669566,
+            3: 1.564049129334629
         }
         self.assertEqual(expected_weights, alt_weights)
         self.assertTrue(os.path.exists(OUTPUT_PATH))

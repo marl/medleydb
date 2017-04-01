@@ -1,6 +1,6 @@
 # Audio Errata
 
-The following is a list of known issues with the Audio or Metadata. Please report any issues with the code or annotations, submit a Pull Request or open an [Issue](https://github.com/marl/medleydb/issues).
+The following is a list of known issues with the Audio or Metadata. Please report any issues with the code or annotations, by submitting a Pull Request or opening an [Issue](https://github.com/marl/medleydb/issues).
 
 ### Types of Errors:
 1. Stem/Raw contains bleed, track not tagged as `has_bleed`
@@ -39,6 +39,8 @@ The following is a list of known issues with the Audio or Metadata. Please repor
 | **MusicDelta_Country2** |
 |`MusicDelta_Country2_RAW_04_01.wav` | 3 |
 |`MusicDelta_Country2_RAW_03_01.wav` | 3 |
+| **MusicDelta_Pachelbel** |
+|`MusicDelta_Pachelbel_RAW_04_01.wav` | 4 |
 | **TheScarletBrand_LesFleursDuMal** |
 |`TheScarletBrand_LesFleursDuMal_STEM_08.wav` | 1 |
 
