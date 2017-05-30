@@ -60,7 +60,7 @@ stems:
   S03:
     component: bass
     filename: MileyCyrus_7Things_STEM_03.wav
-    instrument: Unlabeled
+    instrument: electric bass
     raw:
       R01:
         filename: MileyCyrus_7Things_RAW_03_01.wav
