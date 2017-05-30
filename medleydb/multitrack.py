@@ -448,8 +448,6 @@ class MultiTrack(object):
 
         """
         if self.mixing_coefficients is not None:
-            print(self.track_id)
-            print(self.mixing_coefficients.keys())
             use_manual = (
                 'manual' in self.mixing_coefficients.keys() and
                 self.mixing_coefficients['manual'] != {}
