@@ -340,7 +340,7 @@ class MultiTrack(object):
         if self._stem_activations_v2 is None:
             (self._stem_activations_v2,
              self._stem_activations_idx_v2
-             ) = self._get_activation_annotations(version='v2')
+            ) = self._get_activation_annotations(version='v2')
         return self._stem_activations_v2
 
     @property
@@ -351,7 +351,7 @@ class MultiTrack(object):
         if self._stem_activations_idx_v2 is None:
             (self._stem_activations_v2,
              self._stem_activations_idx_v2
-             ) = self._get_activation_annotations(version='v2')
+            ) = self._get_activation_annotations(version='v2')
         return self._stem_activations_idx_v2
 
     def _load_metadata(self):
@@ -402,19 +402,13 @@ class MultiTrack(object):
 
             file_id = "%s_STEM_%s" % (self.track_id, k[1:])
 
-            if self.mixing_coefficients is not None:
-                mix_coeff = (
-                    self.mixing_coefficients['audio'][stem_idx] +
-                    self.mixing_coefficients['stft'][stem_idx]
-                ) * 0.5
-            else:
-                mix_coeff = None
+            mixing_coefficient = self._get_mixing_coefficient(stem_idx)
 
             track = Track(instrument=instrument, audio_path=audio_path,
                           component=component, stem_idx=stem_idx,
                           ranking=ranking, mix_path=self.mix_path,
                           file_id=file_id,
-                          mix_coeff=mix_coeff)
+                          mixing_coefficient=mixing_coefficient)
 
             stems[stem_idx] = track
             raw_dict = stem_dict[k]['raw']
@@ -438,6 +432,43 @@ class MultiTrack(object):
                 raw_audio[stem_idx][raw_idx] = track
 
         return stems, raw_audio
+
+    def _get_mixing_coefficient(self, stem_idx):
+        """Get best availalbe mixing coefficient for a stem.
+
+        Parameters
+        ----------
+        stem_idx : int
+            Stem index
+
+        Returns
+        -------
+        mixing_coefficient : float
+            Stem's mixing coefficient
+
+        """
+        if self.mixing_coefficients is not None:
+            print(self.track_id)
+            print(self.mixing_coefficients.keys())
+            use_manual = (
+                'manual' in self.mixing_coefficients.keys() and
+                self.mixing_coefficients['manual'] != {}
+            )
+
+            if use_manual:
+                mixing_coefficient = (
+                    self.mixing_coefficients['manual'][stem_idx]
+                )
+            else:
+                mixing_coefficient = (
+                    self.mixing_coefficients['audio'][stem_idx] +
+                    self.mixing_coefficients['stft'][stem_idx]
+                ) * 0.5
+
+        else:
+            mixing_coefficient = None
+
+        return mixing_coefficient
 
     def _get_melody_rankings(self):
         """Get rankings from the melody rankings annotation file.
@@ -645,7 +676,7 @@ class Track(object):
         stem's component label, if exists.
     ranking : int or None, default=None
         The Track's melodic ranking
-    mix_coeff : float or None, default=None
+    mixing_coefficient : float or None, default=None
         The Tracks's mixing coefficient
 
     Attributes
@@ -684,7 +715,7 @@ class Track(object):
     """
     def __init__(self, instrument, audio_path, stem_idx, mix_path,
                  file_id=None, raw_idx=None, component='', ranking=None,
-                 mix_coeff=None):
+                 mixing_coefficient=None):
         """Track object __init__ method.
         """
         if isinstance(instrument, list):
@@ -710,7 +741,7 @@ class Track(object):
             self.pitch_pyin_path = None
 
         self._duration = None
-        self.mixing_coefficient = mix_coeff
+        self.mixing_coefficient = mixing_coefficient
 
         self.mix_path = mix_path
         self._pitch_annotation = None

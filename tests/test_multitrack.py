@@ -3,6 +3,7 @@ import os
 import yaml
 from medleydb import multitrack
 from medleydb import AUDIO_PATH
+from medleydb import MIXING_COEFFICIENTS
 
 
 class TestMultitrack(unittest.TestCase):
@@ -306,6 +307,17 @@ class TestMultitrack(unittest.TestCase):
         actual = self.mtrack.activation_conf_from_stem(50)
         expected = None
         self.assertEqual(actual, expected)
+
+    def test_get_mixing_coefficient(self):
+        mtrack = multitrack.MultiTrack('AClassicEducation_NightOwl')
+        actual = mtrack._get_mixing_coefficient(3)
+        expected = 0.2
+        self.assertEqual(actual, expected)
+
+    def test_get_mixing_coefficient2(self):
+        actual = self.mtrack2._get_mixing_coefficient(3)
+        expected = 0.585016969071061
+        self.assertAlmostEqual(actual, expected)
 
 
 class TestTrack(unittest.TestCase):
