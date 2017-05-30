@@ -59,14 +59,20 @@ stems:
   S04:
     component: melody
     filename: Misfits_AstroZombies_STEM_04.wav
-    instrument: male singer
+    instrument: 
+      - male singer
+      - vocalists
     raw:
       R01:
         filename: Misfits_AstroZombies_RAW_04_01.wav
-        instrument: male singer
+        instrument: 
+          - male singer
+          - vocalists
       R02:
         filename: Misfits_AstroZombies_RAW_04_02.wav
-        instrument: male singer
+        instrument: 
+          - male singer
+          - vocalists
 title: Astro Zombies
 version: 1.2
 website: ''
