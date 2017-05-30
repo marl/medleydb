@@ -31,14 +31,23 @@ stems:
   S02:
     component: ''
     filename: CountingCrows_AccidentallyInLove_STEM_02.wav
-    instrument: distorted electric guitar
+    instrument: 
+      - distorted electric guitar
+      - acoustic guitar
+      - mandolin
     raw:
       R01:
         filename: CountingCrows_AccidentallyInLove_RAW_02_01.wav
-        instrument: distorted electric guitar
+        instrument: 
+          - distorted electric guitar
+          - acoustic guitar
+          - mandolin
       R02:
         filename: CountingCrows_AccidentallyInLove_RAW_02_02.wav
-        instrument: distorted electric guitar
+        instrument: 
+          - distorted electric guitar
+          - acoustic guitar
+          - mandolin
   S03:
     component: bass
     filename: CountingCrows_AccidentallyInLove_STEM_03.wav
