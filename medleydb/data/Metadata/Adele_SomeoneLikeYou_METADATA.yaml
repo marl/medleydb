@@ -25,14 +25,20 @@ stems:
   S02:
     component: melody
     filename: Adele_SomeoneLikeYou_STEM_02.wav
-    instrument: female singer
+    instrument: 
+      - female singer
+      - vocalists
     raw:
       R01:
         filename: Adele_SomeoneLikeYou_RAW_02_01.wav
-        instrument: female singer
+        instrument: 
+          - female singer
+          - vocalists
       R02:
         filename: Adele_SomeoneLikeYou_RAW_02_02.wav
-        instrument: female singer
+        instrument: 
+          - female singer
+          - vocalists
 title: Someone Like You
 version: 1.2
 website: ''
