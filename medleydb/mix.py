@@ -36,6 +36,13 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
         List of tuples of (filepath, mixing_coefficient) pairs to additionally
         add to final mix.
 
+    Returns
+    -------
+    filepaths : list
+        List of filepaths used in the mix
+    weights : list
+        List of weights used to mix filepaths
+
     """
     filepaths, weights = _build_mix_args(
         mtrack, stem_indices, alternate_weights, alternate_files,
@@ -49,6 +56,8 @@ def mix_multitrack(mtrack, output_path, stem_indices=None,
         cbn.build(
             filepaths, output_path, 'mix', input_volumes=weights
         )
+
+    return filepaths, weights
 
 
 def _build_mix_args(mtrack, stem_indices, alternate_weights, alternate_files,
@@ -213,16 +222,12 @@ def mix_mono_stems(mtrack, output_path, include_percussion=False):
     stem_indices = []
     mono_indices = []
     for i in stems.keys():
-        print(stems[i].instrument)
-        print(stems[i].f0_type)
         mono = all([
             f0_type == 'm' for f0_type in mtrack.stems[i].f0_type
         ])
         unvoiced = all([
             f0_type == 'u' for f0_type in mtrack.stems[i].f0_type
         ])
-        print(mono)
-        print(unvoiced)
         if mono:
             stem_indices.append(i)
             mono_indices.append(i)
