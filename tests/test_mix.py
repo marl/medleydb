@@ -22,53 +22,156 @@ class TestMixMultitrack(unittest.TestCase):
 
     def test_defaults(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH
         )
+        
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_STEM_01.wav',
+            'LizNelson_Rainfall_STEM_02.wav',
+            'LizNelson_Rainfall_STEM_03.wav',
+            'LizNelson_Rainfall_STEM_04.wav',
+            'LizNelson_Rainfall_STEM_05.wav'
+        ]
+        expected_weights = [
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
     def test_less_stems(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH, stem_indices=[2, 4]
         )
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_STEM_02.wav',
+            'LizNelson_Rainfall_STEM_04.wav'
+        ]
+        expected_weights = [
+            0.88655832334783,
+            0.9709353677932278
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
     def test_alt_weights(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH, alternate_weights={2: 2.0, 4: 0.5}
         )
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_STEM_01.wav',
+            'LizNelson_Rainfall_STEM_02.wav',
+            'LizNelson_Rainfall_STEM_03.wav',
+            'LizNelson_Rainfall_STEM_04.wav',
+            'LizNelson_Rainfall_STEM_05.wav'
+        ]
+        expected_weights = [
+            0.9138225670999782,
+            2.0,
+            0.7820245646673145,
+            0.5,
+            0.7734022629465723
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
     def test_alt_files(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH,
             alternate_files={1: self.mtrack.mix_path}
         )
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_MIX.wav',
+            'LizNelson_Rainfall_STEM_02.wav',
+            'LizNelson_Rainfall_STEM_03.wav',
+            'LizNelson_Rainfall_STEM_04.wav',
+            'LizNelson_Rainfall_STEM_05.wav'
+        ]
+        expected_weights = [
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
 
     def test_additional_files(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH,
             additional_files=[(self.mtrack.mix_path, 2.1)]
         )
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_STEM_01.wav',
+            'LizNelson_Rainfall_STEM_02.wav',
+            'LizNelson_Rainfall_STEM_03.wav',
+            'LizNelson_Rainfall_STEM_04.wav',
+            'LizNelson_Rainfall_STEM_05.wav',
+            'LizNelson_Rainfall_MIX.wav'
+        ]
+        expected_weights = [
+            0.9138225670999782,
+            0.88655832334783,
+            0.7820245646673145,
+            0.9709353677932278,
+            0.7734022629465723,
+            2.1
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
     def test_one_stem_mix(self):
         clean_output()
-        mix.mix_multitrack(
+        actual_fullpaths, actual_weights = mix.mix_multitrack(
             self.mtrack, OUTPUT_PATH, stem_indices=[2]
         )
         self.assertTrue(os.path.exists(OUTPUT_PATH))
+
+        actual_basenames = [os.path.basename(f) for f in actual_fullpaths]
+        expected_basenames = [
+            'LizNelson_Rainfall_STEM_02.wav'
+        ]
+        expected_weights = [
+            0.88655832334783
+        ]
+        self.assertEqual(expected_basenames, actual_basenames)
+        self.assertEqual(expected_weights, actual_weights)
+
         clean_output()
 
 
