@@ -3,7 +3,9 @@
 from __future__ import print_function
 
 import unittest
+import csv
 import os
+import glob
 import numpy as np
 
 from medleydb import AUDIO_AVAILABLE
@@ -95,3 +97,23 @@ class TestRankingAnnotations(unittest.TestCase):
             self.assertTrue(
                 sorted(rankings) == list(range(1, len(rankings) + 1))
             )
+
+
+class TestPitchAnnotations(unittest.TestCase):
+
+    def setUp(self):
+        pitch_path = multitrack._PITCH_PATH
+        self.pitch_files = glob.glob(os.path.join(pitch_path, '*.*'))
+
+    def test_extension(self):
+        for fpath in self.pitch_files:
+            ext = os.path.basename(fpath).split('.')[-1]
+            self.assertEqual(ext, 'csv')
+
+    def test_delimiter(self):
+        for fpath in self.pitch_files:
+            with open(fpath, 'r') as fhandle:
+                reader = csv.reader(fhandle, delimiter=',')
+                for line in reader:
+                    self.assertTrue(len(line) > 1)
+                    break
