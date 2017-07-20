@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 """Version info"""
 
-version = "1.3.2"
+version = "1.3.2patch"
