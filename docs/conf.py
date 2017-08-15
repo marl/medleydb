@@ -80,7 +80,8 @@ MOCK_MODULES = [
     'numpy.polynomial.polynomial', 'sklearn', 'sklearn.ensemble',
     'sklearn.model_selection', 'mir_eval', 'mir_eval.melody',
     'mir_eval.melody.hz2cents' 'seaborn', 'scipy', 'scipy.signal',
-    'scipy.stats', 'matplotlib', 'matplotlib.pyplot', 'multitrack'
+    'scipy.stats', 'matplotlib', 'matplotlib.pyplot', 'multitrack',
+    'generate_melody_annotations'
 ]
 
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
