@@ -227,7 +227,7 @@ def download_stem(mtrack, stemid):
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
-    file_list = get_named_child(top_folderid, mtrack.title)
+    file_list = get_named_child(top_folderid, mtrack.track_id)
     correct_file = [f for f in file_list if f['title'] == mtrack.track_id]
 
     if len(correct_file) == 0:
@@ -285,7 +285,7 @@ def download_raw(mtrack, stemid, rawid):
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
-    file_list = get_named_child(top_folderid, mtrack.title)
+    file_list = get_named_child(top_folderid, mtrack.track_id)
     correct_file = [f for f in file_list if f['title'] == mtrack.track_id]
 
     if len(correct_file) == 0:
@@ -332,8 +332,8 @@ def get_named_child(parent_id, child_name):
 
     """
     authorize_google_drive()
-    query = "'{}' in parents and title contains '{}' and trashed=false".format(
-        parent_id, child_name
+    query = "title contains '{}' and trashed=false".format(
+        child_name
     )
     file_list = DRIVE.ListFile(
         {'q': query}

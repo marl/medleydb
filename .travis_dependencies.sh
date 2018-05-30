@@ -34,11 +34,9 @@ if [ ! -d "$src" ]; then
 
         source activate $ENV_NAME
 
-        pip install python-coveralls
+        conda install -c conda-forge ffmpeg
 
-        if [ "$ENABLE_NUMBA" = true ]; then
-            conda install numba
-        fi
+        pip install python-coveralls
 
         source deactivate
     popd

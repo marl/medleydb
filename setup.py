@@ -53,7 +53,7 @@ if __name__ == "__main__":
             'pyyaml >= 3.11',
             'numpy >= 1.8.0',
             'six >= 1.3',
-            'librosa >= 0.5.0',
+            'librosa >= 0.6.2',
             'pydrive >= 1.3.1',
             'scipy >= 0.13.0',
             'scikit-learn >= 0.18'

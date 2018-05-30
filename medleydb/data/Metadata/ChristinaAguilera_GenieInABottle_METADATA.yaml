@@ -35,7 +35,7 @@ stems:
         filename: ChristinaAguilera_GenieInABottle_RAW_01_06.wav
         instrument: shaker
   S02:
-    component: bass
+    component: ''
     filename: ChristinaAguilera_GenieInABottle_STEM_02.wav
     instrument: distorted electric guitar
     raw:
@@ -43,7 +43,7 @@ stems:
         filename: ChristinaAguilera_GenieInABottle_RAW_02_01.wav
         instrument: distorted electric guitar
   S03:
-    component: ''
+    component: 'bass'
     filename: ChristinaAguilera_GenieInABottle_STEM_03.wav
     instrument: electric bass
     raw:
