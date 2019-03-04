@@ -179,7 +179,7 @@ def download_mix(mtrack):
     except KeyError:
         raise IOError("Unable to find data in Google Drive for this version.")
 
-    file_list = get_named_child(top_folderid, mtrack.title)
+    file_list = get_named_child(top_folderid, mtrack.track_id)
     correct_file = [f for f in file_list if f['title'] == mtrack.track_id]
 
     if len(correct_file) == 0:
@@ -187,7 +187,8 @@ def download_mix(mtrack):
     else:
         mtrack_file = correct_file[0]
 
-    mix_file_list = get_named_child(mtrack_file['id'], 'MIX')
+    mix_file_list = get_named_child(
+        mtrack_file['id'], '{}_MIX.wav'.format(mtrack.track_id))
     if len(mix_file_list) > 0:
         mix_file = mix_file_list[0]
     else:
